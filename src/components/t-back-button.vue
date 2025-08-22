@@ -28,10 +28,10 @@ const props = defineProps<{
 }>();
 const onClick = () => {
   if (screenController.hasPrevious.value) {
-    router.back();
+    router?.back?.();
   }
   else if (props.to) {
-    router.push(props.to);
+    router?.push?.(props.to);
   }
 }
 </script>

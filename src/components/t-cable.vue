@@ -40,15 +40,18 @@
 </style>
 
 <template>
-  <div class="t-cable" :class="{keyboard: props.keyboard > 0, [props.placement]: true}" :style="{'--t-keyboard-height': props.keyboard + 'px', '--t-keyboard-transition': props.keyboard > 0 ? '0.3s' : '0.1s'}"><slot/></div>
+  <div class="t-cable" :class="{keyboard: props.keyboard && height > 0, [props.placement]: true}" :style="{'--t-keyboard-height': height + 'px', '--t-keyboard-transition': height > 0 ? '0.3s' : '0.1s'}"><slot/></div>
 </template>
 
 <script lang="ts" setup>
+import { useKeyboard } from '../controllers';
+
 const props = withDefaults(defineProps<{
-  keyboard?:number,
+  keyboard?:boolean,
   placement?:string
 }>(), {
-  keyboard: 0,
+  keyboard: true,
   placement: 'bottom'
 });
+const { height } = useKeyboard();
 </script>

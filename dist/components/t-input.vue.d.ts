@@ -25,8 +25,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }>, {
     label: string;
-    type: string;
     size: string;
+    type: string;
     rounded: boolean;
     variant: any;
     placeholder: string;

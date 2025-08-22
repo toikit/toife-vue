@@ -4,6 +4,8 @@ import createLoading from './loading';
 import presentController from './present';
 import screenController from './screen';
 
+export * from './keyboard';
+
 export {
   createAction,
   createAlert,

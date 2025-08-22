@@ -25,10 +25,10 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
 }, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
     onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {
-    placement: string;
     keepalive: boolean;
     visible: boolean;
     backdrop: boolean;
+    placement: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     present: HTMLDivElement;
     backdrop: HTMLDivElement;

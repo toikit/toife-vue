@@ -57,10 +57,10 @@ declare function __VLS_template(): {
             }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
                 dismiss: (...args: any[]) => void;
             }, string, {
-                placement: string;
                 keepalive: boolean;
                 visible: boolean;
                 backdrop: boolean;
+                placement: string;
             }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
                 beforeCreate?: (() => void) | (() => void)[];
                 created?: (() => void) | (() => void)[];
@@ -82,10 +82,10 @@ declare function __VLS_template(): {
             $nextTick: typeof import('vue').nextTick;
             $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (...args: [R, R, import('@vue/reactivity').OnCleanup]) => any : (...args: [any, any, import('@vue/reactivity').OnCleanup]) => any, options?: import('vue').WatchOptions): import('vue').WatchStopHandle;
         } & Readonly<{
-            placement: string;
             keepalive: boolean;
             visible: boolean;
             backdrop: boolean;
+            placement: string;
         }> & Omit<Readonly<{
             keepalive?: boolean;
             visible?: boolean;
@@ -93,7 +93,7 @@ declare function __VLS_template(): {
             placement?: string;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
-        }>, "close" | "render" | "open" | ("placement" | "keepalive" | "visible" | "backdrop")> & import('vue').ShallowUnwrapRef<{
+        }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
             render: (value: any) => void;
             open: () => void;
             close: () => void;
@@ -112,11 +112,11 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
 }, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
     onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {
-    placement: string;
-    rounded: boolean;
     keepalive: boolean;
     visible: boolean;
     backdrop: boolean;
+    placement: string;
+    rounded: boolean;
     background: string;
     gesture: boolean;
     fullscreen: boolean;
@@ -163,10 +163,10 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
             dismiss: (...args: any[]) => void;
         }, string, {
-            placement: string;
             keepalive: boolean;
             visible: boolean;
             backdrop: boolean;
+            placement: string;
         }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
             beforeCreate?: (() => void) | (() => void)[];
             created?: (() => void) | (() => void)[];
@@ -188,10 +188,10 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         $nextTick: typeof import('vue').nextTick;
         $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (...args: [R, R, import('@vue/reactivity').OnCleanup]) => any : (...args: [any, any, import('@vue/reactivity').OnCleanup]) => any, options?: import('vue').WatchOptions): import('vue').WatchStopHandle;
     } & Readonly<{
-        placement: string;
         keepalive: boolean;
         visible: boolean;
         backdrop: boolean;
+        placement: string;
     }> & Omit<Readonly<{
         keepalive?: boolean;
         visible?: boolean;
@@ -199,7 +199,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         placement?: string;
     }> & Readonly<{
         onDismiss?: ((...args: any[]) => any) | undefined;
-    }>, "close" | "render" | "open" | ("placement" | "keepalive" | "visible" | "backdrop")> & import('vue').ShallowUnwrapRef<{
+    }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
         render: (value: any) => void;
         open: () => void;
         close: () => void;
