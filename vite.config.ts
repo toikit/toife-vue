@@ -7,12 +7,19 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'ToifeVueI18n',
+      name: 'ToifeVue',
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', 'vue-router', '@toife/gesture'],
       output: {
+        assetFileNames: (assetInfo) => {
+          // Nếu là CSS thì đặt tên custom
+          if (assetInfo.name === 'vue.css') {
+            return 'index.css';
+          }
+          return '[name][extname]';
+        },
         globals: {
           vue: 'Vue',
           'vue-router': 'VueRouter',
