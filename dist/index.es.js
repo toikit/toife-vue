@@ -141,7 +141,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
     const n = e, o = z(() => {
       let t;
       return n.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(n.color) ? t = {
-        "--color": "var(--t-color-text)",
+        "--color": "var(--t-color-status-" + n.color + "-text)",
         "--background-color": "var(--t-color-status-" + n.color + ")"
       } : t = {
         "--color": "var(--t-color-text)",
@@ -168,7 +168,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       ])) : S("", !0)
     ], 6));
   }
-}), M = /* @__PURE__ */ g(ge, [["__scopeId", "data-v-1f0bf045"]]), he = {
+}), M = /* @__PURE__ */ g(ge, [["__scopeId", "data-v-cdfe6af8"]]), he = {
   key: 0,
   class: "t-alert-header"
 }, be = { class: "t-alert-content" }, ke = { class: "t-alert-footer" }, $e = /* @__PURE__ */ T({

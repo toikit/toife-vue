@@ -122,7 +122,7 @@ const style = computed(() => {
   }
   else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     st = {
-      '--color': 'var(--t-color-text)',
+      '--color': 'var(--t-color-status-'+props.color+'-text)',
       '--background-color': 'var(--t-color-status-'+props.color+')'
     };
   }
