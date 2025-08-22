@@ -36,7 +36,7 @@
   &.variant{
     &-default{
       background-color: rgba(var(--color), 0.7);
-      color: var(--t-color-surface);
+      color: var(--t-color-text);
     }
 
     &-text{
@@ -71,7 +71,7 @@ const props = withDefaults(defineProps<{
   placement: 'bottom',
   space: "0px",
   duration: 2000,
-  color:'default',
+  color:'secondary',
   variant:'default'
 });
 const emit = defineEmits(['close']);
@@ -103,7 +103,7 @@ const close = () => {
 }
 
 const dcolor = computed(() => {
-  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success', 'default'].includes(props.color)) {
+  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     return `var(--t-color-status-${props.color}-rgb)`;
   }
 

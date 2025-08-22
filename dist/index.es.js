@@ -446,7 +446,7 @@ const me = /* @__PURE__ */ b(de, [["render", fe]]), ve = /* @__PURE__ */ T({
     space: { default: "0px" },
     placement: { default: "bottom" },
     duration: { default: 2e3 },
-    color: { default: "default" },
+    color: { default: "secondary" },
     variant: { default: "default" }
   },
   emits: ["close"],
@@ -461,7 +461,7 @@ const me = /* @__PURE__ */ b(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       d.value = !0, setTimeout(() => {
         l.value = !1, a.value = !1, r("close");
       }, 300);
-    }, m = z(() => ["warning", "info", "danger", "primary", "secondary", "success", "default"].includes(t.color) ? `var(--t-color-status-${t.color}-rgb)` : t.color);
+    }, m = z(() => ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? `var(--t-color-status-${t.color}-rgb)` : t.color);
     return o({
       open: _
     }), (y, s) => l.value ? (c(), f("div", {
@@ -470,7 +470,7 @@ const me = /* @__PURE__ */ b(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       style: I({ "--space": t.space, "--color": m.value })
     }, C(t.message), 7)) : S("", !0);
   }
-}), se = /* @__PURE__ */ b(Be, [["__scopeId", "data-v-789f0d24"]]), Ot = (e = {}) => ({
+}), se = /* @__PURE__ */ b(Be, [["__scopeId", "data-v-5b3334bc"]]), Ot = (e = {}) => ({
   open() {
     let o = document.body.querySelector(".t-app");
     if (!o) return;
