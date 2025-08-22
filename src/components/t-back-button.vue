@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--t-color-default-10);
+  color: var(--t-color-text);
 }
 </style>
 

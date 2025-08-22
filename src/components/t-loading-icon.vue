@@ -3,7 +3,7 @@
   display: inline-block;
   border: 2px solid transparent;
   border-radius: 50%;
-  border-top-color: var(var(--t-color-default-10));
+  border-top-color: var(var(--t-color-text));
   animation: spin 0.6s linear infinite;
 }
 
@@ -35,7 +35,7 @@ defineProps({
   },
   color: {
     type: String,
-    default: 'var(--t-color-default-10)'
+    default: 'var(--t-color-text)'
   }
 })
 </script>

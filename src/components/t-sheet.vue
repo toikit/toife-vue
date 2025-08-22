@@ -36,13 +36,13 @@
 
   .t-sheet-close{
     position: absolute;
-    color: var(--t-color-secondary-1);
+    color: var(--t-color-status-secondary-light);
     background-color: transparent;
     border-radius: 50%;
     height: 30px;
     width: 30px;
     font-size: 1rem;    
-    border: 1px solid var(--t-color-secondary-1);
+    border: 1px solid var(--t-color-status-secondary-light);
     bottom: -40px;
     left: 50%;
     transform: translate(-50%, 0);
@@ -78,7 +78,7 @@ const props = withDefaults(defineProps<{
   rounded?:boolean,
   closeButton?:boolean // only with center
 }>(), {
-  background: 'var(--t-color-default-3)',
+  background: 'var(--t-color-surface)',
   backdrop: true,
   keepalive: true,
   visible: false,

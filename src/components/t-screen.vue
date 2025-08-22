@@ -7,7 +7,7 @@
   width: 100vw;
   max-height: 100vh;
   max-width: 100vw;
-  background-color: var(--t-color-default-3);
+  background-color: var(--t-color-background);
   will-change: transform;
   overflow: hidden;
 }

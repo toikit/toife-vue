@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   transition: background-color var(--t-present-transition, 0.2s) ease;
-  background-color: rgba(var(--t-color-secondary-12-rgb), var(--t-present-backdrop-opacity, 0));
+  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-present-backdrop-opacity, 0));
 }
 
 .t-present{

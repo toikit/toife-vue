@@ -5,8 +5,8 @@
 
 body, html {
   font-family: 'SFUFutura', 'Inter', sans-serif;
-  background-color: var(--t-color-default-1, #ffffff);
-  color: var(--t-color-default-10, #000000);
+  background-color: var(--t-color-background, #ffffff);
+  color: var(--t-color-text, #000000);
   font-size: 16px;
   height: 100vh;
   width: 100vw;
@@ -42,5 +42,5 @@ html, body, * {
 }
 
 a{
-  color: var(--t-color-info-7);
+  color: var(--t-color-status-primary);
 }

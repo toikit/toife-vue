@@ -1,11 +1,3 @@
-$types: default primary secondary success warning danger info;
-
-@each $type in $types {
-  @for $i from 1 through 12 {
-    .color-#{$type}-#{$i} { color: var(--t-color-#{$type}-#{$i}) !important; }
-  }
-}
-
 /* Text alignment utilities */
 .text-start   { text-align: start; }   /* hỗ trợ ngôn ngữ RTL */
 .text-end     { text-align: end; }

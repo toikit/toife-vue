@@ -190,7 +190,7 @@ onMounted(() => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(var(--t-color-secondary-12-rgb), var(--t-swipe-backdrop-opacity, 0));
+  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-swipe-backdrop-opacity, 0));
   transition: all var(--t-screen-backdrop-duration, 0) ease !important;
 }
 </style>

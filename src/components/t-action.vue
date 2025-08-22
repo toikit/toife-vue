@@ -11,7 +11,7 @@
     width: 100%;
     border-radius: 8px;
     margin-bottom: 0.5rem;
-    background-color: var(--t-color-default-2);
+    background-color: var(--t-color-surface);
     &:last-child{
       margin-bottom: 1rem !important;
     }

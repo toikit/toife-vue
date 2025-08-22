@@ -6,6 +6,7 @@
 </template>
 
 <style lang="scss" scoped>
+// CHANGE CSS
 .t-button{
   display: flex;
   justify-content: center;
@@ -38,7 +39,7 @@
         width: 100%;
         height: 100%;
         z-index: 1;
-        background-color: rgba(var(--t-color-secondary-12-rgb), 0.1);
+        background-color: rgba(var(--t-color-backdrop-rgb), 0.1);
       }
     }
   }
@@ -115,19 +116,19 @@ const style = computed(() => {
 
   if (!props.color) {
     st = {
-      '--color': 'var(--t-color-default-10)',
+      '--color': 'var(--t-color-text)',
       '--background-color': 'transparent'
     }
   }
   else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     st = {
-      '--color': 'var(--t-color-default-1)',
-      '--background-color': 'var(--t-color-'+props.color+'-6)'
+      '--color': 'var(--t-color-text)',
+      '--background-color': 'var(--t-color-status-'+props.color+')'
     };
   }
   else {
     st = {
-      '--color': 'var(--t-color-default-1)',
+      '--color': 'var(--t-color-text)',
       '--background-color': props.color
     };
   }

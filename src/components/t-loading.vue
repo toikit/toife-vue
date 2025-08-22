@@ -2,7 +2,7 @@
 .t-loading{
   padding: 1rem;
   line-height: 1rem;
-  background-color: var(--t-color-default-3);
+  background-color: var(--t-color-surface);
   border-radius: 8px;
 }
 </style>

@@ -5,13 +5,13 @@
 <style lang="scss">
 .t-card{
   border-radius: 8px;
-  background-color: var(--t-color-default-2);
-  border: 1px solid var(--t-color-default-2);
+  background-color: var(--t-color-surface);
+  border: 1px solid var(--t-color-border);
   padding: var(--t-size-2);
   position: relative;
 
   &.shadow{
-    box-shadow: 0px 2px 12px -9px var(--t-color-secondary-12);
+    box-shadow: 0 2px 12px -9px rgba(var(--t-color-backdrop-rgb), 0.4);
   }
 }
 </style>

@@ -16,8 +16,8 @@ const props = withDefaults(defineProps<{
   color?:any,
   size?:any
 }>(), {
-  color: 'default',
-  size: 'standard' // small, large
+  color: 'var(--t-color-text)',
+  size: 'standard'
 });
 
 const styles = computed(() => {
@@ -29,7 +29,7 @@ const styles = computed(() => {
   else size = props.size;
 
   if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    color = `var(--t-color-${props.color}-8)`;
+    color = `var(--t-color-status-${props.color})`;
   }
 
   return {

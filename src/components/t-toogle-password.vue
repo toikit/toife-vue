@@ -38,7 +38,7 @@ const style = computed(() => {
   let color = props.color;
 
   if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    color = `var(--t-color-${props.color}-6)`;
+    color = `var(--t-color-status-${props.color})`;
   }
 
   return {

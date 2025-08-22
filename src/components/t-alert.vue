@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 .t-alert{
   border-radius: 8px;
-  background-color: var(--t-color-default-2);
+  background-color: var(--t-color-surface);
   position: relative;
   width: 270px;
   overflow: hidden;
@@ -9,7 +9,7 @@
   .t-alert-footer{
     display: flex;
     flex-direction: row;
-    border-top: 0.55px solid var(--t-color-default-4);
+    border-top: 0.55px solid var(--t-color-border);
 
     > * {
       flex: 1;
@@ -22,7 +22,7 @@
 
   .t-alert-header{
     padding: var(--t-size-2);
-    border-bottom: 0.55px solid var(--t-color-default-4);
+    border-bottom: 0.55px solid var(--t-color-border);
     display: flex;
     justify-content: center;
     align-items: center;

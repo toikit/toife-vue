@@ -36,7 +36,7 @@
   &.variant{
     &-default{
       background-color: rgba(var(--color), 0.7);
-      color: var(--t-color-default-10);
+      color: var(--t-color-surface);
     }
 
     &-text{
@@ -104,7 +104,7 @@ const close = () => {
 
 const dcolor = computed(() => {
   if (['warning', 'info', 'danger', 'primary', 'secondary', 'success', 'default'].includes(props.color)) {
-    return `var(--t-color-${props.color}-5-rgb)`;
+    return `var(--t-color-status-${props.color}-rgb)`;
   }
 
   return props.color;

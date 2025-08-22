@@ -9,7 +9,7 @@
       </div>
     </label>
     <t-text color="danger" v-if="props.error">{{ props.error }}</t-text>
-    <t-text color="var(--t-color-default-7)" v-else-if="props.help">{{ props.help }}</t-text>
+    <t-text color="secondary" v-else-if="props.help">{{ props.help }}</t-text>
   </div>
 </template>
 
@@ -24,7 +24,7 @@
 
   input{
     background-color: transparent;
-    color: var(--t-color-default-10);
+    color: var(--t-color-text);
     padding: 0;
     flex: 1;
   }

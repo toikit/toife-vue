@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .t-toolbar{
-  background-color: var(--t-color-default-2);
+  background-color: var(--t-color-surface);
 
   > div {
     align-items: center;
