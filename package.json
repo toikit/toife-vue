@@ -1,0 +1,38 @@
+{
+  "name": "@toife/vue",
+  "version": "1.0.0",
+  "description": "A Frontend framework for Vue",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "toife framework",
+    "frontend",
+    "web"
+  ],
+  "author": "Toikit",
+  "license": "MIT",
+  "peerDependencies": {
+    "@toife/gesture": "^1.0.0",
+    "vue-router": "^4.5.1",
+    "vue": "^3.5.19"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "sass": "^1.90.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.0.6",
+    "vite-plugin-dts": "^4.5.4",
+    "@vitejs/plugin-vue": "^6.0.1"
+  },
+  "dependencies": {
+    
+  }
+}

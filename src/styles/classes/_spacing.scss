@@ -1,0 +1,47 @@
+$max-size: 10;
+$prop-map: (m: margin, p: padding); // ánh xạ shorthand -> property
+$sides: t, b, l, r, x, y;
+
+@each $prop, $full-prop in $prop-map {
+  @for $i from 0 through $max-size {
+    // All sides: .m-0, .p-1 ...
+    .#{$prop}a-#{$i} {
+      #{$full-prop}: var(--t-size-#{$i}) !important;
+    }
+
+    // Individual sides: mt-#, mb-#, ml-#, mr-#, mx-#, my-#
+    @each $side in $sides {
+      @if $side == 't' {
+        .#{$prop}t-#{$i} { #{$full-prop}-top: var(--t-size-#{$i}) !important; }
+      } @else if $side == 'b' {
+        .#{$prop}b-#{$i} { #{$full-prop}-bottom: var(--t-size-#{$i}) !important; }
+      } @else if $side == 'l' {
+        .#{$prop}l-#{$i} { #{$full-prop}-left: var(--t-size-#{$i}) !important; }
+      } @else if $side == 'r' {
+        .#{$prop}r-#{$i} { #{$full-prop}-right: var(--t-size-#{$i}) !important; }
+      } @else if $side == 'x' {
+        .#{$prop}x-#{$i} {
+          #{$full-prop}-left: var(--t-size-#{$i}) !important;
+          #{$full-prop}-right: var(--t-size-#{$i}) !important;
+        }
+      } @else if $side == 'y' {
+        .#{$prop}y-#{$i} {
+          #{$full-prop}-top: var(--t-size-#{$i}) !important;
+          #{$full-prop}-bottom: var(--t-size-#{$i}) !important;
+        }
+      }
+    }
+  }
+}
+
+/* Safe-area utilities */
+@each $prop, $full-prop in $prop-map {
+  @each $side in t, b, l, r {
+    .#{$prop}#{$side}-safe {
+      @if $side == 't'  { #{$full-prop}-top:    var(--t-safe-area-top)    !important; }
+      @else if $side == 'b' { #{$full-prop}-bottom: var(--t-safe-area-bottom) !important; }
+      @else if $side == 'l' { #{$full-prop}-left:   var(--t-safe-area-left)   !important; }
+      @else if $side == 'r' { #{$full-prop}-right:  var(--t-safe-area-right)  !important; }
+    }
+  }
+}

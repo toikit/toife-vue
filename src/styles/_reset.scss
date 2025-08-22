@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  font-family: 'SFUFutura', 'Inter', sans-serif;
+  background-color: var(--t-color-default-1, #ffffff);
+  color: var(--t-color-default-10, #000000);
+  font-size: 16px;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+html, body, * {
+  border: unset;
+  box-sizing: border-box;
+
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-user-drag: none !important;
+  touch-action: none !important;
+
+  // Scrollbar
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar { /* Chrome, Safari */
+    display: none;
+  }
+
+  &:active, &:focus {
+    outline: 0;
+    border: unset;
+  }
+}
+
+a{
+  color: var(--t-color-info-7);
+}

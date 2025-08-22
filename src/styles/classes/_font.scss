@@ -1,0 +1,15 @@
+// SCSS Loop: font sizes từ 0.5rem đến 2.0rem, bước 0.1
+@for $i from 5 through 20 {
+  $value: calc($i / 10); // Tính giá trị rem
+
+  // Gán số định danh theo kiểu 05, 06,..., 10,..., 20
+  $suffix: if($i < 10, "0#{$i}", "#{$i}");
+
+  .fs-#{$suffix} {
+    font-size: var(--t-fs-#{$suffix}) !important;
+  }
+
+  .lh-#{$suffix} {
+    font-size: var(--t-fs-#{$suffix}) !important;
+  }
+}
