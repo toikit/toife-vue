@@ -27,6 +27,9 @@ import TAlert from './components/t-alert.vue';
 import TAvatar from './components/t-avatar.vue';
 import TCollapse from './components/t-collapse.vue';
 
+export * from './controllers';
+export * from './utils';
+
 export const createToife = () => {
   return {
     install: (app:any) => {
