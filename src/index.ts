@@ -26,6 +26,7 @@ import TLoadingIcon from './components/t-loading-icon.vue';
 import TAlert from './components/t-alert.vue';
 import TAvatar from './components/t-avatar.vue';
 import TCollapse from './components/t-collapse.vue';
+import TToast from './components/t-toast.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -59,6 +60,7 @@ export const createToife = () => {
       app.component('t-alert', TAlert);
       app.component('t-avatar', TAvatar);
       app.component('t-collapse', TCollapse);
+      app.component('t-toast', TToast);
     }
   }
 }
