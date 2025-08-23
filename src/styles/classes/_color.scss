@@ -4,8 +4,20 @@ $types: primary secondary success warning danger info;
   background-color: transparent !important;
 }
 
+.bg-background{
+  background-color: var(--t-color-background) !important;
+}
+
+.bg-surface{
+  background-color: var(--t-color-surface) !important;
+}
+
 .border-none{
   border: none !important;
+}
+
+.border-separate{
+  border-color: var(--t-color-separate)!important;
 }
 
 @each $type in $types {
