@@ -3,7 +3,7 @@ type __VLS_Props = {
     space?: any;
     placement?: string;
     duration?: number;
-    color?: string;
+    color?: any;
     variant?: string;
 };
 declare const _default: import('vue').DefineComponent<__VLS_Props, {
@@ -14,7 +14,7 @@ declare const _default: import('vue').DefineComponent<__VLS_Props, {
     onClose?: ((...args: any[]) => any) | undefined;
 }>, {
     placement: string;
-    color: string;
+    color: any;
     variant: string;
     space: any;
     duration: number;

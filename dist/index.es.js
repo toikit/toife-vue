@@ -473,7 +473,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
     space: { default: "0px" },
     placement: { default: "bottom" },
     duration: { default: 2e3 },
-    color: { default: "secondary" },
+    color: { default: null },
     variant: { default: "default" }
   },
   emits: ["close"],
@@ -493,7 +493,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       return t.variant == "default" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? f = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + "-text)",
-        "--background": "var(--t-color-status-" + t.color + ")"
+        "--background": "rgba(var(--t-color-status-" + t.color + "-rgb), 0.6)"
       } : f = {
         "--border": "none",
         "--color": "var(--t-color-text)",
@@ -501,7 +501,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       } : f = {
         "--border": "none",
         "--color": "var(--t-color-text)",
-        "--background": "var(--t-color-surface)"
+        "--background": "rgba(var(--t-color-surface-rgb), 0.6)"
       }), t.variant == "text" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? f = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + ")",
@@ -536,7 +536,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       style: x({ "--space": t.space, ...v.value })
     }, C(t.message), 7)) : E("", !0);
   }
-}), re = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-b40b3701"]]), Lt = (e = {}) => ({
+}), re = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-5159a3c5"]]), Lt = (e = {}) => ({
   open() {
     let o = document.body.querySelector(".t-app");
     if (!o) return;

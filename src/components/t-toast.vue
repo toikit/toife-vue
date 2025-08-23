@@ -51,13 +51,13 @@ const props = withDefaults(defineProps<{
   space?: any,
   placement?:string,
   duration?:number,
-  color?:string,
+  color?:any,
   variant?:string
 }>(), {
   placement: 'bottom',
   space: "0px",
   duration: 2000,
-  color:'secondary',
+  color:null,
   variant:'default'
 });
 const emit = defineEmits(['close']);
@@ -96,14 +96,14 @@ const styles = computed(() => {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-text)',
-        '--background': 'var(--t-color-surface)'
+        '--background': 'rgba(var(--t-color-surface-rgb), 0.6)'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-status-'+props.color+'-text)',
-        '--background': 'var(--t-color-status-'+props.color+')'
+        '--background': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.6)'
       };
     }
     else {
