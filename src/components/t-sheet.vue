@@ -36,13 +36,13 @@
 
   .t-sheet-close{
     position: absolute;
-    color: #dadada;
+    color: var(--t-color-surface);
     background-color: transparent;
     border-radius: 50%;
     height: 30px;
     width: 30px;
     font-size: 1rem;    
-    border: 1px solid #dadada;
+    border: 1px solid var(--t-color-surface);
     bottom: -40px;
     left: 50%;
     transform: translate(-50%, 0);
