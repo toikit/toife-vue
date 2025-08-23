@@ -23,7 +23,12 @@ const props = withDefaults(defineProps<{
 const styles = computed(() => {
   let st:any;
 
-  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+  if (!props.color) {
+    st = {
+      '--background': 'var(--t-color-surface)'
+    }
+  }
+  else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     st = {
       '--background': 'var(--t-color-status-'+props.color+')'
     };

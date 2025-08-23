@@ -588,10 +588,12 @@ const De = /* @__PURE__ */ T({
   setup(e) {
     const o = e, n = S(() => {
       let t;
-      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(o.color) ? t = {
+      return o.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(o.color) ? t = {
         "--background": "var(--t-color-status-" + o.color + ")"
       } : t = {
         "--background": o.color
+      } : t = {
+        "--background": "var(--t-color-surface)"
       }, t;
     });
     return (t, r) => (c(), m("div", {
