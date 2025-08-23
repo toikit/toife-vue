@@ -36,6 +36,13 @@ $sides: t, b, l, r, x, y;
 
 /* Safe-area utilities */
 @each $prop, $full-prop in $prop-map {
+  .#{$prop}a-safe {
+    #{$full-prop}-top: var(--t-safe-area-top);
+    #{$full-prop}-bottom: var(--t-safe-area-bottom);
+    #{$full-prop}-left: var(--t-safe-area-left);
+    #{$full-prop}-right: var(--t-safe-area-right);
+  }
+
   @each $side in t, b, l, r {
     .#{$prop}#{$side}-safe {
       @if $side == 't'  { #{$full-prop}-top:    var(--t-safe-area-top)    !important; }
