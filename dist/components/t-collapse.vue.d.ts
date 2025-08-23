@@ -6,7 +6,7 @@ declare function __VLS_template(): {
     slots: {
         icon?(_: {}): any;
         title?(_: {}): any;
-        toogle?(_: {}): any;
+        toggle?(_: {}): any;
         content?(_: {}): any;
         default?(_: {}): any;
     };

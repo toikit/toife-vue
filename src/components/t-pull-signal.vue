@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .t-pull-bar{
-  background-color: var(--t-color-border);
+  background-color: var(--t-color-separate);
   position: absolute;
   border-radius: 3px;
   z-index: 2;

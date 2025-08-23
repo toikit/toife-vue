@@ -21,12 +21,13 @@ import TRichText from './components/t-rich-text.vue';
 import TGrid from './components/t-grid.vue';
 import TGridItem from './components/t-grid-item.vue';
 import TDivider from './components/t-divider.vue';
-import TTooglePassword from './components/t-toogle-password.vue';
+import TTogglePassword from './components/t-toggle-password.vue';
 import TLoadingIcon from './components/t-loading-icon.vue';
 import TAlert from './components/t-alert.vue';
 import TAvatar from './components/t-avatar.vue';
 import TCollapse from './components/t-collapse.vue';
 import TToast from './components/t-toast.vue';
+import TSwitch from './components/t-switch.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -55,12 +56,13 @@ export const createToife = () => {
       app.component('t-grid', TGrid);
       app.component('t-grid-item', TGridItem);
       app.component('t-divider', TDivider);
-      app.component('t-toogle-password', TTooglePassword);
+      app.component('t-toggle-password', TTogglePassword);
       app.component('t-loading-icon', TLoadingIcon);
       app.component('t-alert', TAlert);
       app.component('t-avatar', TAvatar);
       app.component('t-collapse', TCollapse);
       app.component('t-toast', TToast);
+      app.component('t-switch', TSwitch);
     }
   }
 }

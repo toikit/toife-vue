@@ -8,7 +8,7 @@ declare function __VLS_template(): {
         off?(_: {}): any;
     };
     refs: {
-        toogle: HTMLButtonElement;
+        toggle: HTMLButtonElement;
     };
     rootEl: HTMLButtonElement;
 };
@@ -20,7 +20,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
 }>, {
     color: any;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    toogle: HTMLButtonElement;
+    toggle: HTMLButtonElement;
 }, HTMLButtonElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

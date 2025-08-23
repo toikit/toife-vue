@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-.t-toogle-password {
+.t-toggle-password {
   // font-size: 1.5rem;
   background-color: transparent;
   width: fit-content;
@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <button ref="toogle" class="t-toogle-password" :style="style" @click="onClick">
+  <button ref="toggle" class="t-toggle-password" :style="style" @click="onClick">
     <slot name="on" v-if="isShow">
       <i class="ri-eye-line"></i>
     </slot>
@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<{
 });
 const emit = defineEmits(['change']);
 const isShow = ref(false);
-const toogle = ref();
+const toggle = ref();
 const style = computed(() => {
   let color = props.color;
 
@@ -47,7 +47,7 @@ const style = computed(() => {
 });
 
 const el = () => {
-  return toogle.value?.parentElement?.querySelector?.('input');
+  return toggle.value?.parentElement?.querySelector?.('input');
 }
 
 onMounted(() => {

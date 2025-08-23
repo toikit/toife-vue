@@ -9,7 +9,7 @@
   .t-alert-footer{
     display: flex;
     flex-direction: row;
-    border-top: 0.55px solid var(--t-color-border);
+    border-top: 0.55px solid var(--t-color-separate);
 
     > * {
       flex: 1;
@@ -22,7 +22,7 @@
 
   .t-alert-header{
     padding: var(--t-size-2);
-    border-bottom: 0.55px solid var(--t-color-border);
+    border-bottom: 0.55px solid var(--t-color-separate);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,15 +1,18 @@
 .--theme-light {
   --t-color-background: #ededed;
   --t-color-background-rgb: 237, 237, 237;
-
   --t-color-surface: #ffffff;
   --t-color-surface-rgb: 255, 255, 255;
 
-  --t-color-border: #eaeaea;
-  --t-color-border-rgb: 234, 234, 234;
+  --t-color-separate: #eaeaea;
+  --t-color-separate-rgb: 234, 234, 234;
+  --t-color-separate-surface: #ffffff;
+  --t-color-separate-surface-rgb: 255, 255, 255;
 
   --t-color-backdrop: #212529;
   --t-color-backdrop-rgb: 33, 37, 41;
+  --t-color-backdrop-surface: #ffffff;
+  --t-color-backdrop-surface-rgb: 255, 255, 255;
 
   --t-color-text: #212529;
   --t-color-text-rgb: 33, 37, 41;

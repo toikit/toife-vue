@@ -6,12 +6,12 @@
 .t-divider{
   &.horizontal{
     width: 100%;
-    border-bottom: 0.55px solid var(--t-color-border);
+    border-bottom: 0.55px solid var(--t-color-separate);
   }
 
   &.vertical{
     height: 100%;
-    border-right: 0.55px solid var(--t-color-border);
+    border-right: 0.55px solid var(--t-color-separate);
   }
 }
 </style>

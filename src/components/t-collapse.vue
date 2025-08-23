@@ -45,10 +45,10 @@
 
 <template>
   <div class="t-collapse" :class="{open: isOpen}" :style="{'--height': height}">
-    <div class="t-collapse-header" @click="onToogle">
+    <div class="t-collapse-header" @click="onToggle">
       <slot name="icon"></slot>
       <div class="t-collapse-title"><slot name="title">{{ props.title }}</slot></div>
-      <slot name="toogle">
+      <slot name="toggle">
         <div class="icon" v-if="isOpen"><i class="ri-arrow-up-s-line"></i></div>
         <div class="icon" v-else><i class="ri-arrow-down-s-line"></i></div>
       </slot>
@@ -72,7 +72,7 @@ const isOpen = ref(false);
 const height = ref('');
 const content = ref();
 
-const onToogle = () => {
+const onToggle = () => {
   isOpen.value = !isOpen.value;
   height.value = `calc(${content.value.offsetHeight}px + 2rem)`;
   emit('change', isOpen.value);
