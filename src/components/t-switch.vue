@@ -8,33 +8,36 @@
   transition: all 0.2s ease;
 
   .t-switch-icon{
-    height: 27px;
-    width: 27px;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
-    background-color: var(--t-color-surface);
     transition: all 0.2s ease;
     position: absolute;
-    top: 2px;
+    top: 3px;
   }
 
   &:not(.on){
-    background-color: var(--t-color-background);
+    background-color: var(--t-color-separate);
+
     .t-switch-icon{
-      left: 2px;
+      left: 3px;
+      background: var(--t-color-text-dark);
     }
   }
 
   &.on{
-    background-color: var(--background-color);
+    background: var(--background);
+
     .t-switch-icon{
-      right: 2px;
+      right: 3px;
+      background: var(--color);
     }
   }
 }
 </style>
 
 <template>
-  <div class="t-switch" :style="{'--background-color': background}" :class="{on: props.modelValue}" @click="onSwitch">
+  <div class="t-switch" :style="styles" :class="{on: props.modelValue}" @click="onSwitch">
     <div class="t-switch-icon"></div>
   </div>
 </template>
@@ -53,11 +56,19 @@ const onSwitch = () => {
   emit('update:modelValue', !props.modelValue);
 }
 
-const background = computed(() => {
-  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    return `var(--t-color-status-${props.color})`;
+const styles = computed(() => {
+  let st:any = {
+    '--background': props.color,
+    '--color': '#ffffff'
   }
 
-  return props.color;
+  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+    st = {
+      '--background': `var(--t-color-status-${props.color})`,
+      '--color': `var(--t-color-status-${props.color}-text)`,
+    };
+  }
+
+  return st;
 });
 </script>

@@ -1104,16 +1104,25 @@ const bt = /* @__PURE__ */ g(_t, [["render", gt]]), ht = /* @__PURE__ */ T({
   setup(e, { emit: o }) {
     const n = e, t = o, r = () => {
       t("update:modelValue", !n.modelValue);
-    }, a = S(() => ["warning", "info", "danger", "primary", "secondary", "success"].includes(n.color) ? `var(--t-color-status-${n.color})` : n.color);
+    }, a = S(() => {
+      let l = {
+        "--background": n.color,
+        "--color": "#ffffff"
+      };
+      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(n.color) && (l = {
+        "--background": `var(--t-color-status-${n.color})`,
+        "--color": `var(--t-color-status-${n.color}-text)`
+      }), l;
+    });
     return (l, i) => (c(), m("div", {
       class: I(["t-switch", { on: n.modelValue }]),
-      style: x({ "--background-color": a.value }),
+      style: x(a.value),
       onClick: r
     }, [...i[0] || (i[0] = [
       k("div", { class: "t-switch-icon" }, null, -1)
     ])], 6));
   }
-}), Pt = /* @__PURE__ */ g(Ct, [["__scopeId", "data-v-9b43c883"]]), Xt = () => ({
+}), Pt = /* @__PURE__ */ g(Ct, [["__scopeId", "data-v-3616970e"]]), Xt = () => ({
   install: (e) => {
     ue(), e.component("t-app", me), e.component("t-screen", se), e.component("t-swipe-screen", Ge), e.component("t-cable", Re), e.component("t-toolbar", je), e.component("t-content", Le), e.component("t-card", Ne), e.component("t-refresher", qe), e.component("t-button", M), e.component("t-back-button", Me), e.component("t-present", q), e.component("t-text", j), e.component("t-sheet", et), e.component("t-pull-signal", ae), e.component("t-input", st), e.component("t-textarea", ct), e.component("t-rich-text", dt), e.component("t-grid", vt), e.component("t-grid-item", bt), e.component("t-divider", kt), e.component("t-toggle-password", Tt), e.component("t-loading-icon", K), e.component("t-alert", ne), e.component("t-avatar", xt), e.component("t-collapse", Bt), e.component("t-toast", re), e.component("t-switch", Pt);
   }
