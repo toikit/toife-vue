@@ -5,7 +5,7 @@
   max-width: 400px;
   padding: 0.75rem 1rem;
   position: absolute;
-  z-index: 999;
+  z-index: 9999;
   border-radius: 8px;
   left: 50%;
   transition: all 0.2s ease;

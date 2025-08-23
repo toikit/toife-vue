@@ -536,7 +536,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       style: x({ "--space": t.space, ...v.value })
     }, C(t.message), 7)) : E("", !0);
   }
-}), re = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-618108c6"]]), Lt = (e = {}) => ({
+}), re = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-b40b3701"]]), Lt = (e = {}) => ({
   open() {
     let o = document.body.querySelector(".t-app");
     if (!o) return;
