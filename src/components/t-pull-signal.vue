@@ -3,7 +3,7 @@
   background-color: var(--t-color-separate);
   position: absolute;
   border-radius: 3px;
-  z-index: 2;
+  z-index: 99;
 
   &.bottom{
     width: 40px;

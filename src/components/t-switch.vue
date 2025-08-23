@@ -11,14 +11,14 @@
     height: 27px;
     width: 27px;
     border-radius: 50%;
-    background-color: var(--t-color-separate-surface);
+    background-color: var(--t-color-surface);
     transition: all 0.2s ease;
     position: absolute;
     top: 2px;
   }
 
   &:not(.on){
-    background-color: var(--t-color-separate);
+    background-color: var(--t-color-background);
     .t-switch-icon{
       left: 2px;
     }

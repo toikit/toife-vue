@@ -1,5 +1,5 @@
 <template>
-  <button class="t-button" :style="style" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true, ['variant-'+props.variant]:true}">
+  <button class="t-button" :style="styles" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true}">
     <span v-show="!props.loading"><slot></slot></span>
     <span class="loader" v-if="props.loading"><t-loading-icon color="var(--color)" :type="props.loadingType"/></span>
   </button>
@@ -14,18 +14,12 @@
   position: relative;
   overflow: hidden;
 
+  color: var(--color);
+  background: var(--background);
+  border: var(--border);
+
   > * {
     z-index: 2;
-  }
-
-  &.variant-default{
-    color: var(--color);
-    background-color: var(--background-color);
-  }
-
-  &.variant-text{
-    background-color: transparent;
-    color: var(--background-color);
   }
 
   &:not(:disabled){
@@ -92,7 +86,7 @@ import { computed } from 'vue';
 import TLoadingIcon from './t-loading-icon.vue';
 
 const props = withDefaults(defineProps<{
-  color?:string,
+  color?:any,
   size?:string,
   rounded?: boolean,
   block?:boolean,
@@ -101,7 +95,7 @@ const props = withDefaults(defineProps<{
   variant?:string,
   activeBackground?:boolean
 }>(), {
-  color: '',
+  color: null,
   size: 'standard',
   rounded: false,
   block: false,
@@ -111,26 +105,79 @@ const props = withDefaults(defineProps<{
   activeBackground: false
 });
 
-const style = computed(() => {
+const styles = computed(() => {
   let st:any;
 
-  if (!props.color) {
-    st = {
-      '--color': 'var(--t-color-text)',
-      '--background-color': 'transparent'
+  if (props.variant == 'default') {
+    if (!props.color) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': 'var(--t-color-surface)'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-status-'+props.color+'-text)',
+        '--background': 'var(--t-color-status-'+props.color+')'
+      };
+    }
+    else {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': props.color
+      };
     }
   }
-  else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    st = {
-      '--color': 'var(--t-color-status-'+props.color+'-text)',
-      '--background-color': 'var(--t-color-status-'+props.color+')'
-    };
+
+  if (props.variant == 'text') {
+    if (!props.color) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': 'transparent'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-status-'+props.color+')',
+        '--background': 'transparent'
+      };
+    }
+    else {
+      st = {
+        '--border': 'none',
+        '--color': props.color,
+        '--background': 'transparent'
+      };
+    }
   }
-  else {
-    st = {
-      '--color': 'var(--t-color-text)',
-      '--background-color': props.color
-    };
+
+  if (props.variant == 'outline') {
+    if (!props.color) {
+      st = {
+        '--border': '0.55px solid var(--t-color-text)',
+        '--color': 'var(--t-color-text)',
+        '--background': 'transparent'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': '0.55px solid var(--t-color-status-'+props.color+')',
+        '--color': 'var(--t-color-status-'+props.color+')',
+        '--background': 'transparent'
+      };
+    }
+    else {
+      st = {
+        '--border': '0.55px solid '+props.color,
+        '--color': props.color,
+        '--background': 'transparent'
+      };
+    }
   }
 
   return st;

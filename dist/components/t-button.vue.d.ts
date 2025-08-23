@@ -1,5 +1,5 @@
 type __VLS_Props = {
-    color?: string;
+    color?: any;
     size?: string;
     rounded?: boolean;
     block?: boolean;
@@ -19,7 +19,7 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
     size: string;
-    color: string;
+    color: any;
     rounded: boolean;
     block: boolean;
     loading: boolean;

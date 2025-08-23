@@ -10,6 +10,10 @@
   left: 50%;
   transition: all 0.2s ease;
   opacity: 1;
+  
+  color: var(--color);
+  background: var(--background);
+  border: var(--border);
 
   &.bottom{
     bottom: 0;
@@ -32,29 +36,11 @@
   &.closing{
     opacity: 0;
   }
-
-  &.variant{
-    &-default{
-      background-color: rgba(var(--color), 0.7);
-      color: var(--t-color-text);
-    }
-
-    &-text{
-      background-color: transparent;
-      color: rgba(var(--color), 1)
-    }
-
-    &-outline{
-      background-color: transparent;
-      color: rgba(var(--color), 1);
-      border: 1px solid rgba(var(--color), 0.7);
-    }
-  }
 }
 </style>
 
 <template>
-  <div class="t-toast" v-if="isRender" :class="{[props.placement]: true, open: visible, closing: isClosing, ['variant-'+props.variant]:true}" :style="{'--space': props.space, '--color': dcolor}">{{ props.message }}</div>
+  <div class="t-toast" v-if="isRender" :class="{[props.placement]: true, open: visible, closing: isClosing}" :style="{'--space': props.space, ...styles}">{{ props.message }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -102,12 +88,82 @@ const close = () => {
   }, 300);
 }
 
-const dcolor = computed(() => {
-  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    return `var(--t-color-status-${props.color}-rgb)`;
+const styles = computed(() => {
+  let st:any;
+
+  if (props.variant == 'default') {
+    if (!props.color) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': 'var(--t-color-surface)'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-status-'+props.color+'-text)',
+        '--background': 'var(--t-color-status-'+props.color+')'
+      };
+    }
+    else {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': props.color
+      };
+    }
   }
 
-  return props.color;
+  if (props.variant == 'text') {
+    if (!props.color) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-text)',
+        '--background': 'transparent'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': 'none',
+        '--color': 'var(--t-color-status-'+props.color+')',
+        '--background': 'transparent'
+      };
+    }
+    else {
+      st = {
+        '--border': 'none',
+        '--color': props.color,
+        '--background': 'transparent'
+      };
+    }
+  }
+
+  if (props.variant == 'outline') {
+    if (!props.color) {
+      st = {
+        '--border': '0.55px solid var(--t-color-text)',
+        '--color': 'var(--t-color-text)',
+        '--background': 'transparent'
+      }
+    }
+    else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      st = {
+        '--border': '0.55px solid var(--t-color-status-'+props.color+')',
+        '--color': 'var(--t-color-status-'+props.color+')',
+        '--background': 'transparent'
+      };
+    }
+    else {
+      st = {
+        '--border': '0.55px solid '+props.color,
+        '--color': props.color,
+        '--background': 'transparent'
+      };
+    }
+  }
+
+  return st;
 });
 
 defineExpose({
