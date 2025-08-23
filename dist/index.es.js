@@ -738,6 +738,7 @@ const re = /* @__PURE__ */ y(Fe, [["render", He], ["__scopeId", "data-v-66ea8649
     keepalive: { type: Boolean, default: !0 },
     backdrop: { type: Boolean, default: !0 },
     rounded: { type: Boolean, default: !0 },
+    radius: { type: Boolean, default: !0 },
     closeButton: { type: Boolean, default: !0 }
   },
   emits: ["dismiss"],
@@ -808,28 +809,28 @@ const re = /* @__PURE__ */ y(Fe, [["render", He], ["__scopeId", "data-v-66ea8649
           key: 0,
           placement: t.placement
         }, null, 8, ["placement"])) : E("", !0),
+        t.closeButton && t.placement == "center" ? (c(), f("button", {
+          key: 1,
+          class: "t-sheet-close",
+          onClick: r[0] || (r[0] = (d) => p("close-button"))
+        }, [
+          b(g.$slots, "close-icon", {}, () => [
+            r[1] || (r[1] = k("i", { class: "ri-close-large-line" }, null, -1))
+          ], !0)
+        ])) : E("", !0),
         k("div", {
-          class: x(["t-sheet", { fullscreen: t.fullscreen, [t.placement]: !0, rounded: g.rounded }]),
+          class: x(["t-sheet", { fullscreen: t.fullscreen, [t.placement]: !0, rounded: g.rounded, radius: t.radius }]),
           style: I({ "--background": t.background }),
           ref_key: "sheet",
           ref: s
         }, [
-          t.closeButton && t.placement == "center" ? (c(), f("button", {
-            key: 0,
-            class: "t-sheet-close",
-            onClick: r[0] || (r[0] = (d) => p("close-button"))
-          }, [
-            b(g.$slots, "close-icon", {}, () => [
-              r[1] || (r[1] = k("i", { class: "ri-close-large-line" }, null, -1))
-            ], !0)
-          ])) : E("", !0),
           b(g.$slots, "default", {}, void 0, !0)
         ], 6)
       ]),
       _: 3
     }, 8, ["placement", "backdrop", "visible", "keepalive"]));
   }
-}), ot = /* @__PURE__ */ y(nt, [["__scopeId", "data-v-d5772132"]]), st = { class: "t-input-label" }, rt = { class: "t-input-content" }, at = ["type", "placeholder", "value"], lt = /* @__PURE__ */ T({
+}), ot = /* @__PURE__ */ y(nt, [["__scopeId", "data-v-14b7fc93"]]), st = { class: "t-input-label" }, rt = { class: "t-input-content" }, at = ["type", "placeholder", "value"], lt = /* @__PURE__ */ T({
   __name: "t-input",
   props: {
     size: { default: "standard" },

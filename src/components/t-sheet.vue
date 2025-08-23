@@ -9,52 +9,56 @@
   }
 
   &.rounded:not(.fullscreen){
-    &.bottom{
+    &.bottom.radius{
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
     }
 
-    &.top{
+    &.top.radius{
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
     }
 
-    &.left{
+    &.left.radius{
       border-top-right-radius: 15px;
       border-bottom-right-radius: 15px;
     }
 
-    &.right{
+    &.right.radius{
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
     }
 
-    &.center{
+    &.center.radius{
       border-radius: 15px;
     }
-  }
 
-  .t-sheet-close{
-    position: absolute;
-    color: var(--t-color-surface);
-    background-color: transparent;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    font-size: 1rem;    
-    border: 1px solid var(--t-color-surface);
-    bottom: -40px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    &.radius{
+      overflow: hidden;
+    }
   }
+}
+
+.t-sheet-close{
+  position: absolute;
+  color: var(--t-color-surface);
+  background-color: transparent;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  font-size: 1rem;    
+  border: 1px solid var(--t-color-surface);
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 </style>
 
 <template>
   <t-present ref="present" :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive" @dismiss="close">
     <t-pull-signal :placement="props.placement" v-if="props.gesture && props.placement != 'center'"></t-pull-signal>
-    <div class="t-sheet" :style="{'--background': props.background}" ref="sheet" :class="{'fullscreen': props.fullscreen, [props.placement]: true, rounded}">
-      <button class="t-sheet-close" @click="close('close-button')" v-if="props.closeButton && props.placement == 'center'"><slot name="close-icon"><i class="ri-close-large-line"></i></slot></button>
+    <button class="t-sheet-close" @click="close('close-button')" v-if="props.closeButton && props.placement == 'center'"><slot name="close-icon"><i class="ri-close-large-line"></i></slot></button>
+    <div class="t-sheet" :style="{'--background': props.background}" ref="sheet" :class="{'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius}">
       <slot/>
     </div>
   </t-present>
@@ -76,6 +80,7 @@ const props = withDefaults(defineProps<{
   keepalive?:boolean,
   backdrop?:boolean,
   rounded?:boolean,
+  radius?:boolean,
   closeButton?:boolean // only with center
 }>(), {
   background: 'var(--t-color-surface)',
@@ -86,7 +91,8 @@ const props = withDefaults(defineProps<{
   fullscreen: false,
   rounded: true,
   placement: 'bottom',
-  closeButton: true
+  closeButton: true,
+  radius: true
 });
 const emit = defineEmits(['dismiss']);
 const sheet = ref();
