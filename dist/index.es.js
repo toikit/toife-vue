@@ -624,8 +624,8 @@ const Le = /* @__PURE__ */ g(Ve, [["render", Oe], ["__scopeId", "data-v-9a833657
     };
     return D(() => a.value, () => {
       l && l.destroy();
-      let v = a.value.closest(".t-screen");
-      l = N(v, {
+      let v = a.value.closest(".t-content");
+      v && (l = N(v, {
         options: {
           minDist: 60
         },
@@ -638,7 +638,7 @@ const Le = /* @__PURE__ */ g(Ve, [["render", Oe], ["__scopeId", "data-v-9a833657
         cancel() {
           r.value = !1, t.value = 0;
         }
-      });
+      }));
     }), A(() => {
       l && l.destroy();
     }), (v, f) => Y((c(), m("div", {
@@ -657,7 +657,7 @@ const Le = /* @__PURE__ */ g(Ve, [["render", Oe], ["__scopeId", "data-v-9a833657
       [U, t.value > 0]
     ]);
   }
-}), qe = /* @__PURE__ */ g(Xe, [["__scopeId", "data-v-7f97bb1a"]]), Ye = {}, Ue = { class: "t-screen" };
+}), qe = /* @__PURE__ */ g(Xe, [["__scopeId", "data-v-688c5394"]]), Ye = {}, Ue = { class: "t-screen" };
 function We(e, o) {
   return c(), m("div", Ue, [
     h(e.$slots, "default", {}, void 0, !0)

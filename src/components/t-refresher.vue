@@ -51,7 +51,8 @@ const start = () => {
 
 watch(() => container.value, () => {
   cleanup && cleanup.destroy();
-  let screen = container.value.closest('.t-screen');
+  let screen = container.value.closest('.t-content');
+  if (!screen) return;
   cleanup = gesture(screen, {
     options: {
       minDist: 60
