@@ -1,5 +1,5 @@
 <template>
-  <div class="t-input" :class="{rounded: props.rounded, ['size-'+props.size]: true}">
+  <div class="t-input" :class="{rounded: props.rounded, ['size-'+props.size]: true, ['variant-'+props.variant]: true}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
@@ -70,6 +70,13 @@
       height: 50px;
     }
   }
+
+  &.variant-default{
+    label{
+      display: block;
+      width: 100%;
+    }
+  }
 }
 </style>
 
@@ -92,7 +99,7 @@ const props = withDefaults(defineProps<{
   placeholder:'',
   type:'text',
   modelValue:'',
-  variant: 'normal'
+  variant: 'default'
 });
 const emit = defineEmits(['update:modelValue']);
 const onInput = (e:any) => {

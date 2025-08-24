@@ -924,7 +924,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
     help: {},
     error: {},
     modelValue: { default: "" },
-    variant: { default: "normal" }
+    variant: { default: "default" }
   },
   emits: ["update:modelValue"],
   setup(t, { emit: o }) {
@@ -932,7 +932,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
       e("update:modelValue", a.target.value);
     };
     return (a, l) => (c(), m("div", {
-      class: I(["t-input", { rounded: n.rounded, ["size-" + n.size]: !0 }])
+      class: I(["t-input", { rounded: n.rounded, ["size-" + n.size]: !0, ["variant-" + n.variant]: !0 }])
     }, [
       k("label", null, [
         k("span", tt, C(a.label), 1),
@@ -966,7 +966,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
       })) : z("", !0)
     ], 2));
   }
-}), st = /* @__PURE__ */ g(rt, [["__scopeId", "data-v-75bf0d19"]]), at = {};
+}), st = /* @__PURE__ */ g(rt, [["__scopeId", "data-v-1a9425cf"]]), at = {};
 function lt(t, o) {
   return c(), m("textarea");
 }
