@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
 });
 const visible = ref(false);
 const container = ref();
-const emit = defineEmits(['close']);
+const emit = defineEmits(['dismiss']);
 let ges:any;
 
 const open = () => {

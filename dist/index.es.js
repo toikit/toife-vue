@@ -203,18 +203,19 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
   props: {
     title: {},
     message: {},
-    actions: {}
+    actions: {},
+    dismiss: {}
   },
-  emits: ["close"],
+  emits: ["dismiss"],
   setup(t, { expose: o, emit: n }) {
     const e = t, r = _(!1), a = n, l = _();
     let i;
     const y = _(!1), p = () => {
       r.value = !0;
     }, v = (s) => {
-      r.value = !1, s.handler && s.handler(), a("close", s?.data);
+      r.value = !1, s.handler && s.handler(), a("dismiss", "choose", s?.data);
     }, f = (s) => {
-      s == "backdrop" && (y.value = !0, setTimeout(() => {
+      e.dismiss && e.dismiss.includes(s) ? a("dismiss", s) : s == "backdrop" && (y.value = !0, setTimeout(() => {
         y.value = !1;
       }, 300));
     };
@@ -266,7 +267,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       _: 3
     }, 8, ["visible"]));
   }
-}), ne = /* @__PURE__ */ g($e, [["__scopeId", "data-v-5b4773ce"]]), Vt = (t = {}) => ({
+}), ne = /* @__PURE__ */ g($e, [["__scopeId", "data-v-605e78ba"]]), Vt = (t = {}) => ({
   open() {
     return new Promise((o) => {
       let n = document.body.querySelector(".t-app");
@@ -278,10 +279,10 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
           return G(ne, {
             ...t,
             ref: r,
-            onClose: (l) => {
+            onDismiss: (l, i) => {
               setTimeout(() => {
                 a.unmount(), e.remove();
-              }, 300), o(l);
+              }, 300), o(i);
             }
           });
         }
@@ -294,18 +295,19 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
 }), Te = /* @__PURE__ */ T({
   __name: "t-action",
   props: {
-    actions: {}
+    actions: {},
+    dismiss: {}
   },
-  emits: ["close"],
+  emits: ["dismiss"],
   setup(t, { expose: o, emit: n }) {
     const e = t, r = _(!1), a = n, l = _();
     let i;
     const y = _(!1), p = () => {
       r.value = !0;
     }, v = (s) => {
-      r.value = !1, s.handler && s.handler(), a("close", s?.data);
+      r.value = !1, s.handler && s.handler(), a("dismiss", "choose", s?.data);
     }, f = (s) => {
-      s == "backdrop" && (y.value = !0, setTimeout(() => {
+      e.dismiss && e.dismiss.includes(s) ? a("dismiss", s) : s == "backdrop" && (y.value = !0, setTimeout(() => {
         y.value = !1;
       }, 300));
     };
@@ -351,7 +353,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       _: 1
     }, 8, ["visible"]));
   }
-}), we = /* @__PURE__ */ g(Te, [["__scopeId", "data-v-42000b04"]]), At = (t = {}) => ({
+}), we = /* @__PURE__ */ g(Te, [["__scopeId", "data-v-7c7ff9dd"]]), At = (t = {}) => ({
   open() {
     return new Promise((o) => {
       let n = document.body.querySelector(".t-app");
@@ -363,10 +365,10 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
           return G(we, {
             ...t,
             ref: r,
-            onClose: (l) => {
+            onDismiss: (l, i) => {
               setTimeout(() => {
                 a.unmount(), e.remove();
-              }, 300), o(l);
+              }, 300), o(i);
             }
           });
         }
@@ -381,7 +383,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
   props: {
     type: { default: "spinner" }
   },
-  emits: ["close"],
+  emits: ["dismiss"],
   setup(t, { expose: o, emit: n }) {
     const e = t, r = _(!1), a = _();
     let l;
@@ -422,7 +424,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       _: 3
     }, 8, ["visible"]));
   }
-}), Ie = /* @__PURE__ */ g(xe, [["__scopeId", "data-v-96624ceb"]]), Ot = (t = {}) => {
+}), Ie = /* @__PURE__ */ g(xe, [["__scopeId", "data-v-d048a41d"]]), Ot = (t = {}) => {
   const o = _(), n = document.body.querySelector(".t-app");
   let e = null, r = null;
   return {
@@ -476,7 +478,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
     color: { default: null },
     variant: { default: "default" }
   },
-  emits: ["close"],
+  emits: ["dismiss"],
   setup(t, { expose: o, emit: n }) {
     const e = t, r = n, a = _(!1), l = _(!1), i = _(!1), y = () => {
       l.value = !0, i.value = !1, setTimeout(() => {
@@ -486,7 +488,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       }, e.duration + 10);
     }, p = () => {
       i.value = !0, setTimeout(() => {
-        l.value = !1, a.value = !1, r("close");
+        l.value = !1, a.value = !1, r("dismiss");
       }, 300);
     }, v = S(() => {
       let f;
@@ -536,7 +538,7 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
       style: x({ "--space": e.space, ...v.value })
     }, C(e.message), 7)) : z("", !0);
   }
-}), re = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-5159a3c5"]]), Xt = (t = {}) => ({
+}), se = /* @__PURE__ */ g(Be, [["__scopeId", "data-v-98e8be37"]]), Xt = (t = {}) => ({
   open() {
     let o = document.body.querySelector(".t-app");
     if (!o) return;
@@ -544,10 +546,10 @@ const me = /* @__PURE__ */ g(de, [["render", fe]]), ve = /* @__PURE__ */ T({
     o.appendChild(n);
     const r = F({
       render() {
-        return G(re, {
+        return G(se, {
           ...t,
           ref: e,
-          onClose: () => {
+          onDismiss: () => {
             setTimeout(() => {
               r.unmount(), n.remove();
             }, 300);
@@ -663,7 +665,7 @@ function We(t, o) {
     h(t.$slots, "default", {}, void 0, !0)
   ]);
 }
-const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649"]]), Fe = /* @__PURE__ */ T({
+const re = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649"]]), Fe = /* @__PURE__ */ T({
   __name: "t-swipe-screen",
   emits: ["change"],
   setup(t, { emit: o }) {
@@ -726,7 +728,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
         }
       });
     }), (s, d) => (c(), m(V, null, [
-      (c(!0), m(V, null, W(R($).screens, (b, u) => (c(), E(se, {
+      (c(!0), m(V, null, W(R($).screens, (b, u) => (c(), E(re, {
         ref_for: !0,
         ref: (w) => p(u, w),
         style: x({ zIndex: u + (u == R($).screens.length - 1 ? 2 : 1) }),
@@ -913,7 +915,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
       _: 3
     }, 8, ["placement", "backdrop", "visible", "keepalive"]));
   }
-}), et = /* @__PURE__ */ g(Ze, [["__scopeId", "data-v-14b7fc93"]]), tt = { class: "t-input-label" }, ot = { class: "t-input-content" }, nt = ["type", "placeholder", "value"], rt = /* @__PURE__ */ T({
+}), et = /* @__PURE__ */ g(Ze, [["__scopeId", "data-v-14b7fc93"]]), tt = { class: "t-input-label" }, ot = { class: "t-input-content" }, nt = ["type", "placeholder", "value"], st = /* @__PURE__ */ T({
   __name: "t-input",
   props: {
     size: { default: "standard" },
@@ -966,7 +968,7 @@ const se = /* @__PURE__ */ g(Ye, [["render", We], ["__scopeId", "data-v-66ea8649
       })) : z("", !0)
     ], 2));
   }
-}), st = /* @__PURE__ */ g(rt, [["__scopeId", "data-v-1a9425cf"]]), at = {};
+}), rt = /* @__PURE__ */ g(st, [["__scopeId", "data-v-1a9425cf"]]), at = {};
 function lt(t, o) {
   return c(), m("textarea");
 }
@@ -1124,7 +1126,7 @@ const bt = /* @__PURE__ */ g(_t, [["render", gt]]), ht = /* @__PURE__ */ T({
   }
 }), Pt = /* @__PURE__ */ g(Ct, [["__scopeId", "data-v-3616970e"]]), qt = () => ({
   install: (t) => {
-    ue(), t.component("t-app", me), t.component("t-screen", se), t.component("t-swipe-screen", Ge), t.component("t-cable", Re), t.component("t-toolbar", je), t.component("t-content", Xe), t.component("t-card", Ne), t.component("t-refresher", Le), t.component("t-button", M), t.component("t-back-button", Me), t.component("t-present", L), t.component("t-text", j), t.component("t-sheet", et), t.component("t-pull-signal", ae), t.component("t-input", st), t.component("t-textarea", ct), t.component("t-rich-text", dt), t.component("t-grid", vt), t.component("t-grid-item", bt), t.component("t-divider", kt), t.component("t-toggle-password", Tt), t.component("t-loading-icon", K), t.component("t-alert", ne), t.component("t-avatar", xt), t.component("t-collapse", Bt), t.component("t-toast", re), t.component("t-switch", Pt);
+    ue(), t.component("t-app", me), t.component("t-screen", re), t.component("t-swipe-screen", Ge), t.component("t-cable", Re), t.component("t-toolbar", je), t.component("t-content", Xe), t.component("t-card", Ne), t.component("t-refresher", Le), t.component("t-button", M), t.component("t-back-button", Me), t.component("t-present", L), t.component("t-text", j), t.component("t-sheet", et), t.component("t-pull-signal", ae), t.component("t-input", rt), t.component("t-textarea", ct), t.component("t-rich-text", dt), t.component("t-grid", vt), t.component("t-grid-item", bt), t.component("t-divider", kt), t.component("t-toggle-password", Tt), t.component("t-loading-icon", K), t.component("t-alert", ne), t.component("t-avatar", xt), t.component("t-collapse", Bt), t.component("t-toast", se), t.component("t-switch", Pt);
   }
 });
 export {

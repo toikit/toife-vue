@@ -17,12 +17,12 @@ export default (props:any = {}) => {
             return h(tAlert, {
               ...props,
               ref: instanceRef,
-              onClose: (value:any) => {
+              onDismiss: (type:any, data?:any) => {
                 setTimeout(() => {
                   app.unmount()
                   container.remove()
                 }, 300);
-                resolve(value)
+                resolve(data)
               }
             })
           }

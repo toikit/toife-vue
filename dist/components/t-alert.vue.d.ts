@@ -2,6 +2,7 @@ type __VLS_Props = {
     title?: string;
     message: string;
     actions: Array<any>;
+    dismiss?: Array<any>;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -19,9 +20,9 @@ type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
     open: () => void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    close: (...args: any[]) => void;
+    dismiss: (...args: any[]) => void;
 }, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
-    onClose?: ((...args: any[]) => any) | undefined;
+    onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     container: HTMLDivElement;
 }, any>;

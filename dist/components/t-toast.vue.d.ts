@@ -9,9 +9,9 @@ type __VLS_Props = {
 declare const _default: import('vue').DefineComponent<__VLS_Props, {
     open: () => void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    close: (...args: any[]) => void;
+    dismiss: (...args: any[]) => void;
 }, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
-    onClose?: ((...args: any[]) => any) | undefined;
+    onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {
     placement: string;
     color: any;

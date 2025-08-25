@@ -16,7 +16,7 @@ export default (props:any = {}) => {
           return h(TToast, {
             ...props,
             ref: instanceRef,
-            onClose: () => {
+            onDismiss: () => {
               setTimeout(() => {
                 app.unmount()
                 container.remove()

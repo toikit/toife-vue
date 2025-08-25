@@ -16,9 +16,9 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
     open: () => void;
     close: () => void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    close: (...args: any[]) => void;
+    dismiss: (...args: any[]) => void;
 }, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
-    onClose?: ((...args: any[]) => any) | undefined;
+    onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {
     type: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {

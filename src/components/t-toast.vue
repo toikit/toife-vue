@@ -60,7 +60,7 @@ const props = withDefaults(defineProps<{
   color:null,
   variant:'default'
 });
-const emit = defineEmits(['close']);
+const emit = defineEmits(['dismiss']);
 const visible = ref(false);
 const isRender = ref(false);
 const isClosing = ref(false);
@@ -84,7 +84,7 @@ const close = () => {
   setTimeout(() => {
     isRender.value = false;
     visible.value = false;
-    emit('close');
+    emit('dismiss');
   }, 300);
 }
 

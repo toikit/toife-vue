@@ -49,10 +49,11 @@ import { blurCurrentActive, isFormElement } from '../utils';
 import { gesture } from '@toife/gesture';
 
 const props = defineProps<{
-  actions: Array<any>
+  actions: Array<any>,
+  dismiss?: Array<any>
 }>();
 const visible = ref(false);
-const emit = defineEmits(['close']);
+const emit = defineEmits(['dismiss']);
 const container = ref();
 let ges:any;
 const pop = ref(false);
@@ -64,11 +65,14 @@ const open = () => {
 const choose = (btn:any) => {
   visible.value = false;
   btn.handler && btn.handler();
-  emit('close', btn?.data);
+  emit('dismiss', 'choose', btn?.data);
 }
 
 const onDismiss = (val:any) => {
-  if (val == 'backdrop') {
+  if (props.dismiss && props.dismiss.includes(val)) {
+    emit('dismiss', val);
+  }
+  else if (val == 'backdrop') {
     pop.value = true;
     setTimeout(() => {
       pop.value = false;
