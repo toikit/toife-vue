@@ -98,6 +98,7 @@ const choose = (btn:any) => {
 
 const onDismiss = (val:any) => {
   if (props.dismiss && props.dismiss.includes(val)) {
+    visible.value = false;
     emit('dismiss', val);
   }
   else if (val == 'backdrop') {
