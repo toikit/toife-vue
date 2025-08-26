@@ -58,19 +58,21 @@ watch(() => container.value, () => {
       minDist: 60
     },
     
-    move({ dy }: any) {
+    move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
       if (dy >= 120) {
         start();
       } else {
         offset.value = dy;
+        e.preventDefault();
       }
     },
-    up({ dy }: any) {
+    up({ dy, e }: any) {
       if (refreshing.value || locked) return;
 
       if (dy > threshold) {
         start();
+        e.preventDefault();
       } else {
         offset.value = 0;
       }

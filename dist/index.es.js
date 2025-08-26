@@ -631,11 +631,11 @@ const Le = /* @__PURE__ */ g(Oe, [["render", Xe], ["__scopeId", "data-v-9a833657
         options: {
           minDist: 60
         },
-        move({ dy: _ }) {
-          r.value || i || _ < 0 || (_ >= 120 ? d() : e.value = _);
+        move({ dy: _, e: s }) {
+          r.value || i || _ < 0 || (_ >= 120 ? d() : (e.value = _, s.preventDefault()));
         },
-        up({ dy: _ }) {
-          r.value || i || (_ > ee ? d() : e.value = 0);
+        up({ dy: _, e: s }) {
+          r.value || i || (_ > ee ? (d(), s.preventDefault()) : e.value = 0);
         },
         cancel() {
           r.value = !1, e.value = 0;
@@ -659,7 +659,7 @@ const Le = /* @__PURE__ */ g(Oe, [["render", Xe], ["__scopeId", "data-v-9a833657
       [Y, e.value > 0]
     ]);
   }
-}), Ye = /* @__PURE__ */ g(We, [["__scopeId", "data-v-688c5394"]]), He = {}, Ue = { class: "t-screen" };
+}), Ye = /* @__PURE__ */ g(We, [["__scopeId", "data-v-e39a3ec3"]]), He = {}, Ue = { class: "t-screen" };
 function je(t, n) {
   return c(), m("div", Ue, [
     b(t.$slots, "default", {}, void 0, !0)
