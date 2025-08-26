@@ -63,7 +63,6 @@ watch(() => container.value, () => {
       if (dy >= 120) {
         start();
       } else {
-        if (e.target.scrollTop === 0 && screen.scrollTop === 0) e.preventDefault();
         offset.value = dy;
       }
     },
