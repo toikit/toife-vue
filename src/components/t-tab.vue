@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { inject, computed } from 'vue';
-// import TButton './t-button.vue';
+import TButton from './t-button.vue';
 
 const props = defineProps<{
   value: String
