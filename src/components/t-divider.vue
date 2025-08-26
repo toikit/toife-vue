@@ -1,5 +1,5 @@
 <template>
-  <div class="t-divider" :class="{[props.type]: true}"></div>
+  <div class="t-divider" :class="{[props.direction]: true}"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
-  type?:string
+  direction?:string
 }>(), {
-  type: 'horizontal'
+  direction: 'horizontal'
 });
 </script>

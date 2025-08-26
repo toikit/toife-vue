@@ -28,6 +28,8 @@ import TAvatar from './components/t-avatar.vue';
 import TCollapse from './components/t-collapse.vue';
 import TToast from './components/t-toast.vue';
 import TSwitch from './components/t-switch.vue';
+import TTab from './components/t-tab.vue';
+import TTabs from './components/t-tabs.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -63,6 +65,8 @@ export const createToife = () => {
       app.component('t-collapse', TCollapse);
       app.component('t-toast', TToast);
       app.component('t-switch', TSwitch);
+      app.component('t-tab', TTab);
+      app.component('t-tabs', TTabs);
     }
   }
 }
