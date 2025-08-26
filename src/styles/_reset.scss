@@ -18,12 +18,8 @@ body, html {
 html, body, * {
   border: unset;
   box-sizing: border-box;
-  /* Cho phép scroll cả ngang và dọc */
   touch-action: pan-x pan-y;
-
-  /* Không bubble overscroll ra ngoài (ngăn bounce toàn trang) */
-  overscroll-behavior: contain;
-  
+  overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent !important;
   -webkit-touch-callout: none !important;
   user-select: none !important;
