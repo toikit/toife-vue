@@ -48,7 +48,7 @@ defineExpose({
 watch(() => container.value, (val) => {
   if (val) {
     ges = gesture(container.value, {
-      beforeEvent(e:any){
+      beforeEvent(from:any, e:any){
         e.stopPropagation();
         if (!isFormElement(e.target)) {
           e.preventDefault();

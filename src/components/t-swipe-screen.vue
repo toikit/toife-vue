@@ -112,20 +112,20 @@ onMounted(() => {
   gesture(document, {
     pointerId: null,
 
-    beforeEvent(e:any){
+    beforeEvent(from:any, e:any){
       if (isBusy.value) return false;
       if (screenController.screens.length < 2) return false;
 
       // Set first
-      if (e.type == 'pointerdown' && !this.pointerId) {
+      if (from == 'down' && !this.pointerId) {
         this.pointerId = e.pointerId;
       }
 
       return this.pointerId == e.pointerId;
     },
 
-    afterEvent(e:any){
-      if (e.type == 'pointerup' || e.type == 'pointercancel') {
+    afterEvent(from:any, e:any){
+      if (from == 'up' || from == 'cancel') {
         this.pointerId = null;
       }
     },

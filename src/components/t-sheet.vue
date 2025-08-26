@@ -127,7 +127,7 @@ watch(() => sheet.value, (val) => {
 
       pointerId: null,
 
-      beforeEvent(e:any){
+      beforeEvent(from:any, e:any){
         let isPrevent:boolean = false;
         let isNext:boolean = false;
 
@@ -138,7 +138,7 @@ watch(() => sheet.value, (val) => {
           isPrevent = true;
           isNext = this.pointerId == e.pointerId;
         }
-        else if (e.type == 'pointerdown') {
+        else if (from == 'down') {
           this.pointerId = e.pointerId;
           isPrevent = true;
           isNext = true;
@@ -155,8 +155,8 @@ watch(() => sheet.value, (val) => {
         return isNext;
       },
 
-      afterEvent(e:any){
-        if (e.type == 'pointerup' || e.type == 'pointercancel') {
+      afterEvent(from:any, e:any){
+        if (from == 'up' || from == 'cancel') {
           this.pointerId = null;
         }
       },

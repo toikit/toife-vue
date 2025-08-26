@@ -60,6 +60,7 @@ watch(() => container.value, () => {
     
     move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
+      if (dy > 0 && screen.scrollTop == 0) e.preventDefault();
       if (dy >= 120) {
         start();
       } else {
