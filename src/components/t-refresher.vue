@@ -63,8 +63,8 @@ watch(() => container.value, () => {
       if (dy >= 120) {
         start();
       } else {
+        if (e.target.scrollTop === 0 && screen.scrollTop === 0) e.preventDefault();
         offset.value = dy;
-        e.preventDefault();
       }
     },
     up({ dy, e }: any) {
@@ -72,7 +72,6 @@ watch(() => container.value, () => {
 
       if (dy > threshold) {
         start();
-        e.preventDefault();
       } else {
         offset.value = 0;
       }
@@ -81,6 +80,8 @@ watch(() => container.value, () => {
       refreshing.value = false;
       offset.value = 0;
     }
+  }, {
+    passive: false
   });
 });
 
