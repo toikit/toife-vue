@@ -17,6 +17,7 @@
   color: var(--color);
   background: var(--background);
   border: var(--border);
+  white-space: nowrap;
 
   > * {
     z-index: 2;

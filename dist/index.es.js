@@ -187,7 +187,7 @@ const _e = /* @__PURE__ */ g(fe, [["render", ve]]), ye = /* @__PURE__ */ T({
       ])) : z("", !0)
     ], 6));
   }
-}), F = /* @__PURE__ */ g(he, [["__scopeId", "data-v-07bf1b8d"]]), ke = {
+}), F = /* @__PURE__ */ g(he, [["__scopeId", "data-v-74d8380d"]]), ke = {
   key: 0,
   class: "t-alert-header"
 }, $e = { class: "t-alert-content" }, Te = { class: "t-alert-footer" }, we = /* @__PURE__ */ T({
