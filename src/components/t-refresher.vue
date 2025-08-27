@@ -15,10 +15,6 @@ img.spiner {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-:deep(.refresh-pulling){
-  overflow: hidden;
-}
 </style>
 
 <template>
@@ -66,7 +62,7 @@ watch(() => container.value, () => {
       if (refreshing.value || locked || dy < 0) return;
       if (dy > 5 && screen.scrollTop == 0) {
         e.preventDefault();
-        screen.classList.add('refresh-pulling');
+        screen.classList.add('scroll-hidden');
       }
       if (dy >= 120) {
         start();
@@ -75,7 +71,7 @@ watch(() => container.value, () => {
       }
     },
     up({ dy, e }: any) {
-      screen.classList.remove('refresh-pulling');
+      screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
       if (dy > threshold) {
         start();
@@ -84,7 +80,7 @@ watch(() => container.value, () => {
       }
     },
     cancel() {
-      screen.classList.remove('refresh-pulling');
+      screen.classList.remove('scroll-hidden');
       refreshing.value = false;
       offset.value = 0;
     }

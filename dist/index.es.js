@@ -624,13 +624,13 @@ const Xe = /* @__PURE__ */ g(Le, [["render", qe], ["__scopeId", "data-v-9a833657
           minDist: 60
         },
         move({ dy: v, e: r }) {
-          s.value || i || v < 0 || (v > 5 && p.scrollTop == 0 && (r.preventDefault(), p.classList.add("refresh-pulling")), v >= 120 ? d() : e.value = v);
+          s.value || i || v < 0 || (v > 5 && p.scrollTop == 0 && (r.preventDefault(), p.classList.add("scroll-hidden")), v >= 120 ? d() : e.value = v);
         },
         up({ dy: v, e: r }) {
-          p.classList.remove("refresh-pulling"), !(s.value || i) && (v > ee ? d() : e.value = 0);
+          p.classList.remove("scroll-hidden"), !(s.value || i) && (v > ee ? d() : e.value = 0);
         },
         cancel() {
-          p.classList.remove("refresh-pulling"), s.value = !1, e.value = 0;
+          p.classList.remove("scroll-hidden"), s.value = !1, e.value = 0;
         }
       }, {
         passive: !1
@@ -653,7 +653,7 @@ const Xe = /* @__PURE__ */ g(Le, [["render", qe], ["__scopeId", "data-v-9a833657
       [Y, e.value > 0]
     ]);
   }
-}), Ye = /* @__PURE__ */ g(We, [["__scopeId", "data-v-d68a6adf"]]), He = {}, Ue = { class: "t-screen" };
+}), Ye = /* @__PURE__ */ g(We, [["__scopeId", "data-v-b92585c5"]]), He = {}, Ue = { class: "t-screen" };
 function je(t, n) {
   return c(), _("div", Ue, [
     b(t.$slots, "default", {}, void 0, !0)
