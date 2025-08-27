@@ -109,11 +109,13 @@ const props = withDefaults(defineProps<{
   variant?: string,
   color?: string,
   modelValue: String,
-  border?: number
+  border?: number,
+  size?:string
 }>(), {
   placement: 'top-start', // bottom-start top-end ...
   variant: 'border-under',
   color: 'primary',
+  size: 'standard',
   border: 30
 });
 const emit = defineEmits(['update:modelValue'])
@@ -155,6 +157,7 @@ const calcTransform = () => {
 provide('tabsState', {
   active: computed(() => props.modelValue),
   color: color.value,
+  size: props.size,
   variant: props.variant,
   setActive: (val:any) => {
     emit('update:modelValue', val);

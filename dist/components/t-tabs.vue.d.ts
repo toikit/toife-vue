@@ -4,6 +4,7 @@ type __VLS_Props = {
     color?: string;
     modelValue: String;
     border?: number;
+    size?: string;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -22,6 +23,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }>, {
     placement: string;
+    size: string;
     color: string;
     variant: string;
     border: number;
