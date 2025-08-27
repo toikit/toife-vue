@@ -10,10 +10,15 @@ const removeScreen = (index?:any) => {
   if (!index) screens.pop();
 }
 
+const removeAllScreen = () => {
+  screens.splice(0, screens.length);
+}
+
 export default {
   screens,
   addScreen,
   removeScreen,
+  removeAllScreen,
   hasPrevious: computed(() => {
     return screens.length > 1;
   }),

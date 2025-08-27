@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { markRaw, onMounted, ref, watch } from "vue";
+import { markRaw, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
@@ -108,8 +108,9 @@ const reset = () => {
   }, 400);
 }
 
+let ges:any;
 onMounted(() => {
-  gesture(document, {
+  ges = gesture(document, {
     pointerId: null,
 
     beforeEvent(e:any){
@@ -172,6 +173,11 @@ onMounted(() => {
       reset();
     },
   });
+});
+
+onUnmounted(() => {
+  ges && ges.destroy();
+  screenController.removeAllScreen();
 });
 </script>
 
