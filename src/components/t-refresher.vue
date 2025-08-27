@@ -81,6 +81,7 @@ watch(() => container.value, () => {
     },
     cancel() {
       screen.classList.remove('scroll-hidden');
+      if (refreshing.value || locked) return;
       refreshing.value = false;
       offset.value = 0;
     }
