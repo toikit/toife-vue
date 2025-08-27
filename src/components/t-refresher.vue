@@ -66,7 +66,7 @@ watch(() => container.value, () => {
       }
       if (dy >= 120) {
         start();
-      } else {
+      } else if(dy > 10) {
         offset.value = dy;
       }
     },
