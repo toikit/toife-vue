@@ -60,14 +60,12 @@
 
 <template>
   <div class="t-present" ref="present" :class="{[placement]: true}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex}"><slot/></div>
-  <div class="t-present-backdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
+  <div class="t-present-backdrop" @click="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
 </template>
 
 <script lang="ts" setup>
-import { computed, onUnmounted, reactive, ref, watch } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import { presentController } from '../controllers';
-import { gesture } from '@toife/gesture';
-import { blurCurrentActive, isFormElement } from '../utils';
 
 const zIndex = ref(0);
 const isShow = ref(false);
@@ -161,29 +159,10 @@ defineExpose({
   close
 });
 
-let ges:any;
-watch(() => backdrop.value, (val) => {
-  if (val) {
-    ges = gesture(backdrop.value, {
-      beforeEvent(e:any){
-        e.stopPropagation();
-        if (!isFormElement(e.target)) {
-          e.preventDefault();
-          blurCurrentActive();
-        }
-        if (e.type == 'pointerdown') return true;
-        return false;
-      },
-      up(){
-        emit('dismiss', 'backdrop');
-      }
-    });
-  }
-});
-
-onUnmounted(() => {
-  ges && ges.destroy();
-});
+const onClickBackdrop = (e:any) => {
+  e.preventDefault();
+  emit('dismiss', 'backdrop');
+}
 
 // Mounted
 close();

@@ -15,6 +15,10 @@ img.spiner {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+:deep(.refresh-pulling){
+  overflow: hidden;
+}
 </style>
 
 <template>
@@ -32,7 +36,7 @@ const offset = ref(0);
 const refreshing = ref(false);
 const container = ref();
 let cleanup: any;
-const threshold = 80;
+const threshold = 80; // px, kéo đủ mới trigger refresh
 let locked = false;
 const close = () => {
   refreshing.value = false;
@@ -60,6 +64,10 @@ watch(() => container.value, () => {
     
     move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
+      if (dy > 5 && screen.scrollTop == 0) {
+        e.preventDefault();
+        screen.classList.add('refresh-pulling');
+      }
       if (dy >= 120) {
         start();
       } else {
@@ -67,8 +75,8 @@ watch(() => container.value, () => {
       }
     },
     up({ dy, e }: any) {
+      screen.classList.remove('refresh-pulling');
       if (refreshing.value || locked) return;
-
       if (dy > threshold) {
         start();
       } else {
@@ -76,6 +84,7 @@ watch(() => container.value, () => {
       }
     },
     cancel() {
+      screen.classList.remove('refresh-pulling');
       refreshing.value = false;
       offset.value = 0;
     }
