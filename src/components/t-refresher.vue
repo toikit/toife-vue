@@ -32,7 +32,7 @@ const offset = ref(0);
 const refreshing = ref(false);
 const container = ref();
 let cleanup: any;
-const threshold = 80; // px, kéo đủ mới trigger refresh
+const threshold = 80;
 let locked = false;
 const close = () => {
   refreshing.value = false;
@@ -60,7 +60,6 @@ watch(() => container.value, () => {
     
     move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
-      if (dy > 0 && screen.scrollTop == 0) e.preventDefault();
       if (dy >= 120) {
         start();
       } else {

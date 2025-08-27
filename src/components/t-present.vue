@@ -165,13 +165,13 @@ let ges:any;
 watch(() => backdrop.value, (val) => {
   if (val) {
     ges = gesture(backdrop.value, {
-      beforeEvent(from:any, e:any){
+      beforeEvent(e:any){
         e.stopPropagation();
         if (!isFormElement(e.target)) {
           e.preventDefault();
           blurCurrentActive();
         }
-        if (from == 'down') return true;
+        if (e.type == 'pointerdown') return true;
         return false;
       },
       up(){
