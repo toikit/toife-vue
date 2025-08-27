@@ -1142,7 +1142,7 @@ const kt = /* @__PURE__ */ g(gt, [["render", ht]]), $t = /* @__PURE__ */ T({
       }, 8, ["color"])
     ], 2));
   }
-}), At = /* @__PURE__ */ g(Vt, [["__scopeId", "data-v-059bab6e"]]), Nt = /* @__PURE__ */ T({
+}), At = /* @__PURE__ */ g(Vt, [["__scopeId", "data-v-900614a1"]]), Nt = /* @__PURE__ */ T({
   __name: "t-tabs",
   props: {
     placement: { default: "top-start" },

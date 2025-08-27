@@ -3,6 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .t-button{
+    padding: .75rem 0.5rem !important;
+  }
 }
 </style>
 
