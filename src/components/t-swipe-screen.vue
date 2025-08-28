@@ -19,14 +19,11 @@ for (let r of routes) {
 // Add next screen to dom
 const nextScreen = (name:any) => {
   if (!name) return;
-  document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
-  setTimeout(() => {
-    screenController.addScreen({
-      name,
-      target: null,
-      component: markRaw(routeComponents[name] || null)
-    });
-  }, 10);
+  screenController.addScreen({
+    name,
+    target: null,
+    component: markRaw(routeComponents[name] || null)
+  });
 }
 
 // Add ref
@@ -38,6 +35,8 @@ const addScreenRef = (index:any, target:any) => {
     isBusy.value = true;
     target.$el.style.transform = 'translateX(100vw)';
     target.$el.transitionOrigin = 'center';
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
 
     setTimeout(() => {
       target.$el.style.transition = 'transform 0.35s ease';
