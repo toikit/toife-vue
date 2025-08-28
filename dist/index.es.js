@@ -671,11 +671,13 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
     for (let a of r)
       o[a.name] = a.components;
     const d = (a) => {
-      a && (document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), k.addScreen({
-        name: a,
-        target: null,
-        component: ce(o[a] || null)
-      }));
+      a && (document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
+        k.addScreen({
+          name: a,
+          target: null,
+          component: ce(o[a] || null)
+        });
+      }, 10));
     }, p = (a, g) => {
       !g || k.screens[a].target || (k.screens[a].target = g.$el, a > 0 && (c.value = !0, g.$el.style.transform = "translateX(100vw)", g.$el.transitionOrigin = "center", setTimeout(() => {
         g.$el.style.transition = "transform 0.35s ease", g.$el.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), k.screens.length > 1 && (k.lastScreen.value.target.style.transitionOrigin = "left center", k.lastScreen.value.target.style.transition = "transform 0.35s ease", k.lastScreen.value.target.style.transform = "translateX(-30vw) scale(0.5) perspective(100vw) rotateY(30deg)"), setTimeout(() => {
@@ -745,7 +747,7 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
       }, null, 4)
     ], 64));
   }
-}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-b1b9b26f"]]), Me = /* @__PURE__ */ T({
+}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-9c2cbbc9"]]), Me = /* @__PURE__ */ T({
   __name: "t-toolbar",
   props: {
     placement: { default: "bottom" },

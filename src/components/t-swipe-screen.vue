@@ -20,11 +20,13 @@ for (let r of routes) {
 const nextScreen = (name:any) => {
   if (!name) return;
   document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
-  screenController.addScreen({
-    name,
-    target: null,
-    component: markRaw(routeComponents[name] || null)
-  });
+  setTimeout(() => {
+    screenController.addScreen({
+      name,
+      target: null,
+      component: markRaw(routeComponents[name] || null)
+    });
+  }, 10);
 }
 
 // Add ref
