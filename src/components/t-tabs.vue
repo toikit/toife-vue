@@ -137,17 +137,17 @@ const calcTransform = () => {
     if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
       let active = container.value.querySelector('.active');
       if (active) {
-        let l = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left;
-        let w = active.offsetWidth / 2;
-        transform.value = (l + w - (props.border / 2)) + 'px';
+        let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+        let s = active.offsetWidth / 2;
+        transform.value = (p + s - (props.border / 2)) + 'px';
       }
     }
     else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
       let active = container.value.querySelector('.active');
       if (active) {
-        let l = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top;
-        let w = active.offsetHeight / 2;
-        transform.value = (l + w - (props.border / 2)) + 'px';
+        let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+        let s = active.offsetHeight / 2;
+        transform.value = (p + s - (props.border / 2)) + 'px';
       }
     }
   }, 50);

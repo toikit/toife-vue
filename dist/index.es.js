@@ -1,5 +1,5 @@
-import { createElementBlock as _, openBlock as u, renderSlot as h, defineComponent as T, ref as y, computed as S, reactive as te, watch as A, Fragment as V, withDirectives as Y, createCommentVNode as B, normalizeStyle as w, normalizeClass as x, vShow as H, createElementVNode as $, createVNode as M, onUnmounted as N, createBlock as C, withCtx as P, toDisplayString as D, renderList as U, createTextVNode as O, createApp as j, h as F, unref as E, onMounted as J, resolveDynamicComponent as le, markRaw as ce, inject as ie, provide as ue } from "vue";
-import { gesture as L } from "@toife/gesture";
+import { createElementBlock as _, openBlock as u, renderSlot as h, defineComponent as T, ref as y, computed as S, reactive as te, watch as A, Fragment as V, withDirectives as Y, createCommentVNode as B, normalizeStyle as w, normalizeClass as x, vShow as H, createElementVNode as $, createVNode as M, onUnmounted as L, createBlock as C, withCtx as P, toDisplayString as D, renderList as U, createTextVNode as O, createApp as j, h as F, unref as E, onMounted as J, resolveDynamicComponent as le, markRaw as ce, inject as ie, provide as ue } from "vue";
+import { gesture as N } from "@toife/gesture";
 import { useRouter as oe, useRoute as de } from "vue-router";
 const q = (t) => t && (t.tagName == "INPUT" || t.tagName == "TEXTAREA" || t.isContentEditable), X = () => {
   const t = document.activeElement;
@@ -214,12 +214,12 @@ const _e = /* @__PURE__ */ b(fe, [["render", ve]]), ye = /* @__PURE__ */ T({
     return n({
       open: p
     }), A(() => c.value, (l) => {
-      l && (i = L(c.value, {
+      l && (i = N(c.value, {
         beforeEvent(a) {
           return a.stopPropagation(), q(a.target) || (a.preventDefault(), X()), !1;
         }
       }));
-    }), N(() => {
+    }), L(() => {
       i && i.destroy();
     }), (l, a) => (u(), C(W, {
       placement: "center",
@@ -306,12 +306,12 @@ const _e = /* @__PURE__ */ b(fe, [["render", ve]]), ye = /* @__PURE__ */ T({
     return n({
       open: p
     }), A(() => c.value, (l) => {
-      l && (i = L(c.value, {
+      l && (i = N(c.value, {
         beforeEvent(a) {
           return a.stopPropagation(), q(a.target) || (a.preventDefault(), X()), !1;
         }
       }));
-    }), N(() => {
+    }), L(() => {
       i && i.destroy();
     }), (l, a) => (u(), C(W, {
       placement: "bottom",
@@ -387,12 +387,12 @@ const _e = /* @__PURE__ */ b(fe, [["render", ve]]), ye = /* @__PURE__ */ T({
         s.value = !1;
       }
     }), A(() => r.value, (p) => {
-      p && (c = L(r.value, {
+      p && (c = N(r.value, {
         beforeEvent(f) {
           return f.stopPropagation(), q(f.target) || (f.preventDefault(), X()), !1;
         }
       }));
-    }), N(() => {
+    }), L(() => {
       c && c.destroy();
     }), (p, f) => (u(), C(W, {
       placement: "center",
@@ -577,7 +577,7 @@ const Ve = /* @__PURE__ */ T({
       h(e.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), Ne = /* @__PURE__ */ b(Ve, [["__scopeId", "data-v-ecb72421"]]), Le = /* @__PURE__ */ T({
+}), Le = /* @__PURE__ */ b(Ve, [["__scopeId", "data-v-ecb72421"]]), Ne = /* @__PURE__ */ T({
   __name: "t-card",
   props: {
     color: { default: null }
@@ -622,7 +622,7 @@ const We = /* @__PURE__ */ b(Oe, [["render", Xe], ["__scopeId", "data-v-9a833657
     return A(() => r.value, () => {
       c && c.destroy();
       let f = r.value.closest(".t-content");
-      f && (c = L(f, {
+      f && (c = N(f, {
         options: {
           minDist: 60
         },
@@ -638,7 +638,7 @@ const We = /* @__PURE__ */ b(Oe, [["render", Xe], ["__scopeId", "data-v-9a833657
       }, {
         passive: !1
       }));
-    }), N(() => {
+    }), L(() => {
       c && c.destroy();
     }), (f, v) => Y((u(), _("div", {
       class: "t-refresher",
@@ -699,7 +699,7 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
     };
     let l;
     return J(() => {
-      l = L(document, {
+      l = N(document, {
         pointerId: null,
         beforeEvent(a) {
           return c.value || k.screens.length < 2 ? !1 : (a.type == "pointerdown" && !this.pointerId && (this.pointerId = a.pointerId), this.pointerId == a.pointerId);
@@ -725,7 +725,7 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
           v();
         }
       });
-    }), N(() => {
+    }), L(() => {
       l && l.destroy(), k.removeAllScreen();
     }), (a, g) => (u(), _(V, null, [
       (u(!0), _(V, null, U(E(k).screens, (m, I) => (u(), C(re, {
@@ -843,7 +843,7 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
       }, 300);
     };
     return A(() => s.value, (v) => {
-      v && (i = L(s.value, {
+      v && (i = N(s.value, {
         options: {
           minDist: 30
         },
@@ -878,7 +878,7 @@ const re = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
           f(), r.value.open();
         }
       }));
-    }), N(() => {
+    }), L(() => {
       i && i.destroy();
     }), (v, l) => (u(), C(W, {
       ref_key: "present",
@@ -1149,7 +1149,7 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ T({
       }, 8, ["size", "color"])
     ], 2));
   }
-}), Nt = /* @__PURE__ */ b(Vt, [["__scopeId", "data-v-36c12a50"]]), Lt = /* @__PURE__ */ T({
+}), Lt = /* @__PURE__ */ b(Vt, [["__scopeId", "data-v-36c12a50"]]), Nt = /* @__PURE__ */ T({
   __name: "t-tabs",
   props: {
     placement: { default: "top-start" },
@@ -1169,13 +1169,13 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ T({
         if (o.placement.startsWith("top-") || o.placement.startsWith("bottom-")) {
           let d = r.value.querySelector(".active");
           if (d) {
-            let p = d.getBoundingClientRect().left - r.value.getBoundingClientRect().left, f = d.offsetWidth / 2;
+            let p = d.getBoundingClientRect().left - r.value.getBoundingClientRect().left + r.value.scrollLeft, f = d.offsetWidth / 2;
             s.value = p + f - o.border / 2 + "px";
           }
         } else if (o.placement.startsWith("left-") || o.placement.startsWith("right-")) {
           let d = r.value.querySelector(".active");
           if (d) {
-            let p = d.getBoundingClientRect().top - r.value.getBoundingClientRect().top, f = d.offsetHeight / 2;
+            let p = d.getBoundingClientRect().top - r.value.getBoundingClientRect().top + r.value.scrollTop, f = d.offsetHeight / 2;
             s.value = p + f - o.border / 2 + "px";
           }
         }
@@ -1200,9 +1200,9 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ T({
       h(d.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), Ot = /* @__PURE__ */ b(Lt, [["__scopeId", "data-v-7954ab38"]]), Ft = () => ({
+}), Ot = /* @__PURE__ */ b(Nt, [["__scopeId", "data-v-65a2c74c"]]), Ft = () => ({
   install: (t) => {
-    pe(), t.component("t-app", _e), t.component("t-screen", re), t.component("t-swipe-screen", Ke), t.component("t-cable", Ne), t.component("t-toolbar", Je), t.component("t-content", We), t.component("t-card", Le), t.component("t-refresher", He), t.component("t-button", G), t.component("t-back-button", Ze), t.component("t-present", W), t.component("t-text", K), t.component("t-sheet", nt), t.component("t-pull-signal", ae), t.component("t-input", ct), t.component("t-textarea", dt), t.component("t-rich-text", mt), t.component("t-grid", gt), t.component("t-grid-item", $t), t.component("t-divider", wt), t.component("t-toggle-password", It), t.component("t-loading-icon", Q), t.component("t-alert", ne), t.component("t-avatar", zt), t.component("t-collapse", Dt), t.component("t-toast", se), t.component("t-switch", At), t.component("t-tab", Nt), t.component("t-tabs", Ot);
+    pe(), t.component("t-app", _e), t.component("t-screen", re), t.component("t-swipe-screen", Ke), t.component("t-cable", Le), t.component("t-toolbar", Je), t.component("t-content", We), t.component("t-card", Ne), t.component("t-refresher", He), t.component("t-button", G), t.component("t-back-button", Ze), t.component("t-present", W), t.component("t-text", K), t.component("t-sheet", nt), t.component("t-pull-signal", ae), t.component("t-input", ct), t.component("t-textarea", dt), t.component("t-rich-text", mt), t.component("t-grid", gt), t.component("t-grid-item", $t), t.component("t-divider", wt), t.component("t-toggle-password", It), t.component("t-loading-icon", Q), t.component("t-alert", ne), t.component("t-avatar", zt), t.component("t-collapse", Dt), t.component("t-toast", se), t.component("t-switch", At), t.component("t-tab", Lt), t.component("t-tabs", Ot);
   }
 });
 export {
