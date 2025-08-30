@@ -30,6 +30,7 @@ import TToast from './components/t-toast.vue';
 import TSwitch from './components/t-switch.vue';
 import TTab from './components/t-tab.vue';
 import TTabs from './components/t-tabs.vue';
+import TLoadingApp from './components/t-loading-app.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -67,6 +68,7 @@ export const createToife = () => {
       app.component('t-switch', TSwitch);
       app.component('t-tab', TTab);
       app.component('t-tabs', TTabs);
+      app.component('t-loading-app', TLoadingApp);
     }
   }
 }
