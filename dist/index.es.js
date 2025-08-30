@@ -712,7 +712,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
         },
         move({ dx: a }) {
           const g = window.innerWidth, m = a / g * 100, I = k.currentScreen.value.target, R = k.lastScreen?.value?.target;
-          if (a > 0 && a <= g) {
+          if (a > 15 && a <= g) {
             I.style.transition = "transform 0s ease", I.style.transform = `translateX(${a}px)`, R.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), R.style.transform = `translateX(calc(-30vw + (30vw / 100 * ${m}))) scale(${0.5 + 0.5 / 100 * m}) perspective(100vw) rotateY(${30 - 30 / 100 * m}deg)`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * m}`);
             return;
           }
@@ -745,7 +745,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
       }, null, 4)
     ], 64));
   }
-}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-ee2226c5"]]), Me = /* @__PURE__ */ T({
+}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-c4854913"]]), Me = /* @__PURE__ */ T({
   __name: "t-toolbar",
   props: {
     placement: { default: "bottom" },
