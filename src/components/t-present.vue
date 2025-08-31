@@ -18,6 +18,11 @@
   height: fit-content;
   transition: transform var(--t-present-transition, 0.2s) ease;
 
+  &.fullscreen{
+    width: 100%;
+    height: 100%;
+  }
+
   &.bottom{
     bottom: 0;
     left: 0;
@@ -59,7 +64,7 @@
 </style>
 
 <template>
-  <div class="t-present" ref="present" :class="{[placement]: true}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex}"><slot/></div>
+  <div class="t-present" ref="present" :class="{[placement]: true, fullscreen: props.fullscreen}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex}"><slot/></div>
   <div class="t-present-backdrop" @click="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
 </template>
 
@@ -75,11 +80,13 @@ const props = withDefaults(defineProps<{
   keepalive?: boolean,
   visible?: boolean,
   backdrop?:boolean,
-  placement?: string
+  placement?: string,
+  fullscreen?:boolean
 }>(), {
   keepalive: true,
   visible: false,
   backdrop: true,
+  fullscreen: false,
   placement: 'bottom' // top, left, right, center, bottom
 });
 const emit = defineEmits(['dismiss']);

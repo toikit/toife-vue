@@ -3,6 +3,7 @@ type __VLS_Props = {
     visible?: boolean;
     backdrop?: boolean;
     placement?: string;
+    fullscreen?: boolean;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -29,6 +30,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
     visible: boolean;
     backdrop: boolean;
     placement: string;
+    fullscreen: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     present: HTMLDivElement;
     backdrop: HTMLDivElement;
