@@ -2,8 +2,6 @@
 .t-sheet{
   background: var(--background);
   position: relative;
-  height: 100%;
-  width: 100%;
 
   &.rounded:not(.fullscreen){
     &.bottom.radius{
@@ -34,6 +32,14 @@
       overflow: hidden;
     }
   }
+
+  &.bottom, &.top, &.fullscreen{
+    width: var(--t-app-width);
+  }
+
+  &.left, &.right, &.fullscreen{
+    height: var(--t-app-height);
+  }
 }
 
 .t-sheet-close{
@@ -52,7 +58,7 @@
 </style>
 
 <template>
-  <t-present ref="present" :size="props.size" :fullscreen="props.fullscreen" :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive" @dismiss="close">
+  <t-present ref="present" :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive" @dismiss="close">
     <t-pull-signal :placement="props.placement" v-if="props.gesture && props.placement != 'center'"></t-pull-signal>
     <button class="t-sheet-close" @click="close('close-button')" v-if="props.closeButton && props.placement == 'center'"><slot name="close-icon"><i class="ri-close-large-line"></i></slot></button>
     <div class="t-sheet" :style="{'--background': props.background}" ref="sheet" :class="{'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius}">
@@ -78,7 +84,6 @@ const props = withDefaults(defineProps<{
   backdrop?:boolean,
   rounded?:boolean,
   radius?:boolean,
-  size?:any,
   closeButton?:boolean // only with center
 }>(), {
   background: 'var(--t-color-surface)',

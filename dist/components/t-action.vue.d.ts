@@ -1,7 +1,6 @@
 type __VLS_Props = {
     actions: Array<any>;
     dismiss?: Array<any>;
-    size?: any;
 };
 declare const _default: import('vue').DefineComponent<__VLS_Props, {
     open: () => void;

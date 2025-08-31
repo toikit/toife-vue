@@ -1,6 +1,5 @@
 type __VLS_Props = {
     type?: string;
-    size?: any;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;

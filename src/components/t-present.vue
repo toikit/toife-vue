@@ -18,63 +18,28 @@
   height: fit-content;
   transition: transform var(--t-present-transition, 0.2s) ease;
 
-  &.fullscreen{
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-  }
-
   &.bottom{
     bottom: 0;
     left: 0;
     transform: translateY(var(--t-present-content-transform, 100%));
-
-    &:not(.fullscreen){
-      width: 100%;
-      height: var(--size);
-      max-width: 100%;
-      max-height: calc(100% - var(--t-safe-area-top));
-    }
   }
 
   &.top{
     top: 0;
     left: 0;
     transform: translateY(var(--t-present-content-transform, -100%));
-
-    &:not(.fullscreen){
-      width: 100%;
-      height:var(--size);
-      max-width: 100%;
-      max-height: calc(100% - var(--t-safe-area-bottom));
-    }
   }
 
   &.right{
     top: 0;
     right: 0;
     transform: translateX(var(--t-present-content-transform, 100%));
-
-    &:not(.fullscreen){
-      height: 100%;
-      width: var(--size);
-      max-height: 100%;
-      max-width: calc(100% - var(--t-safe-area-left));
-    }
   }
 
   &.left{
     top: 0;
     left: 0;
     transform: translateX(var(--t-present-content-transform, -100%));
-
-    &:not(.fullscreen){
-      height: 100%;
-      width: var(--size);
-      max-height: 100%;
-      max-width: calc(100% - var(--t-safe-area-right));
-    }
   }
 
   &.center{
@@ -83,19 +48,12 @@
     left: 50%;
     opacity: var(--t-present-content-opacity, 1);
     transition: opacity var(--t-present-transition, 0.2s) ease;
-
-    &:not(.fullscreen){
-      height: var(--size);
-      width: var(--size);
-      max-width: calc(100% - var(--t-safe-area-right) - var(--t-safe-area-left));
-      max-height: calc(100% - var(--t-safe-area-top) - var(--t-safe-area-bottom));
-    }
   }
 }
 </style>
 
 <template>
-  <div class="t-present" ref="present" :class="{[placement]: true, fullscreen: props.fullscreen}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex, '--size': props.size }"><slot/></div>
+  <div class="t-present" ref="present" :class="{[placement]: true}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex }"><slot/></div>
   <div class="t-present-backdrop" @click="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
 </template>
 
@@ -112,14 +70,10 @@ const props = withDefaults(defineProps<{
   visible?: boolean,
   backdrop?:boolean,
   placement?: string,
-  fullscreen?:boolean,
-  size?:any
 }>(), {
   keepalive: true,
   visible: false,
   backdrop: true,
-  fullscreen: false,
-  size: 'fit-content',
   placement: 'bottom' // top, left, right, center, bottom
 });
 const emit = defineEmits(['dismiss']);

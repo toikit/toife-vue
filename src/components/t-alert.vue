@@ -50,7 +50,7 @@
 </style>
 
 <template>
-  <t-present placement="center" :size="props.size" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
+  <t-present placement="center" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
     <div class="t-alert" :class="{pop}" ref="container">
       <slot name="header">
         <div class="t-alert-header" v-if="props.title">{{ props.title }}</div>
@@ -78,8 +78,7 @@ const props = defineProps<{
   title?:string
   message:string,
   actions: Array<any>,
-  dismiss?: Array<any>,
-  size?:any
+  dismiss?: Array<any>
 }>();
 const visible = ref(false);
 const emit = defineEmits(['dismiss']);

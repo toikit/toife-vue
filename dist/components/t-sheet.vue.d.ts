@@ -8,7 +8,6 @@ type __VLS_Props = {
     backdrop?: boolean;
     rounded?: boolean;
     radius?: boolean;
-    size?: any;
     closeButton?: boolean;
 };
 declare function __VLS_template(): {
@@ -26,8 +25,6 @@ declare function __VLS_template(): {
                 readonly visible?: boolean | undefined;
                 readonly backdrop?: boolean | undefined;
                 readonly placement?: string | undefined;
-                readonly fullscreen?: boolean | undefined;
-                readonly size?: any;
                 readonly onDismiss?: ((...args: any[]) => any) | undefined;
             } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
             $attrs: {
@@ -52,8 +49,6 @@ declare function __VLS_template(): {
                 visible?: boolean;
                 backdrop?: boolean;
                 placement?: string;
-                fullscreen?: boolean;
-                size?: any;
             }> & Readonly<{
                 onDismiss?: ((...args: any[]) => any) | undefined;
             }>, {
@@ -67,8 +62,6 @@ declare function __VLS_template(): {
                 visible: boolean;
                 backdrop: boolean;
                 placement: string;
-                fullscreen: boolean;
-                size: any;
             }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
                 beforeCreate?: (() => void) | (() => void)[];
                 created?: (() => void) | (() => void)[];
@@ -94,18 +87,14 @@ declare function __VLS_template(): {
             visible: boolean;
             backdrop: boolean;
             placement: string;
-            fullscreen: boolean;
-            size: any;
         }> & Omit<Readonly<{
             keepalive?: boolean;
             visible?: boolean;
             backdrop?: boolean;
             placement?: string;
-            fullscreen?: boolean;
-            size?: any;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
-        }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement" | "fullscreen" | "size")> & import('vue').ShallowUnwrapRef<{
+        }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
             render: (value: any) => void;
             open: () => void;
             close: () => void;
@@ -128,10 +117,10 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     visible: boolean;
     backdrop: boolean;
     placement: string;
-    fullscreen: boolean;
     rounded: boolean;
     background: string;
     gesture: boolean;
+    fullscreen: boolean;
     radius: boolean;
     closeButton: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
@@ -143,8 +132,6 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             readonly visible?: boolean | undefined;
             readonly backdrop?: boolean | undefined;
             readonly placement?: string | undefined;
-            readonly fullscreen?: boolean | undefined;
-            readonly size?: any;
             readonly onDismiss?: ((...args: any[]) => any) | undefined;
         } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
         $attrs: {
@@ -169,8 +156,6 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             visible?: boolean;
             backdrop?: boolean;
             placement?: string;
-            fullscreen?: boolean;
-            size?: any;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
         }>, {
@@ -184,8 +169,6 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             visible: boolean;
             backdrop: boolean;
             placement: string;
-            fullscreen: boolean;
-            size: any;
         }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
             beforeCreate?: (() => void) | (() => void)[];
             created?: (() => void) | (() => void)[];
@@ -211,18 +194,14 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         visible: boolean;
         backdrop: boolean;
         placement: string;
-        fullscreen: boolean;
-        size: any;
     }> & Omit<Readonly<{
         keepalive?: boolean;
         visible?: boolean;
         backdrop?: boolean;
         placement?: string;
-        fullscreen?: boolean;
-        size?: any;
     }> & Readonly<{
         onDismiss?: ((...args: any[]) => any) | undefined;
-    }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement" | "fullscreen" | "size")> & import('vue').ShallowUnwrapRef<{
+    }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
         render: (value: any) => void;
         open: () => void;
         close: () => void;

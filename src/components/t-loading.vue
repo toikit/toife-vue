@@ -8,7 +8,7 @@
 </style>
 
 <template>
-  <t-present placement="center" :size="props.size" :backdrop="true" :keepalive="false" :visible="visible">
+  <t-present placement="center" :backdrop="true" :keepalive="false" :visible="visible">
     <div class="t-loading" ref="container">
       <slot><TLoadingIcon :type="props.type"/></slot>
     </div>
@@ -23,8 +23,7 @@ import { blurCurrentActive, isFormElement } from '../utils';
 import { gesture } from '@toife/gesture';
 
 const props = withDefaults(defineProps<{
-  type?: string,
-  size?:any
+  type?: string
 }>(), {
   type: 'spinner'
 });
