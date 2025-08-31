@@ -21,6 +21,8 @@
   &.fullscreen{
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   &.bottom{
@@ -29,6 +31,11 @@
     width: 100%;
     transform: translateY(var(--t-present-content-transform, 100%));
     height: var(--size);
+
+    &:not(.fullscreen){
+      max-width: 100%;
+      max-height: calc(100% - var(--t-safe-area-top));
+    }
   }
 
   &.top{
@@ -37,6 +44,11 @@
     width: 100%;
     height:var(--size);
     transform: translateY(var(--t-present-content-transform, -100%));
+
+    &:not(.fullscreen){
+      max-width: 100%;
+      max-height: calc(100% - var(--t-safe-area-bottom));
+    }
   }
 
   &.right{
@@ -45,6 +57,11 @@
     height: 100%;
     width: var(--size);
     transform: translateX(var(--t-present-content-transform, 100%));
+
+    &:not(.fullscreen){
+      max-height: 100%;
+      max-width: calc(100% - var(--t-safe-area-left));
+    }
   }
 
   &.left{
@@ -53,6 +70,11 @@
     height: 100%;
     width: var(--size);
     transform: translateX(var(--t-present-content-transform, -100%));
+
+    &:not(.fullscreen){
+      max-height: 100%;
+      max-width: calc(100% - var(--t-safe-area-right));
+    }
   }
 
   &.center{

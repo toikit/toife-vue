@@ -92,7 +92,7 @@ const ye = /* @__PURE__ */ b(me, [["render", _e]]), ge = /* @__PURE__ */ T({
       ]) : C("", !0)
     ], 64));
   }
-}), W = /* @__PURE__ */ b(ge, [["__scopeId", "data-v-cd09c539"]]), be = /* @__PURE__ */ T({
+}), W = /* @__PURE__ */ b(ge, [["__scopeId", "data-v-c39ded8b"]]), be = /* @__PURE__ */ T({
   __name: "t-loading-icon",
   props: {
     size: {
