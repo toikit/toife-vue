@@ -4,10 +4,10 @@
 
 <style>
 .t-app{
-  height: 100vh;
-  width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
+  height: var(--t-app-height);
+  width: var(--t-app-width);
+  max-height: var(--t-app-height);
+  max-width: var(--t-app-width);
   position: absolute;
   top: 0;
   left: 0;

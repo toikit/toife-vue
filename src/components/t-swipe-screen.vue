@@ -33,7 +33,7 @@ const addScreenRef = (index:any, target:any) => {
 
   if (index > 0) {
     isBusy.value = true;
-    target.$el.style.transform = 'translateX(100%)';
+    target.$el.style.transform = 'translateX(var(--t-app-width))';
     target.$el.transitionOrigin = 'center';
     document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
     document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
@@ -47,7 +47,7 @@ const addScreenRef = (index:any, target:any) => {
       if (screenController.screens.length > 1) {
         screenController.lastScreen.value.target.style.transitionOrigin = 'left center';
         screenController.lastScreen.value.target.style.transition = 'transform 0.35s ease';
-        screenController.lastScreen.value.target.style.transform = 'translateX(-30vw) scale(0.5) perspective(100%) rotateY(30deg)';
+        screenController.lastScreen.value.target.style.transform = 'translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)';
       }
 
       setTimeout(() => {
@@ -61,10 +61,10 @@ const addScreenRef = (index:any, target:any) => {
 // Pop back screen
 const backScreen = () => {
   screenController.currentScreen.value.target.style.transition = 'transform 0.35s ease';
-  screenController.currentScreen.value.target.style.transform = 'translateX(100%) scale(1)';
+  screenController.currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
 
   screenController.lastScreen.value.target.style.transition = 'transform 0.35s ease';
-  screenController.lastScreen.value.target.style.transform = 'translateX(0px) scale(1) perspective(100%) rotateY(0deg)';
+  screenController.lastScreen.value.target.style.transform = 'translateX(0px) scale(1) perspective(var(--t-app-width)) rotateY(0deg)';
 
   document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
   document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
@@ -100,7 +100,7 @@ const reset = () => {
   current.style.transform = `translateX(0px)`;
 
   last.style.transition = 'transform 0.35s ease';
-  last.style.transform = `translateX(-30vw) scale(0.5) perspective(100%) rotateY(30deg)`;
+  last.style.transform = `translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)`;
 
   document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
   document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
@@ -150,8 +150,7 @@ onMounted(() => {
         last.style.transition = 'transform 0s ease';
 
         document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
-
-        last.style.transform = `translateX(calc(-30vw + (30vw / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(100%) rotateY(${30 - (30 / 100 * percent)}deg)`;
+        last.style.transform = `translateX(calc((var(--t-app-width) / 100 * 30 * -1) + ((var(--t-app-width) / 100 * 30) / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(var(--t-app-width)) rotateY(${30 - (30 / 100 * percent)}deg)`;
         document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
         return;
       }
