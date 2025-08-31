@@ -2,19 +2,8 @@
 .t-sheet{
   background: var(--background);
   position: relative;
-
-  &.fullscreen{
-    height: 100%;
-    width: 100%;
-  }
-
-  &.bottom, &.top{
-    width: 100%;
-  }
-
-  &.left, &.right{
-    height: 100%;
-  }
+  height: 100%;
+  width: 100%;
 
   &.rounded:not(.fullscreen){
     &.bottom.radius{
