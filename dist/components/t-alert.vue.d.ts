@@ -3,6 +3,7 @@ type __VLS_Props = {
     message: string;
     actions: Array<any>;
     dismiss?: Array<any>;
+    size?: any;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;

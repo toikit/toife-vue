@@ -32,7 +32,7 @@
 </style>
 
 <template>
-  <t-present placement="bottom" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
+  <t-present placement="bottom" :size="props.size" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
     <div class="t-action" :class="{pop}" ref="container">
       <div v-for="buttons in props.actions">
         <t-button v-for="btn in buttons" :color="btn.color" :size="btn.size" :variant="btn.variant" @click="choose(btn)" block>{{ btn.text }}</t-button>
@@ -50,7 +50,8 @@ import { gesture } from '@toife/gesture';
 
 const props = defineProps<{
   actions: Array<any>,
-  dismiss?: Array<any>
+  dismiss?: Array<any>,
+  size?:any
 }>();
 const visible = ref(false);
 const emit = defineEmits(['dismiss']);

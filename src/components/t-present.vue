@@ -28,12 +28,14 @@
     left: 0;
     width: 100%;
     transform: translateY(var(--t-present-content-transform, 100%));
+    height: var(--size);
   }
 
   &.top{
     top: 0;
     left: 0;
     width: 100%;
+    height:var(--size);
     transform: translateY(var(--t-present-content-transform, -100%));
   }
 
@@ -41,6 +43,7 @@
     top: 0;
     right: 0;
     height: 100%;
+    width: var(--size);
     transform: translateX(var(--t-present-content-transform, 100%));
   }
 
@@ -48,12 +51,15 @@
     top: 0;
     left: 0;
     height: 100%;
+    width: var(--size);
     transform: translateX(var(--t-present-content-transform, -100%));
   }
 
   &.center{
-    width: fit-content;
-    height: fit-content;
+    min-width: var(--size);
+    min-height: var(--size);
+    max-width: 100%;
+    max-height: 100%;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -64,7 +70,7 @@
 </style>
 
 <template>
-  <div class="t-present" ref="present" :class="{[placement]: true, fullscreen: props.fullscreen}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex}"><slot/></div>
+  <div class="t-present" ref="present" :class="{[placement]: true, fullscreen: props.fullscreen}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex, '--size': props.size }"><slot/></div>
   <div class="t-present-backdrop" @click="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
 </template>
 
@@ -81,12 +87,14 @@ const props = withDefaults(defineProps<{
   visible?: boolean,
   backdrop?:boolean,
   placement?: string,
-  fullscreen?:boolean
+  fullscreen?:boolean,
+  size?:any
 }>(), {
   keepalive: true,
   visible: false,
   backdrop: true,
   fullscreen: false,
+  size: 'fit-content',
   placement: 'bottom' // top, left, right, center, bottom
 });
 const emit = defineEmits(['dismiss']);
