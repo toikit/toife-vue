@@ -8,6 +8,14 @@
     width: 100%;
   }
 
+  &.bottom, &.top{
+    width: 100%;
+  }
+
+  &.left, &.right{
+    height: 100%;
+  }
+
   &.rounded:not(.fullscreen){
     &.bottom.radius{
       border-top-left-radius: 15px;
