@@ -82,7 +82,7 @@ const props = withDefaults(defineProps<{
   placement?:any,
   size?:any
 }>(), {
-  placement: 'bottom',
+  placement: 'none-position',
   size: '50px'
 });
 </script>
