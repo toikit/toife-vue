@@ -3,42 +3,60 @@
   background: var(--background);
   position: relative;
 
-  &.rounded:not(.fullscreen){
-    &.bottom.radius{
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
-
-    &.top.radius{
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    &.left.radius{
-      border-top-right-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    &.right.radius{
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-    }
-
-    &.center.radius{
-      border-radius: 15px;
-    }
-
-    &.radius{
-      overflow: hidden;
-    }
-  }
-
   &.bottom, &.top, &.fullscreen{
     width: var(--t-app-width);
   }
 
   &.left, &.right, &.fullscreen{
     height: var(--t-app-height);
+  }
+
+  &:not(.fullscreen){
+    &.rounded{
+      &.bottom.radius{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      &.top.radius{
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+      &.left.radius{
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+      &.right.radius{
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+
+      &.center.radius{
+        border-radius: 15px;
+      }
+
+      &.radius{
+        overflow: hidden;
+      }
+    }
+    
+    &.top{
+      max-height: calc(var(--t-app-height) - var(--t-safe-area-bottom));
+    }
+
+    &.bottom{
+      max-height: calc(var(--t-app-height) - var(--t-safe-area-top));
+    }
+
+    &.left{
+      max-width: calc(var(--t-app-width) - var(--t-safe-area-right));
+    }
+
+    &.right{
+      max-width: calc(var(--t-app-width) - var(--t-safe-area-left));
+    }
   }
 }
 
