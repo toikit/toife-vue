@@ -90,7 +90,7 @@ const ye = /* @__PURE__ */ b(me, [["render", _e]]), ge = /* @__PURE__ */ T({
       ]) : C("", !0)
     ], 64));
   }
-}), W = /* @__PURE__ */ b(ge, [["__scopeId", "data-v-0ec92514"]]), be = /* @__PURE__ */ T({
+}), W = /* @__PURE__ */ b(ge, [["__scopeId", "data-v-3e2364a7"]]), be = /* @__PURE__ */ T({
   __name: "t-loading-icon",
   props: {
     size: {
@@ -345,7 +345,7 @@ const ye = /* @__PURE__ */ b(me, [["render", _e]]), ge = /* @__PURE__ */ T({
       _: 1
     }, 8, ["visible"]));
   }
-}), Se = /* @__PURE__ */ b(Ie, [["__scopeId", "data-v-73339adc"]]), jt = (t = {}) => ({
+}), Se = /* @__PURE__ */ b(Ie, [["__scopeId", "data-v-5c29cf79"]]), jt = (t = {}) => ({
   open() {
     return new Promise((n) => {
       let o = document.body.querySelector(".t-app");
@@ -533,7 +533,7 @@ const ye = /* @__PURE__ */ b(me, [["render", _e]]), ge = /* @__PURE__ */ T({
       style: w({ "--space": e.space, ...f.value })
     }, D(e.message), 7)) : C("", !0);
   }
-}), se = /* @__PURE__ */ b(Re, [["__scopeId", "data-v-98e8be37"]]), Gt = (t = {}) => ({
+}), se = /* @__PURE__ */ b(Re, [["__scopeId", "data-v-61960e03"]]), Gt = (t = {}) => ({
   open() {
     let n = document.body.querySelector(".t-app");
     if (!n) return;
@@ -662,7 +662,7 @@ function Fe(t, n) {
     h(t.$slots, "default", {}, void 0, !0)
   ]);
 }
-const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649"]]), Ge = /* @__PURE__ */ T({
+const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-c2a3436c"]]), Ge = /* @__PURE__ */ T({
   __name: "t-swipe-screen",
   emits: ["change"],
   setup(t, { emit: n }) {
@@ -677,13 +677,13 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
         component: ie(o[a] || null)
       });
     }, p = (a, g) => {
-      !g || k.screens[a].target || (k.screens[a].target = g.$el, a > 0 && (c.value = !0, g.$el.style.transform = "translateX(100vw)", g.$el.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
-        g.$el.style.transition = "transform 0.35s ease", g.$el.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), k.screens.length > 1 && (k.lastScreen.value.target.style.transitionOrigin = "left center", k.lastScreen.value.target.style.transition = "transform 0.35s ease", k.lastScreen.value.target.style.transform = "translateX(-30vw) scale(0.5) perspective(100vw) rotateY(30deg)"), setTimeout(() => {
+      !g || k.screens[a].target || (k.screens[a].target = g.$el, a > 0 && (c.value = !0, g.$el.style.transform = "translateX(100%)", g.$el.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
+        g.$el.style.transition = "transform 0.35s ease", g.$el.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), k.screens.length > 1 && (k.lastScreen.value.target.style.transitionOrigin = "left center", k.lastScreen.value.target.style.transition = "transform 0.35s ease", k.lastScreen.value.target.style.transform = "translateX(-30vw) scale(0.5) perspective(100%) rotateY(30deg)"), setTimeout(() => {
           u("change"), c.value = !1;
         }, 400);
       }, 100)));
     }, f = () => {
-      k.currentScreen.value.target.style.transition = "transform 0.35s ease", k.currentScreen.value.target.style.transform = "translateX(100vw) scale(1)", k.lastScreen.value.target.style.transition = "transform 0.35s ease", k.lastScreen.value.target.style.transform = "translateX(0px) scale(1) perspective(100vw) rotateY(0deg)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), c.value = !0, setTimeout(() => {
+      k.currentScreen.value.target.style.transition = "transform 0.35s ease", k.currentScreen.value.target.style.transform = "translateX(100%) scale(1)", k.lastScreen.value.target.style.transition = "transform 0.35s ease", k.lastScreen.value.target.style.transform = "translateX(0px) scale(1) perspective(100%) rotateY(0deg)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), c.value = !0, setTimeout(() => {
         k.removeScreen(), u("change"), c.value = !1;
       }, 400);
     };
@@ -693,7 +693,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
     const v = () => {
       c.value = !0;
       const a = k.currentScreen.value.target, g = k.lastScreen.value.target;
-      a.style.transition = "transform 0.35s ease", a.style.transform = "translateX(0px)", g.style.transition = "transform 0.35s ease", g.style.transform = "translateX(-30vw) scale(0.5) perspective(100vw) rotateY(30deg)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
+      a.style.transition = "transform 0.35s ease", a.style.transform = "translateX(0px)", g.style.transition = "transform 0.35s ease", g.style.transform = "translateX(-30vw) scale(0.5) perspective(100%) rotateY(30deg)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.35s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
         c.value = !1;
       }, 400);
     };
@@ -713,7 +713,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
         move({ dx: a }) {
           const g = window.innerWidth, m = a / g * 100, I = k.currentScreen.value.target, R = k.lastScreen?.value?.target;
           if (a > 15 && a <= g) {
-            I.style.transition = "transform 0s ease", I.style.transform = `translateX(${a}px)`, R.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), R.style.transform = `translateX(calc(-30vw + (30vw / 100 * ${m}))) scale(${0.5 + 0.5 / 100 * m}) perspective(100vw) rotateY(${30 - 30 / 100 * m}deg)`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * m}`);
+            I.style.transition = "transform 0s ease", I.style.transform = `translateX(${a}px)`, R.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), R.style.transform = `translateX(calc(-30vw + (30vw / 100 * ${m}))) scale(${0.5 + 0.5 / 100 * m}) perspective(100%) rotateY(${30 - 30 / 100 * m}deg)`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * m}`);
             return;
           }
         },
@@ -745,7 +745,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
       }, null, 4)
     ], 64));
   }
-}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-c4854913"]]), Me = /* @__PURE__ */ T({
+}), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-e385a37a"]]), Me = /* @__PURE__ */ T({
   __name: "t-toolbar",
   props: {
     placement: { default: "bottom" },
@@ -915,7 +915,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-66ea8649
       _: 3
     }, 8, ["placement", "backdrop", "visible", "keepalive"]));
   }
-}), nt = /* @__PURE__ */ b(ot, [["__scopeId", "data-v-14b7fc93"]]), st = { class: "t-input-label" }, rt = { class: "t-input-content" }, at = ["type", "placeholder", "value"], lt = /* @__PURE__ */ T({
+}), nt = /* @__PURE__ */ b(ot, [["__scopeId", "data-v-5e880505"]]), st = { class: "t-input-label" }, rt = { class: "t-input-content" }, at = ["type", "placeholder", "value"], lt = /* @__PURE__ */ T({
   __name: "t-input",
   props: {
     size: { default: "standard" },
@@ -1210,7 +1210,7 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ T({
       _: 1
     }));
   }
-}), Xt = /* @__PURE__ */ b(qt, [["__scopeId", "data-v-fd0d53af"]]), Kt = () => ({
+}), Xt = /* @__PURE__ */ b(qt, [["__scopeId", "data-v-1436aa9f"]]), Kt = () => ({
   install: (t) => {
     fe(), t.component("t-app", ye), t.component("t-screen", ae), t.component("t-swipe-screen", Ke), t.component("t-cable", Ne), t.component("t-toolbar", Je), t.component("t-content", re), t.component("t-card", Oe), t.component("t-refresher", He), t.component("t-button", M), t.component("t-back-button", Ze), t.component("t-present", W), t.component("t-text", J), t.component("t-sheet", nt), t.component("t-pull-signal", le), t.component("t-input", ct), t.component("t-textarea", dt), t.component("t-rich-text", mt), t.component("t-grid", gt), t.component("t-grid-item", $t), t.component("t-divider", wt), t.component("t-toggle-password", It), t.component("t-loading-icon", K), t.component("t-alert", ne), t.component("t-avatar", zt), t.component("t-collapse", Dt), t.component("t-toast", se), t.component("t-switch", At), t.component("t-tab", Lt), t.component("t-tabs", Ot), t.component("t-loading-app", Xt);
   }

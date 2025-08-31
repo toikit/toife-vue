@@ -3,10 +3,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
   background-color: var(--t-color-background);
   will-change: transform;
   overflow: hidden;

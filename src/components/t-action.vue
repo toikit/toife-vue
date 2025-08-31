@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .t-action{
-  width: 100vw;
+  width: 100%;
   max-width: 400px;
   padding: 0 1rem;
   margin-bottom: var(--t-safe-area-bottom);

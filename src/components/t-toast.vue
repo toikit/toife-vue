@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .t-toast{
-  width: calc(100vw - 2rem);
+  width: calc(100% - 2rem);
   height: fit-content;
   max-width: 400px;
   padding: 0.75rem 1rem;

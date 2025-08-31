@@ -1,8 +1,8 @@
 <style lang="scss" scoped>
 .t-present-backdrop{
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   transition: background-color var(--t-present-transition, 0.2s) ease;
@@ -21,28 +21,28 @@
   &.bottom{
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     transform: translateY(var(--t-present-content-transform, 100%));
   }
 
   &.top{
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     transform: translateY(var(--t-present-content-transform, -100%));
   }
 
   &.right{
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
     transform: translateX(var(--t-present-content-transform, 100%));
   }
 
   &.left{
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     transform: translateX(var(--t-present-content-transform, -100%));
   }
 
