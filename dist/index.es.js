@@ -748,13 +748,14 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-c2a3436c
 }), Ke = /* @__PURE__ */ b(Ge, [["__scopeId", "data-v-ae7abe9c"]]), Me = /* @__PURE__ */ T({
   __name: "t-toolbar",
   props: {
-    placement: { default: "none-position" },
+    placement: { default: "bottom" },
+    safe: { type: Boolean, default: !0 },
     size: { default: "50px" }
   },
   setup(t) {
     const n = t;
     return (o, e) => (i(), _("div", {
-      class: x(["t-toolbar", { [n.placement]: !0 }]),
+      class: x(["t-toolbar", { [n.placement]: !0, safe: n.safe }]),
       style: w({ "--t-size-toolbar": n.size })
     }, [
       $("div", null, [
@@ -762,7 +763,7 @@ const ae = /* @__PURE__ */ b(Ue, [["render", Fe], ["__scopeId", "data-v-c2a3436c
       ])
     ], 6));
   }
-}), Je = /* @__PURE__ */ b(Me, [["__scopeId", "data-v-26af12c9"]]), Qe = /* @__PURE__ */ T({
+}), Je = /* @__PURE__ */ b(Me, [["__scopeId", "data-v-db1924b1"]]), Qe = /* @__PURE__ */ T({
   __name: "t-back-button",
   props: {
     to: {}

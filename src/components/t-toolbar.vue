@@ -14,22 +14,12 @@
   
 
   &.bottom{
-    padding-bottom: var(--t-safe-area-bottom);
-
-    > div {
-      flex-direction: row;
-      height: var(--t-size-toolbar);
-      max-height: var(--t-size-toolbar);
-      width: 100%;
-      > * {
-        height: 100%;
-      }
-    }
+    &.safe{padding-bottom: var(--t-safe-area-bottom);}
   }
-
   &.top{
-    padding-top: var(--t-safe-area-top);
-    
+    &.safe{padding-top: var(--t-safe-area-top);}
+  }
+  &.bottom, &.top{
     > div {
       flex-direction: row;
       height: var(--t-size-toolbar);
@@ -42,22 +32,12 @@
   }
 
   &.left{
-    padding-left: var(--t-safe-area-left);
-    
-    > div {
-      flex-direction: column;
-      width: var(--t-size-toolbar);
-      max-width: var(--t-size-toolbar);
-      height: 100%;
-      > * {
-        width: 100%;
-      }
-    }
+    &.safe{padding-left: var(--t-safe-area-left);}
   }
-
   &.right{
-    padding-right: var(--t-safe-area-right);
-    
+    &.safe{padding-right: var(--t-safe-area-right);}
+  }
+  &.left,&.right{
     > div {
       flex-direction: column;
       width: var(--t-size-toolbar);
@@ -72,7 +52,7 @@
 </style>
 
 <template>
-  <div class="t-toolbar" :class="{[props.placement]: true}" :style="{'--t-size-toolbar':props.size}">
+  <div class="t-toolbar" :class="{[props.placement]: true, safe: props.safe}" :style="{'--t-size-toolbar':props.size}">
     <div><slot/></div>
   </div>
 </template>
@@ -80,9 +60,11 @@
 <script lang="ts" setup>
 const props = withDefaults(defineProps<{
   placement?:any,
+  safe?:boolean,
   size?:any
 }>(), {
-  placement: 'none-position',
+  placement: 'bottom',
+  safe: true,
   size: '50px'
 });
 </script>
