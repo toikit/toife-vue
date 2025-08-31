@@ -607,7 +607,7 @@ function We(t, n) {
     h(t.$slots, "default", {}, void 0, !0)
   ]);
 }
-const re = /* @__PURE__ */ b(qe, [["render", We], ["__scopeId", "data-v-da5d10c1"]]), ee = 80, Ye = /* @__PURE__ */ T({
+const re = /* @__PURE__ */ b(qe, [["render", We], ["__scopeId", "data-v-d58accf4"]]), ee = 80, Ye = /* @__PURE__ */ T({
   __name: "t-refresher",
   emits: ["refresh"],
   setup(t, { emit: n }) {
