@@ -28,11 +28,11 @@
   &.bottom{
     bottom: 0;
     left: 0;
-    width: 100%;
     transform: translateY(var(--t-present-content-transform, 100%));
-    height: var(--size);
 
     &:not(.fullscreen){
+      width: 100%;
+      height: var(--size);
       max-width: 100%;
       max-height: calc(100% - var(--t-safe-area-top));
     }
@@ -41,11 +41,11 @@
   &.top{
     top: 0;
     left: 0;
-    width: 100%;
-    height:var(--size);
     transform: translateY(var(--t-present-content-transform, -100%));
 
     &:not(.fullscreen){
+      width: 100%;
+      height:var(--size);
       max-width: 100%;
       max-height: calc(100% - var(--t-safe-area-bottom));
     }
@@ -54,11 +54,11 @@
   &.right{
     top: 0;
     right: 0;
-    height: 100%;
-    width: var(--size);
     transform: translateX(var(--t-present-content-transform, 100%));
 
     &:not(.fullscreen){
+      height: 100%;
+      width: var(--size);
       max-height: 100%;
       max-width: calc(100% - var(--t-safe-area-left));
     }
@@ -67,26 +67,29 @@
   &.left{
     top: 0;
     left: 0;
-    height: 100%;
-    width: var(--size);
     transform: translateX(var(--t-present-content-transform, -100%));
 
     &:not(.fullscreen){
+      height: 100%;
+      width: var(--size);
       max-height: 100%;
       max-width: calc(100% - var(--t-safe-area-right));
     }
   }
 
   &.center{
-    min-width: var(--size);
-    min-height: var(--size);
-    max-width: 100%;
-    max-height: 100%;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     opacity: var(--t-present-content-opacity, 1);
     transition: opacity var(--t-present-transition, 0.2s) ease;
+
+    &:not(.fullscreen){
+      height: var(--size);
+      width: var(--size);
+      max-width: calc(100% - var(--t-safe-area-right) - var(--t-safe-area-left));
+      max-height: calc(100% - var(--t-safe-area-top) - var(--t-safe-area-bottom));
+    }
   }
 }
 </style>
