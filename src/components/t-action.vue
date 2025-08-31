@@ -1,9 +1,11 @@
 <style lang="scss" scoped>
 .t-action{
   width: var(--t-app-width);
-  max-width: 400px;
-  padding: 0 1rem;
   margin-bottom: var(--t-safe-area-bottom);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
   > div {
     position: relative;
@@ -12,6 +14,8 @@
     border-radius: 8px;
     margin-bottom: 0.5rem;
     background-color: var(--t-color-surface);
+    max-width: 300px;
+
     &:last-child{
       margin-bottom: 1rem !important;
     }
