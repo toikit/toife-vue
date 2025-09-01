@@ -98,7 +98,7 @@ watch(() => container.value, (val) => {
           e.preventDefault();
           blurCurrentActive();
         }
-        return false;
+        return true;
       }
     })
   }

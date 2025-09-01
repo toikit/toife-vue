@@ -6,9 +6,7 @@ declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
     };
-    refs: {
-        container: HTMLDivElement;
-    };
+    refs: {};
     rootEl: any;
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
@@ -21,9 +19,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
     onDismiss?: ((...args: any[]) => any) | undefined;
 }>, {
     type: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    container: HTMLDivElement;
-}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;
 type __VLS_WithTemplateSlots<T, S> = T & {

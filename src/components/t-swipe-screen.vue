@@ -117,19 +117,6 @@ onMounted(() => {
     beforeEvent(e:any){
       if (isBusy.value) return false;
       if (screenController.screens.length < 2) return false;
-
-      // Set first
-      if (e.type == 'pointerdown' && !this.pointerId) {
-        this.pointerId = e.pointerId;
-      }
-
-      return this.pointerId == e.pointerId;
-    },
-
-    afterEvent(e:any){
-      if (e.type == 'pointerup' || e.type == 'pointercancel') {
-          this.pointerId = null;
-        }
     },
 
     fast({d}: any){

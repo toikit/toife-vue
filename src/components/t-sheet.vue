@@ -146,40 +146,18 @@ watch(() => sheet.value, (val) => {
         minDist: 30
       },
 
-      pointerId: null,
-
       beforeEvent(e:any){
-        let isPrevent:boolean = false;
-        let isNext:boolean = false;
-
         if (isBusy.value || !props.gesture || props.placement == 'center') {
-          isPrevent = true;
-        }
-        else if (this.pointerId) {
-          isPrevent = true;
-          isNext = this.pointerId == e.pointerId;
-        }
-        else if (e.type == 'pointerdown') {
-          this.pointerId = e.pointerId;
-          isPrevent = true;
-          isNext = true;
+          return false;
         }
 
-        if (isPrevent) {
-          e.stopPropagation();
-          if (!isFormElement(e.target)) {
-            e.preventDefault();
-            blurCurrentActive();
-          }
+        e.stopPropagation();
+        if (!isFormElement(e.target)) {
+          e.preventDefault();
+          blurCurrentActive();
         }
 
-        return isNext;
-      },
-
-      afterEvent(e:any){
-        if (e.type == 'pointerup' || e.type == 'pointercancel') {
-          this.pointerId = null;
-        }
+        return true;
       },
 
       fast({d}: any){
