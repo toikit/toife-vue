@@ -1240,7 +1240,7 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ $({
       if (e.multiple) {
         let a = e.modelValue;
         e.modelValue.includes(e.value) ? a.splice(a.indexOf(e.value), 1) : a.push(e.value), t("update:modelValue", a);
-      } else e.value === void 0 ? t("update:modelValue", !e.modelValue) : t("update:modelValue", e.modelValue == e.value ? null : e.value);
+      } else e.value === void 0 ? t("update:modelValue", !e.modelValue) : t("update:modelValue", e.value);
     };
     return (a, d) => (u(), v("div", {
       class: x(["t-checkbox", { active: r.value }]),
@@ -1258,7 +1258,7 @@ const $t = /* @__PURE__ */ b(bt, [["render", kt]]), Tt = /* @__PURE__ */ $({
       a.label ? (u(), v("span", Yt, V(e.label), 1)) : z("", !0)
     ], 6));
   }
-}), Ut = /* @__PURE__ */ b(Ht, [["__scopeId", "data-v-f00196fd"]]), Zt = () => ({
+}), Ut = /* @__PURE__ */ b(Ht, [["__scopeId", "data-v-a3681154"]]), Zt = () => ({
   install: (o) => {
     fe(), o.component("t-app", ye), o.component("t-screen", ae), o.component("t-swipe-screen", Ke), o.component("t-cable", Ne), o.component("t-toolbar", Je), o.component("t-content", re), o.component("t-card", Oe), o.component("t-refresher", He), o.component("t-button", M), o.component("t-back-button", Ze), o.component("t-present", W), o.component("t-text", J), o.component("t-sheet", st), o.component("t-pull-signal", le), o.component("t-input", ct), o.component("t-textarea", dt), o.component("t-rich-text", mt), o.component("t-grid", gt), o.component("t-grid-item", $t), o.component("t-divider", wt), o.component("t-toggle-password", It), o.component("t-loading-icon", K), o.component("t-alert", se), o.component("t-avatar", zt), o.component("t-collapse", Pt), o.component("t-toast", ne), o.component("t-switch", At), o.component("t-tab", Lt), o.component("t-tabs", Ot), o.component("t-loading-app", Xt), o.component("t-checkbox", Ut);
   }

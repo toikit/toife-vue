@@ -122,7 +122,7 @@ const onToggle = () => {
   } else if (props.value === undefined) {
     emit('update:modelValue', !props.modelValue);
   } else {
-    emit('update:modelValue', props.modelValue == props.value ? null : props.value);
+    emit('update:modelValue', props.value);
   }
 }
 </script>
