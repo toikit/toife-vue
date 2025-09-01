@@ -24,7 +24,7 @@ img.spiner {
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { ref, onUnmounted, watch } from "vue";
 import { gesture } from "@toife/gesture";
 
 const emit = defineEmits(['refresh']);
@@ -57,7 +57,6 @@ watch(() => container.value, () => {
     options: {
       minDist: 60
     },
-    
     move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
       if (dy > 10 && screen.scrollTop == 0) {

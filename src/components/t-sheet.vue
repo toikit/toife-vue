@@ -88,7 +88,6 @@
 <script lang="ts" setup>
 import { computed, onUnmounted, ref, watch } from 'vue';
 import { gesture } from '@toife/gesture';
-import { blurCurrentActive, isFormElement } from '../utils';
 import TPresent from './t-present.vue';
 import TPullSignal from './t-pull-signal.vue';
 
@@ -150,10 +149,6 @@ watch(() => sheet.value, (val) => {
         if (isBusy.value || !props.gesture || props.placement == 'center') {
           return false;
         }
-
-        // if (!isFormElement(e.target)) {
-        //   blurCurrentActive();
-        // }
 
         return true;
       },

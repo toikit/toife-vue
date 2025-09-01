@@ -4,7 +4,6 @@ import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
 import TScreen from "./t-screen.vue";
-import { blurCurrentActive, isFormElement } from "../utils";
 
 let routeComponents:any = {};
 const router = useRouter();
