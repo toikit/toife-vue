@@ -21,15 +21,15 @@ $types: primary secondary success warning danger info;
 }
 
 @each $type in $types {
-  .bg-#{$type}   { background-color: var(--t-color-#{$type}) !important; }
-  .bg-#{$type}-light   { background-color: var(--t-color-#{$type}-light) !important; }
-  .bg-#{$type}-dark   { background-color: var(--t-color-#{$type}-dark) !important; }
+  .bg-#{$type}   { background-color: var(--t-color-status-#{$type}) !important; }
+  .bg-#{$type}-light   { background-color: var(--t-color-status-#{$type}-light) !important; }
+  .bg-#{$type}-dark   { background-color: var(--t-color-status-#{$type}-dark) !important; }
 
-  .border-#{$type}   { border-color: var(--t-color-#{$type}) !important; }
-  .border-#{$type}-light   { border-color: var(--t-color-#{$type}-light) !important; }
-  .border-#{$type}-dark   { border-color: var(--t-color-#{$type}-dark) !important; }
+  .border-#{$type}   { border-color: var(--t-color-status-#{$type}) !important; }
+  .border-#{$type}-light   { border-color: var(--t-color-status-#{$type}-light) !important; }
+  .border-#{$type}-dark   { border-color: var(--t-color-status-#{$type}-dark) !important; }
 
-  .color-#{$type}   { color: var(--t-color-#{$type}) !important; }
-  .color-#{$type}-light   { color: var(--t-color-#{$type}-light) !important; }
-  .color-#{$type}-dark   { color: var(--t-color-#{$type}-dark) !important; }
+  .color-#{$type}   { color: var(--t-color-status-#{$type}) !important; }
+  .color-#{$type}-light   { color: var(--t-color-status-#{$type}-light) !important; }
+  .color-#{$type}-dark   { color: var(--t-color-status-#{$type}-dark) !important; }
 }
