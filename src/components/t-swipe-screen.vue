@@ -120,8 +120,8 @@ onMounted(() => {
       return true;
     },
 
-    fast({d}: any){
-      if (d == 'right') {
+    fast({initialDirection}: any){
+      if (initialDirection == 'right') {
         router.back();
       }
     },

@@ -671,7 +671,7 @@ const re = /* @__PURE__ */ y(Ge, [["render", Me], ["__scopeId", "data-v-c2a3436c
         beforeEvent(d) {
           return !(i.value || T.screens.length < 2);
         },
-        fast({ d }) {
+        fast({ initialDirection: d }) {
           d == "right" && t.back();
         },
         move({ deltaX: d, initialDirection: b }) {
@@ -711,7 +711,7 @@ const re = /* @__PURE__ */ y(Ge, [["render", Me], ["__scopeId", "data-v-c2a3436c
       }, null, 4)
     ], 64));
   }
-}), Je = /* @__PURE__ */ y(Ye, [["__scopeId", "data-v-65394661"]]), Qe = /* @__PURE__ */ k({
+}), Je = /* @__PURE__ */ y(Ye, [["__scopeId", "data-v-89bd38c0"]]), Qe = /* @__PURE__ */ k({
   __name: "t-toolbar",
   props: {
     placement: { default: "bottom" },
@@ -817,7 +817,7 @@ const re = /* @__PURE__ */ y(Ge, [["render", Me], ["__scopeId", "data-v-c2a3436c
         beforeEvent($) {
           return !(i.value || !e.gesture || e.placement == "center");
         },
-        fast({ d: $ }) {
+        fast({ initialDirection: $ }) {
           m(), $ == u.value ? t("dismiss", "gesture") : r.value.open();
         },
         move({ deltaY: $, deltaX: d, initialDirection: b }) {
@@ -877,7 +877,7 @@ const re = /* @__PURE__ */ y(Ge, [["render", Me], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["placement", "backdrop", "visible", "keepalive"]));
   }
-}), rt = /* @__PURE__ */ y(nt, [["__scopeId", "data-v-cc1888b4"]]), at = { class: "t-input-label" }, lt = { class: "t-input-content" }, ct = ["type", "placeholder", "value"], it = /* @__PURE__ */ k({
+}), rt = /* @__PURE__ */ y(nt, [["__scopeId", "data-v-de756745"]]), at = { class: "t-input-label" }, lt = { class: "t-input-content" }, ct = ["type", "placeholder", "value"], it = /* @__PURE__ */ k({
   __name: "t-input",
   props: {
     size: { default: "standard" },

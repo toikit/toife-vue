@@ -162,9 +162,9 @@ watch(() => sheet.value, (val) => {
         return true;
       },
 
-      fast({ d }: any) {
+      fast({ initialDirection }: any) {
         busy();
-        if (d == gestureDir.value) {
+        if (initialDirection == gestureDir.value) {
           emit('dismiss', 'gesture');
         } else {
           present.value.open();
