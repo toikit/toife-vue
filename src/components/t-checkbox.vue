@@ -34,7 +34,7 @@
 
   &.active{
     .t-checkbox-radio{
-      border: 1px solid var(--background);
+      border: 2px solid var(--background);
 
       > div {
         background-color: var(--background);
@@ -42,7 +42,7 @@
     }
 
     .t-checkbox-check{
-      border: 1px solid var(--background);
+      border: 2px solid var(--background);
       background-color: var(--background);
 
       > i {
