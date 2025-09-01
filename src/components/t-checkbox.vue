@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   multiple: false,
   modelValue: false,
-  value: true,
+  value: undefined,
   label: '',
   type: 'check',
   color: 'primary'
@@ -105,7 +105,7 @@ const isActive = computed(() => {
   if (props.multiple) {
     return props.modelValue.includes(props.value);
   }
-  return !!props.modelValue;
+  return props.value === undefined ? props.modelValue : props.modelValue == props.value;
 });
 
 const onToggle = () => {
@@ -119,8 +119,10 @@ const onToggle = () => {
     }
 
     emit('update:modelValue', newVal);
-  } else {
+  } else if (props.value === undefined) {
     emit('update:modelValue', !props.modelValue);
+  } else {
+    emit('update:modelValue', props.modelValue == props.value ? null : props.value);
   }
 }
 </script>
