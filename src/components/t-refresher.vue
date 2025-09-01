@@ -57,10 +57,9 @@ watch(() => container.value, () => {
     options: {
       minDist: 60
     },
-    move({ dy, e }: any) {
-      if (refreshing.value || locked || dy < 0) return;
+    move({ dy, d }: any) {
+      if (refreshing.value || locked || d != 'down') return;
       if (dy > 10 && screen.scrollTop == 0) {
-        // e.preventDefault();
         screen.classList.add('scroll-hidden');
       }
       if (dy >= 120) {
@@ -69,10 +68,10 @@ watch(() => container.value, () => {
         offset.value = dy;
       }
     },
-    up({ dy, e }: any) {
+    up({ dy, d }: any) {
       screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
-      if (dy > threshold) {
+      if (dy > threshold && d == 'down') {
         start();
       } else {
         offset.value = 0;

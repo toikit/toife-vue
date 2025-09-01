@@ -126,7 +126,8 @@ onMounted(() => {
       }
     },
 
-    move({dx}: any){
+    move({dx, d}: any){
+      if (d != 'right') return;
       const width = window.innerWidth;
       const percent = dx / width * 100;
       const current = screenController.currentScreen.value.target;
@@ -144,7 +145,8 @@ onMounted(() => {
       }
     },
 
-    up({dx}: any){
+    up({dx, d}: any){
+      if (d != 'right') return;
       const width = window.innerWidth;
       const percent = dx / width * 100;
       
