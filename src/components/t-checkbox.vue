@@ -1,8 +1,15 @@
 <style lang="scss" scoped>
 .t-checkbox {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  justify-content: center;
+  align-items: center;
+
+  .t-checkbox-label{
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   .t-checkbox-radio, .t-checkbox-check{
     border-radius: 50%;
