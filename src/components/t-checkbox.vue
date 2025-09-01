@@ -18,7 +18,7 @@
     align-items: center;
     height: 22px;
     width: 22px;
-    border: 2px solid var(--t-color-text-dark);
+    border: 2px solid var(--t-color-separate);
 
     > div {
       height: 12px;
