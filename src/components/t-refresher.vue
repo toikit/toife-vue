@@ -57,21 +57,21 @@ watch(() => container.value, () => {
     options: {
       minDist: 60
     },
-    move({ dy, d }: any) {
-      if (refreshing.value || locked || d != 'down') return;
-      if (dy > 10 && screen.scrollTop == 0) {
+    move({ deltaY, initialDirection }: any) {
+      if (refreshing.value || locked || initialDirection != 'down') return;
+      if (deltaY > 10 && screen.scrollTop == 0) {
         screen.classList.add('scroll-hidden');
       }
-      if (dy >= 120) {
+      if (deltaY >= 120) {
         start();
-      } else if(dy > 10) {
-        offset.value = dy;
+      } else if(deltaY > 10) {
+        offset.value = deltaY;
       }
     },
-    up({ dy, d }: any) {
+    up({ deltaY, initialDirection }: any) {
       screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
-      if (dy > threshold && d == 'down') {
+      if (deltaY > threshold && initialDirection == 'down') {
         start();
       } else {
         offset.value = 0;

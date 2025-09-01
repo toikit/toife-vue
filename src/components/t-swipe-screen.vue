@@ -111,7 +111,7 @@ const reset = () => {
 
 let ges:any;
 onMounted(() => {
-  ges = gesture(document, {
+  ges = gesture(document.body, {
     pointerId: null,
 
     beforeEvent(e: any) {
@@ -126,16 +126,16 @@ onMounted(() => {
       }
     },
 
-    move({dx, d}: any){
-      if (d != 'right') return;
+    move({deltaX, initialDirection}: any){
+      if (initialDirection != 'right') return;
       const width = window.innerWidth;
-      const percent = dx / width * 100;
+      const percent = deltaX / width * 100;
       const current = screenController.currentScreen.value.target;
       const last = screenController.lastScreen?.value?.target;
       
-      if (dx > 15 && dx <= width) {
+      if (deltaX > 15 && deltaX <= width) {
         current.style.transition = 'transform 0s ease';
-        current.style.transform = `translateX(${dx}px)`;
+        current.style.transform = `translateX(${deltaX}px)`;
         last.style.transition = 'transform 0s ease';
 
         document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
@@ -145,12 +145,12 @@ onMounted(() => {
       }
     },
 
-    up({dx, d}: any){
-      if (d != 'right') {
+    up({deltaX, initialDirection}: any){
+      if (initialDirection != 'right') {
         reset();
       }
       const width = window.innerWidth;
-      const percent = dx / width * 100;
+      const percent = deltaX / width * 100;
       
       if (percent >= 50) {
         router.back();

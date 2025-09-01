@@ -1,73 +1,77 @@
 <style lang="scss" scoped>
-.t-sheet{
+.t-sheet {
   background: var(--background);
   position: relative;
 
-  &.bottom, &.top, &.fullscreen{
+  &.bottom,
+  &.top,
+  &.fullscreen {
     width: var(--t-app-width);
   }
 
-  &.left, &.right, &.fullscreen{
+  &.left,
+  &.right,
+  &.fullscreen {
     height: var(--t-app-height);
   }
 
-  &:not(.fullscreen){
-    &.rounded{
-      &.bottom.radius{
+  &:not(.fullscreen) {
+    &.rounded {
+      &.bottom.radius {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
       }
 
-      &.top.radius{
+      &.top.radius {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
       }
 
-      &.left.radius{
+      &.left.radius {
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
       }
 
-      &.right.radius{
+      &.right.radius {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
       }
 
-      &.center.radius{
+      &.center.radius {
         border-radius: 15px;
       }
 
-      &.radius{
+      &.radius {
         overflow: hidden;
       }
     }
-    
-    &.top{
+
+    &.top {
       max-height: calc(var(--t-app-height) - var(--t-safe-area-bottom));
     }
 
-    &.bottom{
+    &.bottom {
       max-height: calc(var(--t-app-height) - var(--t-safe-area-top));
     }
 
-    &.left{
+    &.left {
       max-width: calc(var(--t-app-width) - var(--t-safe-area-right));
     }
 
-    &.right{
+    &.right {
       max-width: calc(var(--t-app-width) - var(--t-safe-area-left));
     }
   }
 }
 
-.t-sheet-close{
+.t-sheet-close {
   position: absolute;
   color: var(--t-color-surface);
   background-color: transparent;
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  font-size: 1rem;    
+  font-size: 1rem;
   border: 1px solid var(--t-color-surface);
   bottom: -40px;
   left: 50%;
@@ -76,11 +80,16 @@
 </style>
 
 <template>
-  <t-present ref="present" :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive" @dismiss="close">
+  <t-present ref="present" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
+    :keepalive="props.keepalive" @dismiss="close">
     <t-pull-signal :placement="props.placement" v-if="props.gesture && props.placement != 'center'"></t-pull-signal>
-    <button class="t-sheet-close" @click="close('close-button')" v-if="props.closeButton && props.placement == 'center'"><slot name="close-icon"><i class="ri-close-large-line"></i></slot></button>
-    <div class="t-sheet" :style="{'--background': props.background}" ref="sheet" :class="{'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius}">
-      <slot/>
+    <button class="t-sheet-close" @click="close('close-button')"
+      v-if="props.closeButton && props.placement == 'center'">
+      <slot name="close-icon"><i class="ri-close-large-line"></i></slot>
+    </button>
+    <div class="t-sheet" :style="{ '--background': props.background }" ref="sheet"
+      :class="{ 'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius }">
+      <slot />
     </div>
   </t-present>
 </template>
@@ -92,16 +101,16 @@ import TPresent from './t-present.vue';
 import TPullSignal from './t-pull-signal.vue';
 
 const props = withDefaults(defineProps<{
-  background?:string,
-  visible?:boolean,
-  gesture?:boolean,
-  fullscreen?:boolean,
-  placement?:string,
-  keepalive?:boolean,
-  backdrop?:boolean,
-  rounded?:boolean,
-  radius?:boolean,
-  closeButton?:boolean // only with center
+  background?: string,
+  visible?: boolean,
+  gesture?: boolean,
+  fullscreen?: boolean,
+  placement?: string,
+  keepalive?: boolean,
+  backdrop?: boolean,
+  rounded?: boolean,
+  radius?: boolean,
+  closeButton?: boolean // only with center
 }>(), {
   background: 'var(--t-color-surface)',
   backdrop: true,
@@ -118,7 +127,7 @@ const emit = defineEmits(['dismiss']);
 const sheet = ref();
 const present = ref();
 const isBusy = ref(false);
-let ges:any = null;
+let ges: any = null;
 
 const gestureDir = computed(() => {
   if (props.placement == 'bottom') return 'down';
@@ -127,7 +136,7 @@ const gestureDir = computed(() => {
   if (props.placement == 'right') return 'right';
 });
 
-const close = (e:any) => {
+const close = (e: any) => {
   emit('dismiss', e);
 }
 
@@ -145,7 +154,7 @@ watch(() => sheet.value, (val) => {
         minDist: 30
       },
 
-      beforeEvent(e:any){
+      beforeEvent(e: any) {
         if (isBusy.value || !props.gesture || props.placement == 'center') {
           return false;
         }
@@ -153,7 +162,7 @@ watch(() => sheet.value, (val) => {
         return true;
       },
 
-      fast({d}: any){
+      fast({ d }: any) {
         busy();
         if (d == gestureDir.value) {
           emit('dismiss', 'gesture');
@@ -162,20 +171,20 @@ watch(() => sheet.value, (val) => {
         }
       },
 
-      move({dy, dx, d}:any){
-        if (d != gestureDir.value) return;
+      move({ deltaY, deltaX, initialDirection }: any) {
+        if (initialDirection != gestureDir.value) return;
         let tv = 0;
-        if (props.placement == 'bottom' || props.placement == 'top') tv = dy;
-        else tv = dx;
+        if (props.placement == 'bottom' || props.placement == 'top') tv = deltaY;
+        else tv = deltaX;
         present.value.render({
           contentTransform: tv + 'px',
           transition: '0s'
         });
       },
 
-      up({dy, dx, d}:any){
+      up({ deltaY, deltaX, initialDirection }: any) {
         busy();
-        if (d != gestureDir.value) {
+        if (initialDirection != gestureDir.value) {
           present.value.open();
           return;
         }
@@ -183,13 +192,13 @@ watch(() => sheet.value, (val) => {
         let size, diff, val;
         if (props.placement == 'bottom' || props.placement == 'top') {
           size = sheet.value.offsetHeight;
-          val = dy;
+          val = deltaY;
         }
         else {
           size = sheet.value.offsetWidth;
-          val = dx;
+          val = deltaX;
         }
-        
+
         diff = val / size * 100;
 
         if (diff > 50) {
@@ -199,7 +208,7 @@ watch(() => sheet.value, (val) => {
         }
       },
 
-      cancel(){
+      cancel() {
         busy();
         present.value.open();
       }
