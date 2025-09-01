@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
 import TScreen from "./t-screen.vue";
+import { blurCurrentActive, isFormElement } from "../utils";
 
 let routeComponents:any = {};
 const router = useRouter();
@@ -114,9 +115,19 @@ onMounted(() => {
   ges = gesture(document, {
     pointerId: null,
 
-    beforeEvent(e:any){
+    beforeEvent(e: any) {
       if (isBusy.value) return false;
       if (screenController.screens.length < 2) return false;
+
+      // chặn lan truyền + xử lý blur nếu không phải form
+      e.stopPropagation();
+      if (!isFormElement(e.target)) {
+        e.preventDefault();
+        blurCurrentActive();
+      }
+
+      // cho phép gesture chạy tiếp
+      return true;
     },
 
     fast({d}: any){
