@@ -151,11 +151,9 @@ watch(() => sheet.value, (val) => {
           return false;
         }
 
-        e.stopPropagation();
-        if (!isFormElement(e.target)) {
-          e.preventDefault();
-          blurCurrentActive();
-        }
+        // if (!isFormElement(e.target)) {
+        //   blurCurrentActive();
+        // }
 
         return true;
       },

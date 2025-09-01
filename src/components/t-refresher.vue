@@ -60,8 +60,8 @@ watch(() => container.value, () => {
     
     move({ dy, e }: any) {
       if (refreshing.value || locked || dy < 0) return;
-      if (dy > 5 && screen.scrollTop == 0) {
-        e.preventDefault();
+      if (dy > 10 && screen.scrollTop == 0) {
+        // e.preventDefault();
         screen.classList.add('scroll-hidden');
       }
       if (dy >= 120) {

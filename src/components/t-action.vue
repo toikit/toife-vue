@@ -46,12 +46,9 @@
 </template>
 
 <script lang="ts" setup>
-import { onUnmounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 import TPresent from './t-present.vue';
 import TButton from './t-button.vue';
-import { blurCurrentActive, isFormElement } from '../utils';
-import { gesture } from '@toife/gesture';
-
 const props = defineProps<{
   actions: Array<any>,
   dismiss?: Array<any>
@@ -59,7 +56,6 @@ const props = defineProps<{
 const visible = ref(false);
 const emit = defineEmits(['dismiss']);
 const container = ref();
-let ges:any;
 const pop = ref(false);
 
 const open = () => {
@@ -87,24 +83,5 @@ const onDismiss = (val:any) => {
 
 defineExpose({
   open
-});
-
-watch(() => container.value, (val) => {
-  if (val) {
-    ges = gesture(container.value, {
-      beforeEvent(e:any){
-        e.stopPropagation();
-        if (!isFormElement(e.target)) {
-          e.preventDefault();
-          blurCurrentActive();
-        }
-        return true;
-      }
-    })
-  }
-});
-
-onUnmounted(() => {
-  ges && ges.destroy();
 });
 </script>

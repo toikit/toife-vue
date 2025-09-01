@@ -118,15 +118,6 @@ onMounted(() => {
     beforeEvent(e: any) {
       if (isBusy.value) return false;
       if (screenController.screens.length < 2) return false;
-
-      // chặn lan truyền + xử lý blur nếu không phải form
-      e.stopPropagation();
-      if (!isFormElement(e.target)) {
-        e.preventDefault();
-        blurCurrentActive();
-      }
-
-      // cho phép gesture chạy tiếp
       return true;
     },
 
