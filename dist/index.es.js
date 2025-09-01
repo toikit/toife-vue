@@ -264,7 +264,7 @@ const ye = /* @__PURE__ */ y(me, [["render", _e]]), ge = /* @__PURE__ */ k({
             onDismiss: (i, a) => {
               setTimeout(() => {
                 r.unmount(), t.remove();
-              }, 300), s(a);
+              }, 300), s({ type: i, data: a });
             }
           });
         }
@@ -340,7 +340,7 @@ const ye = /* @__PURE__ */ y(me, [["render", _e]]), ge = /* @__PURE__ */ k({
             onDismiss: (i, a) => {
               setTimeout(() => {
                 r.unmount(), t.remove();
-              }, 300), s(a);
+              }, 300), s({ type: i, data: a });
             }
           });
         }

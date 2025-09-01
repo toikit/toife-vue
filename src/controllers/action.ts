@@ -22,7 +22,7 @@ export default (props:any = {}) => {
                   app.unmount()
                   container.remove()
                 }, 300);
-                resolve(data)
+                resolve({type, data})
               }
             })
           }
