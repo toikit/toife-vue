@@ -9,38 +9,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 31px;
-    width: 31px;
-  }
+    height: 22px;
+    width: 22px;
+    border: 2px solid var(--t-color-text-dark);
 
-  .t-checkbox-radio{
-    border: 1px solid var(--t-color-text-dark);
     > div {
-      height: 15px;
-      width: 15px;
-      background-color: var(--t-color-text-dark);
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background-color: transparent;
     }
-  }
 
-  .t-checkbox-check{
-    background-color: var(--t-color-text-dark);
-
-    > i {
-      color: var(--t-color-background);
+    i {
+      color: transparent;
     }
   }
 
   &.active{
     .t-checkbox-radio{
       border: 1px solid var(--background);
+
       > div {
-        height: 15px;
-        width: 15px;
         background-color: var(--background);
       }
     }
 
     .t-checkbox-check{
+      border: 1px solid var(--background);
       background-color: var(--background);
 
       > i {
