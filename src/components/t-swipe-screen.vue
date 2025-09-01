@@ -146,7 +146,9 @@ onMounted(() => {
     },
 
     up({dx, d}: any){
-      if (d != 'right') return;
+      if (d != 'right') {
+        reset();
+      }
       const width = window.innerWidth;
       const percent = dx / width * 100;
       
