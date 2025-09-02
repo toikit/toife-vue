@@ -2,6 +2,7 @@
 .t-content{
   overflow: auto;
   background-color: var(--t-color-background);
+  position: relative;
 }
 </style>
 
