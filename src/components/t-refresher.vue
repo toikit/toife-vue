@@ -53,35 +53,32 @@ watch(() => container.value, () => {
   cleanup && cleanup.destroy();
   let screen = container.value.closest('.t-content');
   if (!screen) return;
-  let isMoving = false;
-  
   cleanup = gesture(screen, {
+    isMoving: false,
     options: {
       minDist: 60
     },
-
     down(){
-      isMoving = false;
+      this.isMoving = false;
     },
-    
     move({ deltaY, initialDirection }: any) {
       if (refreshing.value || locked || initialDirection != 'down') return;
 
-      if ((deltaY > 10 && screen.scrollTop == 0) || (isMoving && deltaY >= 0)) {
-        screen.classList.add('scroll-hidden');
-      }
+      // if ((deltaY > 10 && screen.scrollTop == 0) || (this.isMoving && deltaY >= 0)) {
+      //   screen.classList.add('scroll-hidden');
+      // }
 
       if (deltaY >= 120) {
-        isMoving = false;
+        this.isMoving = false;
         start();
-      } else if(deltaY > 10) {
-        isMoving = true;
+      } else if(deltaY > 10 || (this.isMoving && deltaY >= 0)) {
+        this.isMoving = true;
         offset.value = deltaY;
       }
     },
     up({ deltaY, initialDirection }: any) {
-      isMoving = false;
-      screen.classList.remove('scroll-hidden');
+      this.isMoving = false;
+      // screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
       if (deltaY > threshold && initialDirection == 'down') {
         start();
@@ -90,8 +87,8 @@ watch(() => container.value, () => {
       }
     },
     cancel() {
-      isMoving = false;
-      screen.classList.remove('scroll-hidden');
+      this.isMoving = false;
+      // screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
       refreshing.value = false;
       offset.value = 0;

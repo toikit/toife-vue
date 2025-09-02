@@ -149,8 +149,9 @@ const busy = () => {
 
 watch(() => sheet.value, (val) => {
   if (val) {
-    let isMoving = false;
     ges = gesture(sheet.value, {
+      isMoving: false,
+
       options: {
         minDist: 30
       },
@@ -164,7 +165,7 @@ watch(() => sheet.value, (val) => {
       },
 
       down(){
-        isMoving = false;
+        this.isMoving = false;
       },
 
       fast({ initialDirection }: any) {
@@ -183,12 +184,12 @@ watch(() => sheet.value, (val) => {
         else tv = deltaX;
 
         if (
-          (props.placement == 'bottom' && (tv >= 10 || (isMoving && tv >= 0)))
-          || (props.placement == 'top' && (tv <= -10 || (isMoving && tv <= 0)))
-          || (props.placement == 'left' && (tv >= 10 || (isMoving && tv >= 0)))
-          || (props.placement == 'right' && (tv <= -10 || (isMoving && tv <= 0)))
+          (props.placement == 'bottom' && (tv >= 10 || (this.isMoving && tv >= 0)))
+          || (props.placement == 'top' && (tv <= -10 || (this.isMoving && tv <= 0)))
+          || (props.placement == 'left' && (tv >= 10 || (this.isMoving && tv >= 0)))
+          || (props.placement == 'right' && (tv <= -10 || (this.isMoving && tv <= 0)))
         ) {
-          isMoving = true;
+          this.isMoving = true;
           present.value.render({
             contentTransform: tv + 'px',
             transition: '0s'
@@ -197,7 +198,7 @@ watch(() => sheet.value, (val) => {
       },
 
       up({ deltaY, deltaX, initialDirection }: any) {
-        isMoving = false;
+        this.isMoving = false;
         busy();
         if (initialDirection != gestureDir.value) {
           present.value.open();
@@ -224,7 +225,7 @@ watch(() => sheet.value, (val) => {
       },
 
       cancel() {
-        isMoving = false;
+        this.isMoving = false;
         busy();
         present.value.open();
       }

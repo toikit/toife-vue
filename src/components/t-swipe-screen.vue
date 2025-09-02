@@ -111,9 +111,9 @@ const reset = () => {
 
 let ges:any;
 onMounted(() => {
-  let isMoving = false;
-
   ges = gesture(document.body, {
+    isMoving: false,
+
     beforeEvent(e: any) {
       if (isBusy.value) return false;
       if (screenController.screens.length < 2) return false;
@@ -127,7 +127,7 @@ onMounted(() => {
     },
 
     down(){
-      isMoving = false;
+      this.isMoving = false;
     },
 
     move({deltaX, initialDirection}: any){
@@ -138,8 +138,8 @@ onMounted(() => {
       const current = screenController.currentScreen.value.target;
       const last = screenController.lastScreen?.value?.target;
       
-      if ((deltaX > 15 && deltaX <= width) || (isMoving && deltaX >= 0)) {
-        isMoving = true;
+      if ((deltaX > 15 && deltaX <= width) || (this.isMoving && deltaX >= 0)) {
+        this.isMoving = true;
         current.style.transition = 'transform 0s ease';
         current.style.transform = `translateX(${deltaX}px)`;
         last.style.transition = 'transform 0s ease';
@@ -151,7 +151,7 @@ onMounted(() => {
     },
 
     up({deltaX, initialDirection}: any){
-      isMoving = false;
+      this.isMoving = false;
 
       if (initialDirection != 'right') {
         reset();
@@ -169,7 +169,7 @@ onMounted(() => {
     },
 
     cancel(){
-      isMoving = false;
+      this.isMoving = false;
       reset();
     },
   });
