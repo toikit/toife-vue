@@ -138,7 +138,8 @@ onMounted(() => {
       const current = screenController.currentScreen.value.target;
       const last = screenController.lastScreen?.value?.target;
       
-      if ((deltaX > 15 && deltaX <= width) || (this.isMoving && deltaX >= 0)) {
+      if ((deltaX > 15 && deltaX <= width) || this.isMoving) {
+        deltaX = deltaX > 0 ? deltaX : 0;
         this.isMoving = true;
         current.style.transition = 'transform 0s ease';
         current.style.transform = `translateX(${deltaX}px)`;

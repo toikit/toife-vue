@@ -183,11 +183,27 @@ watch(() => sheet.value, (val) => {
         if (props.placement == 'bottom' || props.placement == 'top') tv = deltaY;
         else tv = deltaX;
 
+        if (props.placement == 'bottom') {
+          tv = deltaY > 0 ? deltaY : 0;
+        }
+
+        if (props.placement == 'top') {
+          tv = deltaY < 0 ? deltaY : 0;
+        }
+
+        if (props.placement == 'left') {
+          tv = deltaX < 0 ? deltaY : 0;
+        }
+
+        if (props.placement == 'right') {
+          tv = deltaX > 0 ? deltaY : 0;
+        }
+
         if (
-          (props.placement == 'bottom' && (tv >= 10 || (this.isMoving && tv >= 0)))
-          || (props.placement == 'top' && (tv <= -10 || (this.isMoving && tv <= 0)))
-          || (props.placement == 'left' && (tv >= 10 || (this.isMoving && tv >= 0)))
-          || (props.placement == 'right' && (tv <= -10 || (this.isMoving && tv <= 0)))
+          (props.placement == 'bottom' && (tv >= 10 || this.isMoving))
+          || (props.placement == 'top' && (tv <= -10 || this.isMoving))
+          || (props.placement == 'left' && (tv >= 10 || this.isMoving))
+          || (props.placement == 'right' && (tv <= -10 || this.isMoving))
         ) {
           this.isMoving = true;
           present.value.render({

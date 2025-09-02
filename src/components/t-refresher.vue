@@ -71,9 +71,9 @@ watch(() => container.value, () => {
       if (deltaY >= 120) {
         this.isMoving = false;
         start();
-      } else if(deltaY > 10 || (this.isMoving && deltaY >= 0)) {
+      } else if(deltaY > 10 || this.isMoving) {
         this.isMoving = true;
-        offset.value = deltaY;
+        offset.value = deltaY > 0 ? deltaY : 0;
       }
     },
     up({ deltaY, initialDirection }: any) {
