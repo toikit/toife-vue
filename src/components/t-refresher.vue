@@ -54,21 +54,27 @@ watch(() => container.value, () => {
   let screen = container.value.closest('.t-content');
   if (!screen) return;
   cleanup = gesture(screen, {
+    isMoving: false,
     options: {
       minDist: 60
     },
     move({ deltaY, initialDirection }: any) {
       if (refreshing.value || locked || initialDirection != 'down') return;
-      if (deltaY > 10 && screen.scrollTop == 0) {
+
+      if ((deltaY > 10 && screen.scrollTop == 0) || (this.isMoving && deltaY >= 0)) {
         screen.classList.add('scroll-hidden');
       }
+
       if (deltaY >= 120) {
+        this.isMoving = false;
         start();
       } else if(deltaY > 10) {
+        this.isMoving = true;
         offset.value = deltaY;
       }
     },
     up({ deltaY, initialDirection }: any) {
+      this.isMoving = false;
       screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
       if (deltaY > threshold && initialDirection == 'down') {
@@ -78,6 +84,7 @@ watch(() => container.value, () => {
       }
     },
     cancel() {
+      this.isMoving = false;
       screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
       refreshing.value = false;

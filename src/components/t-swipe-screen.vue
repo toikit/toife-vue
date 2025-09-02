@@ -112,7 +112,7 @@ const reset = () => {
 let ges:any;
 onMounted(() => {
   ges = gesture(document.body, {
-    pointerId: null,
+    isMoving: false,
 
     beforeEvent(e: any) {
       if (isBusy.value) return false;
@@ -128,12 +128,14 @@ onMounted(() => {
 
     move({deltaX, initialDirection}: any){
       if (initialDirection != 'right') return;
+      
       const width = window.innerWidth;
       const percent = deltaX / width * 100;
       const current = screenController.currentScreen.value.target;
       const last = screenController.lastScreen?.value?.target;
       
-      if (deltaX > 15 && deltaX <= width) {
+      if ((deltaX > 15 && deltaX <= width) || (this.isMoving && deltaX >= 0)) {
+        this.isMoving = true;
         current.style.transition = 'transform 0s ease';
         current.style.transform = `translateX(${deltaX}px)`;
         last.style.transition = 'transform 0s ease';
@@ -141,11 +143,12 @@ onMounted(() => {
         document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
         last.style.transform = `translateX(calc((var(--t-app-width) / 100 * 30 * -1) + ((var(--t-app-width) / 100 * 30) / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(var(--t-app-width)) rotateY(${30 - (30 / 100 * percent)}deg)`;
         document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
-        return;
       }
     },
 
     up({deltaX, initialDirection}: any){
+      this.isMoving = false;
+
       if (initialDirection != 'right') {
         reset();
       }
@@ -162,6 +165,7 @@ onMounted(() => {
     },
 
     cancel(){
+      this.isMoving = false;
       reset();
     },
   });
