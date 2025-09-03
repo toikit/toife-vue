@@ -14,7 +14,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      var(--color),
+      rgba(var(--t-color-background-rgb), 0.5),
       transparent
     );
     animation: shimmer 1.2s infinite;
@@ -53,25 +53,6 @@ const styles = computed(() => {
     '--height': props.height,
     '--radius': props.radius
   };
-
-  if (!props.color) {
-    rs = {
-      '--color': 'rgba(var(--t-color-text-dark-rgb), 0.2)',
-      ...rs
-    };
-  }
-  else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    rs = {
-      '--color': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.2)',
-      ...rs
-    };
-  }
-  else {
-    rs = {
-      '--color': props.color,
-      ...rs
-    };
-  }
 
   return rs;
 });
