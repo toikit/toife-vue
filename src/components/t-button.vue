@@ -13,6 +13,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  line-height: 0;
 
   color: var(--color);
   background: var(--background);
