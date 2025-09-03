@@ -5,10 +5,10 @@ import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
 import TScreen from "./t-screen.vue";
 
-let routeComponents:any = {};
+let routeComponents: any = {};
 const router = useRouter();
 const route = useRoute();
-const routes:any = router.getRoutes();
+const routes: any = router.getRoutes();
 const isBusy = ref(false);
 const emit = defineEmits(['change']);
 
@@ -17,7 +17,7 @@ for (let r of routes) {
 }
 
 // Add next screen to dom
-const nextScreen = (name:any) => {
+const nextScreen = (name: any) => {
   if (!name) return;
   screenController.addScreen({
     name,
@@ -27,7 +27,7 @@ const nextScreen = (name:any) => {
 }
 
 // Add ref
-const addScreenRef = (index:any, target:any) => {
+const addScreenRef = (index: any, target: any) => {
   if (!target || screenController.screens[index].target) return;
   screenController.screens[index].target = target.$el;
 
@@ -80,7 +80,7 @@ const backScreen = () => {
 // Add first
 nextScreen(route.name);
 
-watch(() => route.name, (current:any, old:any) => {
+watch(() => route.name, (current: any, old: any) => {
   // Check case next is current, do nothing
   if (current == screenController.currentScreen.value.name) return;
 
@@ -109,35 +109,32 @@ const reset = () => {
   }, 400);
 }
 
-let ges:any;
+let ges: any;
 onMounted(() => {
   ges = gesture(document.body, {
     isMoving: false,
 
     beforeEvent(e: any) {
-      if (isBusy.value) return false;
-      if (screenController.screens.length < 2) return false;
+      if (isBusy.value || screenController.swipeable.value || screenController.screens.length < 2) return false;
       return true;
     },
 
-    fast({initialDirection}: any){
-      if (initialDirection == 'right') {
-        router.back();
-      }
+    fast({ initialDirection }: any) {
+      if (initialDirection == 'right') router.back();
     },
 
-    down(){
+    down() {
       this.isMoving = false;
     },
 
-    move({deltaX, initialDirection}: any){
+    move({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') return;
-      
+
       const width = window.innerWidth;
       const percent = deltaX / width * 100;
       const current = screenController.currentScreen.value.target;
       const last = screenController.lastScreen?.value?.target;
-      
+
       if ((deltaX > 15 && deltaX <= width) || this.isMoving) {
         deltaX = deltaX > 0 ? deltaX : 0;
         this.isMoving = true;
@@ -151,15 +148,13 @@ onMounted(() => {
       }
     },
 
-    up({deltaX, initialDirection}: any){
+    up({ deltaX, initialDirection }: any) {
       this.isMoving = false;
 
-      if (initialDirection != 'right') {
-        reset();
-      }
+      if (initialDirection != 'right') reset();
       const width = window.innerWidth;
       const percent = deltaX / width * 100;
-      
+
       if (percent >= 50) {
         router.back();
       }
@@ -169,7 +164,7 @@ onMounted(() => {
       }
     },
 
-    cancel(){
+    cancel() {
       this.isMoving = false;
       reset();
     },
@@ -183,14 +178,16 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <t-screen :ref="(el:any) => addScreenRef(index, el)" :style="{zIndex: index + (index == screenController.screens.length - 1 ? 2 : 1)}" v-for="(screen, index) in screenController.screens" :key="index">
-    <component :is="screen.component.default"/>
+  <t-screen :ref="(el: any) => addScreenRef(index, el)"
+    :style="{ zIndex: index + (index == screenController.screens.length - 1 ? 2 : 1) }"
+    v-for="(screen, index) in screenController.screens" :key="index">
+    <component :is="screen.component.default" />
   </t-screen>
-  <div class="t-swipe-backdrop" :style="{zIndex: screenController.screens.length}"></div>
+  <div class="t-swipe-backdrop" :style="{ zIndex: screenController.screens.length }"></div>
 </template>
 
 <style lang="scss" scoped>
-.t-swipe-backdrop{
+.t-swipe-backdrop {
   display: block;
   position: absolute;
   top: 0;

@@ -1,6 +1,7 @@
-import { computed, reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 
 const screens = reactive<any>([]);
+const swipeable = ref(true);
 
 const addScreen = (screen:any) => {
   screens.push(screen);
@@ -14,11 +15,22 @@ const removeAllScreen = () => {
   screens.splice(0, screens.length);
 }
 
+const lockSwipe = () => {
+  swipeable.value = false;
+}
+
+const unlockSwipe = () => {
+  swipeable.value = true;
+}
+
 export default {
   screens,
   addScreen,
   removeScreen,
   removeAllScreen,
+  lockSwipe,
+  unlockSwipe,
+  swipeable,
   hasPrevious: computed(() => {
     return screens.length > 1;
   }),
