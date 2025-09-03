@@ -187,7 +187,7 @@ const he = /* @__PURE__ */ g(ge, [["render", be]]), ke = /* @__PURE__ */ $({
       ])) : I("", !0)
     ], 6));
   }
-}), j = /* @__PURE__ */ g(we, [["__scopeId", "data-v-74d8380d"]]), xe = {
+}), j = /* @__PURE__ */ g(we, [["__scopeId", "data-v-48e285d7"]]), xe = {
   key: 0,
   class: "t-alert-header"
 }, Se = { class: "t-alert-content" }, ze = { class: "t-alert-footer" }, Ie = /* @__PURE__ */ $({
