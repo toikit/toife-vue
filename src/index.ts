@@ -33,6 +33,7 @@ import TTabs from './components/t-tabs.vue';
 import TLoadingApp from './components/t-loading-app.vue';
 import TCheckbox from './components/t-checkbox.vue';
 import TKeyboard from './components/t-keyboard.vue';
+import TSkeleton from './components/t-skeleton.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -73,6 +74,7 @@ export const createToife = () => {
       app.component('t-loading-app', TLoadingApp);
       app.component('t-checkbox', TCheckbox);
       app.component('t-keyboard', TKeyboard);
+      app.component('t-skeleton', TSkeleton);
     }
   }
 }
