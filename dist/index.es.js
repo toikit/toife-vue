@@ -680,7 +680,7 @@ const le = /* @__PURE__ */ g(Je, [["render", Ze], ["__scopeId", "data-v-c2a3436c
       y = J(document.body, {
         isMoving: !1,
         beforeEvent(u) {
-          return !(i.value || T.swipeable.value || T.screens.length < 2);
+          return !(i.value || !T.swipeable.value || T.screens.length < 2);
         },
         fast({ initialDirection: u }) {
           u == "right" && t.back();
@@ -722,7 +722,7 @@ const le = /* @__PURE__ */ g(Je, [["render", Ze], ["__scopeId", "data-v-c2a3436c
       }, null, 4)
     ], 64));
   }
-}), et = /* @__PURE__ */ g(Ye, [["__scopeId", "data-v-990e3ca6"]]), tt = /* @__PURE__ */ $({
+}), et = /* @__PURE__ */ g(Ye, [["__scopeId", "data-v-abea77ec"]]), tt = /* @__PURE__ */ $({
   __name: "t-toolbar",
   props: {
     placement: { default: "bottom" },

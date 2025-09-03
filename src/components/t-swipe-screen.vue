@@ -115,7 +115,7 @@ onMounted(() => {
     isMoving: false,
 
     beforeEvent(e: any) {
-      if (isBusy.value || screenController.swipeable.value || screenController.screens.length < 2) return false;
+      if (isBusy.value || !screenController.swipeable.value || screenController.screens.length < 2) return false;
       return true;
     },
 
