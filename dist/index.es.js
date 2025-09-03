@@ -1259,16 +1259,13 @@ const zt = /* @__PURE__ */ g(Tt, [["render", St]]), It = /* @__PURE__ */ k({
         "--radius": s.radius
       };
       return s.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(s.color) ? t = {
-        "--color-1": "var(--t-color-status-" + s.color + ")",
-        "--color-2": "rgba(var(--t-color-status-" + s.color + "-text-rgb), 0.2)",
+        "--color": "rgba(var(--t-color-status-" + s.color + "-rgb), 0.2)",
         ...t
       } : t = {
-        "--color-1": s.color,
-        "--color-2": "rgba(var(--t-color-text-dark-rgb), 0.2)",
+        "--color": s.color,
         ...t
       } : t = {
-        "--color-1": "var(--t-color-separate)",
-        "--color-2": "rgba(var(--t-color-text-dark-rgb), 0.2)",
+        "--color": "rgba(var(--t-color-text-dark-rgb), 0.2)",
         ...t
       }, t;
     });
@@ -1277,7 +1274,7 @@ const zt = /* @__PURE__ */ g(Tt, [["render", St]]), It = /* @__PURE__ */ k({
       style: T(e.value)
     }, null, 4));
   }
-}), eo = /* @__PURE__ */ g(Yt, [["__scopeId", "data-v-25b27b62"]]), co = () => ({
+}), eo = /* @__PURE__ */ g(Yt, [["__scopeId", "data-v-0c1719ef"]]), co = () => ({
   install: (o) => {
     _e(), o.component("t-app", be), o.component("t-screen", le), o.component("t-swipe-screen", et), o.component("t-cable", He), o.component("t-toolbar", ot), o.component("t-content", ae), o.component("t-card", Ue), o.component("t-refresher", Ke), o.component("t-button", j), o.component("t-back-button", nt), o.component("t-present", D), o.component("t-text", F), o.component("t-sheet", ct), o.component("t-pull-signal", ce), o.component("t-input", ft), o.component("t-textarea", _t), o.component("t-rich-text", ht), o.component("t-grid", wt), o.component("t-grid-item", zt), o.component("t-divider", Bt), o.component("t-toggle-password", Et), o.component("t-loading-icon", X), o.component("t-alert", se), o.component("t-avatar", Mt), o.component("t-collapse", Ot), o.component("t-toast", ne), o.component("t-switch", qt), o.component("t-tab", Wt), o.component("t-tabs", Ut), o.component("t-loading-app", jt), o.component("t-checkbox", Jt), o.component("t-keyboard", Zt), o.component("t-skeleton", eo);
   }

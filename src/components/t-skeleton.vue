@@ -3,7 +3,6 @@
   width: var(--width);
   height: var(--height);
   border-radius: var(--radius);
-  background: var(--color-1);
   position: relative;
   overflow: hidden;
 
@@ -15,7 +14,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      var(--color-2),
+      var(--color),
       transparent
     );
     animation: shimmer 1.2s infinite;
@@ -57,22 +56,19 @@ const styles = computed(() => {
 
   if (!props.color) {
     rs = {
-      '--color-1': 'var(--t-color-separate)',
-      '--color-2': 'rgba(var(--t-color-text-dark-rgb), 0.2)',
+      '--color': 'rgba(var(--t-color-text-dark-rgb), 0.2)',
       ...rs
     };
   }
   else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     rs = {
-      '--color-1': 'var(--t-color-status-'+props.color+')',
-      '--color-2': 'rgba(var(--t-color-status-'+props.color+'-text-rgb), 0.2)',
+      '--color': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.2)',
       ...rs
     };
   }
   else {
     rs = {
-      '--color-1': props.color,
-      '--color-2': 'rgba(var(--t-color-text-dark-rgb), 0.2)',
+      '--color': props.color,
       ...rs
     };
   }
