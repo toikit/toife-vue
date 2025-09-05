@@ -1,6 +1,6 @@
 <template>
   <button class="t-button" :style="styles" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true}">
-    <span v-show="!props.loading"><slot></slot></span>
+    <span class="t-button-content" v-show="!props.loading"><slot></slot></span>
     <span class="loader" v-if="props.loading"><t-loading-icon color="var(--color)" :type="props.loadingType"/></span>
   </button>
 </template>
@@ -76,6 +76,12 @@
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .t-button-content{
     display: flex;
     justify-content: center;
     align-items: center;
