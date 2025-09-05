@@ -96,14 +96,14 @@ const styles = computed(() => {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-text)',
-        '--background': 'rgba(var(--t-color-surface-rgb), 0.6)'
+        '--background': 'var(--t-color-surface)'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-status-'+props.color+'-text)',
-        '--background': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.6)'
+        '--background': 'var(--t-color-status-'+props.color+')'
       };
     }
     else {
