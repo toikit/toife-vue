@@ -82,7 +82,7 @@
 <template>
   <t-present ref="present" :class="props.class" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
     :keepalive="props.keepalive" @dismiss="close" :style="props.style">
-    <t-gesture-indicator :placement="props.placement" v-if="props.indicator && props.placement != 'center'"></t-gesture-indicator>
+    <t-gesture-indicator :placement="props.placement" v-if="props.gesture && props.indicator && props.placement != 'center'"></t-gesture-indicator>
     <!-- <button class="t-sheet-close" @click="close('close-button')"
       v-if="props.closeButton && props.placement == 'center'">
       <slot name="close-icon"><i class="ri-close-large-line"></i></slot>

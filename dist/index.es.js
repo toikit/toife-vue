@@ -879,7 +879,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
       style: T(e.style)
     }, {
       default: V(() => [
-        e.indicator && e.placement != "center" ? (c(), B(ue, {
+        e.gesture && e.indicator && e.placement != "center" ? (c(), B(ue, {
           key: 0,
           placement: e.placement
         }, null, 8, ["placement"])) : I("", !0),
@@ -895,7 +895,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["class", "placement", "backdrop", "visible", "keepalive", "style"]));
   }
-}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-610d8572"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ g({
+}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-fb411896"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ g({
   __name: "t-input",
   props: {
     size: { default: "standard" },
