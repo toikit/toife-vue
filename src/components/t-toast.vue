@@ -10,6 +10,8 @@
   left: 50%;
   transition: all 0.2s ease;
   opacity: 1;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
   
   color: var(--color);
   background: var(--background);
