@@ -23,7 +23,6 @@ import { useAttrs } from 'vue';
 import { screenController } from '../controllers';
 import { useRouter } from 'vue-router';
 
-const emit = defineEmits(['back']);
 const router = useRouter();
 const props = defineProps<{
   to?: any
@@ -32,7 +31,7 @@ const attrs = useAttrs();
 
 const onClick = (e:any) => {
   if (attrs.onBack) {
-    emit('back');
+    (attrs.onBack as Function)(e);
     return;
   }
   
