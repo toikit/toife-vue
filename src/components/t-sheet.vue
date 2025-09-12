@@ -196,11 +196,11 @@ watch(() => sheet.value, (val) => {
         }
 
         if (props.placement == 'left') {
-          tv = deltaX > 0 ? deltaY : 0;
+          tv = deltaX < 0 ? deltaX : 0;
         }
 
         if (props.placement == 'right') {
-          tv = deltaX < 0 ? deltaY : 0;
+          tv = deltaX > 0 ? deltaX : 0;
         }
 
         if (
