@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-.t-pull-bar{
+.t-gesture-indicator{
   background-color: var(--t-color-separate);
   position: absolute;
   border-radius: 3px;
@@ -32,7 +32,7 @@
 </style>
 
 <template>
-  <div class="t-pull-bar" :class="{[placement]: true}"></div>
+  <div class="t-gesture-indicator" :class="{[placement]: true}"></div>
 </template>
 
 <script lang="ts" setup>

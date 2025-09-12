@@ -9,6 +9,7 @@ type __VLS_Props = {
     backdrop?: boolean;
     rounded?: boolean;
     radius?: boolean;
+    indicator?: boolean;
     closeButton?: boolean;
 };
 declare function __VLS_template(): {
@@ -126,6 +127,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     gesture: boolean;
     fullscreen: boolean;
     radius: boolean;
+    indicator: boolean;
     closeButton: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     present: ({

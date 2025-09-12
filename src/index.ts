@@ -14,7 +14,7 @@ import TBackButton from "./components/t-back-button.vue";
 import TText from './components/t-text.vue';
 import TPresent from './components/t-present.vue';
 import TSheet from './components/t-sheet.vue';
-import TPullSignal from './components/t-pull-signal.vue';
+import TGestureIndicator from './components/t-gesture-indicator.vue';
 import TInput from './components/t-input.vue';
 import TTextarea from './components/t-textarea.vue';
 import TRichText from './components/t-rich-text.vue';
@@ -56,7 +56,7 @@ export const createToife = () => {
       app.component('t-present', TPresent);
       app.component('t-text', TText)
       app.component('t-sheet', TSheet);
-      app.component('t-pull-signal', TPullSignal);
+      app.component('t-gesture-indicator', TGestureIndicator);
       app.component('t-input', TInput);
       app.component('t-textarea', TTextarea);
       app.component('t-rich-text', TRichText);
