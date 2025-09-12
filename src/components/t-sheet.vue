@@ -206,8 +206,8 @@ watch(() => sheet.value, (val) => {
         if (
           (props.placement == 'bottom' && (tv >= 10 || this.isMoving))
           || (props.placement == 'top' && (tv <= -10 || this.isMoving))
-          || (props.placement == 'left' && (tv >= 10 || this.isMoving))
-          || (props.placement == 'right' && (tv <= -10 || this.isMoving))
+          || (props.placement == 'left' && (tv <= -10 || this.isMoving))
+          || (props.placement == 'right' && (tv >= 10 || this.isMoving))
         ) {
           this.isMoving = true;
           present.value.render({

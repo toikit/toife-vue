@@ -848,7 +848,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
         move({ deltaY: w, deltaX: u, initialDirection: h }) {
           if (h != d.value) return;
           let f = 0;
-          e.placement == "bottom" || e.placement == "top" ? f = w : f = u, e.placement == "bottom" && (f = w > 0 ? w : 0), e.placement == "top" && (f = w < 0 ? w : 0), e.placement == "left" && (f = u < 0 ? u : 0), e.placement == "right" && (f = u > 0 ? u : 0), (e.placement == "bottom" && (f >= 10 || this.isMoving) || e.placement == "top" && (f <= -10 || this.isMoving) || e.placement == "left" && (f >= 10 || this.isMoving) || e.placement == "right" && (f <= -10 || this.isMoving)) && (this.isMoving = !0, r.value.render({
+          e.placement == "bottom" || e.placement == "top" ? f = w : f = u, e.placement == "bottom" && (f = w > 0 ? w : 0), e.placement == "top" && (f = w < 0 ? w : 0), e.placement == "left" && (f = u < 0 ? u : 0), e.placement == "right" && (f = u > 0 ? u : 0), (e.placement == "bottom" && (f >= 10 || this.isMoving) || e.placement == "top" && (f <= -10 || this.isMoving) || e.placement == "left" && (f <= -10 || this.isMoving) || e.placement == "right" && (f >= 10 || this.isMoving)) && (this.isMoving = !0, r.value.render({
             contentTransform: f + "px",
             transition: "0s"
           }));
@@ -895,7 +895,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["class", "placement", "backdrop", "visible", "keepalive", "style"]));
   }
-}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-965bf084"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ g({
+}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-71a5b877"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ g({
   __name: "t-input",
   props: {
     size: { default: "standard" },
