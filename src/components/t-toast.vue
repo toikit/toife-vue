@@ -14,6 +14,7 @@
   color: var(--color);
   background: var(--background);
   border: var(--border);
+  box-shadow: 0px 0px 12px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
 
   &.bottom{
     bottom: 0;
