@@ -465,7 +465,7 @@ const ke = /* @__PURE__ */ _(ye, [["render", be]]), $e = /* @__PURE__ */ b({
       return t.variant == "default" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? l = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + "-text)",
-        "--background": "rgba(var(--t-color-status-" + t.color + "-rgb), 0.43)"
+        "--background": "rgba(var(--t-color-status-" + t.color + "-rgb), 1)"
       } : l = {
         "--border": "none",
         "--color": "var(--t-color-text)",
@@ -473,7 +473,7 @@ const ke = /* @__PURE__ */ _(ye, [["render", be]]), $e = /* @__PURE__ */ b({
       } : l = {
         "--border": "none",
         "--color": "var(--t-color-text)",
-        "--background": "rgba(var(--t-color-surface-rgb), 0.43)"
+        "--background": "rgba(var(--t-color-surface-rgb), 1)"
       }), t.variant == "text" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? l = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + ")",
@@ -508,7 +508,7 @@ const ke = /* @__PURE__ */ _(ye, [["render", be]]), $e = /* @__PURE__ */ b({
       style: T({ "--space": t.space, ...g.value })
     }, M(t.message), 7)) : I("", !0);
   }
-}), ae = /* @__PURE__ */ _(We, [["__scopeId", "data-v-00a7cbd2"]]), po = (o = {}) => ({
+}), ae = /* @__PURE__ */ _(We, [["__scopeId", "data-v-e6895831"]]), po = (o = {}) => ({
   open() {
     let s = document.body.querySelector(".t-app");
     if (!s) return;

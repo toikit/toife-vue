@@ -12,13 +12,13 @@
   opacity: 1;
   font-size: 0.8rem;
   line-height: 0.8rem;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  // -webkit-backdrop-filter: blur(8px);
+  // backdrop-filter: blur(8px);
   
   color: var(--color);
   background: var(--background);
   border: var(--border);
-  box-shadow: 0px 0px 12px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
+  box-shadow: 0px 0px 17px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
 
   &.bottom{
     bottom: 0;
@@ -101,14 +101,14 @@ const styles = computed(() => {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-text)',
-        '--background': 'rgba(var(--t-color-surface-rgb), 0.43)'
+        '--background': 'rgba(var(--t-color-surface-rgb), 1)'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-status-'+props.color+'-text)',
-        '--background': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.43)'
+        '--background': 'rgba(var(--t-color-status-'+props.color+'-rgb), 1)'
       };
     }
     else {
