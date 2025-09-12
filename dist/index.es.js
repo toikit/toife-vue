@@ -508,7 +508,7 @@ const ke = /* @__PURE__ */ _(ge, [["render", be]]), $e = /* @__PURE__ */ b({
       style: T({ "--space": t.space, ...y.value })
     }, M(t.message), 7)) : I("", !0);
   }
-}), ae = /* @__PURE__ */ _(We, [["__scopeId", "data-v-7754026e"]]), po = (o = {}) => ({
+}), ae = /* @__PURE__ */ _(We, [["__scopeId", "data-v-68ab6f0c"]]), po = (o = {}) => ({
   open() {
     let s = document.body.querySelector(".t-app");
     if (!s) return;
