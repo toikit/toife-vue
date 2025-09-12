@@ -19,6 +19,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useAttrs } from 'vue';
 import { screenController } from '../controllers';
 import { useRouter } from 'vue-router';
 
@@ -26,7 +27,14 @@ const router = useRouter();
 const props = defineProps<{
   to?: any
 }>();
-const onClick = () => {
+const attrs = useAttrs();
+
+const onClick = (e:any) => {
+  if (attrs.onClick) {
+    (attrs.onClick as Function)(e);
+    return;
+  }
+  
   if (screenController.hasPrevious.value) {
     router?.back?.();
   }
