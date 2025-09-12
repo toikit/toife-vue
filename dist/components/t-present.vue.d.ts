@@ -3,6 +3,7 @@ type __VLS_Props = {
     visible?: boolean;
     backdrop?: boolean;
     placement?: string;
+    class?: any;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;

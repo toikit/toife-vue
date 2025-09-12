@@ -53,7 +53,7 @@
 </style>
 
 <template>
-  <div class="t-present" ref="present" :class="{[placement]: true}" v-if="isRender" v-show="isShow" :style="{...styles, zIndex }"><slot/></div>
+  <div class="t-present" ref="present" :class="[{[placement]: true}, props.class]" v-if="isRender" v-show="isShow" :style="{...styles, zIndex }"><slot/></div>
   <div class="t-present-backdrop" @click="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="{...styles, zIndex: zIndex - 1}"></div>
 </template>
 
@@ -70,6 +70,7 @@ const props = withDefaults(defineProps<{
   visible?: boolean,
   backdrop?:boolean,
   placement?: string,
+  class?:any
 }>(), {
   keepalive: true,
   visible: false,

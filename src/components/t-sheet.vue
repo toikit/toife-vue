@@ -80,7 +80,7 @@
 </style>
 
 <template>
-  <t-present ref="present" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
+  <t-present ref="present" :class="props.class" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
     :keepalive="props.keepalive" @dismiss="close">
     <t-pull-signal :placement="props.placement" v-if="props.gesture && props.placement != 'center'"></t-pull-signal>
     <button class="t-sheet-close" @click="close('close-button')"
@@ -102,6 +102,7 @@ import TPullSignal from './t-pull-signal.vue';
 
 const props = withDefaults(defineProps<{
   background?: string,
+  class?:any,
   visible?: boolean,
   gesture?: boolean,
   fullscreen?: boolean,

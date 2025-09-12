@@ -25,7 +25,8 @@ const ke = /* @__PURE__ */ _(ge, [["render", be]]), $e = /* @__PURE__ */ b({
     keepalive: { type: Boolean, default: !0 },
     visible: { type: Boolean, default: !1 },
     backdrop: { type: Boolean, default: !0 },
-    placement: { default: "bottom" }
+    placement: { default: "bottom" },
+    class: {}
   },
   emits: ["dismiss"],
   setup(o, { expose: s, emit: e }) {
@@ -69,7 +70,7 @@ const ke = /* @__PURE__ */ _(ge, [["render", be]]), $e = /* @__PURE__ */ b({
     return u(), (f, z) => (c(), p(A, null, [
       m.value ? O((c(), p("div", {
         key: 0,
-        class: S(["t-present", { [f.placement]: !0 }]),
+        class: S(["t-present", [{ [f.placement]: !0 }, a.class]]),
         ref_key: "present",
         ref: i,
         style: T({ ...y, zIndex: t.value })
@@ -90,7 +91,7 @@ const ke = /* @__PURE__ */ _(ge, [["render", be]]), $e = /* @__PURE__ */ b({
       ]) : I("", !0)
     ], 64));
   }
-}), D = /* @__PURE__ */ _($e, [["__scopeId", "data-v-3d0c3227"]]), we = /* @__PURE__ */ b({
+}), D = /* @__PURE__ */ _($e, [["__scopeId", "data-v-9a62d911"]]), we = /* @__PURE__ */ b({
   __name: "t-loading-icon",
   props: {
     size: {
@@ -800,6 +801,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
   __name: "t-sheet",
   props: {
     background: { default: "var(--t-color-surface)" },
+    class: {},
     visible: { type: Boolean, default: !1 },
     gesture: { type: Boolean, default: !0 },
     fullscreen: { type: Boolean, default: !1 },
@@ -866,6 +868,7 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
     }), (l, g) => (c(), B(D, {
       ref_key: "present",
       ref: r,
+      class: S(e.class),
       placement: e.placement,
       backdrop: l.backdrop,
       visible: e.visible,
@@ -896,9 +899,9 @@ const ie = /* @__PURE__ */ _(Ze, [["render", et], ["__scopeId", "data-v-c2a3436c
         ], 6)
       ]),
       _: 3
-    }, 8, ["placement", "backdrop", "visible", "keepalive"]));
+    }, 8, ["class", "placement", "backdrop", "visible", "keepalive"]));
   }
-}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-0ff00a13"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ b({
+}), ut = /* @__PURE__ */ _(it, [["__scopeId", "data-v-0962ab7e"]]), dt = { class: "t-input-label" }, pt = { class: "t-input-content" }, ft = ["type", "placeholder", "value"], mt = /* @__PURE__ */ b({
   __name: "t-input",
   props: {
     size: { default: "standard" },
