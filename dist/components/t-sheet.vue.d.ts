@@ -10,12 +10,11 @@ type __VLS_Props = {
     rounded?: boolean;
     radius?: boolean;
     indicator?: boolean;
-    closeButton?: boolean;
+    style?: any;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
     slots: {
-        'close-icon'?(_: {}): any;
         default?(_: {}): any;
     };
     refs: {
@@ -27,6 +26,7 @@ declare function __VLS_template(): {
                 readonly visible?: boolean | undefined;
                 readonly backdrop?: boolean | undefined;
                 readonly placement?: string | undefined;
+                readonly style?: any;
                 readonly class?: any;
                 readonly onDismiss?: ((...args: any[]) => any) | undefined;
             } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
@@ -52,6 +52,7 @@ declare function __VLS_template(): {
                 visible?: boolean;
                 backdrop?: boolean;
                 placement?: string;
+                style?: any;
                 class?: any;
             }> & Readonly<{
                 onDismiss?: ((...args: any[]) => any) | undefined;
@@ -96,6 +97,7 @@ declare function __VLS_template(): {
             visible?: boolean;
             backdrop?: boolean;
             placement?: string;
+            style?: any;
             class?: any;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
@@ -128,7 +130,6 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     fullscreen: boolean;
     radius: boolean;
     indicator: boolean;
-    closeButton: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     present: ({
         $: import('vue').ComponentInternalInstance;
@@ -138,6 +139,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             readonly visible?: boolean | undefined;
             readonly backdrop?: boolean | undefined;
             readonly placement?: string | undefined;
+            readonly style?: any;
             readonly class?: any;
             readonly onDismiss?: ((...args: any[]) => any) | undefined;
         } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
@@ -163,6 +165,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             visible?: boolean;
             backdrop?: boolean;
             placement?: string;
+            style?: any;
             class?: any;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
@@ -207,6 +210,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         visible?: boolean;
         backdrop?: boolean;
         placement?: string;
+        style?: any;
         class?: any;
     }> & Readonly<{
         onDismiss?: ((...args: any[]) => any) | undefined;

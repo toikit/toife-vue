@@ -64,29 +64,29 @@
   }
 }
 
-.t-sheet-close {
-  position: absolute;
-  color: var(--t-color-separate);
-  background-color: transparent;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  font-size: 1rem;
-  border: 1px solid var(--t-color-separate);
-  bottom: -40px;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
+// .t-sheet-close {
+//   position: absolute;
+//   color: var(--t-color-separate);
+//   background-color: transparent;
+//   border-radius: 50%;
+//   height: 30px;
+//   width: 30px;
+//   font-size: 1rem;
+//   border: 1px solid var(--t-color-separate);
+//   bottom: -40px;
+//   left: 50%;
+//   transform: translate(-50%, 0);
+// }
 </style>
 
 <template>
   <t-present ref="present" :class="props.class" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
-    :keepalive="props.keepalive" @dismiss="close">
+    :keepalive="props.keepalive" @dismiss="close" :style="props.style">
     <t-gesture-indicator :placement="props.placement" v-if="props.indicator && props.placement != 'center'"></t-gesture-indicator>
-    <button class="t-sheet-close" @click="close('close-button')"
+    <!-- <button class="t-sheet-close" @click="close('close-button')"
       v-if="props.closeButton && props.placement == 'center'">
       <slot name="close-icon"><i class="ri-close-large-line"></i></slot>
-    </button>
+    </button> -->
     <div class="t-sheet" :style="{ '--background': props.background }" ref="sheet"
       :class="{ 'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius }">
       <slot />
@@ -112,7 +112,8 @@ const props = withDefaults(defineProps<{
   rounded?: boolean,
   radius?: boolean,
   indicator?: boolean,
-  closeButton?: boolean // only with center
+  style?:any,
+  // closeButton?: boolean // only with center
 }>(), {
   background: 'var(--t-color-surface)',
   backdrop: true,
@@ -122,7 +123,7 @@ const props = withDefaults(defineProps<{
   fullscreen: false,
   rounded: true,
   placement: 'bottom',
-  closeButton: true,
+  // closeButton: true,
   radius: true,
   indicator: true
 });
