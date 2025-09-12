@@ -12,6 +12,8 @@
   opacity: 1;
   font-size: 0.8rem;
   line-height: 0.8rem;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   
   color: var(--color);
   background: var(--background);
@@ -99,14 +101,14 @@ const styles = computed(() => {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-text)',
-        '--background': 'var(--t-color-surface)'
+        '--background': 'rgba(var(--t-color-surface-rgb), 0.43)'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
         '--color': 'var(--t-color-status-'+props.color+'-text)',
-        '--background': 'var(--t-color-status-'+props.color+')'
+        '--background': 'rgba(var(--t-color-status-'+props.color+'-rgb), 0.43)'
       };
     }
     else {
