@@ -44,6 +44,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, provide } from 'vue';
 import { useKeyboard } from '../controllers';
 
 const props = withDefaults(defineProps<{
@@ -54,4 +55,9 @@ const props = withDefaults(defineProps<{
   placement: 'bottom'
 });
 const { height } = useKeyboard();
+
+// provide cho các tab con
+provide('cableState', {
+  placement: props.placement
+});
 </script>

@@ -45,19 +45,27 @@
 </style>
 
 <template>
-  <div class="t-toolbar" :class="{[props.placement]: true, safe: props.safe}" :style="{'--t-size-toolbar':props.size}">
+  <div class="t-toolbar" :class="{[placement]: true, safe: props.safe}" :style="{'--t-size-toolbar':props.size}">
     <div><slot/></div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { computed, inject } from 'vue';
+
 const props = withDefaults(defineProps<{
   placement?:any,
   safe?:boolean,
   size?:any
 }>(), {
-  placement: 'bottom',
+  placement: null,
   safe: true,
   size: '50px'
+});
+
+const cable:any = inject('cableState');
+
+const placement = computed(() => {
+  return props?.placement || cable?.placement;
 });
 </script>
