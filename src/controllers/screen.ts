@@ -40,6 +40,7 @@ const scaleHandler = {
   },
 
   move(delta:any) {
+    if (!isSwipeable.value) return;
     const width = window.innerWidth;
     const percent = delta / width * 100;
     const current = currentScreen.value.target;
@@ -58,6 +59,7 @@ const scaleHandler = {
   },
 
   back(callback?:any){
+    if (!lastScreen.value) return;
     currentScreen.value.target.style.transition = 'transform 0.35s ease';
     currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
 
@@ -78,6 +80,12 @@ const scaleHandler = {
 
   next(callback?:any){
     if (!nextScreen.value) return;
+    if (activeIndex.value == -1) {
+      activeIndex.value += 1;
+      callback && callback();
+      return;
+    }
+
     isBusy.value = true;
     let target = nextScreen.value.target;
     target.style.transform = 'translateX(var(--t-app-width))';
@@ -143,6 +151,7 @@ const transformHandler = {
   },
 
   back(callback?:any){
+    if (!lastScreen.value) return;
     currentScreen.value.target.style.transition = 'transform 0.35s ease';
     currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
 
@@ -163,6 +172,11 @@ const transformHandler = {
 
   next(callback?:any){
     if (!nextScreen.value) return;
+    if (activeIndex.value == -1) {
+      activeIndex.value += 1;
+      callback && callback();
+      return;
+    }
     isBusy.value = true;
     let target = nextScreen.value.target;
     target.style.transform = 'translateX(var(--t-app-width))';
