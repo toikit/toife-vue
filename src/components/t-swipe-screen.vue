@@ -9,15 +9,20 @@ let routeComponents: any = {};
 const router = useRouter();
 const route = useRoute();
 const routes: any = router.getRoutes();
-const isBusy = ref(false);
 const emit = defineEmits(['change']);
+const props = withDefaults(defineProps<{
+  variant?:string
+}>(), {
+  variant: 'scale'
+});
+let ges: any;
 
 for (let r of routes) {
   routeComponents[r.name] = r.components;
 }
 
 // Add next screen to dom
-const nextScreen = (name: any) => {
+const addScreen = (name: any) => {
   if (!name) return;
   screenController.addScreen({
     name,
@@ -29,56 +34,14 @@ const nextScreen = (name: any) => {
 // Add ref
 const addScreenRef = (index: any, target: any) => {
   if (!target || screenController.screens[index].target) return;
-  screenController.screens[index].target = target.$el;
+  screenController.addScreenEl(index, target.$el);
 
-  if (index > 0) {
-    isBusy.value = true;
-    target.$el.style.transform = 'translateX(var(--t-app-width))';
-    target.$el.transitionOrigin = 'center';
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
-
-    setTimeout(() => {
-      target.$el.style.transition = 'transform 0.35s ease';
-      target.$el.style.transform = 'translateX(0px)';
-      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
-      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
-
-      if (screenController.screens.length > 1) {
-        screenController.lastScreen.value.target.style.transitionOrigin = 'left center';
-        screenController.lastScreen.value.target.style.transition = 'transform 0.35s ease';
-        screenController.lastScreen.value.target.style.transform = 'translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)';
-      }
-
-      setTimeout(() => {
-        emit('change');
-        isBusy.value = false;
-      }, 400);
-    }, 100);
+  if (screenController.nextScreen) {
+    screenController.next(props.variant, () => {
+      emit('change');
+    });
   }
 }
-
-// Pop back screen
-const backScreen = () => {
-  screenController.currentScreen.value.target.style.transition = 'transform 0.35s ease';
-  screenController.currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
-
-  screenController.lastScreen.value.target.style.transition = 'transform 0.35s ease';
-  screenController.lastScreen.value.target.style.transform = 'translateX(0px) scale(1) perspective(var(--t-app-width)) rotateY(0deg)';
-
-  document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
-  document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
-
-  isBusy.value = true;
-  setTimeout(() => {
-    screenController.removeScreen();
-    emit('change');
-    isBusy.value = false;
-  }, 400);
-}
-
-// Add first
-nextScreen(route.name);
 
 watch(() => route.name, (current: any, old: any) => {
   // Check case next is current, do nothing
@@ -86,72 +49,36 @@ watch(() => route.name, (current: any, old: any) => {
 
   // Case current is back
   if (screenController.lastScreen.value?.name == current) {
-    backScreen();
+    screenController.back(props.variant, () => {
+      emit('change');
+    });
   } else {
-    nextScreen(current);
+    addScreen(route.name);
   }
 });
 
-const reset = () => {
-  isBusy.value = true;
-  const current = screenController.currentScreen.value.target;
-  const last = screenController.lastScreen.value.target;
-  current.style.transition = 'transform 0.35s ease';
-  current.style.transform = `translateX(0px)`;
-
-  last.style.transition = 'transform 0.35s ease';
-  last.style.transform = `translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)`;
-
-  document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
-  document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
-  setTimeout(() => {
-    isBusy.value = false;
-  }, 400);
-}
-
-let ges: any;
 onMounted(() => {
   ges = gesture(document.body, {
-    isMoving: false,
-
     beforeEvent(e: any) {
-      if (isBusy.value || !screenController.swipeable.value || screenController.screens.length < 2) return false;
+      if (!screenController.isSwipeable.value) return false;
       return true;
     },
 
     fast({ initialDirection }: any) {
-      if (initialDirection == 'right') router.back();
-    },
-
-    down() {
-      this.isMoving = false;
+      if (screenController.lastScreen.value && initialDirection == 'right') router.back();
     },
 
     move({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') return;
-
-      const width = window.innerWidth;
-      const percent = deltaX / width * 100;
-      const current = screenController.currentScreen.value.target;
-      const last = screenController.lastScreen?.value?.target;
-
-      if ((deltaX > 15 && deltaX <= width) || this.isMoving) {
-        deltaX = deltaX > 0 ? deltaX : 0;
-        this.isMoving = true;
-        current.style.transition = 'transform 0s ease';
-        current.style.transform = `translateX(${deltaX}px)`;
-        last.style.transition = 'transform 0s ease';
-
-        document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
-        last.style.transform = `translateX(calc((var(--t-app-width) / 100 * 30 * -1) + ((var(--t-app-width) / 100 * 30) / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(var(--t-app-width)) rotateY(${30 - (30 / 100 * percent)}deg)`;
-        document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
-      }
+      screenController.move(props.variant, deltaX);
     },
 
     up({ deltaX, initialDirection }: any) {
-      this.isMoving = false;
+      if (initialDirection != 'right') {
+        screenController.reset(props.variant);
+        return;
+      }
 
-      if (initialDirection != 'right') reset();
       const width = window.innerWidth;
       const percent = deltaX / width * 100;
 
@@ -160,13 +87,12 @@ onMounted(() => {
       }
       // Reset
       else {
-        reset();
+        screenController.reset(props.variant);
       }
     },
 
     cancel() {
-      this.isMoving = false;
-      reset();
+      screenController.reset(props.variant);
     },
   });
 });
@@ -175,6 +101,9 @@ onUnmounted(() => {
   ges && ges.destroy();
   screenController.removeAllScreen();
 });
+
+// Add first
+addScreen(route.name);
 </script>
 
 <template>

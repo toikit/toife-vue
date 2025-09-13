@@ -2,9 +2,201 @@ import { computed, reactive, ref } from "vue";
 
 const screens = reactive<any>([]);
 const swipeable = ref(true);
+const isBusy = ref(false);
+const activeIndex = ref(-1);
+
+const currentScreen = computed(() => {
+  return screens[activeIndex.value];
+});
+
+const nextScreen = computed(() => {
+  return screens[activeIndex.value + 1] || undefined;
+});
+
+const lastScreen = computed(() => {
+  return screens[screens.length - 2];
+});
+
+const isSwipeable = computed(() => {
+  return !isBusy.value && swipeable.value && lastScreen.value;
+});
+
+const scaleHandler = {
+  reset(){
+    isBusy.value = true;
+    const current = currentScreen.value.target;
+    const last = lastScreen.value.target;
+    current.style.transition = 'transform 0.35s ease';
+    current.style.transform = `translateX(0px)`;
+
+    last.style.transition = 'transform 0.35s ease';
+    last.style.transform = `translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)`;
+
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+    setTimeout(() => {
+      isBusy.value = false;
+    }, 400);
+  },
+
+  move(delta:any) {
+    const width = window.innerWidth;
+    const percent = delta / width * 100;
+    const current = currentScreen.value.target;
+    const last = lastScreen.value.target;
+
+    if (delta > 15 && delta <= width) {
+      delta = delta > 0 ? delta : 0;
+      current.style.transition = 'transform 0s ease';
+      current.style.transform = `translateX(${delta}px)`;
+      last.style.transition = 'transform 0s ease';
+
+      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+      last.style.transform = `translateX(calc((var(--t-app-width) / 100 * 30 * -1) + ((var(--t-app-width) / 100 * 30) / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(var(--t-app-width)) rotateY(${30 - (30 / 100 * percent)}deg)`;
+      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
+    }
+  },
+
+  back(callback?:any){
+    currentScreen.value.target.style.transition = 'transform 0.35s ease';
+    currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
+
+    lastScreen.value.target.style.transition = 'transform 0.35s ease';
+    lastScreen.value.target.style.transform = 'translateX(0px) scale(1) perspective(var(--t-app-width)) rotateY(0deg)';
+
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+
+    isBusy.value = true;
+    setTimeout(() => {
+      removeScreen();
+      isBusy.value = false;
+      activeIndex.value -= 1;
+      callback && callback();
+    }, 400);
+  },
+
+  next(callback?:any){
+    if (!nextScreen.value) return;
+    isBusy.value = true;
+    let target = nextScreen.value.target;
+    target.style.transform = 'translateX(var(--t-app-width))';
+    target.transitionOrigin = 'center';
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+
+    setTimeout(() => {
+      target.style.transition = 'transform 0.35s ease';
+      target.style.transform = 'translateX(0px)';
+      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+
+      if (currentScreen.value) {
+        currentScreen.value.target.style.transitionOrigin = 'left center';
+        currentScreen.value.target.style.transition = 'transform 0.35s ease';
+        currentScreen.value.target.style.transform = 'translateX(calc(var(--t-app-width) / 100 * 30 * -1)) scale(0.5) perspective(var(--t-app-width)) rotateY(30deg)';
+      }
+
+      setTimeout(() => {
+        isBusy.value = false;
+        activeIndex.value += 1;
+        callback && callback();
+      }, 400);
+    }, 100);
+  }
+};
+
+const transformHandler = {
+  reset(){
+    isBusy.value = true;
+    const current = currentScreen.value.target;
+    const last = lastScreen.value.target;
+    current.style.transition = 'transform 0.35s ease';
+    current.style.transform = `translateX(0px)`;
+
+    last.style.transition = 'transform 0.35s ease';
+    last.style.transform = `translateX(calc(var(--t-app-width) / 100 * 30 * -1))`;
+
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+    setTimeout(() => {
+      isBusy.value = false;
+    }, 400);
+  },
+
+  move(delta:any) {
+    const width = window.innerWidth;
+    const percent = delta / width * 100;
+    const current = currentScreen.value.target;
+    const last = lastScreen.value.target;
+
+    if (delta > 15 && delta <= width) {
+      delta = delta > 0 ? delta : 0;
+      current.style.transition = 'transform 0s ease';
+      current.style.transform = `translateX(${delta}px)`;
+      last.style.transition = 'transform 0s ease';
+
+      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+      last.style.transform = `translateX(calc((var(--t-app-width) / 100 * 30 * -1) + ((var(--t-app-width) / 100 * 30) / 100 * ${percent})))`;
+      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
+    }
+  },
+
+  back(callback?:any){
+    currentScreen.value.target.style.transition = 'transform 0.35s ease';
+    currentScreen.value.target.style.transform = 'translateX(var(--t-app-width)) scale(1)';
+
+    lastScreen.value.target.style.transition = 'transform 0.35s ease';
+    lastScreen.value.target.style.transform = 'translateX(0px)';
+
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+
+    isBusy.value = true;
+    setTimeout(() => {
+      removeScreen();
+      isBusy.value = false;
+      activeIndex.value -= 1;
+      callback && callback();
+    }, 400);
+  },
+
+  next(callback?:any){
+    if (!nextScreen.value) return;
+    isBusy.value = true;
+    let target = nextScreen.value.target;
+    target.style.transform = 'translateX(var(--t-app-width))';
+    target.transitionOrigin = 'center';
+    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+
+    setTimeout(() => {
+      target.style.transition = 'transform 0.35s ease';
+      target.style.transform = 'translateX(0px)';
+      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.35s');
+      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+
+      if (currentScreen.value) {
+        currentScreen.value.target.style.transitionOrigin = 'left center';
+        currentScreen.value.target.style.transition = 'transform 0.35s ease';
+        currentScreen.value.target.style.transform = 'translateX(calc(var(--t-app-width) / 100 * 30 * -1))';
+      }
+
+      setTimeout(() => {
+        isBusy.value = false;
+        activeIndex.value += 1;
+        callback && callback();
+      }, 400);
+    }, 100);
+  }
+};
 
 const addScreen = (screen:any) => {
   screens.push(screen);
+}
+
+const addScreenEl = (index:any, target:any) => {
+  screens[index].target = target;
 }
 
 const removeScreen = (index?:any) => {
@@ -23,23 +215,42 @@ const unlockSwipe = () => {
   swipeable.value = true;
 }
 
+const next = (variant:any, callback?:any) => {
+  if (variant == 'scale') scaleHandler.next(callback);
+  if (variant == 'transform') transformHandler.next(callback);
+}
+
+const back = (variant:any, callback?:any) => {
+  if (variant == 'scale') scaleHandler.back(callback);
+  if (variant == 'transform') transformHandler.back(callback);
+}
+
+const move = (variant:any, delta:any) => {
+  if (variant == 'scale') scaleHandler.move(delta);
+  if (variant == 'transform') transformHandler.move(delta);
+}
+
+const reset = (variant:any) => {
+  if (variant == 'scale') scaleHandler.reset();
+  if (variant == 'transform') transformHandler.reset();
+}
+
 export default {
+  isBusy,
+  isSwipeable,
+  reset,
+  next,
+  back,
+  move,
   screens,
   addScreen,
+  addScreenEl,
   removeScreen,
   removeAllScreen,
   lockSwipe,
   unlockSwipe,
   swipeable,
-  hasPrevious: computed(() => {
-    return screens.length > 1;
-  }),
-  currentScreen: computed(() => {
-    return screens[screens.length - 1];
-  }),
-  lastScreen: computed(() => {
-    let len = screens.length;
-    if (len < 2) return;
-    return screens[screens.length - 2];
-  })
+  currentScreen,
+  lastScreen,
+  nextScreen
 }

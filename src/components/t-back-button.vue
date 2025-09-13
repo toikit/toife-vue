@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <button class="t-back-button" v-if="to || screenController.hasPrevious" @click="onClick">
+  <button class="t-back-button" v-if="to || screenController.lastScreen" @click="onClick">
     <slot><i class="ri-arrow-left-s-line"></i></slot>
   </button>
 </template>
@@ -35,7 +35,7 @@ const onClick = (e:any) => {
     return;
   }
   
-  if (screenController.hasPrevious.value) {
+  if (screenController.lastScreen.value) {
     router?.back?.();
   }
   else if (props.to) {

@@ -28,6 +28,9 @@ export default (props:any = {}) => {
       app.mount(container);
       setTimeout(() => {
         instanceRef.value?.open?.();
+        setTimeout(() => {
+          instanceRef.value?.close?.();
+        }, props.duration + 10);
       }, 50);
     }
   }

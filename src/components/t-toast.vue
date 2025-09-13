@@ -2,23 +2,24 @@
 .t-toast{
   width: calc(100% - 2rem);
   height: fit-content;
-  max-width: 400px;
-  padding: 0.75rem 1rem;
+  max-width: var(--t-app-overlay-max-width);
   position: absolute;
   z-index: 9999;
-  border-radius: 8px;
   left: 50%;
   transition: all 0.2s ease;
   opacity: 1;
   font-size: 0.8rem;
   line-height: 0.8rem;
-  // -webkit-backdrop-filter: blur(8px);
-  // backdrop-filter: blur(8px);
-  
-  color: var(--color);
-  background: var(--background);
-  border: var(--border);
-  box-shadow: 0px 0px 17px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
+
+  .t-toast-content{
+    color: var(--color);
+    background: var(--background);
+    border: var(--border);
+    box-shadow: 0px 0px 17px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+  }
 
   &.bottom{
     bottom: 0;
@@ -45,28 +46,30 @@
 </style>
 
 <template>
-  <div class="t-toast" v-if="isRender" :class="{[props.placement]: true, open: visible, closing: isClosing}" :style="{'--space': props.space, ...styles}">{{ props.message }}</div>
+  <div class="t-toast" v-if="isRender" :class="{[props.placement]: true, open: _visible, closing: isClosing}" :style="{'--space': props.space, ...styles}">
+    <slot name="content"><div class="t-toast-content">{{ props.message }}</div></slot>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 const props = withDefaults(defineProps<{
   message: any,
   space?: any,
   placement?:string,
-  duration?:number,
   color?:any,
-  variant?:string
+  variant?:string,
+  visible?:boolean
 }>(), {
   placement: 'bottom',
   space: "0px",
-  duration: 2000,
   color:null,
-  variant:'default'
+  variant:'default',
+  visible: false
 });
 const emit = defineEmits(['dismiss']);
-const visible = ref(false);
+const _visible = ref(false);
 const isRender = ref(false);
 const isClosing = ref(false);
 
@@ -75,12 +78,8 @@ const open = () => {
   isClosing.value = false;
 
   setTimeout(() => {
-    visible.value = true;
+    _visible.value = true;
   }, 10);
-
-  setTimeout(() => {
-    close();
-  }, props.duration + 10);
 }
 
 const close = () => {
@@ -88,10 +87,18 @@ const close = () => {
 
   setTimeout(() => {
     isRender.value = false;
-    visible.value = false;
+    _visible.value = false;
     emit('dismiss');
   }, 300);
 }
+
+watch(() => props.visible, (value) => {
+  if (value) {
+    open();
+  } else {
+    close();
+  }
+});
 
 const styles = computed(() => {
   let st:any;
@@ -172,6 +179,7 @@ const styles = computed(() => {
 });
 
 defineExpose({
-  open
+  open,
+  close
 });
 </script>

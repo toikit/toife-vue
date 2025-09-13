@@ -1,13 +1,20 @@
 declare const _default: {
+    isBusy: import('vue').Ref<boolean, boolean>;
+    isSwipeable: import('vue').ComputedRef<any>;
+    reset: (variant: any) => void;
+    next: (variant: any, callback?: any) => void;
+    back: (variant: any, callback?: any) => void;
+    move: (variant: any, delta: any) => void;
     screens: any;
     addScreen: (screen: any) => void;
+    addScreenEl: (index: any, target: any) => void;
     removeScreen: (index?: any) => void;
     removeAllScreen: () => void;
     lockSwipe: () => void;
     unlockSwipe: () => void;
     swipeable: import('vue').Ref<boolean, boolean>;
-    hasPrevious: import('vue').ComputedRef<boolean>;
     currentScreen: import('vue').ComputedRef<any>;
     lastScreen: import('vue').ComputedRef<any>;
+    nextScreen: import('vue').ComputedRef<any>;
 };
 export default _default;

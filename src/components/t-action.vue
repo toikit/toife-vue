@@ -14,7 +14,7 @@
     border-radius: 8px;
     margin-bottom: 0.5rem;
     background-color: var(--t-color-surface);
-    max-width: 300px;
+    max-width: var(--t-app-overlay-max-width);
 
     &:last-child{
       margin-bottom: 1rem !important;
@@ -36,7 +36,7 @@
 </style>
 
 <template>
-  <t-present placement="bottom" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
+  <t-present placement="bottom" :backdrop="true" :keepalive="false" :visible="_visible" @dismiss="onDismiss">
     <div class="t-action" :class="{pop}" ref="container">
       <div v-for="buttons in props.actions">
         <t-button v-for="btn in buttons" :color="btn.color" :size="btn.size" :variant="btn.variant" @click="choose(btn)" block>{{ btn.text }}</t-button>
@@ -46,31 +46,34 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import TPresent from './t-present.vue';
 import TButton from './t-button.vue';
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   actions: Array<any>,
+  visible?:boolean
   dismiss?: Array<any>
-}>();
-const visible = ref(false);
+}>(), {
+  visible: false
+});
+const _visible = ref(false);
 const emit = defineEmits(['dismiss']);
 const container = ref();
 const pop = ref(false);
 
 const open = () => {
-  visible.value = true;
+  _visible.value = true;
 }
 
 const choose = (btn:any) => {
-  visible.value = false;
+  _visible.value = false;
   btn.handler && btn.handler();
   emit('dismiss', 'choose', btn?.data);
 }
 
 const onDismiss = (val:any) => {
   if (props.dismiss && props.dismiss.includes(val)) {
-    visible.value = false;
+    _visible.value = false;
     emit('dismiss', val);
   }
   else if (val == 'backdrop') {
@@ -81,7 +84,16 @@ const onDismiss = (val:any) => {
   }
 }
 
+watch(() => props.visible, (value) => {
+  if (value) {
+    open();
+  } else {
+    close();
+  }
+});
+
 defineExpose({
-  open
+  open,
+  close
 });
 </script>
