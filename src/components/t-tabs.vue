@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, provide, ref, watch } from 'vue';
+import { onMounted, provide, ref } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
