@@ -27,11 +27,13 @@
   &.top-start, &.top-center, &.top-end,
   &.bottom-start, &.bottom-center, &.bottom-end{
     flex-direction: row;
+    column-gap: 1rem;
   }
 
   &.left-start, &.left-center, &.left-end,
   &.right-start, &.right-center, &.right-end{
     flex-direction: column;
+    row-gap: 1rem;
   }
 
   // Variant
