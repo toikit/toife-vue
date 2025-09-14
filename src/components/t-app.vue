@@ -12,5 +12,6 @@
   top: 0;
   left: 0;
   overflow: hidden;
+  background-color: var(--t-color-background);
 }
 </style>
