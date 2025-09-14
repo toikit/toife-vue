@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  transition: height 0.2s ease;
 }
 
 img.spiner {
