@@ -51,7 +51,7 @@ const props = withDefaults(defineProps<{
   keyboard?:boolean,
   placement?:string
 }>(), {
-  keyboard: true,
+  keyboard: false,
   placement: 'bottom'
 });
 const { height } = useKeyboard();

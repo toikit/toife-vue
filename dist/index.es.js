@@ -631,7 +631,7 @@ function ve() {
 const ot = /* @__PURE__ */ b({
   __name: "t-cable",
   props: {
-    keyboard: { type: Boolean, default: !0 },
+    keyboard: { type: Boolean, default: !1 },
     placement: { default: "bottom" }
   },
   setup(e) {
@@ -645,7 +645,7 @@ const ot = /* @__PURE__ */ b({
       g(o.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), nt = /* @__PURE__ */ v(ot, [["__scopeId", "data-v-5234450f"]]), rt = /* @__PURE__ */ b({
+}), nt = /* @__PURE__ */ v(ot, [["__scopeId", "data-v-6cae224b"]]), rt = /* @__PURE__ */ b({
   __name: "t-card",
   props: {
     color: { default: null }
