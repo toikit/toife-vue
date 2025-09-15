@@ -20,7 +20,8 @@ html, body, * {
   border: unset;
   box-sizing: border-box;
   touch-action: pan-x pan-y;
-  overscroll-behavior: none;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent !important;
   -webkit-touch-callout: none !important;
   user-select: none !important;
