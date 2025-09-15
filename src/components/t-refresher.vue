@@ -28,7 +28,7 @@ img.spiner {
 import { ref, onUnmounted, watch } from "vue";
 import { gesture } from "@toife/gesture";
 
-const emit = defineEmits(['refresh']);
+const emit = defineEmits(['refresh', 'move', 'cancel', 'start']);
 const offset = ref(0);
 const refreshing = ref(false);
 const container = ref();
@@ -61,6 +61,7 @@ watch(() => container.value, () => {
     },
     down(){
       this.isMoving = false;
+      emit('start');
     },
     move({ deltaY, initialDirection }: any) {
       if (refreshing.value || locked || initialDirection != 'down') return;
@@ -75,6 +76,7 @@ watch(() => container.value, () => {
       } else if(deltaY > 10 || this.isMoving) {
         this.isMoving = true;
         offset.value = deltaY > 0 ? deltaY : 0;
+        emit('move', deltaY);
       }
     },
     up({ deltaY, initialDirection }: any) {
@@ -85,6 +87,7 @@ watch(() => container.value, () => {
         start();
       } else {
         offset.value = 0;
+        emit('cancel');
       }
     },
     cancel() {
@@ -93,6 +96,7 @@ watch(() => container.value, () => {
       if (refreshing.value || locked) return;
       refreshing.value = false;
       offset.value = 0;
+      emit('cancel');
     }
   }, {
     passive: false
