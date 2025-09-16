@@ -1,32 +1,32 @@
 /* Positioning */
-.pos-static   { position: static; }
-.pos-relative { position: relative; }
-.pos-absolute { position: absolute; }
-.pos-fixed    { position: fixed; }
-.pos-sticky   { position: sticky; }
+.pos-static   { position: static !important; }
+.pos-relative { position: relative !important; }
+.pos-absolute { position: absolute !important; }
+.pos-fixed    { position: fixed !important; }
+.pos-sticky   { position: sticky !important; }
 
 /* Top / Right / Bottom / Left utilities */
-.top-0    { top: 0; }
-.right-0  { right: 0; }
-.bottom-0 { bottom: 0; }
-.left-0   { left: 0; }
+.top-0    { top: 0 !important; }
+.right-0  { right: 0 !important; }
+.bottom-0 { bottom: 0 !important; }
+.left-0   { left: 0 !important; }
 
-.top-auto    { top: auto; }
-.right-auto  { right: auto; }
-.bottom-auto { bottom: auto; }
-.left-auto   { left: auto; }
+.top-auto    { top: auto !important; }
+.right-auto  { right: auto !important; }
+.bottom-auto { bottom: auto !important; }
+.left-auto   { left: auto !important; }
 
 /* Centering helpers */
 .pos-center-absolute {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .pos-center-fixed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
