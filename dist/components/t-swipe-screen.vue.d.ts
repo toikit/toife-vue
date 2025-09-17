@@ -9,7 +9,5 @@ declare const _default: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {
     onChange?: ((...args: any[]) => any) | undefined;
 }>, {
     variant: string;
-    router: any;
-    route: any;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;

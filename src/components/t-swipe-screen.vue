@@ -12,12 +12,13 @@ const props = withDefaults(defineProps<{
   router?:any,
   route?:any
 }>(), {
-  variant: 'scale',
-  router:useRouter(),
-  route:useRoute()
+  variant: 'scale'
 });
 let ges: any;
-const routes: any = props.router.getRoutes();
+
+const _router = props.router || useRouter();
+const _route = props.route || useRoute();
+const routes: any = _router.getRoutes();
 
 for (let r of routes) {
   routeComponents[r.name] = r.component || r.components;
@@ -45,7 +46,7 @@ const addScreenRef = (index: any, target: any) => {
   }
 }
 
-watch(() => props.route.name, (current: any, old: any) => {
+watch(() => _route.name, (current: any, old: any) => {
   // Check case next is current, do nothing
   if (current == screenController.currentScreen.value.name) return;
 
@@ -55,13 +56,13 @@ watch(() => props.route.name, (current: any, old: any) => {
       emit('change');
     });
   } else {
-    addScreen(props.route.name);
+    addScreen(_route.name);
   }
 });
 
 onMounted(() => {
   // Add first
-  addScreen(props.route.name);
+  addScreen(_route.name);
   ges = gesture(document.body, {
     beforeEvent(e: any) {
       if (!screenController.isSwipeable.value) return false;
@@ -69,7 +70,7 @@ onMounted(() => {
     },
 
     fast({ initialDirection }: any) {
-      if (screenController.lastScreen.value && initialDirection == 'right') props.router.back();
+      if (screenController.lastScreen.value && initialDirection == 'right') _router.back();
     },
 
     move({ deltaX, initialDirection }: any) {
@@ -87,7 +88,7 @@ onMounted(() => {
       const percent = deltaX / width * 100;
 
       if (percent >= 50) {
-        props.router.back();
+        _router.back();
       }
       // Reset
       else {
