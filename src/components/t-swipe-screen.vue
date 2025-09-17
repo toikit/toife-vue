@@ -20,7 +20,7 @@ let ges: any;
 const routes: any = props.router.getRoutes();
 
 for (let r of routes) {
-  routeComponents[r.name] = r.components;
+  routeComponents[r.name] = r.component || r.components;
 }
 
 // Add next screen to dom
@@ -60,6 +60,8 @@ watch(() => props.route.name, (current: any, old: any) => {
 });
 
 onMounted(() => {
+  // Add first
+  addScreen(props.route.name);
   ges = gesture(document.body, {
     beforeEvent(e: any) {
       if (!screenController.isSwipeable.value) return false;
@@ -103,16 +105,13 @@ onUnmounted(() => {
   ges && ges.destroy();
   screenController.removeAllScreen();
 });
-
-// Add first
-addScreen(props.route.name);
 </script>
 
 <template>
   <t-screen :ref="(el: any) => addScreenRef(index, el)"
     :style="{ zIndex: index + (index == screenController.screens.length - 1 ? 2 : 1) }"
     v-for="(screen, index) in screenController.screens" :key="index">
-    <component :is="screen.component.default" />
+    <component :is="screen.component" />
   </t-screen>
   <div class="t-swipe-backdrop" :style="{ zIndex: screenController.screens.length }"></div>
 </template>
