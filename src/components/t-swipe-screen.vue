@@ -112,7 +112,7 @@ onUnmounted(() => {
   <t-screen :ref="(el: any) => addScreenRef(index, el)"
     :style="{ zIndex: index + (index == screenController.screens.length - 1 ? 2 : 1) }"
     v-for="(screen, index) in screenController.screens" :key="index">
-    <component :is="screen.component" />
+    <component :is="screen.component.default" />
   </t-screen>
   <div class="t-swipe-backdrop" :style="{ zIndex: screenController.screens.length }"></div>
 </template>

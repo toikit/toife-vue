@@ -797,7 +797,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
         key: S
       }, {
         default: P(() => [
-          (c(), C(be($.component)))
+          (c(), C(be($.component.default)))
         ]),
         _: 2
       }, 1032, ["style"]))), 128)),
@@ -807,7 +807,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       }, null, 4)
     ], 64));
   }
-}), vt = /* @__PURE__ */ v(mt, [["__scopeId", "data-v-0d217999"]]), _t = /* @__PURE__ */ b({
+}), vt = /* @__PURE__ */ v(mt, [["__scopeId", "data-v-23e0cfda"]]), _t = /* @__PURE__ */ b({
   __name: "t-toolbar",
   props: {
     placement: { default: null },
