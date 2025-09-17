@@ -761,7 +761,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       }));
     };
     return O(() => l.name, (r, y) => {
-      r != x.currentScreen.value.name && (x.lastScreen.value?.name == r ? x.back(n.variant, () => {
+      r != x.currentScreen.value?.name && (x.lastScreen.value?.name == r ? x.back(n.variant, () => {
         s("change");
       }) : p(l.name));
     }), se(() => {
@@ -807,7 +807,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       }, null, 4)
     ], 64));
   }
-}), vt = /* @__PURE__ */ v(mt, [["__scopeId", "data-v-f496fe87"]]), _t = /* @__PURE__ */ b({
+}), vt = /* @__PURE__ */ v(mt, [["__scopeId", "data-v-0d217999"]]), _t = /* @__PURE__ */ b({
   __name: "t-toolbar",
   props: {
     placement: { default: null },

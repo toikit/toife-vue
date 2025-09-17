@@ -48,7 +48,7 @@ const addScreenRef = (index: any, target: any) => {
 
 watch(() => _route.name, (current: any, old: any) => {
   // Check case next is current, do nothing
-  if (current == screenController.currentScreen.value.name) return;
+  if (current == screenController.currentScreen.value?.name) return;
 
   // Case current is back
   if (screenController.lastScreen.value?.name == current) {
