@@ -1,21 +1,24 @@
 <script lang="ts" setup>
-import { markRaw, onMounted, onUnmounted, ref, watch } from "vue";
+import { markRaw, onMounted, onUnmounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
 import TScreen from "./t-screen.vue";
 
 let routeComponents: any = {};
-const router = useRouter();
-const route = useRoute();
-const routes: any = router.getRoutes();
 const emit = defineEmits(['change']);
 const props = withDefaults(defineProps<{
-  variant?:string
+  variant?:string,
+  router?:any,
+  route?:any
 }>(), {
-  variant: 'scale'
+  variant: 'scale',
+  router:useRouter(),
+  route:useRoute()
 });
+const {variant, route, router} = props;
 let ges: any;
+const routes: any = router.getRoutes();
 
 for (let r of routes) {
   routeComponents[r.name] = r.components;
@@ -37,7 +40,7 @@ const addScreenRef = (index: any, target: any) => {
   screenController.addScreenEl(index, target.$el);
 
   if (screenController.nextScreen) {
-    screenController.next(props.variant, () => {
+    screenController.next(variant, () => {
       emit('change');
     });
   }
@@ -49,7 +52,7 @@ watch(() => route.name, (current: any, old: any) => {
 
   // Case current is back
   if (screenController.lastScreen.value?.name == current) {
-    screenController.back(props.variant, () => {
+    screenController.back(variant, () => {
       emit('change');
     });
   } else {
@@ -70,12 +73,12 @@ onMounted(() => {
 
     move({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') return;
-      screenController.move(props.variant, deltaX);
+      screenController.move(variant, deltaX);
     },
 
     up({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') {
-        screenController.reset(props.variant);
+        screenController.reset(variant);
         return;
       }
 
@@ -87,12 +90,12 @@ onMounted(() => {
       }
       // Reset
       else {
-        screenController.reset(props.variant);
+        screenController.reset(variant);
       }
     },
 
     cancel() {
-      screenController.reset(props.variant);
+      screenController.reset(variant);
     },
   });
 });

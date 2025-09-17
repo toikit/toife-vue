@@ -1,5 +1,6 @@
 type __VLS_Props = {
     to?: any;
+    router?: any;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;

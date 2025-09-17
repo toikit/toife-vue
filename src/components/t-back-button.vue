@@ -23,11 +23,12 @@ import { useAttrs } from 'vue';
 import { screenController } from '../controllers';
 import { useRouter } from 'vue-router';
 
-const router = useRouter();
 const props = defineProps<{
-  to?: any
+  to?: any,
+  router?:any
 }>();
 const attrs = useAttrs();
+const router = props.router || useRouter();
 
 const onClick = (e:any) => {
   if (attrs.onBack) {
