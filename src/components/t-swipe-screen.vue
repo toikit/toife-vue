@@ -16,9 +16,8 @@ const props = withDefaults(defineProps<{
   router:useRouter(),
   route:useRoute()
 });
-const {variant, route, router} = props;
 let ges: any;
-const routes: any = router.getRoutes();
+const routes: any = props.router.getRoutes();
 
 for (let r of routes) {
   routeComponents[r.name] = r.components;
@@ -40,23 +39,23 @@ const addScreenRef = (index: any, target: any) => {
   screenController.addScreenEl(index, target.$el);
 
   if (screenController.nextScreen) {
-    screenController.next(variant, () => {
+    screenController.next(props.variant, () => {
       emit('change');
     });
   }
 }
 
-watch(() => route.name, (current: any, old: any) => {
+watch(() => props.route.name, (current: any, old: any) => {
   // Check case next is current, do nothing
   if (current == screenController.currentScreen.value.name) return;
 
   // Case current is back
   if (screenController.lastScreen.value?.name == current) {
-    screenController.back(variant, () => {
+    screenController.back(props.variant, () => {
       emit('change');
     });
   } else {
-    addScreen(route.name);
+    addScreen(props.route.name);
   }
 });
 
@@ -68,17 +67,17 @@ onMounted(() => {
     },
 
     fast({ initialDirection }: any) {
-      if (screenController.lastScreen.value && initialDirection == 'right') router.back();
+      if (screenController.lastScreen.value && initialDirection == 'right') props.router.back();
     },
 
     move({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') return;
-      screenController.move(variant, deltaX);
+      screenController.move(props.variant, deltaX);
     },
 
     up({ deltaX, initialDirection }: any) {
       if (initialDirection != 'right') {
-        screenController.reset(variant);
+        screenController.reset(props.variant);
         return;
       }
 
@@ -86,16 +85,16 @@ onMounted(() => {
       const percent = deltaX / width * 100;
 
       if (percent >= 50) {
-        router.back();
+        props.router.back();
       }
       // Reset
       else {
-        screenController.reset(variant);
+        screenController.reset(props.variant);
       }
     },
 
     cancel() {
-      screenController.reset(variant);
+      screenController.reset(props.variant);
     },
   });
 });
@@ -106,7 +105,7 @@ onUnmounted(() => {
 });
 
 // Add first
-addScreen(route.name);
+addScreen(props.route.name);
 </script>
 
 <template>
