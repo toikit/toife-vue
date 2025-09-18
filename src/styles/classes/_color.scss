@@ -33,3 +33,15 @@ $types: primary secondary success warning danger info;
   .color-#{$type}-light   { color: var(--t-color-status-#{$type}-light) !important; }
   .color-#{$type}-dark   { color: var(--t-color-status-#{$type}-dark) !important; }
 }
+
+.color-text{
+  color: var(--t-color-text);
+}
+
+.color-text-dark{
+  color: var(--t-color-text-dark);
+}
+
+.color-text-light{
+  color: var(--t-color-text-light);
+}
