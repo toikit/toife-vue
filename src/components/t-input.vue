@@ -1,5 +1,5 @@
 <template>
-  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': !!modelValue || modelValue === '0'}">
+  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': hasValue}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
@@ -106,7 +106,7 @@
 </style>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import TText from './t-text.vue';
 const props = withDefaults(defineProps<{
   size?:string
@@ -129,6 +129,10 @@ const props = withDefaults(defineProps<{
 });
 const emit = defineEmits(['update:modelValue']);
 const isFocus = ref(false);
+
+const hasValue = computed(() => {
+  return !(props.modelValue === '' || props.modelValue === null || props.modelValue === undefined);
+});
 
 const onInput = (e:any) => {
   emit('update:modelValue', e.target.value);
