@@ -1000,7 +1000,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       s.value = !1;
     };
     return (r, u) => (c(), d("div", {
-      class: x(["t-input", { rounded: r.rounded, ["size-" + r.size]: !0, ["variant-" + r.variant]: !0, focus: s.value, "has-value": !!r.modelValue && r.modelValue !== "0" }])
+      class: x(["t-input", { rounded: r.rounded, ["size-" + r.size]: !0, ["variant-" + r.variant]: !0, focus: s.value, "has-value": !!r.modelValue || r.modelValue === "0" }])
     }, [
       h("label", null, [
         h("span", Tt, R(r.label), 1),
@@ -1036,7 +1036,7 @@ const ye = /* @__PURE__ */ v(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       })) : E("", !0)
     ], 2));
   }
-}), It = /* @__PURE__ */ v(zt, [["__scopeId", "data-v-838831c5"]]), Et = {};
+}), It = /* @__PURE__ */ v(zt, [["__scopeId", "data-v-d2058102"]]), Et = {};
 function Bt(e, t) {
   return c(), d("textarea");
 }
