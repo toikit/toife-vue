@@ -82,7 +82,7 @@
     input{
       padding-top: 1rem;
     }
-    
+
     .t-input-label{
       position: absolute;
       top: 50%;
@@ -97,7 +97,7 @@
 
     &.focus, &.has-value{
       .t-input-label{
-        transform: translateY(-140%);
+        transform: translateY(-120%);
         font-size: 0.7rem;
       }
     }
