@@ -1,5 +1,5 @@
 <template>
-  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': !!modelValue && modelValue !== '0'}">
+  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': !!modelValue || modelValue === '0'}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
