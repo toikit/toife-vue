@@ -1,15 +1,15 @@
 <template>
-  <div class="t-input" :class="{rounded: props.rounded, ['size-'+props.size]: true, ['variant-'+props.variant]: true, focus: isFocus}">
+  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': !!modelValue}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
         <slot name="start"/>
-        <input :type="type" :placeholder="props.variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur"></input>
+        <input :type="type" :placeholder="variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur"></input>
         <slot name="end"/>
       </div>
     </label>
-    <t-text color="danger" v-if="props.error">{{ props.error }}</t-text>
-    <t-text color="secondary" v-else-if="props.help">{{ props.help }}</t-text>
+    <t-text color="danger" v-if="error">{{ error }}</t-text>
+    <t-text color="secondary" v-else-if="help">{{ help }}</t-text>
   </div>
 </template>
 
@@ -93,11 +93,10 @@
       transition: all 0.2s ease;
     }
 
-    &.focus{
+    &.focus, &.has-value{
       .t-input-label{
-        transform: none;
+        transform: translateY(-140%);
         font-size: 0.7rem;
-        top: 0.1rem;
       }
     }
   }
