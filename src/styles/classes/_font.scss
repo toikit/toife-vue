@@ -10,6 +10,6 @@
   }
 
   .lh-#{$suffix} {
-    font-size: var(--t-fs-#{$suffix}) !important;
+    line-height: var(--t-fs-#{$suffix}) !important;
   }
 }
