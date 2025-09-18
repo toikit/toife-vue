@@ -79,13 +79,15 @@
   }
 
   &.variant-floating{
+    input{
+      padding-top: 1rem;
+    }
+    
     .t-input-label{
       position: absolute;
       top: 50%;
       left: 0;
       width: 100%;
-      display: flex;
-      align-items: center;
       z-index: 0;
       transform: translateY(-50%);
       font-size: 1rem;
