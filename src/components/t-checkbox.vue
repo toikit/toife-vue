@@ -12,7 +12,6 @@
   }
 
   .t-checkbox-radio, .t-checkbox-check{
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +22,18 @@
     > div {
       height: 12px;
       width: 12px;
-      border-radius: 50%;
       background-color: transparent;
     }
 
     i {
       color: transparent;
+    }
+  }
+
+  .t-checkbox-radio{
+    border-radius: 50%;
+    > div {
+      border-radius: 50%;
     }
   }
 

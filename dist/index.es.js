@@ -1319,7 +1319,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Wt = /* @__PURE__ */ b({
       l.label ? (c(), d("span", io, R(t.label), 1)) : E("", !0)
     ], 6));
   }
-}), po = /* @__PURE__ */ v(uo, [["__scopeId", "data-v-d558d0b0"]]), fo = /* @__PURE__ */ b({
+}), po = /* @__PURE__ */ v(uo, [["__scopeId", "data-v-05513114"]]), fo = /* @__PURE__ */ b({
   __name: "t-keyboard",
   setup(e) {
     const { height: o } = ve();
