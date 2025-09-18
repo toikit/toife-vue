@@ -1,10 +1,10 @@
 <template>
-  <div class="t-input" :class="{rounded: props.rounded, ['size-'+props.size]: true, ['variant-'+props.variant]: true}">
+  <div class="t-input" :class="{rounded: props.rounded, ['size-'+props.size]: true, ['variant-'+props.variant]: true, focus: isFocus}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
         <slot name="start"/>
-        <input :type="type" :placeholder="placeholder" :value="modelValue" @input="onInput"></input>
+        <input :type="type" :placeholder="props.variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur"></input>
         <slot name="end"/>
       </div>
     </label>
@@ -77,10 +77,36 @@
       width: 100%;
     }
   }
+
+  &.variant-floating{
+    .t-input-label{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      z-index: 0;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      line-height: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    &.focus{
+      .t-input-label{
+        transform: none;
+        font-size: 0.7rem;
+        top: 0.1rem;
+      }
+    }
+  }
 }
 </style>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import TText from './t-text.vue';
 const props = withDefaults(defineProps<{
   size?:string
@@ -102,7 +128,11 @@ const props = withDefaults(defineProps<{
   variant: 'default'
 });
 const emit = defineEmits(['update:modelValue']);
+const isFocus = ref(false);
+
 const onInput = (e:any) => {
   emit('update:modelValue', e.target.value);
 }
+const focus = () => {isFocus.value = true}
+const blur = () => {isFocus.value = false}
 </script>
