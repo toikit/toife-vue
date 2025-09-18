@@ -84,7 +84,6 @@
       top: 50%;
       left: 0;
       width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       z-index: 0;
