@@ -64,7 +64,7 @@
       <div v-if="type == 'radio'"></div>
       <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>
     </div>
-    <span class="t-checkbox-label" v-if="label">{{ props.label }}</span>
+    <slot name="label"><span class="t-checkbox-label" v-if="label">{{ props.label }}</span></slot>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 {
   "name": "@toife/vue",
-  "version": "1.2.60",
+  "version": "1.2.61",
   "description": "A Frontend framework for Vue",
   "type": "module",
   "main": "dist/index.umd.js",

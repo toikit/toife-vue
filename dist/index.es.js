@@ -1322,10 +1322,12 @@ const Lt = /* @__PURE__ */ _(Ot, [["render", qt]]), Wt = /* @__PURE__ */ b({
           u[0] || (u[0] = h("i", { class: "ri-check-line" }, null, -1))
         ], !0) : E("", !0)
       ], 2),
-      a.label ? (i(), p("span", io, R(o.label), 1)) : E("", !0)
+      g(a.$slots, "label", {}, () => [
+        a.label ? (i(), p("span", io, R(o.label), 1)) : E("", !0)
+      ], !0)
     ], 6));
   }
-}), po = /* @__PURE__ */ _(uo, [["__scopeId", "data-v-05513114"]]), fo = /* @__PURE__ */ b({
+}), po = /* @__PURE__ */ _(uo, [["__scopeId", "data-v-0e13abc3"]]), fo = /* @__PURE__ */ b({
   __name: "t-keyboard",
   setup(e) {
     const { height: t } = ve();
