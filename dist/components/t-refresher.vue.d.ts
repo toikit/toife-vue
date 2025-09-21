@@ -1,6 +1,7 @@
 type __VLS_Props = {
     threshold?: number;
     safe?: boolean;
+    variant?: string;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -27,6 +28,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     onMove?: ((...args: any[]) => any) | undefined;
     onStart?: ((...args: any[]) => any) | undefined;
 }>, {
+    variant: string;
     threshold: number;
     safe: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {

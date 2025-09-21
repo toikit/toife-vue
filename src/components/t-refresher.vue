@@ -30,16 +30,19 @@ import { gesture } from "@toife/gesture";
 const emit = defineEmits(['refresh', 'move', 'cancel', 'start']);
 const props = withDefaults(defineProps<{
   threshold?:number,
-  safe?:boolean
+  safe?:boolean,
+  variant?: string
 }>(), {
-  threshold: 80,
-  safe: false
+  threshold: 120,
+  safe: false,
+  variant: 'max'
 });
 const offset = ref(0);
 const refreshing = ref(false);
 const container = ref();
 let cleanup: any;
 let locked = false;
+
 const close = () => {
   refreshing.value = false;
   offset.value = 0;
@@ -48,6 +51,7 @@ const close = () => {
     locked = false;
   }, 2000);
 };
+
 const start = () => {
   locked = true;
   refreshing.value = true;
@@ -55,53 +59,55 @@ const start = () => {
   emit('refresh', close);
 }
 
+const cancel = () => {
+  offset.value = 0;
+  refreshing.value = false;
+  locked = false;
+  emit('cancel');
+}
+
 watch(() => container.value, () => {
   cleanup && cleanup.destroy();
   let screen = container.value.closest('.t-content');
   if (!screen) return;
   cleanup = gesture(screen, {
-    isMoving: false,
     options: {
       minDist: 60
     },
+
     down(){
-      this.isMoving = false;
+      if (refreshing.value || locked) return;
       emit('start');
     },
+
     move({ deltaY, initialDirection }: any) {
       if (refreshing.value || locked || initialDirection != 'down') return;
 
-      // if ((deltaY > 10 && screen.scrollTop == 0) || (this.isMoving && deltaY >= 0)) {
-      //   screen.classList.add('scroll-hidden');
-      // }
+      if (props.variant == 'max') {
+        if (deltaY >= props.threshold) {
+          start();
+          return;
+        }
+      }
 
-      if (deltaY >= 120) {
-        this.isMoving = false;
-        start();
-      } else if(deltaY > 10 || this.isMoving) {
-        this.isMoving = true;
+      if(deltaY > 10) {
         offset.value = deltaY > 0 ? deltaY : 0;
         emit('move', deltaY);
       }
     },
     up({ deltaY, initialDirection }: any) {
-      this.isMoving = false;
-      // screen.classList.remove('scroll-hidden');
-      if (refreshing.value || locked) return;
-      if (deltaY > props.threshold && initialDirection == 'down') {
+      if (refreshing.value || locked || initialDirection != 'down') return;
+
+      // max
+      if (props.variant == 'up' && deltaY >= props.threshold) {
         start();
       } else {
-        offset.value = 0;
-        emit('cancel');
+        cancel();
       }
     },
     cancel() {
-      this.isMoving = false;
-      // screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
-      refreshing.value = false;
-      offset.value = 0;
-      emit('cancel');
+      cancel();
     }
   }, {
     passive: false
