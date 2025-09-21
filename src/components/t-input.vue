@@ -27,6 +27,11 @@
     color: var(--t-color-text);
     padding: 0;
     flex: 1;
+    caret-color: var(--t-color-text);
+
+    &:focus {
+      caret-color: var(--t-color-text);
+    }
   }
 
   &.size-small{
