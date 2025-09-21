@@ -677,7 +677,8 @@ function lt(e, t) {
 const ve = /* @__PURE__ */ _(rt, [["render", lt], ["__scopeId", "data-v-af750e89"]]), ct = /* @__PURE__ */ b({
   __name: "t-refresher",
   props: {
-    threshold: { default: 80 }
+    threshold: { default: 80 },
+    safe: { type: Boolean, default: !1 }
   },
   emits: ["refresh", "move", "cancel", "start"],
   setup(e, { emit: t }) {
@@ -716,7 +717,7 @@ const ve = /* @__PURE__ */ _(rt, [["render", lt], ["__scopeId", "data-v-af750e89
     }), oe(() => {
       a && a.destroy();
     }), (r, v) => W((i(), p("div", {
-      class: "t-refresher",
+      class: x(["t-refresher", { safe: r.safe }]),
       ref_key: "container",
       ref: d
     }, [
@@ -724,11 +725,11 @@ const ve = /* @__PURE__ */ _(rt, [["render", lt], ["__scopeId", "data-v-af750e89
         offset: n.value,
         refreshing: l.value
       }, void 0, !0)
-    ], 512)), [
+    ], 2)), [
       [H, n.value > 0]
     ]);
   }
-}), it = /* @__PURE__ */ _(ct, [["__scopeId", "data-v-6359f08e"]]), ut = {}, dt = { class: "t-screen" };
+}), it = /* @__PURE__ */ _(ct, [["__scopeId", "data-v-c435c611"]]), ut = {}, dt = { class: "t-screen" };
 function pt(e, t) {
   return i(), p("div", dt, [
     g(e.$slots, "default", {}, void 0, !0)

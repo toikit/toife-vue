@@ -10,11 +10,15 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  
+  &.safe{
+    top: var(--t-safe-area-top);
+  }
 }
 </style>
 
 <template>
-  <div class="t-refresher" ref="container" v-show="offset > 0">
+  <div class="t-refresher" ref="container" v-show="offset > 0" :class="{safe}">
     <slot :offset="offset" :refreshing="refreshing"></slot>
   </div>
 </template>
@@ -25,9 +29,11 @@ import { gesture } from "@toife/gesture";
 
 const emit = defineEmits(['refresh', 'move', 'cancel', 'start']);
 const props = withDefaults(defineProps<{
-  threshold?:number
+  threshold?:number,
+  safe?:boolean
 }>(), {
-  threshold: 80
+  threshold: 80,
+  safe: false
 });
 const offset = ref(0);
 const refreshing = ref(false);
