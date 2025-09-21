@@ -6,6 +6,10 @@
   align-items: center;
   overflow: hidden;
   transition: height 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 img.spiner {
