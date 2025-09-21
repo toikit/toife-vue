@@ -90,13 +90,9 @@ watch(() => container.value, () => {
         }
       }
 
-      if(deltaY > 10) {
-        offset.value = deltaY;
-        emit('move', deltaY);
-      } else if (deltaY < 0) {
-        offset.value = 0;
-        emit('move', 0);
-      }
+      const v = deltaY < 0 ? 0 : deltaY;
+      offset.value = v;
+      emit('move', v);
     },
     up({ deltaY, initialDirection }: any) {
       if (refreshing.value || locked || initialDirection != 'down') return;
