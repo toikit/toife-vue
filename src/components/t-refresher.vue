@@ -11,20 +11,11 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
-img.spiner {
-  animation: spinrefresh 0.7s linear infinite;
-}
-
-@keyframes spinrefresh {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 </style>
 
 <template>
-  <div class="t-refresher" ref="container" v-show="offset > 0" :style="{ height: `${offset}px` }">
-    <img :class="{spiner: refreshing}" src="https://static.toikit.com/toikit/home_2.png?v=3" alt="Loading..." style="width:22px;height:22px;" />
+  <div class="t-refresher" ref="container" v-show="offset > 0">
+    <slot :offset="offset" :refreshing="refreshing"></slot>
   </div>
 </template>
 
@@ -33,11 +24,15 @@ import { ref, onUnmounted, watch } from "vue";
 import { gesture } from "@toife/gesture";
 
 const emit = defineEmits(['refresh', 'move', 'cancel', 'start']);
+const props = withDefaults(defineProps<{
+  threshold?:number
+}>(), {
+  threshold: 80
+});
 const offset = ref(0);
 const refreshing = ref(false);
 const container = ref();
 let cleanup: any;
-const threshold = 80; // px, kéo đủ mới trigger refresh
 let locked = false;
 const close = () => {
   refreshing.value = false;
@@ -50,7 +45,7 @@ const close = () => {
 const start = () => {
   locked = true;
   refreshing.value = true;
-  offset.value = threshold;
+  offset.value = props.threshold;
   emit('refresh', close);
 }
 
@@ -87,7 +82,7 @@ watch(() => container.value, () => {
       this.isMoving = false;
       // screen.classList.remove('scroll-hidden');
       if (refreshing.value || locked) return;
-      if (deltaY > threshold && initialDirection == 'down') {
+      if (deltaY > props.threshold && initialDirection == 'down') {
         start();
       } else {
         offset.value = 0;
