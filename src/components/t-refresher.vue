@@ -93,6 +93,9 @@ watch(() => container.value, () => {
       if(deltaY > 10) {
         offset.value = deltaY;
         emit('move', deltaY);
+      } else if (deltaY < 0) {
+        offset.value = 0;
+        emit('move', 0);
       }
     },
     up({ deltaY, initialDirection }: any) {
