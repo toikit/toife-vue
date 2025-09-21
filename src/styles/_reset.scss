@@ -9,14 +9,14 @@ body, html {
   color: var(--t-color-text, #000000);
   font-size: 16px;
   line-height: 21px;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  top: 0;
+  right: 0;
 }
 
 html, body, * {
