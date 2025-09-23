@@ -14,7 +14,7 @@
     border-radius: 8px;
     margin-bottom: 0.5rem;
     background-color: var(--t-color-surface);
-    max-width: var(--t-app-overlay-max-width);
+    max-width: var(--t-overlay-max-width);
 
     &:last-child{
       margin-bottom: 1rem !important;

@@ -47,19 +47,19 @@
     }
 
     &.top {
-      max-height: calc(var(--t-app-height) - var(--t-safe-area-bottom));
+      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-bottom));
     }
 
     &.bottom {
-      max-height: calc(var(--t-app-height) - var(--t-safe-area-top));
+      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-top));
     }
 
     &.left {
-      max-width: calc(var(--t-app-width) - var(--t-safe-area-right));
+      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-right));
     }
 
     &.right {
-      max-width: calc(var(--t-app-width) - var(--t-safe-area-left));
+      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-left));
     }
   }
 }

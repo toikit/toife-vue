@@ -2,7 +2,7 @@
 .t-toast{
   width: calc(100% - 2rem);
   height: fit-content;
-  max-width: var(--t-app-overlay-max-width);
+  max-width: var(--t-overlay-max-width);
   position: absolute;
   z-index: 9999;
   left: 50%;

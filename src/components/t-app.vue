@@ -6,8 +6,8 @@
 .t-app{
   height: var(--t-app-height);
   width: var(--t-app-width);
-  max-height: var(--t-app-height);
-  max-width: var(--t-app-width);
+  max-height: var(--t-app-max-height);
+  max-width: var(--t-app-max-width);
   position: absolute;
   top: 0;
   left: 0;
