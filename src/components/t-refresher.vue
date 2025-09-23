@@ -47,9 +47,7 @@ const close = () => {
   refreshing.value = false;
   offset.value = 0;
   if (cleanup) cleanup.cancel();
-  setTimeout(() => {
-    locked = false;
-  }, 2000);
+  locked = false;
 };
 
 const start = () => {

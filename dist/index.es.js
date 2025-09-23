@@ -688,9 +688,7 @@ const ve = /* @__PURE__ */ v(nt, [["render", lt], ["__scopeId", "data-v-af750e89
     const o = t, s = e, r = m(0), l = m(!1), d = m();
     let n, c = !1;
     const i = () => {
-      l.value = !1, r.value = 0, n && n.cancel(), setTimeout(() => {
-        c = !1;
-      }, 2e3);
+      l.value = !1, r.value = 0, n && n.cancel(), c = !1;
     }, _ = () => {
       c = !0, l.value = !0, r.value = s.threshold, o("refresh", i);
     }, a = () => {
@@ -739,7 +737,7 @@ const ve = /* @__PURE__ */ v(nt, [["render", lt], ["__scopeId", "data-v-af750e89
       [H, r.value > 0]
     ]);
   }
-}), it = /* @__PURE__ */ v(ct, [["__scopeId", "data-v-7c197d09"]]), ut = {}, dt = { class: "t-screen" };
+}), it = /* @__PURE__ */ v(ct, [["__scopeId", "data-v-1d52477a"]]), ut = {}, dt = { class: "t-screen" };
 function pt(e, t) {
   return u(), p("div", dt, [
     g(e.$slots, "default", {}, void 0, !0)
