@@ -1,4 +1,4 @@
-import { createElementBlock as p, openBlock as u, renderSlot as g, defineComponent as h, ref as m, computed as w, reactive as le, watch as N, Fragment as O, withDirectives as W, createCommentVNode as E, normalizeStyle as T, normalizeClass as S, vShow as H, createElementVNode as k, createVNode as G, createBlock as C, withCtx as P, toDisplayString as R, renderList as F, createTextVNode as q, createApp as U, h as j, provide as ce, unref as V, onUnmounted as oe, onMounted as se, resolveDynamicComponent as ge, markRaw as be, inject as ie, useAttrs as he } from "vue";
+import { createElementBlock as p, openBlock as u, renderSlot as g, defineComponent as h, ref as m, computed as w, reactive as le, watch as N, onMounted as G, Fragment as O, withDirectives as W, createCommentVNode as E, normalizeStyle as T, normalizeClass as S, vShow as H, createElementVNode as k, createVNode as U, createBlock as C, withCtx as P, toDisplayString as R, renderList as F, createTextVNode as q, createApp as j, h as K, provide as ce, unref as V, onUnmounted as se, resolveDynamicComponent as ge, markRaw as be, inject as ie, useAttrs as he } from "vue";
 import { gesture as re } from "@toife/gesture";
 import { useRouter as ue, useRoute as ke } from "vue-router";
 const $e = (e) => e && (e.tagName == "INPUT" || e.tagName == "TEXTAREA" || e.isContentEditable), we = () => {
@@ -68,7 +68,9 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
     const $ = (f) => {
       f.preventDefault(), c("dismiss", "backdrop");
     };
-    return b(), (f, X) => (u(), p(O, null, [
+    return G(() => {
+      n.visible ? y() : b();
+    }), (f, X) => (u(), p(O, null, [
       i.value ? W((u(), p("div", {
         key: 0,
         class: S(["t-present", [{ [f.placement]: !0 }, n.class]]),
@@ -92,7 +94,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       ]) : E("", !0)
     ], 64));
   }
-}), M = /* @__PURE__ */ v(Ee, [["__scopeId", "data-v-8eb6e6e4"]]), Be = /* @__PURE__ */ h({
+}), M = /* @__PURE__ */ v(Ee, [["__scopeId", "data-v-17b9cee7"]]), Be = /* @__PURE__ */ h({
   __name: "t-loading-icon",
   props: {
     size: {
@@ -116,7 +118,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       "aria-label": "Loading..."
     }, null, 4));
   }
-}), K = /* @__PURE__ */ v(Be, [["__scopeId", "data-v-7c463303"]]), Ce = { class: "t-button-content" }, Ve = {
+}), J = /* @__PURE__ */ v(Be, [["__scopeId", "data-v-7c463303"]]), Ce = { class: "t-button-content" }, Ve = {
   key: 0,
   class: "loader"
 }, Pe = /* @__PURE__ */ h({
@@ -182,14 +184,14 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
         [H, !t.loading]
       ]),
       t.loading ? (u(), p("span", Ve, [
-        G(K, {
+        U(J, {
           color: "var(--color)",
           type: t.loadingType
         }, null, 8, ["type"])
       ])) : E("", !0)
     ], 6));
   }
-}), J = /* @__PURE__ */ v(Pe, [["__scopeId", "data-v-185a9e49"]]), Ae = {
+}), Q = /* @__PURE__ */ v(Pe, [["__scopeId", "data-v-185a9e49"]]), Ae = {
   key: 0,
   class: "t-alert-header"
 }, Re = { class: "t-alert-content" }, De = { class: "t-alert-footer" }, Xe = /* @__PURE__ */ h({
@@ -234,7 +236,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
           ], !0),
           g(a.$slots, "footer", {}, () => [
             k("div", De, [
-              (u(!0), p(O, null, F(s.actions, (b) => (u(), C(J, {
+              (u(!0), p(O, null, F(s.actions, (b) => (u(), C(Q, {
                 color: b.color,
                 variant: b.variant,
                 onClick: ($) => i(b)
@@ -258,9 +260,9 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       if (!o) return;
       const s = document.createElement("div"), r = m();
       o.appendChild(s);
-      const l = U({
+      const l = j({
         render() {
-          return j(de, {
+          return K(de, {
             ...e,
             ref: r,
             onDismiss: (d, n) => {
@@ -313,7 +315,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
           ref: d
         }, [
           (u(!0), p(O, null, F(s.actions, (b) => (u(), p("div", null, [
-            (u(!0), p(O, null, F(b, ($) => (u(), C(J, {
+            (u(!0), p(O, null, F(b, ($) => (u(), C(Q, {
               color: $.color,
               size: $.size,
               variant: $.variant,
@@ -338,9 +340,9 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       if (!o) return;
       const s = document.createElement("div"), r = m();
       o.appendChild(s);
-      const l = U({
+      const l = j({
         render() {
-          return j(Ne, {
+          return K(Ne, {
             ...e,
             ref: r,
             onDismiss: (d, n) => {
@@ -380,7 +382,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       default: P(() => [
         k("div", qe, [
           g(n.$slots, "default", {}, () => [
-            G(K, {
+            U(J, {
               type: s.type
             }, null, 8, ["type"])
           ], !0)
@@ -395,9 +397,9 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
   return {
     open() {
       return new Promise((l) => {
-        o && (r = document.createElement("div"), o.appendChild(r), s = U({
+        o && (r = document.createElement("div"), o.appendChild(r), s = j({
           render() {
-            return j(Me, {
+            return K(Me, {
               ...e,
               ref: t
             });
@@ -419,7 +421,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
   getNewIndex() {
     return ae.value += 2, ae.value;
   }
-}, D = le([]), Q = m(!0), I = m(!1), A = m(-1), z = w(() => D[A.value]), L = w(() => D[A.value + 1] || void 0), B = w(() => D[D.length - 2]), pe = w(() => !I.value && Q.value && B.value), Z = {
+}, D = le([]), Z = m(!0), I = m(!1), A = m(-1), z = w(() => D[A.value]), L = w(() => D[A.value + 1] || void 0), B = w(() => D[D.length - 2]), pe = w(() => !I.value && Z.value && B.value), Y = {
   reset() {
     I.value = !0;
     const e = z.value.target, t = B.value.target;
@@ -451,7 +453,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       }, 400);
     }, 100);
   }
-}, Y = {
+}, ee = {
   reset() {
     I.value = !0;
     const e = z.value.target, t = B.value.target;
@@ -491,17 +493,17 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
 }, Ge = () => {
   D.splice(0, D.length);
 }, Ue = () => {
-  Q.value = !1;
+  Z.value = !1;
 }, je = () => {
-  Q.value = !0;
+  Z.value = !0;
 }, Ke = (e, t) => {
-  e == "scale" && Z.next(t), e == "transform" && Y.next(t);
+  e == "scale" && Y.next(t), e == "transform" && ee.next(t);
 }, Je = (e, t) => {
-  e == "scale" && Z.back(t), e == "transform" && Y.back(t);
+  e == "scale" && Y.back(t), e == "transform" && ee.back(t);
 }, Qe = (e, t) => {
-  e == "scale" && Z.move(t), e == "transform" && Y.move(t);
+  e == "scale" && Y.move(t), e == "transform" && ee.move(t);
 }, Ze = (e) => {
-  e == "scale" && Z.reset(), e == "transform" && Y.reset();
+  e == "scale" && Y.reset(), e == "transform" && ee.reset();
 }, x = {
   isBusy: I,
   isSwipeable: pe,
@@ -516,7 +518,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
   removeAllScreen: Ge,
   lockSwipe: Ue,
   unlockSwipe: je,
-  swipeable: Q,
+  swipeable: Z,
   currentScreen: z,
   lastScreen: B,
   nextScreen: L
@@ -603,9 +605,9 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
     if (!t) return;
     const o = document.createElement("div"), s = m();
     t.appendChild(o);
-    const r = U({
+    const r = j({
       render() {
-        return j(fe, {
+        return K(fe, {
           ...e,
           ref: s,
           onDismiss: () => {
@@ -722,7 +724,7 @@ const ve = /* @__PURE__ */ v(nt, [["render", lt], ["__scopeId", "data-v-af750e89
       }, {
         passive: !1
       }));
-    }), oe(() => {
+    }), se(() => {
       n && n.destroy();
     }), (y, b) => W((u(), p("div", {
       class: S(["t-refresher", { safe: y.safe }]),
@@ -773,7 +775,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
       a != x.currentScreen.value?.name && (x.lastScreen.value?.name == a ? x.back(r.variant, () => {
         s("change");
       }) : i(n.name));
-    }), se(() => {
+    }), G(() => {
       i(n.name), l = re(document.body, {
         beforeEvent(a) {
           return !!x.isSwipeable.value;
@@ -796,7 +798,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
           x.reset(r.variant);
         }
       });
-    }), oe(() => {
+    }), se(() => {
       l && l.destroy(), x.removeAllScreen();
     }), (a, y) => (u(), p(O, null, [
       (u(!0), p(O, null, F(V(x).screens, (b, $) => (u(), C(_e, {
@@ -879,7 +881,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
       g(s.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), te = /* @__PURE__ */ v(bt, [["__scopeId", "data-v-f0f94f05"]]), ht = /* @__PURE__ */ h({
+}), oe = /* @__PURE__ */ v(bt, [["__scopeId", "data-v-f0f94f05"]]), ht = /* @__PURE__ */ h({
   __name: "t-gesture-indicator",
   props: {
     placement: { default: "bottom" }
@@ -949,14 +951,14 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
             l.value.open();
             return;
           }
-          let f, X, ee;
-          o.placement == "bottom" || o.placement == "top" ? (f = r.value.offsetHeight, ee = y) : (f = r.value.offsetWidth, ee = b), X = ee / f * 100, X > 50 ? s("dismiss", "gesture") : l.value.open();
+          let f, X, te;
+          o.placement == "bottom" || o.placement == "top" ? (f = r.value.offsetHeight, te = y) : (f = r.value.offsetWidth, te = b), X = te / f * 100, X > 50 ? s("dismiss", "gesture") : l.value.open();
         },
         cancel() {
           this.isMoving = !1, _(), l.value.open();
         }
       }));
-    }), oe(() => {
+    }), se(() => {
       n && n.destroy();
     }), (a, y) => (u(), C(M, {
       ref_key: "present",
@@ -1026,7 +1028,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
           g(i.$slots, "end", {}, void 0, !0)
         ])
       ]),
-      i.error ? (u(), C(te, {
+      i.error ? (u(), C(oe, {
         key: 0,
         color: "danger"
       }, {
@@ -1034,7 +1036,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
           q(R(i.error), 1)
         ]),
         _: 1
-      })) : i.help ? (u(), C(te, {
+      })) : i.help ? (u(), C(oe, {
         key: 1,
         color: "secondary"
       }, {
@@ -1085,7 +1087,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
         "--color": i
       };
     }), n = () => l.value?.parentElement?.querySelector?.("input");
-    se(() => {
+    G(() => {
       let i = n();
       i && (r.value = i.type != "password", s("change", r.value));
     });
@@ -1213,7 +1215,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
     return (l, d) => (u(), p("li", {
       class: S(["t-tab", { active: s.value }])
     }, [
-      G(J, {
+      U(Q, {
         variant: "text",
         onClick: r,
         size: V(o).size,
@@ -1266,7 +1268,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
       setActive: (c) => {
         s("update:modelValue", c), n();
       }
-    }), se(() => {
+    }), G(() => {
       n();
     }), (c, i) => (u(), p("ul", {
       ref_key: "container",
@@ -1282,7 +1284,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
   setup(e) {
     return (t, o) => (u(), C(ve, null, {
       default: P(() => [
-        G(K, { type: "spinner" })
+        U(J, { type: "spinner" })
       ]),
       _: 1
     }));
@@ -1387,7 +1389,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
   }
 }), yo = /* @__PURE__ */ v(_o, [["__scopeId", "data-v-42cb3d71"]]), xo = () => ({
   install: (e) => {
-    Te(), e.component("t-app", Ie), e.component("t-screen", _e), e.component("t-swipe-screen", mt), e.component("t-cable", st), e.component("t-toolbar", _t), e.component("t-content", ve), e.component("t-card", rt), e.component("t-refresher", it), e.component("t-button", J), e.component("t-back-button", gt), e.component("t-present", M), e.component("t-text", te), e.component("t-sheet", $t), e.component("t-gesture-indicator", ye), e.component("t-input", zt), e.component("t-textarea", Bt), e.component("t-rich-text", Pt), e.component("t-grid", Xt), e.component("t-grid-item", Lt), e.component("t-divider", Wt), e.component("t-toggle-password", Ft), e.component("t-loading-icon", K), e.component("t-alert", de), e.component("t-avatar", Ut), e.component("t-collapse", Zt), e.component("t-toast", fe), e.component("t-switch", eo), e.component("t-tab", oo), e.component("t-tabs", ro), e.component("t-loading-app", ao), e.component("t-checkbox", uo), e.component("t-keyboard", fo), e.component("t-skeleton", vo), e.component("t-ripple", yo);
+    Te(), e.component("t-app", Ie), e.component("t-screen", _e), e.component("t-swipe-screen", mt), e.component("t-cable", st), e.component("t-toolbar", _t), e.component("t-content", ve), e.component("t-card", rt), e.component("t-refresher", it), e.component("t-button", Q), e.component("t-back-button", gt), e.component("t-present", M), e.component("t-text", oe), e.component("t-sheet", $t), e.component("t-gesture-indicator", ye), e.component("t-input", zt), e.component("t-textarea", Bt), e.component("t-rich-text", Pt), e.component("t-grid", Xt), e.component("t-grid-item", Lt), e.component("t-divider", Wt), e.component("t-toggle-password", Ft), e.component("t-loading-icon", J), e.component("t-alert", de), e.component("t-avatar", Ut), e.component("t-collapse", Zt), e.component("t-toast", fe), e.component("t-switch", eo), e.component("t-tab", oo), e.component("t-tabs", ro), e.component("t-loading-app", ao), e.component("t-checkbox", uo), e.component("t-keyboard", fo), e.component("t-skeleton", vo), e.component("t-ripple", yo);
   }
 });
 export {

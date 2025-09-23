@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, ref, watch } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 import { presentController } from '../controllers';
 
 const zIndex = ref(0);
@@ -161,5 +161,8 @@ const onClickBackdrop = (e:any) => {
 }
 
 // Mounted
-close();
+onMounted(() => {
+  if (props.visible) open();
+  else  close();
+});
 </script>
