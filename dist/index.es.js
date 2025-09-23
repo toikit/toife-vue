@@ -94,7 +94,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
       ]) : E("", !0)
     ], 64));
   }
-}), M = /* @__PURE__ */ v(Ee, [["__scopeId", "data-v-17b9cee7"]]), Be = /* @__PURE__ */ h({
+}), M = /* @__PURE__ */ v(Ee, [["__scopeId", "data-v-1b25059f"]]), Be = /* @__PURE__ */ h({
   __name: "t-loading-icon",
   props: {
     size: {

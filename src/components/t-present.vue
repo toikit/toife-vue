@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   width: fit-content;
   height: fit-content;
   transition: transform var(--t-present-transition, 0.2s) ease;
