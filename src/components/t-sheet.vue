@@ -48,18 +48,22 @@
 
     &.top {
       max-height: calc(var(--t-app-max-height) - var(--t-safe-area-bottom));
+      max-width: var(--t-app-max-width);
     }
 
     &.bottom {
       max-height: calc(var(--t-app-max-height) - var(--t-safe-area-top));
+      max-width: var(--t-app-max-width);
     }
 
     &.left {
       max-width: calc(var(--t-app-max-width) - var(--t-safe-area-right));
+      max-height: var(--t-app-max-height);
     }
 
     &.right {
       max-width: calc(var(--t-app-max-width) - var(--t-safe-area-left));
+      max-height: var(--t-app-max-height);
     }
   }
 }

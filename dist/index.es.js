@@ -986,7 +986,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["class", "placement", "backdrop", "visible", "keepalive", "style"]));
   }
-}), $t = /* @__PURE__ */ v(kt, [["__scopeId", "data-v-798eac49"]]), wt = { class: "t-input-label" }, Tt = { class: "t-input-content" }, xt = ["type", "placeholder", "value"], St = /* @__PURE__ */ h({
+}), $t = /* @__PURE__ */ v(kt, [["__scopeId", "data-v-6f7063f0"]]), wt = { class: "t-input-label" }, Tt = { class: "t-input-content" }, xt = ["type", "placeholder", "value"], St = /* @__PURE__ */ h({
   __name: "t-input",
   props: {
     size: { default: "standard" },
