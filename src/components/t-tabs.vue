@@ -144,7 +144,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   placement: 'top-start', // bottom-start top-end ...
   variant: 'border-under',
-  color: 'currentColor',
+  color: 'primary',
   size: 'standard',
   margin: [0,0],
   border: 30
@@ -204,6 +204,7 @@ const styles = computed(() => {
       '--height': (height.value - (props.margin[0] * 2)) + 'px',
       '--left': props.margin[1] + 'px',
       '--width': (width.value - (props.margin[1] * 2)) + 'px',
+      '--transform': transform.value,
     } as any
   }
 
