@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, onUpdated, provide, ref } from 'vue';
+import { nextTick, onMounted, provide, ref, watch } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -145,22 +145,30 @@ provide('tabsState', {
   }
 });
 
-const calcTransform = async () => {
-  await nextTick();
-  let active = container.value?.querySelector('.active');
-  if (!active) return;
+const calcTransform = () => {
+  requestAnimationFrame(() => {
+    const active = container.value?.querySelector('.active');
+    if (!active) return;
 
-  if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
-    const p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
-    const s = active.offsetWidth / 2;
-    transform.value = (p + s - (props.border / 2)) + 'px';
-  } else {
-    const p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
-    const s = active.offsetHeight / 2;
-    transform.value = (p + s - (props.border / 2)) + 'px';
-  }
+    if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+      const p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+      const s = active.offsetWidth / 2;
+      transform.value = (p + s - (props.border / 2)) + 'px';
+    } else {
+      const p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+      const s = active.offsetHeight / 2;
+      transform.value = (p + s - (props.border / 2)) + 'px';
+    }
+  });
 };
 
-onMounted(calcTransform);
-onUpdated(calcTransform);
+onMounted(async () => {
+  await nextTick();         // chờ children mount
+  calcTransform();
+});
+
+watch(() => props.modelValue, async () => {
+  await nextTick();         // chờ update class .active
+  calcTransform();
+});
 </script>
