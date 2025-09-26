@@ -33,6 +33,7 @@ const handleClick = () => {
 watch(() => isActive.value, async (val) => {
   if (val) {
     await nextTick();
+    console.log('go here to active', props.value);
     tabs.actived();
   }
 });

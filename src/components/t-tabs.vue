@@ -172,9 +172,11 @@ provide('tabsState', {
 
 watch(() => props.modelValue, async () => {
   activeValue.value = props.modelValue;
+  console.log('go watch', activeValue.value);
 });
 
 onMounted(() => {
   activeValue.value = props.modelValue;
+  console.log('go mounted', activeValue.value);
 });
 </script>
