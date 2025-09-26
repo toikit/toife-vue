@@ -144,7 +144,7 @@ const props = withDefaults(defineProps<{
 }>(), {
   placement: 'top-start', // bottom-start top-end ...
   variant: 'border-under',
-  color: 'primary',
+  color: 'currentColor',
   size: 'standard',
   margin: [0,0],
   border: 30
