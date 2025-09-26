@@ -103,14 +103,14 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, provide, ref, watchEffect } from 'vue';
+import { nextTick, onMounted, provide, ref, watch, watchEffect } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
   placement?:string,
   variant?: string,
   color?: string,
-  modelValue: String,
+  modelValue: string,
   border?: number,
   size?:string
 }>(), {
@@ -123,6 +123,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['update:modelValue'])
 const transform = ref('0px');
 const container = ref();
+const activeValue = ref('');
 
 const color = computed(() => {
   let color = props.color;
@@ -155,21 +156,25 @@ const calcTransform = () => {
 
 // provide cho các tab con
 provide('tabsState', {
-  active: computed(() => props.modelValue),
+  activeValue,
   color: color.value,
   size: props.size,
   variant: props.variant,
-  setActive: (val:any) => {
+  
+  setValue: (val:any) => {
     emit('update:modelValue', val);
+  },
+
+  actived(){
     calcTransform();
   }
 });
 
-watchEffect(async () => {
-  await nextTick();
-  const active = container.value?.querySelector('.active');
-  if (active) {
-    calcTransform();
-  }
+watch(() => props.modelValue, async () => {
+  activeValue.value = props.modelValue;
+});
+
+onMounted(() => {
+  activeValue.value = props.modelValue;
 });
 </script>

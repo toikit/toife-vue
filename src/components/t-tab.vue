@@ -17,16 +17,23 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, computed } from 'vue';
+import { inject, computed, watch, nextTick } from 'vue';
 import TButton from './t-button.vue';
 
 const props = defineProps<{
   value: String
 }>();
 const tabs:any = inject('tabsState');
-const isActive = computed(() => tabs.active.value === props.value);
+const isActive = computed(() => tabs.activeValue.value === props.value);
 
 const handleClick = () => {
-  tabs.setActive(props.value);
+  tabs.setValue(props.value);
 }
+
+watch(() => isActive.value, async (val) => {
+  if (val) {
+    await nextTick();
+    tabs.actived();
+  }
+});
 </script>
