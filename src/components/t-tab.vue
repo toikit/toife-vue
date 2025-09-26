@@ -12,7 +12,7 @@
 
 <template>
   <li class="t-tab" :class="{active: isActive}">
-    <t-button variant="text" @click="handleClick" :size="tabs.size" :color="isActive && tabs.variant == 'text' ? tabs.color : undefined"><slot/></t-button>
+    <t-button variant="text" @click="handleClick" :size="tabs.size" :color="tabs.color.text"><slot/></t-button>
   </li>
 </template>
 
@@ -25,7 +25,6 @@ const props = defineProps<{
 }>();
 const tabs:any = inject('tabsState');
 const isActive = computed(() => tabs.activeValue.value === props.value);
-
 const handleClick = () => {
   tabs.setValue(props.value);
 }

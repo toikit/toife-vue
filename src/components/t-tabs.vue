@@ -37,10 +37,13 @@
   }
 
   // Variant
-  &.border-under{
+  &.variant-border-under{
     &::after{
       content: '';
       display: block;
+      position: absolute;
+      transition: transform 0.2s ease;
+      background-color: var(--background);
     }
 
     // Horizontal
@@ -49,10 +52,7 @@
       &::after{
         width: var(--border);
         height: 2.5px;
-        background-color: var(--color);
-        position: absolute;
         transform: translateX(var(--transform));
-        transition: transform 0.2s ease;
       }
     }
     &.top-start, &.top-center, &.top-end{
@@ -74,10 +74,7 @@
       &::after{
         height: var(--border);
         width: 2.5px;
-        background-color: var(--color);
-        position: absolute;
         transform: translateY(var(--transform));
-        transition: transform 0.2s ease;
       }
     }
     &.left-start, &.left-center, &.left-end{
@@ -93,17 +90,47 @@
       }
     }
   }
+
+  &.variant-tag{
+    &::after{
+      content: '';
+      display: block;
+      width: var(--width);
+      height: var(--height);
+      top: var(--top);
+      left: var(--left);
+      transition: transform 0.2s ease;
+      position: absolute;
+      background-color: var(--background);
+    }
+
+    // Horizontal
+    &.top-start, &.top-center, &.top-end,
+    &.bottom-start, &.bottom-center, &.bottom-end{
+      &::after{
+        transform: translateX(var(--transform));
+      }
+    }
+
+    // Vertical
+    &.left-start, &.left-center, &.left-end,
+    &.right-start, &.right-center, &.right-end{
+      &::after{
+        transform: translateY(var(--transform));
+      }
+    }
+  }
 }
 </style>
 
 <template>
-  <ul ref="container" class="t-tabs" :style="{'--color': color, '--transform': transform, '--border': border + 'px'}" :class="{[placement]: true, [variant]: true}">
+  <ul ref="container" class="t-tabs" :class="{[placement]: true, [`variant${variant}`]: true}" :style="[{'--background': color.background, '--color': color.text}, styles]">
     <slot/>
   </ul>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, provide, ref, watch, watchEffect } from 'vue';
+import { nextTick, onMounted, provide, ref, watch } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -112,43 +139,112 @@ const props = withDefaults(defineProps<{
   color?: string,
   modelValue: string,
   border?: number,
-  size?:string
+  size?:string,
+  margin?:any
 }>(), {
   placement: 'top-start', // bottom-start top-end ...
   variant: 'border-under',
   color: 'primary',
   size: 'standard',
+  margin: [0,0],
   border: 30
 });
 const emit = defineEmits(['update:modelValue'])
 const transform = ref('0px');
+const width = ref(0);
+const height = ref(0);
 const container = ref();
 
 const color = computed(() => {
-  let color = props.color;
+  let background = '';
+  let text = '';
 
-  if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(color)) {
-    color = `var(--t-color-status-${color})`;
+  if (props.variant == 'text') {
+    background = `transparent`;
+
+    if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      text = `var(--t-color-status-${props.color})`;
+    } else {
+      text = props.color;
+    }
   }
 
-  return color;
+  if (props.variant == 'border-under') {
+    text = `currentColor`;
+
+    if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      background = `var(--t-color-status-${props.color})`;
+    } else {
+      background = props.color;
+    }
+  }
+
+  if (props.variant == 'tag') {
+    if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
+      background = `var(--t-color-status-${props.color})`;
+      text = `var(--t-color-status-${props.color}-text)`;
+    } else {
+      background = props.color;
+      text = `currentColor`;
+    }
+  }
+
+  return {background, text};
+});
+
+const styles = computed(() => {
+  if (props.variant == 'border-under') return {
+    '--transform': transform,
+    '--border': props.border + 'px'
+  } as any
+
+  if (props.variant == 'tag') {
+    return {
+      '--top': props.margin[0] + 'px',
+      '--height': (height.value - (props.margin[0] * 2)) + 'px',
+      '--left': props.margin[1] + 'px',
+      '--width': (width.value - (props.margin[1] * 2)) + 'px',
+    } as any
+  }
+
+  return {};
 });
 
 const calcTransform = () => {
-  if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+  if (props.variant == 'border-under') {
     let active = container.value.querySelector('.active');
+
     if (active) {
-      let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
-      let s = active.offsetWidth / 2;
-      transform.value = (p + s - (props.border / 2)) + 'px';
+      if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+        let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+        let s = active.offsetWidth / 2;
+        transform.value = (p + s - (props.border / 2)) + 'px';
+      }
+      else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
+        let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+        let s = active.offsetHeight / 2;
+        transform.value = (p + s - (props.border / 2)) + 'px';
+      }
     }
   }
-  else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
+
+  if (props.variant == 'tag') {
     let active = container.value.querySelector('.active');
+
     if (active) {
-      let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
-      let s = active.offsetHeight / 2;
-      transform.value = (p + s - (props.border / 2)) + 'px';
+      let w = active.offsetWidth;
+      let h = active.offsetHeight;
+
+      if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+        let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+        transform.value = p + 'px';
+      } else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
+        let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+        transform.value = p + 'px';
+      }
+
+      width.value = w;
+      height.value = h;
     }
   }
 }
