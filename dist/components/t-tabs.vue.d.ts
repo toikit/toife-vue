@@ -6,6 +6,7 @@ type __VLS_Props = {
     border?: number;
     size?: string;
     margin?: any;
+    radius?: number;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -27,6 +28,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     size: string;
     color: string;
     variant: string;
+    radius: number;
     border: number;
     margin: any;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {

@@ -102,6 +102,7 @@
       transition: transform 0.2s ease;
       position: absolute;
       background-color: var(--background);
+      border-radius: var(--radius);
     }
 
     // Horizontal
@@ -140,14 +141,16 @@ const props = withDefaults(defineProps<{
   modelValue: string,
   border?: number,
   size?:string,
-  margin?:any
+  margin?:any,
+  radius?:number
 }>(), {
   placement: 'top-start', // bottom-start top-end ...
   variant: 'border-under',
   color: 'primary',
   size: 'standard',
   margin: [0,0],
-  border: 30
+  border: 30,
+  radius: 4,
 });
 const emit = defineEmits(['update:modelValue'])
 const transform = ref('0px');
@@ -205,6 +208,7 @@ const styles = computed(() => {
       '--left': props.margin[1] + 'px',
       '--width': (width.value - (props.margin[1] * 2)) + 'px',
       '--transform': transform.value,
+      '--radius': props.radius + 'px'
     } as any
   }
 

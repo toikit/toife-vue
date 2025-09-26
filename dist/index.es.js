@@ -1235,7 +1235,8 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
     modelValue: {},
     border: { default: 30 },
     size: { default: "standard" },
-    margin: { default: [0, 0] }
+    margin: { default: [0, 0] },
+    radius: { default: 4 }
   },
   emits: ["update:modelValue"],
   setup(e, { emit: o }) {
@@ -1250,7 +1251,8 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
       "--height": d.value - t.margin[0] * 2 + "px",
       "--left": t.margin[1] + "px",
       "--width": l.value - t.margin[1] * 2 + "px",
-      "--transform": r.value
+      "--transform": r.value,
+      "--radius": t.radius + "px"
     } : {}), g = () => {
       if (t.variant == "border-under") {
         let n = a.value.querySelector(".active");
@@ -1300,7 +1302,7 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
       b(n.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), no = /* @__PURE__ */ _(ro, [["__scopeId", "data-v-1d9a11bc"]]), ao = /* @__PURE__ */ h({
+}), no = /* @__PURE__ */ _(ro, [["__scopeId", "data-v-98d221db"]]), ao = /* @__PURE__ */ h({
   __name: "t-loading-app",
   setup(e) {
     return (o, t) => (c(), E(ye, null, {
