@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, computed, watch, nextTick } from 'vue';
+import { inject, computed } from 'vue';
 import TButton from './t-button.vue';
 
 const props = defineProps<{
@@ -29,12 +29,4 @@ const isActive = computed(() => tabs.activeValue.value === props.value);
 const handleClick = () => {
   tabs.setValue(props.value);
 }
-
-watch(() => isActive.value, async (val) => {
-  if (val) {
-    await nextTick();
-    console.log('go here to active', props.value);
-    tabs.actived();
-  }
-});
 </script>

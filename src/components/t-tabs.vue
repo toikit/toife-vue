@@ -123,7 +123,6 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits(['update:modelValue'])
 const transform = ref('0px');
 const container = ref();
-const activeValue = ref('');
 
 const color = computed(() => {
   let color = props.color;
@@ -156,27 +155,22 @@ const calcTransform = () => {
 
 // provide cho các tab con
 provide('tabsState', {
-  activeValue,
+  activeValue: computed(() => props.modelValue),
   color: color.value,
   size: props.size,
   variant: props.variant,
-  
   setValue: (val:any) => {
     emit('update:modelValue', val);
-  },
-
-  actived(){
-    calcTransform();
   }
 });
 
 watch(() => props.modelValue, async () => {
-  activeValue.value = props.modelValue;
-  console.log('go watch', activeValue.value);
+  await nextTick();
+  calcTransform();
 });
 
-onMounted(() => {
-  activeValue.value = props.modelValue;
-  console.log('go mounted', activeValue.value);
+onMounted(async () => {
+  await nextTick();
+  calcTransform();
 });
 </script>
