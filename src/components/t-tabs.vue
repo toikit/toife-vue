@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, provide, ref } from 'vue';
+import { onMounted, provide, ref, watch } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -163,11 +163,14 @@ provide('tabsState', {
   variant: props.variant,
   setActive: (val:any) => {
     emit('update:modelValue', val);
-    calcTransform();
   }
 });
 
 onMounted(() => {
   calcTransform();
 });
+
+watch(() => props.modelValue, () => {
+  calcTransform();
+})
 </script>

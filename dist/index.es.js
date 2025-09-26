@@ -1,4 +1,4 @@
-import { createElementBlock as p, openBlock as u, renderSlot as g, defineComponent as h, ref as m, computed as w, reactive as le, watch as N, onMounted as G, Fragment as O, withDirectives as W, createCommentVNode as E, normalizeStyle as T, normalizeClass as S, vShow as H, createElementVNode as k, createVNode as U, createBlock as C, withCtx as P, toDisplayString as R, renderList as F, createTextVNode as q, createApp as j, h as K, provide as ce, unref as V, onUnmounted as se, resolveDynamicComponent as ge, markRaw as be, inject as ie, useAttrs as he } from "vue";
+import { createElementBlock as p, openBlock as u, renderSlot as g, defineComponent as h, ref as m, computed as w, reactive as le, watch as X, onMounted as G, Fragment as N, withDirectives as W, createCommentVNode as E, normalizeStyle as T, normalizeClass as S, vShow as H, createElementVNode as k, createVNode as U, createBlock as C, withCtx as P, toDisplayString as R, renderList as F, createTextVNode as q, createApp as j, h as K, provide as ce, unref as V, onUnmounted as se, resolveDynamicComponent as ge, markRaw as be, inject as ie, useAttrs as he } from "vue";
 import { gesture as re } from "@toife/gesture";
 import { useRouter as ue, useRoute as ke } from "vue-router";
 const $e = (e) => e && (e.tagName == "INPUT" || e.tagName == "TEXTAREA" || e.isContentEditable), we = () => {
@@ -46,15 +46,15 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
         contentOpacity: "1"
       });
     }, b = () => {
-      let f = "0px", X = "1";
-      n.placement == "bottom" || n.placement == "right" ? f = "100%" : n.placement == "top" || n.placement == "left" ? f = "-100%" : n.placement == "center" && (f = "0px", X = "0"), a({
+      let f = "0px", O = "1";
+      n.placement == "bottom" || n.placement == "right" ? f = "100%" : n.placement == "top" || n.placement == "left" ? f = "-100%" : n.placement == "center" && (f = "0px", O = "0"), a({
         contentTransform: f,
         transition: "0.2s",
-        contentOpacity: X,
+        contentOpacity: O,
         backdropOpacity: "0"
       });
     };
-    N(() => n.visible, () => {
+    X(() => n.visible, () => {
       n.visible ? (r.value = !0, s.value = We.getNewIndex(), setTimeout(() => {
         y();
       }, 50)) : (b(), setTimeout(() => {
@@ -70,7 +70,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
     };
     return G(() => {
       n.visible ? y() : b();
-    }), (f, X) => (u(), p(O, null, [
+    }), (f, O) => (u(), p(N, null, [
       i.value ? W((u(), p("div", {
         key: 0,
         class: S(["t-present", [{ [f.placement]: !0 }, n.class]]),
@@ -236,7 +236,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
           ], !0),
           g(a.$slots, "footer", {}, () => [
             k("div", De, [
-              (u(!0), p(O, null, F(s.actions, (b) => (u(), C(Q, {
+              (u(!0), p(N, null, F(s.actions, (b) => (u(), C(Q, {
                 color: b.color,
                 variant: b.variant,
                 onClick: ($) => i(b)
@@ -296,7 +296,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
         n.value = !1;
       }, 300));
     };
-    return N(() => s.visible, (a) => {
+    return X(() => s.visible, (a) => {
       a ? c() : close();
     }), t({
       open: c,
@@ -314,8 +314,8 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
           ref_key: "container",
           ref: d
         }, [
-          (u(!0), p(O, null, F(s.actions, (b) => (u(), p("div", null, [
-            (u(!0), p(O, null, F(b, ($) => (u(), C(Q, {
+          (u(!0), p(N, null, F(s.actions, (b) => (u(), p("div", null, [
+            (u(!0), p(N, null, F(b, ($) => (u(), C(Q, {
               color: $.color,
               size: $.size,
               variant: $.variant,
@@ -543,7 +543,7 @@ const Ie = /* @__PURE__ */ v(xe, [["render", ze]]), Ee = /* @__PURE__ */ h({
         d.value = !1, l.value = !1, r("dismiss");
       }, 300);
     };
-    N(() => s.visible, (a) => {
+    X(() => s.visible, (a) => {
       a ? c() : i();
     });
     const _ = w(() => {
@@ -694,7 +694,7 @@ const ve = /* @__PURE__ */ v(nt, [["render", lt], ["__scopeId", "data-v-af750e89
     }, a = () => {
       r.value = 0, l.value = !1, c = !1, o("cancel");
     };
-    return N(() => d.value, () => {
+    return X(() => d.value, () => {
       n && n.destroy();
       let y = d.value.closest(".t-content");
       y && (n = re(y, {
@@ -769,7 +769,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
         s("change");
       }));
     };
-    return N(() => n.name, (a, y) => {
+    return X(() => n.name, (a, y) => {
       a != x.currentScreen.value?.name && (x.lastScreen.value?.name == a ? x.back(r.variant, () => {
         s("change");
       }) : i(n.name));
@@ -798,8 +798,8 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
       });
     }), se(() => {
       l && l.destroy(), x.removeAllScreen();
-    }), (a, y) => (u(), p(O, null, [
-      (u(!0), p(O, null, F(V(x).screens, (b, $) => (u(), C(_e, {
+    }), (a, y) => (u(), p(N, null, [
+      (u(!0), p(N, null, F(V(x).screens, (b, $) => (u(), C(_e, {
         ref_for: !0,
         ref: (f) => _($, f),
         style: T({ zIndex: $ + ($ == V(x).screens.length - 1 ? 2 : 1) }),
@@ -921,7 +921,7 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
         d.value = !1;
       }, 300);
     };
-    return N(() => r.value, (a) => {
+    return X(() => r.value, (a) => {
       a && (n = re(r.value, {
         isMoving: !1,
         options: {
@@ -949,8 +949,8 @@ const _e = /* @__PURE__ */ v(ut, [["render", pt], ["__scopeId", "data-v-c2a3436c
             l.value.open();
             return;
           }
-          let f, X, te;
-          o.placement == "bottom" || o.placement == "top" ? (f = r.value.offsetHeight, te = y) : (f = r.value.offsetWidth, te = b), X = te / f * 100, X > 50 ? s("dismiss", "gesture") : l.value.open();
+          let f, O, te;
+          o.placement == "bottom" || o.placement == "top" ? (f = r.value.offsetHeight, te = y) : (f = r.value.offsetWidth, te = b), O = te / f * 100, O > 50 ? s("dismiss", "gesture") : l.value.open();
         },
         cancel() {
           this.isMoving = !1, _(), l.value.open();
@@ -1264,9 +1264,11 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
       size: o.size,
       variant: o.variant,
       setActive: (c) => {
-        s("update:modelValue", c), n();
+        s("update:modelValue", c);
       }
     }), G(() => {
+      n();
+    }), X(() => o.modelValue, () => {
       n();
     }), (c, i) => (u(), p("ul", {
       ref_key: "container",
@@ -1277,7 +1279,7 @@ const Lt = /* @__PURE__ */ v(Ot, [["render", qt]]), Mt = /* @__PURE__ */ h({
       g(c.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), ro = /* @__PURE__ */ v(so, [["__scopeId", "data-v-3a46d2df"]]), no = /* @__PURE__ */ h({
+}), ro = /* @__PURE__ */ v(so, [["__scopeId", "data-v-25ac1f46"]]), no = /* @__PURE__ */ h({
   __name: "t-loading-app",
   setup(e) {
     return (t, o) => (u(), C(ve, null, {
