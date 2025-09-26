@@ -10,6 +10,14 @@
   list-style: none;
   overflow: auto;
 
+  > * {
+    z-index: 1;
+  }
+
+  &::after{
+    z-index: 0;
+  }
+
   // Placement
   &.top-start, &.bottom-start, &.left-start, &.right-start{
     justify-content: flex-start;
