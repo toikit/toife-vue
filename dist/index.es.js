@@ -1243,7 +1243,7 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
       let n = "", u = "";
       return t.variant == "text" && (n = "transparent", ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? u = `var(--t-color-status-${t.color})` : u = t.color), t.variant == "border-under" && (u = "currentColor", ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = `var(--t-color-status-${t.color})` : n = t.color), t.variant == "tag" && (["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? (n = `var(--t-color-status-${t.color})`, u = `var(--t-color-status-${t.color}-text)`) : (n = t.color, u = "currentColor")), { background: n, text: u };
     }), i = w(() => t.variant == "border-under" ? {
-      "--transform": r,
+      "--transform": r.value,
       "--border": t.border + "px"
     } : t.variant == "tag" ? {
       "--top": t.margin[0] + "px",
@@ -1293,13 +1293,13 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
     }), (n, u) => (c(), p("ul", {
       ref_key: "container",
       ref: a,
-      class: S(["t-tabs", { [n.placement]: !0, [`variant${n.variant}`]: !0 }]),
+      class: S(["t-tabs", { [n.placement]: !0, [`variant-${n.variant}`]: !0 }]),
       style: x([{ "--background": f.value.background, "--color": f.value.text }, i.value])
     }, [
       b(n.$slots, "default", {}, void 0, !0)
     ], 6));
   }
-}), no = /* @__PURE__ */ _(ro, [["__scopeId", "data-v-7c710420"]]), ao = /* @__PURE__ */ h({
+}), no = /* @__PURE__ */ _(ro, [["__scopeId", "data-v-66d91131"]]), ao = /* @__PURE__ */ h({
   __name: "t-loading-app",
   setup(e) {
     return (o, t) => (c(), E(ye, null, {

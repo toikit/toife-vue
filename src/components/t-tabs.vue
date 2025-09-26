@@ -124,7 +124,7 @@
 </style>
 
 <template>
-  <ul ref="container" class="t-tabs" :class="{[placement]: true, [`variant${variant}`]: true}" :style="[{'--background': __color.background, '--color': __color.text}, styles]">
+  <ul ref="container" class="t-tabs" :class="{[placement]: true, [`variant-${variant}`]: true}" :style="[{'--background': __color.background, '--color': __color.text}, styles]">
     <slot/>
   </ul>
 </template>
@@ -194,7 +194,7 @@ const __color = computed(() => {
 
 const styles = computed(() => {
   if (props.variant == 'border-under') return {
-    '--transform': transform,
+    '--transform': transform.value,
     '--border': props.border + 'px'
   } as any
 
