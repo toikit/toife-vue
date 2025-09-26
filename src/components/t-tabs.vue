@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUpdated, provide, ref, watch } from 'vue';
+import { nextTick, onMounted, onUpdated, provide, ref } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -134,27 +134,6 @@ const color = computed(() => {
   return color;
 });
 
-const calcTransform = () => {
-  setTimeout(() => {
-    if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
-      let active = container.value.querySelector('.active');
-      if (active) {
-        let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
-        let s = active.offsetWidth / 2;
-        transform.value = (p + s - (props.border / 2)) + 'px';
-      }
-    }
-    else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
-      let active = container.value.querySelector('.active');
-      if (active) {
-        let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
-        let s = active.offsetHeight / 2;
-        transform.value = (p + s - (props.border / 2)) + 'px';
-      }
-    }
-  }, 50);
-}
-
 // provide cho các tab con
 provide('tabsState', {
   active: computed(() => props.modelValue),
@@ -166,7 +145,22 @@ provide('tabsState', {
   }
 });
 
-onUpdated(() => {
-  calcTransform();
-});
+const calcTransform = async () => {
+  await nextTick();
+  let active = container.value?.querySelector('.active');
+  if (!active) return;
+
+  if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+    const p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+    const s = active.offsetWidth / 2;
+    transform.value = (p + s - (props.border / 2)) + 'px';
+  } else {
+    const p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+    const s = active.offsetHeight / 2;
+    transform.value = (p + s - (props.border / 2)) + 'px';
+  }
+};
+
+onMounted(calcTransform);
+onUpdated(calcTransform);
 </script>
