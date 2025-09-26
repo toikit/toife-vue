@@ -124,7 +124,7 @@
 </style>
 
 <template>
-  <ul ref="container" class="t-tabs" :class="{[placement]: true, [`variant${variant}`]: true}" :style="[{'--background': color.background, '--color': color.text}, styles]">
+  <ul ref="container" class="t-tabs" :class="{[placement]: true, [`variant${variant}`]: true}" :style="[{'--background': __color.background, '--color': __color.text}, styles]">
     <slot/>
   </ul>
 </template>
@@ -155,7 +155,7 @@ const width = ref(0);
 const height = ref(0);
 const container = ref();
 
-const color = computed(() => {
+const __color = computed(() => {
   let background = '';
   let text = '';
 
@@ -252,7 +252,7 @@ const calcTransform = () => {
 // provide cho các tab con
 provide('tabsState', {
   activeValue: computed(() => props.modelValue),
-  color: color.value,
+  color: __color.value,
   size: props.size,
   variant: props.variant,
   setValue: (val:any) => {
