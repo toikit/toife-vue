@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, onMounted, provide, ref, watch } from 'vue';
+import { nextTick, onMounted, provide, ref, watchEffect } from 'vue';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -134,6 +134,25 @@ const color = computed(() => {
   return color;
 });
 
+const calcTransform = () => {
+  if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
+    let active = container.value.querySelector('.active');
+    if (active) {
+      let p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
+      let s = active.offsetWidth / 2;
+      transform.value = (p + s - (props.border / 2)) + 'px';
+    }
+  }
+  else if (props.placement.startsWith('left-') || props.placement.startsWith('right-')) {
+    let active = container.value.querySelector('.active');
+    if (active) {
+      let p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
+      let s = active.offsetHeight / 2;
+      transform.value = (p + s - (props.border / 2)) + 'px';
+    }
+  }
+}
+
 // provide cho các tab con
 provide('tabsState', {
   active: computed(() => props.modelValue),
@@ -142,33 +161,15 @@ provide('tabsState', {
   variant: props.variant,
   setActive: (val:any) => {
     emit('update:modelValue', val);
+    calcTransform();
   }
 });
 
-const calcTransform = () => {
-  requestAnimationFrame(() => {
-    const active = container.value?.querySelector('.active');
-    if (!active) return;
-
-    if (props.placement.startsWith('top-') || props.placement.startsWith('bottom-')) {
-      const p = active.getBoundingClientRect().left - container.value.getBoundingClientRect().left + container.value.scrollLeft;
-      const s = active.offsetWidth / 2;
-      transform.value = (p + s - (props.border / 2)) + 'px';
-    } else {
-      const p = active.getBoundingClientRect().top - container.value.getBoundingClientRect().top + container.value.scrollTop;
-      const s = active.offsetHeight / 2;
-      transform.value = (p + s - (props.border / 2)) + 'px';
-    }
-  });
-};
-
-onMounted(async () => {
-  await nextTick();         // chờ children mount
-  calcTransform();
-});
-
-watch(() => props.modelValue, async () => {
-  await nextTick();         // chờ update class .active
-  calcTransform();
+watchEffect(async () => {
+  await nextTick();
+  const active = container.value?.querySelector('.active');
+  if (active) {
+    calcTransform();
+  }
 });
 </script>
