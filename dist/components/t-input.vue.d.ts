@@ -8,6 +8,7 @@ type __VLS_Props = {
     error?: string;
     modelValue?: any;
     variant?: any;
+    readonly?: boolean;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
@@ -31,6 +32,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     variant: any;
     placeholder: string;
     modelValue: any;
+    readonly: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

@@ -1,10 +1,10 @@
 <template>
-  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': hasValue}">
+  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': hasValue, 'readonly': readonly}">
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
         <slot name="start"/>
-        <input :type="type" :placeholder="variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur"></input>
+        <input :type="type" :placeholder="variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur" :readonly="readonly"></input>
         <slot name="end"/>
       </div>
     </label>
@@ -122,7 +122,8 @@ const props = withDefaults(defineProps<{
   help?:string,
   error?:string,
   modelValue?:any,
-  variant?:any
+  variant?:any,
+  readonly?:boolean
 }>(), {
   size: 'standard',
   rounded: false,
@@ -130,7 +131,8 @@ const props = withDefaults(defineProps<{
   placeholder:'',
   type:'text',
   modelValue:'',
-  variant: 'default'
+  variant: 'default',
+  readonly: false
 });
 const emit = defineEmits(['update:modelValue']);
 const isFocus = ref(false);

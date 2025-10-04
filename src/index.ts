@@ -32,7 +32,7 @@ import TTab from './components/t-tab.vue';
 import TTabs from './components/t-tabs.vue';
 import TLoadingApp from './components/t-loading-app.vue';
 import TCheckbox from './components/t-checkbox.vue';
-import TKeyboard from './components/t-keyboard.vue';
+import TKeyboardSpace from './components/t-keyboard-space.vue';
 import TSkeleton from './components/t-skeleton.vue';
 import TRipple from './components/t-ripple.vue';
 
@@ -74,7 +74,7 @@ export const createToife = () => {
       app.component('t-tabs', TTabs);
       app.component('t-loading-app', TLoadingApp);
       app.component('t-checkbox', TCheckbox);
-      app.component('t-keyboard', TKeyboard);
+      app.component('t-keyboard-space', TKeyboardSpace);
       app.component('t-skeleton', TSkeleton);
       app.component('t-ripple', TRipple);
     }

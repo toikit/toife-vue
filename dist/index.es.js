@@ -986,7 +986,7 @@ const _e = /* @__PURE__ */ _(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["class", "placement", "backdrop", "visible", "keepalive", "style"]));
   }
-}), wt = /* @__PURE__ */ _($t, [["__scopeId", "data-v-6f7063f0"]]), xt = { class: "t-input-label" }, Tt = { class: "t-input-content" }, St = ["type", "placeholder", "value"], Bt = /* @__PURE__ */ h({
+}), wt = /* @__PURE__ */ _($t, [["__scopeId", "data-v-6f7063f0"]]), xt = { class: "t-input-label" }, Tt = { class: "t-input-content" }, St = ["type", "placeholder", "value", "readonly"], Bt = /* @__PURE__ */ h({
   __name: "t-input",
   props: {
     size: { default: "standard" },
@@ -997,7 +997,8 @@ const _e = /* @__PURE__ */ _(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
     help: {},
     error: {},
     modelValue: { default: "" },
-    variant: { default: "default" }
+    variant: { default: "default" },
+    readonly: { type: Boolean, default: !1 }
   },
   emits: ["update:modelValue"],
   setup(e, { emit: o }) {
@@ -1009,7 +1010,7 @@ const _e = /* @__PURE__ */ _(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       r.value = !1;
     };
     return (i, g) => (c(), p("div", {
-      class: S(["t-input", { rounded: i.rounded, ["size-" + i.size]: !0, ["variant-" + i.variant]: !0, focus: r.value, "has-value": l.value }])
+      class: S(["t-input", { rounded: i.rounded, ["size-" + i.size]: !0, ["variant-" + i.variant]: !0, focus: r.value, "has-value": l.value, readonly: i.readonly }])
     }, [
       $("label", null, [
         $("span", xt, R(i.label), 1),
@@ -1021,7 +1022,8 @@ const _e = /* @__PURE__ */ _(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
             value: i.modelValue,
             onInput: d,
             onFocus: a,
-            onBlur: f
+            onBlur: f,
+            readonly: i.readonly
           }, null, 40, St),
           b(i.$slots, "end", {}, void 0, !0)
         ])
@@ -1045,7 +1047,7 @@ const _e = /* @__PURE__ */ _(dt, [["render", ft], ["__scopeId", "data-v-c2a3436c
       })) : I("", !0)
     ], 2));
   }
-}), zt = /* @__PURE__ */ _(Bt, [["__scopeId", "data-v-fd2173ab"]]), It = {};
+}), zt = /* @__PURE__ */ _(Bt, [["__scopeId", "data-v-a294b4b5"]]), It = {};
 function Ct(e, o) {
   return c(), p("textarea");
 }
@@ -1362,15 +1364,15 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
     ], 6));
   }
 }), po = /* @__PURE__ */ _(uo, [["__scopeId", "data-v-0e13abc3"]]), fo = /* @__PURE__ */ h({
-  __name: "t-keyboard",
+  __name: "t-keyboard-space",
   setup(e) {
     const { height: o } = ve();
     return (t, s) => (c(), p("div", {
-      class: "t-keyboard",
+      class: "t-keyboard-space",
       style: x({ "--height": A(o) + "px" })
     }, null, 4));
   }
-}), mo = /* @__PURE__ */ _(fo, [["__scopeId", "data-v-5d3fa1da"]]), vo = /* @__PURE__ */ h({
+}), mo = /* @__PURE__ */ _(fo, [["__scopeId", "data-v-4b06018d"]]), vo = /* @__PURE__ */ h({
   __name: "t-skeleton",
   props: {
     width: { default: "100%" },
@@ -1412,7 +1414,7 @@ const Lt = /* @__PURE__ */ _(Wt, [["render", qt]]), Mt = /* @__PURE__ */ h({
   }
 }), go = /* @__PURE__ */ _(_o, [["__scopeId", "data-v-42cb3d71"]]), So = () => ({
   install: (e) => {
-    Te(), e.component("t-app", Ie), e.component("t-screen", _e), e.component("t-swipe-screen", vt), e.component("t-cable", rt), e.component("t-toolbar", _t), e.component("t-content", ye), e.component("t-card", nt), e.component("t-refresher", ut), e.component("t-button", Q), e.component("t-back-button", bt), e.component("t-present", L), e.component("t-text", oe), e.component("t-sheet", wt), e.component("t-gesture-indicator", ge), e.component("t-input", zt), e.component("t-textarea", Et), e.component("t-rich-text", Rt), e.component("t-grid", Ot), e.component("t-grid-item", Lt), e.component("t-divider", Ht), e.component("t-toggle-password", Gt), e.component("t-loading-icon", J), e.component("t-alert", pe), e.component("t-avatar", jt), e.component("t-collapse", Yt), e.component("t-toast", me), e.component("t-switch", to), e.component("t-tab", so), e.component("t-tabs", no), e.component("t-loading-app", lo), e.component("t-checkbox", po), e.component("t-keyboard", mo), e.component("t-skeleton", yo), e.component("t-ripple", go);
+    Te(), e.component("t-app", Ie), e.component("t-screen", _e), e.component("t-swipe-screen", vt), e.component("t-cable", rt), e.component("t-toolbar", _t), e.component("t-content", ye), e.component("t-card", nt), e.component("t-refresher", ut), e.component("t-button", Q), e.component("t-back-button", bt), e.component("t-present", L), e.component("t-text", oe), e.component("t-sheet", wt), e.component("t-gesture-indicator", ge), e.component("t-input", zt), e.component("t-textarea", Et), e.component("t-rich-text", Rt), e.component("t-grid", Ot), e.component("t-grid-item", Lt), e.component("t-divider", Ht), e.component("t-toggle-password", Gt), e.component("t-loading-icon", J), e.component("t-alert", pe), e.component("t-avatar", jt), e.component("t-collapse", Yt), e.component("t-toast", me), e.component("t-switch", to), e.component("t-tab", so), e.component("t-tabs", no), e.component("t-loading-app", lo), e.component("t-checkbox", po), e.component("t-keyboard-space", mo), e.component("t-skeleton", yo), e.component("t-ripple", go);
   }
 });
 export {
