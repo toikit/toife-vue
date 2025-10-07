@@ -110,6 +110,7 @@ const blur = () => {
     align-items: center;
     justify-content: start;
     text-align: start;
+    position: relative;
 
     &:empty::before {
       content: attr(data-placeholder);
