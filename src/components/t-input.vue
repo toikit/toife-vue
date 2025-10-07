@@ -1,18 +1,96 @@
 <template>
-  <div class="t-input" :class="{rounded: rounded, ['size-'+size]: true, ['variant-'+variant]: true, focus: isFocus, 'has-value': hasValue, 'readonly': readonly}">
+  <div
+    class="t-input"
+    :class="{
+      rounded,
+      ['size-' + size]: true,
+      ['variant-' + variant]: true,
+      focus: isFocus,
+      'has-value': hasValue,
+      readonly
+    }"
+  >
     <label>
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
-        <slot name="start"/>
-        <input :type="type" :placeholder="variant == 'default' ? placeholder : ''" :value="modelValue" @input="onInput" @focus="focus" @blur="blur" :readonly="readonly"></input>
-        <slot name="end"/>
+        <slot name="start" />
+        <div
+          ref="editable"
+          class="t-input-editable"
+          contenteditable="true"
+          :data-placeholder="placeholder"
+          @input="onInput"
+          @touchstart.prevent="focus"
+          @mousedown="focus"
+          @blur="blur"
+        >{{ modelValue }}</div>
+        <slot name="end" />
       </div>
     </label>
+
     <t-text color="danger" v-if="error">{{ error }}</t-text>
     <t-text color="secondary" v-else-if="help">{{ help }}</t-text>
   </div>
 </template>
 
+<script setup lang="ts">
+import { ref, computed, nextTick } from 'vue'
+import TText from './t-text.vue'
+
+const props = withDefaults(defineProps<{
+  size?: string
+  rounded?: boolean
+  label?: string
+  placeholder?: string
+  type?: string
+  help?: string
+  error?: string
+  modelValue?: any
+  variant?: any
+  readonly?: boolean
+}>(), {
+  size: 'standard',
+  rounded: false,
+  label: '',
+  placeholder: '',
+  type: 'text',
+  modelValue: '',
+  variant: 'default',
+  readonly: false
+})
+
+const emit = defineEmits(['update:modelValue'])
+const isFocus = ref(false)
+const editable = ref<HTMLDivElement | null>(null)
+
+const hasValue = computed(() =>
+  !(props.modelValue === '' || props.modelValue == null)
+)
+
+const onInput = (e: any) => {
+  emit('update:modelValue', e.target.textContent)
+}
+
+const focus = async (e: Event) => {
+  isFocus.value = true
+  // ⚡️ Cho phép caret hiển thị mà không gọi bàn phím
+  await nextTick()
+  const el = editable.value
+  if (el) {
+    const range = document.createRange()
+    const sel = window.getSelection()
+    range.selectNodeContents(el)
+    range.collapse(false)
+    sel?.removeAllRanges()
+    sel?.addRange(range)
+    el.focus() // focus ảo
+  }
+}
+
+const blur = () => {
+  isFocus.value = false
+}
+</script>
 <style lang="scss" scoped>
 .t-input{
   position: relative;
@@ -22,12 +100,25 @@
     align-items: center;
   }
 
-  input{
+  .t-input-editable{
     background-color: transparent;
     color: var(--t-color-text);
     padding: 0;
     flex: 1;
     caret-color: var(--t-color-text);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: start;
+
+    &:empty::before {
+      content: attr(data-placeholder);
+      color: #aaa;
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
 
     &:focus {
       caret-color: var(--t-color-text);
@@ -40,9 +131,9 @@
       font-size: 0.7rem;
     }
 
-    input{
+    .t-input-editable{
       font-size: 1rem;
-      height: 31px;
+      line-height: 31px;
     }
   }
 
@@ -55,9 +146,9 @@
       font-size: 0.7rem;
     }
 
-    input{
+    .t-input-editable{
       font-size: 1rem;
-      height: 42px;
+      line-height: 42px;
     }
   }
 
@@ -70,9 +161,9 @@
       font-size: 0.8rem;
     }
 
-    input{
+    .t-input-editable{
       font-size: 1.2rem;
-      height: 50px;
+      line-height: 50px;
     }
   }
 
@@ -84,7 +175,7 @@
   }
 
   &.variant-floating{
-    input{
+    .t-input-editable{
       padding-top: 1rem;
     }
 
@@ -109,41 +200,3 @@
   }
 }
 </style>
-
-<script lang="ts" setup>
-import { computed, ref } from 'vue';
-import TText from './t-text.vue';
-const props = withDefaults(defineProps<{
-  size?:string
-  rounded?: boolean,
-  label?:string,
-  placeholder?:string,
-  type?:string,
-  help?:string,
-  error?:string,
-  modelValue?:any,
-  variant?:any,
-  readonly?:boolean
-}>(), {
-  size: 'standard',
-  rounded: false,
-  label:'',
-  placeholder:'',
-  type:'text',
-  modelValue:'',
-  variant: 'default',
-  readonly: false
-});
-const emit = defineEmits(['update:modelValue']);
-const isFocus = ref(false);
-
-const hasValue = computed(() => {
-  return !(props.modelValue === '' || props.modelValue === null || props.modelValue === undefined);
-});
-
-const onInput = (e:any) => {
-  emit('update:modelValue', e.target.value);
-}
-const focus = () => {isFocus.value = true}
-const blur = () => {isFocus.value = false}
-</script>
