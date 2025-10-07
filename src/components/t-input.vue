@@ -113,7 +113,7 @@ const blur = () => {
 
     &:empty::before {
       content: attr(data-placeholder);
-      color: #aaa;
+      color: var(--t-color-text-dark);
       pointer-events: none;
       position: absolute;
       left: 0;
