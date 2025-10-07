@@ -9,3 +9,22 @@
 .scroll-y-auto{overflow-y: auto !important;}
 .scroll-y-hidden{overflow-y: hidden !important;}
 .scroll-y-show{overflow-y: scroll !important;}
+
+.osb-contain{
+  overscroll-behavior: contain !important;
+}
+.osb-auto{
+  overscroll-behavior: auto !important;
+}
+.osb-x-contain{
+  overscroll-behavior-x: contain !important;
+}
+.osb-x-auto{
+  overscroll-behavior-x: auto !important;
+}
+.osb-y-contain{
+  overscroll-behavior-y: contain !important;
+}
+.osb-y-auto{
+  overscroll-behavior-y: auto !important;
+}
