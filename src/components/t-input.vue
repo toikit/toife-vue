@@ -111,6 +111,7 @@ const blur = () => {
     justify-content: start;
     text-align: start;
     position: relative;
+    overflow: auto;
 
     &:empty::before {
       content: attr(data-placeholder);
