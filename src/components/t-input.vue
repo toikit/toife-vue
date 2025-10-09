@@ -17,14 +17,16 @@
         <input
           ref="editable"
           class="t-input-editable"
-          contenteditable="true"
           :placeholder="placeholder"
           :value="modelValue"
+          :type="type"
           @input="onInput"
-          @touchstart.prevent="focus"
-          @mousedown="focus"
+          @focus="focus"
           @blur="blur"
+          :readonly="readonly"
         ></input>
+        <!-- @touchstart.prevent="focus"
+          @mousedown="focus" -->
         <slot name="end" />
       </div>
     </label>
