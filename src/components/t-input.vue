@@ -14,16 +14,17 @@
       <span class="t-input-label">{{ label }}</span>
       <div class="t-input-content">
         <slot name="start" />
-        <div
+        <input
           ref="editable"
           class="t-input-editable"
           contenteditable="true"
-          :data-placeholder="placeholder"
+          :placeholder="placeholder"
+          :value="modelValue"
           @input="onInput"
           @touchstart.prevent="focus"
           @mousedown="focus"
           @blur="blur"
-        >{{ modelValue }}</div>
+        ></input>
         <slot name="end" />
       </div>
     </label>
@@ -113,17 +114,22 @@ const blur = () => {
     position: relative;
     overflow: auto;
 
-    &:empty::before {
-      content: attr(data-placeholder);
-      color: var(--t-color-text-dark);
-      pointer-events: none;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+    // &:empty::before {
+    //   content: attr(data-placeholder);
+    //   color: var(--t-color-text-dark);
+    //   pointer-events: none;
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    // }
 
     &:focus {
       caret-color: var(--t-color-text);
+    }
+
+    &::placeholder {
+      color: var(--t-color-text-dark);
+      opacity: 1;
     }
   }
 

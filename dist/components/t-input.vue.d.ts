@@ -17,7 +17,7 @@ declare function __VLS_template(): {
         end?(_: {}): any;
     };
     refs: {
-        editable: HTMLDivElement;
+        editable: HTMLInputElement;
     };
     rootEl: HTMLDivElement;
 };
@@ -36,7 +36,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     modelValue: any;
     readonly: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    editable: HTMLDivElement;
+    editable: HTMLInputElement;
 }, HTMLDivElement>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

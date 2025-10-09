@@ -24,9 +24,9 @@ html, body, * {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent !important;
   -webkit-touch-callout: none !important;
-  user-select: none !important;
-  -webkit-user-select: none !important;
-  -ms-user-select: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   // -webkit-user-drag: none !important;
   // touch-action: none !important;
 
