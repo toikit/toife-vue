@@ -69,23 +69,11 @@ const hasValue = computed(() =>
 )
 
 const onInput = (e: any) => {
-  emit('update:modelValue', e.target.textContent)
+  emit('update:modelValue', e.target.value)
 }
 
 const focus = async (e: Event) => {
   isFocus.value = true
-  // ⚡️ Cho phép caret hiển thị mà không gọi bàn phím
-  await nextTick()
-  const el = editable.value
-  if (el) {
-    const range = document.createRange()
-    const sel = window.getSelection()
-    range.selectNodeContents(el)
-    range.collapse(false)
-    sel?.removeAllRanges()
-    sel?.addRange(range)
-    el.focus() // focus ảo
-  }
 }
 
 const blur = () => {
