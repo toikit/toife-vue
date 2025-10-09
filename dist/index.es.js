@@ -1223,11 +1223,12 @@ const Lt = /* @__PURE__ */ g(Nt, [["render", qt]]), Ht = /* @__PURE__ */ h({
 }), oo = /* @__PURE__ */ g(to, [["__scopeId", "data-v-3616970e"]]), so = /* @__PURE__ */ h({
   __name: "t-tab",
   props: {
-    value: {}
+    value: {},
+    disabled: { type: Boolean, default: !1 }
   },
   setup(e) {
     const o = e, t = ue("tabsState"), s = w(() => t.activeValue.value === o.value), r = () => {
-      t.setValue(o.value);
+      o.disabled || t.setValue(o.value);
     };
     return (l, d) => (c(), p("li", {
       class: S(["t-tab", { active: s.value }])
@@ -1245,7 +1246,7 @@ const Lt = /* @__PURE__ */ g(Nt, [["render", qt]]), Ht = /* @__PURE__ */ h({
       }, 8, ["size", "color"])
     ], 2));
   }
-}), ro = /* @__PURE__ */ g(so, [["__scopeId", "data-v-481e97b6"]]), no = /* @__PURE__ */ h({
+}), ro = /* @__PURE__ */ g(so, [["__scopeId", "data-v-4b7f4e98"]]), no = /* @__PURE__ */ h({
   __name: "t-tabs",
   props: {
     placement: { default: "top-start" },

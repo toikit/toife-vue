@@ -20,12 +20,16 @@
 import { inject, computed } from 'vue';
 import TButton from './t-button.vue';
 
-const props = defineProps<{
-  value: String
-}>();
+const props = withDefaults(defineProps<{
+  value: String,
+  disabled: boolean
+}>(), {
+  disabled: false
+});
 const tabs:any = inject('tabsState');
 const isActive = computed(() => tabs.activeValue.value === props.value);
 const handleClick = () => {
+  if (props.disabled) return;
   tabs.setValue(props.value);
 }
 </script>
