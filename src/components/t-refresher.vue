@@ -70,7 +70,7 @@ watch(() => container.value, () => {
   if (!screen) return;
   cleanup = gesture(screen, {
     options: {
-      minDist: 60
+      minMove: 20
     },
 
     down(){
