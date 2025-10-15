@@ -73,6 +73,11 @@ watch(() => container.value, () => {
       minMove: 20
     },
 
+    beforeEvent(){
+      if (screen.scrollTop > 0) return false;
+      return true;
+    },
+
     down(){
       if (refreshing.value || locked) return;
       emit('start');

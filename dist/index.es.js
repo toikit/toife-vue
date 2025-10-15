@@ -701,6 +701,9 @@ const ye = /* @__PURE__ */ g(at, [["render", ct], ["__scopeId", "data-v-af750e89
         options: {
           minMove: 20
         },
+        beforeEvent() {
+          return !(u.scrollTop > 0);
+        },
         down() {
           l.value || f || t("start");
         },
@@ -737,7 +740,7 @@ const ye = /* @__PURE__ */ g(at, [["render", ct], ["__scopeId", "data-v-af750e89
       [H, r.value > 0]
     ]);
   }
-}), ut = /* @__PURE__ */ g(it, [["__scopeId", "data-v-97f40a6d"]]), dt = {}, pt = { class: "t-screen" };
+}), ut = /* @__PURE__ */ g(it, [["__scopeId", "data-v-3a3b6e1f"]]), dt = {}, pt = { class: "t-screen" };
 function ft(e, o) {
   return c(), p("div", pt, [
     b(e.$slots, "default", {}, void 0, !0)
