@@ -676,7 +676,7 @@ function ct(e, o) {
     b(e.$slots, "default", {}, void 0, !0)
   ]);
 }
-const ye = /* @__PURE__ */ g(at, [["render", ct], ["__scopeId", "data-v-af750e89"]]), it = /* @__PURE__ */ h({
+const ye = /* @__PURE__ */ g(at, [["render", ct], ["__scopeId", "data-v-ce0031a0"]]), it = /* @__PURE__ */ h({
   __name: "t-refresher",
   props: {
     threshold: { default: 120 },
