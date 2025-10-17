@@ -1,6 +1,7 @@
 <style lang="scss" scoped>
 .t-action{
   width: var(--t-app-width);
+  max-width: var(--t-app-max-width);
   margin-bottom: var(--t-safe-area-bottom);
   display: flex;
   flex-direction: column;
