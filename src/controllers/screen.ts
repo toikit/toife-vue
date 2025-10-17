@@ -21,17 +21,18 @@ const isSwipeable = computed(() => {
   return !isBusy.value && swipeable.value && lastScreen.value;
 });
 
-const getAppWidth = () => {
+const getAppWidth = (px: boolean = true) => {
   let app = currentScreen.value.target.closest('.t-app');
   let width = app.offsetWidth;
 
-  return width + 'px';
+  if (px) return width + 'px';
+  return width;
 }
 
 const scaleHandler = {
   reset(){
     isBusy.value = true;
-    let w = getAppWidth();
+    const w = getAppWidth();
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
     current.style.transition = 'transform 0.35s ease';
@@ -49,13 +50,13 @@ const scaleHandler = {
 
   move(delta:any) {
     if (!isSwipeable.value) return;
-    const width = window.innerWidth;
+    const width = getAppWidth(false);
+    const w = width + 'px';
     const percent = delta / width * 100;
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
 
     if (delta > 15 && delta <= width) {
-      let w = getAppWidth();
       delta = delta > 0 ? delta : 0;
       current.style.transition = 'transform 0s ease';
       current.style.transform = `translateX(${delta}px)`;
@@ -70,7 +71,7 @@ const scaleHandler = {
   back(callback?:any){
     if (!lastScreen.value) return;
 
-    let w = getAppWidth();
+    const w = getAppWidth();
     currentScreen.value.target.style.transition = 'transform 0.35s ease';
     currentScreen.value.target.style.transform = `translateX(${w}) scale(1)`;
 
@@ -98,8 +99,8 @@ const scaleHandler = {
     }
 
     isBusy.value = true;
-    let target = nextScreen.value.target;
-    let w = getAppWidth();
+    const target = nextScreen.value.target;
+    const w = getAppWidth();
     target.style.transform = `translateX(${w})`;
     target.transitionOrigin = 'center';
     document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
@@ -129,7 +130,7 @@ const scaleHandler = {
 const transformHandler = {
   reset(){
     isBusy.value = true;
-    let w = getAppWidth();
+    const w = getAppWidth();
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
     current.style.transition = 'transform 0.35s ease';
@@ -146,13 +147,13 @@ const transformHandler = {
   },
 
   move(delta:any) {
-    const width = window.innerWidth;
+    const width = getAppWidth(false);
+    const w = width + 'px';
     const percent = delta / width * 100;
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
 
-    if (delta > 15 && delta <= width) {
-      let w = getAppWidth();
+    if (delta > 15 && delta <= w) {
       delta = delta > 0 ? delta : 0;
       current.style.transition = 'transform 0s ease';
       current.style.transform = `translateX(${delta}px)`;
@@ -167,7 +168,7 @@ const transformHandler = {
   back(callback?:any){
     if (!lastScreen.value) return;
 
-    let w = getAppWidth();
+    const w = getAppWidth();
     currentScreen.value.target.style.transition = 'transform 0.35s ease';
     currentScreen.value.target.style.transform = `translateX(${w}) scale(1)`;
 
@@ -194,8 +195,8 @@ const transformHandler = {
       return;
     }
     isBusy.value = true;
-    let target = nextScreen.value.target;
-    let w = getAppWidth();
+    const target = nextScreen.value.target;
+    const w = getAppWidth();
     target.style.transform = `translateX(${w})`;
     target.transitionOrigin = 'center';
     document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
