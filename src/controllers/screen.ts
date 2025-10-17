@@ -50,14 +50,13 @@ const scaleHandler = {
 
   move(delta:any) {
     if (!isSwipeable.value) return;
-    const width = getAppWidth(false);
-    const w = width + 'px';
-    const percent = delta / width * 100;
+    const _w = getAppWidth(false);
+    const w = _w + 'px';
+    const percent = delta / _w * 100;
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
 
-    if (delta > 15 && delta <= width) {
-      delta = delta > 0 ? delta : 0;
+    if (delta > 15 && delta <= _w) {
       current.style.transition = 'transform 0s ease';
       current.style.transform = `translateX(${delta}px)`;
       last.style.transition = 'transform 0s ease';
@@ -147,14 +146,13 @@ const transformHandler = {
   },
 
   move(delta:any) {
-    const width = getAppWidth(false);
-    const w = width + 'px';
-    const percent = delta / width * 100;
+    const _w = getAppWidth(false);
+    const w = _w + 'px';
+    const percent = delta / _w * 100;
     const current = currentScreen.value.target;
     const last = lastScreen.value.target;
 
-    if (delta > 15 && delta <= w) {
-      delta = delta > 0 ? delta : 0;
+    if (delta > 15 && delta <= _w) {
       current.style.transition = 'transform 0s ease';
       current.style.transform = `translateX(${delta}px)`;
       last.style.transition = 'transform 0s ease';
