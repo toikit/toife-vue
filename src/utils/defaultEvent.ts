@@ -6,4 +6,8 @@ export default () => {
   document.addEventListener('pointerup', (e) => {
     !isFormElement(e.target) && blurCurrentActive();
   });
+
+  if ('virtualKeyboard' in navigator) {
+    (navigator.virtualKeyboard as any).overlaysContent = true;
+  }
 }
