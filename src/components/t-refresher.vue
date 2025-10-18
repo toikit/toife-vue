@@ -46,7 +46,6 @@ let locked = false;
 const close = () => {
   refreshing.value = false;
   offset.value = 0;
-  if (cleanup) cleanup.cancel();
   locked = false;
 };
 
