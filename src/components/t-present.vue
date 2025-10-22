@@ -85,6 +85,7 @@ const emit = defineEmits(['dismiss']);
 const isRender = computed(() => {
   return isShow.value || props.keepalive;
 });
+const isBounced = ref(false);
 const styles = reactive({
   '--t-present-backdrop-opacity': '0.4',
   '--t-present-transition': '0.2s',
@@ -106,7 +107,8 @@ const render = (value:any) => {
 }
 
 const open = () => {
-  if (props.bounce !== undefined) {
+  if (props.bounce !== undefined && !isBounced.value) {
+    isBounced.value = true;
     let contentTransform = props.bounce;
 
     if (props.placement == 'bottom' || props.placement == 'right') {
@@ -160,6 +162,7 @@ const close = () => {
 
 watch(() => props.visible, () => {
   if (props.visible) {
+    isBounced.value = false;
     isShow.value = true;
     zIndex.value = presentController.getNewIndex();
 
