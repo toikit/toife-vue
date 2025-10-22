@@ -28,6 +28,8 @@ declare function __VLS_template(): {
                 readonly placement?: string | undefined;
                 readonly style?: any;
                 readonly class?: any;
+                readonly bounce?: any;
+                readonly duration?: number | undefined;
                 readonly onDismiss?: ((...args: any[]) => any) | undefined;
             } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
             $attrs: {
@@ -54,6 +56,8 @@ declare function __VLS_template(): {
                 placement?: string;
                 style?: any;
                 class?: any;
+                bounce?: any;
+                duration?: number;
             }> & Readonly<{
                 onDismiss?: ((...args: any[]) => any) | undefined;
             }>, {
@@ -67,6 +71,7 @@ declare function __VLS_template(): {
                 visible: boolean;
                 backdrop: boolean;
                 placement: string;
+                duration: number;
             }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
                 beforeCreate?: (() => void) | (() => void)[];
                 created?: (() => void) | (() => void)[];
@@ -92,6 +97,7 @@ declare function __VLS_template(): {
             visible: boolean;
             backdrop: boolean;
             placement: string;
+            duration: number;
         }> & Omit<Readonly<{
             keepalive?: boolean;
             visible?: boolean;
@@ -99,9 +105,11 @@ declare function __VLS_template(): {
             placement?: string;
             style?: any;
             class?: any;
+            bounce?: any;
+            duration?: number;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
-        }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
+        }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement" | "duration")> & import('vue').ShallowUnwrapRef<{
             render: (value: any) => void;
             open: () => void;
             close: () => void;
@@ -141,6 +149,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             readonly placement?: string | undefined;
             readonly style?: any;
             readonly class?: any;
+            readonly bounce?: any;
+            readonly duration?: number | undefined;
             readonly onDismiss?: ((...args: any[]) => any) | undefined;
         } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps;
         $attrs: {
@@ -167,6 +177,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             placement?: string;
             style?: any;
             class?: any;
+            bounce?: any;
+            duration?: number;
         }> & Readonly<{
             onDismiss?: ((...args: any[]) => any) | undefined;
         }>, {
@@ -180,6 +192,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
             visible: boolean;
             backdrop: boolean;
             placement: string;
+            duration: number;
         }, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & {
             beforeCreate?: (() => void) | (() => void)[];
             created?: (() => void) | (() => void)[];
@@ -205,6 +218,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         visible: boolean;
         backdrop: boolean;
         placement: string;
+        duration: number;
     }> & Omit<Readonly<{
         keepalive?: boolean;
         visible?: boolean;
@@ -212,9 +226,11 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         placement?: string;
         style?: any;
         class?: any;
+        bounce?: any;
+        duration?: number;
     }> & Readonly<{
         onDismiss?: ((...args: any[]) => any) | undefined;
-    }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement")> & import('vue').ShallowUnwrapRef<{
+    }>, "close" | "render" | "open" | ("keepalive" | "visible" | "backdrop" | "placement" | "duration")> & import('vue').ShallowUnwrapRef<{
         render: (value: any) => void;
         open: () => void;
         close: () => void;

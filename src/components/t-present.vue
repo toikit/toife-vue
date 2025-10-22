@@ -71,11 +71,14 @@ const props = withDefaults(defineProps<{
   backdrop?:boolean,
   placement?: string,
   style?:any,
-  class?:any
+  class?:any,
+  bounce?:any,
+  duration?:number
 }>(), {
   keepalive: true,
   visible: false,
   backdrop: true,
+  duration: 200,
   placement: 'bottom' // top, left, right, center, bottom
 });
 const emit = defineEmits(['dismiss']);
@@ -88,12 +91,14 @@ const styles = reactive({
   '--t-present-content-transform': '0px',
   '--t-present-content-opacity': '1'
 });
+const time = computed(() => {
+  return (props.duration / 1000) + 's';
+});
 
 const render = (value:any) => {
   if (!props.backdrop) styles['--t-present-backdrop-opacity'] = '0';
   else if (value?.backdropOpacity) styles['--t-present-backdrop-opacity'] = value.backdropOpacity;
   if (value?.transition) {
-    styles['--t-present-transition'] = value.transition;
     styles['--t-present-transition'] = value.transition;
   }
   if (value?.contentTransform) styles['--t-present-content-transform'] = value.contentTransform;
@@ -101,12 +106,33 @@ const render = (value:any) => {
 }
 
 const open = () => {
-  render({
-    contentTransform: '0px',
-    transition: '0.2s',
-    backdropOpacity: '0.4',
-    contentOpacity: '1'
-  });
+  if (props.bounce !== undefined) {
+    let contentTransform = props.bounce;
+
+    if (props.placement == 'bottom' || props.placement == 'right') {
+      contentTransform = `calc(${props.bounce} * -1)`
+    }
+    
+    render({
+      contentTransform,
+      transition: time.value,
+      backdropOpacity: '0.4',
+      contentOpacity: '1'
+    });
+
+    setTimeout(() => {
+      render({
+        contentTransform: '0px'
+      });
+    }, props.duration);
+  } else {
+    render({
+      contentTransform: '0px',
+      transition: time.value,
+      backdropOpacity: '0.4',
+      contentOpacity: '1'
+    });
+  }
 }
 
 const close = () => {
@@ -126,7 +152,7 @@ const close = () => {
 
   render({
     contentTransform,
-    transition: '0.2s',
+    transition: time.value,
     contentOpacity,
     backdropOpacity: '0'
   });
