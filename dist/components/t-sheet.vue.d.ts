@@ -8,7 +8,6 @@ type __VLS_Props = {
     keepalive?: boolean;
     backdrop?: boolean;
     rounded?: boolean;
-    radius?: boolean;
     indicator?: boolean;
     style?: any;
 };
@@ -136,7 +135,6 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     background: string;
     gesture: boolean;
     fullscreen: boolean;
-    radius: boolean;
     indicator: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     present: ({

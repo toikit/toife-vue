@@ -19,33 +19,31 @@
 
   &:not(.fullscreen) {
     &.rounded {
-      &.bottom.radius {
+      &.bottom {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
       }
 
-      &.top.radius {
+      &.top {
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
       }
 
-      &.left.radius {
+      &.left {
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
       }
 
-      &.right.radius {
+      &.right {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
       }
 
-      &.center.radius {
+      &.center {
         border-radius: 15px;
       }
 
-      &.radius {
-        overflow: hidden;
-      }
+      overflow: hidden;
     }
 
     &.top {
@@ -76,7 +74,7 @@
     :keepalive="props.keepalive" @dismiss="close" :style="props.style">
     <t-gesture-indicator :placement="props.placement" v-if="props.gesture && props.indicator && props.placement != 'center'"></t-gesture-indicator>
     <div class="t-sheet" :style="{ '--background': props.background }" ref="sheet"
-      :class="{ 'fullscreen': props.fullscreen, [props.placement]: true, rounded, radius: props.radius }">
+      :class="{ 'fullscreen': props.fullscreen, [props.placement]: true, rounded }">
       <slot />
     </div>
   </t-present>
@@ -98,7 +96,6 @@ const props = withDefaults(defineProps<{
   keepalive?: boolean,
   backdrop?: boolean,
   rounded?: boolean,
-  radius?: boolean,
   indicator?: boolean,
   style?:any,
 }>(), {
@@ -110,7 +107,6 @@ const props = withDefaults(defineProps<{
   fullscreen: false,
   rounded: true,
   placement: 'bottom',
-  radius: true,
   indicator: true
 });
 const emit = defineEmits(['dismiss']);

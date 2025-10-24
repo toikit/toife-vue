@@ -28,9 +28,9 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     size: string;
     color: string;
     variant: string;
-    radius: number;
     border: number;
     margin: any;
+    radius: number;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
     container: HTMLUListElement;
 }, HTMLUListElement>;
