@@ -85,7 +85,7 @@ onMounted(() => {
         return;
       }
 
-      const width = backdrop.value.$el.closest('.t-app').offsetWidth;
+      const width = backdrop.value.offsetParent.offsetWidth;
       const percent = deltaX / width * 100;
 
       if (percent >= 50) {

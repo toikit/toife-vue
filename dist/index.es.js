@@ -815,7 +815,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
             B.reset(r.variant);
             return;
           }
-          const k = y.value.$el.closest(".t-app").offsetWidth;
+          const k = y.value.offsetParent.offsetWidth;
           c / k * 100 >= 50 ? u.back() : B.reset(r.variant);
         },
         cancel() {
@@ -844,7 +844,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
       }, null, 4)
     ], 64));
   }
-}), _t = /* @__PURE__ */ _(yt, [["__scopeId", "data-v-3982995e"]]), gt = /* @__PURE__ */ h({
+}), _t = /* @__PURE__ */ _(yt, [["__scopeId", "data-v-4d584b03"]]), gt = /* @__PURE__ */ h({
   __name: "t-toolbar",
   props: {
     placement: { default: null },
