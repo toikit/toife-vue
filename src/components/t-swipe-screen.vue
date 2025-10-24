@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { markRaw, onMounted, onUnmounted, watch } from "vue";
+import { markRaw, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { screenController } from "../controllers";
@@ -19,6 +19,7 @@ let ges: any;
 const _router = props.router || useRouter();
 const _route = props.route || useRoute();
 const routes: any = _router.getRoutes();
+const backdrop = ref();
 
 for (let r of routes) {
   routeComponents[r.name] = r.component || r.components;
@@ -84,7 +85,7 @@ onMounted(() => {
         return;
       }
 
-      const width = window.innerWidth;
+      const width = backdrop.value.$el.closest('.t-app').offsetWidth;
       const percent = deltaX / width * 100;
 
       if (percent >= 50) {
@@ -114,7 +115,7 @@ onUnmounted(() => {
     v-for="(screen, index) in screenController.screens" :key="index">
     <component :is="screen.component.default" />
   </t-screen>
-  <div class="t-swipe-backdrop" :style="{ zIndex: screenController.screens.length }"></div>
+  <div class="t-swipe-backdrop" ref="backdrop" :style="{ zIndex: screenController.screens.length }"></div>
 </template>
 
 <style lang="scss" scoped>

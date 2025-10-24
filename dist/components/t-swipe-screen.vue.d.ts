@@ -9,5 +9,7 @@ declare const _default: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {
     onChange?: ((...args: any[]) => any) | undefined;
 }>, {
     variant: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
+    backdrop: HTMLDivElement;
+}, any>;
 export default _default;
