@@ -1,9 +1,9 @@
 <style lang="scss" scoped>
-.t-cable{
+.t-cable {
   position: absolute;
   z-index: 10;
 
-  &.bottom{
+  &.bottom {
     bottom: 0;
     left: 0;
     height: auto;
@@ -11,26 +11,26 @@
     will-change: transform;
     transition: transform var(--t-keyboard-transition) ease-out;
 
-    &.keyboard{
+    &.keyboard {
       transform: translateY(calc((var(--t-keyboard-height) - var(--t-safe-area-bottom)) * -1));
     }
   }
 
-  &.top{
+  &.top {
     left: 0;
     top: 0;
     height: auto;
     width: 100%;
   }
 
-  &.left{
+  &.left {
     left: 0;
     top: 0;
     height: 100%;
     width: auto;
   }
 
-  &.right{
+  &.right {
     right: 0;
     top: 0;
     height: 100%;
@@ -40,23 +40,30 @@
 </style>
 
 <template>
-  <div class="t-cable" :class="{keyboard: props.keyboard && height > 0, [props.placement]: true}" :style="{'--t-keyboard-height': height + 'px', '--t-keyboard-transition': height > 0 ? '0.3s' : '0.1s'}"><slot/></div>
+  <div class="t-cable" :class="{ keyboard: props.keyboard && height > 0, [props.placement]: true }"
+    :style="{ '--t-keyboard-height': height + 'px', '--t-keyboard-transition': height > 0 ? '0.3s' : '0.1s' }">
+    <slot />
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, provide } from 'vue';
+import { provide } from 'vue';
 import { useKeyboard } from '../controllers';
 
+// Props property
 const props = withDefaults(defineProps<{
-  keyboard?:boolean,
-  placement?:string
+  keyboard?: boolean,
+  placement?: string
 }>(), {
   keyboard: false,
   placement: 'bottom'
 });
+
+// State height of keyboard, which be setted from controller
+// To use it, in app must get keyboard height and set
 const { height } = useKeyboard();
 
-// provide cho các tab con
+// Provide tab sate for childrend component
 provide('cableState', {
   placement: props.placement
 });

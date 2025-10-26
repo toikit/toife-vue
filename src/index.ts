@@ -19,7 +19,6 @@ import TInput from './components/t-input.vue';
 import TTextarea from './components/t-textarea.vue';
 import TRichText from './components/t-rich-text.vue';
 import TGrid from './components/t-grid.vue';
-import TGridItem from './components/t-grid-item.vue';
 import TDivider from './components/t-divider.vue';
 import TTogglePassword from './components/t-toggle-password.vue';
 import TLoadingIcon from './components/t-loading-icon.vue';
@@ -61,7 +60,6 @@ export const createToife = () => {
       app.component('t-textarea', TTextarea);
       app.component('t-rich-text', TRichText);
       app.component('t-grid', TGrid);
-      app.component('t-grid-item', TGridItem);
       app.component('t-divider', TDivider);
       app.component('t-toggle-password', TTogglePassword);
       app.component('t-loading-icon', TLoadingIcon);

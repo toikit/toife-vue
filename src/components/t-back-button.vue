@@ -23,6 +23,7 @@ import { useAttrs } from 'vue';
 import { screenController } from '../controllers';
 import { useRouter } from 'vue-router';
 
+// Default props, store
 const props = defineProps<{
   to?: any,
   router?:any
@@ -30,6 +31,8 @@ const props = defineProps<{
 const attrs = useAttrs();
 const router = props.router || useRouter();
 
+// Event when click on back button
+// Handle back with router from props or use current router
 const onClick = (e:any) => {
   if (attrs.onBack) {
     (attrs.onBack as Function)(e);

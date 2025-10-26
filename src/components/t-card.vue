@@ -1,9 +1,11 @@
 <template>
-  <div class="t-card" :style="styles"><slot/></div>
+  <div class="t-card" :style="styles">
+    <slot />
+  </div>
 </template>
 
 <style lang="scss">
-.t-card{
+.t-card {
   border-radius: 8px;
   background: var(--background);
   padding: var(--t-size-2);
@@ -14,14 +16,16 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
+// Property
+// color: set color for card, my use status color or custom color
 const props = withDefaults(defineProps<{
-  color?:any
+  color?: any
 }>(), {
   color: null
 });
 
 const styles = computed(() => {
-  let st:any;
+  let st: any;
 
   if (!props.color) {
     st = {
@@ -30,7 +34,7 @@ const styles = computed(() => {
   }
   else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     st = {
-      '--background': 'var(--t-color-status-'+props.color+')'
+      '--background': 'var(--t-color-status-' + props.color + ')'
     };
   }
   else {

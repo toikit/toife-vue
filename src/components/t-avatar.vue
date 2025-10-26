@@ -1,4 +1,6 @@
 <style lang="scss" scoped>
+// Avatar default is circle
+// With props square then is square
 .t-avatar{
   position: relative;
   border-radius: 50%;
@@ -24,6 +26,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
+// Define props
 const props = withDefaults(defineProps<{
   square?:boolean,
   size?:any
@@ -32,6 +35,7 @@ const props = withDefaults(defineProps<{
   size: 'standard'
 });
 
+// Get realy width with props size
 const width = computed(() => {
   if (props.size == 'small') return '24px';
   if (props.size == 'standard') return '40px';

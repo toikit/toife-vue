@@ -99,11 +99,11 @@ const time = computed(() => {
 const render = (value:any) => {
   if (!props.backdrop) styles['--t-present-backdrop-opacity'] = '0';
   else if (value?.backdropOpacity) styles['--t-present-backdrop-opacity'] = value.backdropOpacity;
-  if (value?.transition) {
+  if (value.transition) {
     styles['--t-present-transition'] = value.transition;
   }
-  if (value?.contentTransform) styles['--t-present-content-transform'] = value.contentTransform;
-  if (value?.contentOpacity) styles['--t-present-content-opacity'] = value.contentOpacity;
+  if (value.contentTransform) styles['--t-present-content-transform'] = value.contentTransform;
+  if (value.contentOpacity) styles['--t-present-content-opacity'] = value.contentOpacity;
 }
 
 const open = () => {

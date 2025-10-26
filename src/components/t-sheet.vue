@@ -70,7 +70,7 @@
 </style>
 
 <template>
-  <t-present ref="present" :class="props.class" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
+  <t-present ref="present" :duration="props.duration" :bounce="props.bounce" :class="props.class" :placement="props.placement" :backdrop="backdrop" :visible="props.visible"
     :keepalive="props.keepalive" @dismiss="close" :style="props.style">
     <t-gesture-indicator :placement="props.placement" v-if="props.gesture && props.indicator && props.placement != 'center'"></t-gesture-indicator>
     <div class="t-sheet" :style="{ '--background': props.background }" ref="sheet"
@@ -97,6 +97,8 @@ const props = withDefaults(defineProps<{
   backdrop?: boolean,
   rounded?: boolean,
   indicator?: boolean,
+  duration?:number,
+  bounce?:any,
   style?:any,
 }>(), {
   background: 'var(--t-color-surface)',
@@ -107,7 +109,8 @@ const props = withDefaults(defineProps<{
   fullscreen: false,
   rounded: true,
   placement: 'bottom',
-  indicator: true
+  indicator: true,
+  duration: 200
 });
 const emit = defineEmits(['dismiss']);
 const sheet = ref();

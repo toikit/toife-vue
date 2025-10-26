@@ -9,6 +9,8 @@ type __VLS_Props = {
     backdrop?: boolean;
     rounded?: boolean;
     indicator?: boolean;
+    duration?: number;
+    bounce?: any;
     style?: any;
 };
 declare function __VLS_template(): {
@@ -131,6 +133,7 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     visible: boolean;
     backdrop: boolean;
     placement: string;
+    duration: number;
     rounded: boolean;
     background: string;
     gesture: boolean;

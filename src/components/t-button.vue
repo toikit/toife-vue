@@ -1,12 +1,4 @@
-<template>
-  <button class="t-button" :style="styles" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true}">
-    <span class="t-button-content" v-show="!props.loading"><slot></slot></span>
-    <span class="loader" v-if="props.loading"><t-loading-icon color="var(--color)" :type="props.loadingType"/></span>
-  </button>
-</template>
-
 <style lang="scss" scoped>
-// CHANGE CSS
 .t-button{
   display: flex;
   justify-content: center;
@@ -14,7 +6,6 @@
   position: relative;
   overflow: hidden;
   line-height: 0;
-
   color: var(--color);
   background: var(--background);
   border: var(--border);
@@ -24,6 +15,8 @@
     z-index: 2;
   }
 
+  // Case when button is not disbble
+  // And have props active background, then trigger action, focus to change background
   &:not(:disabled){
     &.active-background:active, &.active-background:focus{
       &::after{
@@ -40,36 +33,46 @@
     }
   }
 
+  // Case buton disable
   &:disabled{
     opacity: 0.5;
   }
 
+  // Case have rounded props
   &.rounded{
     border-radius: 8px;
   }
 
+  // Case is block, then display full width
   &.block{
     width: 100%;
   }
 
+  /// ---------------
+  /// SIZE
+  /// ---------------
+  // Case size is small
   &.size-small{
     padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
     height: 31px;
   }
 
+  // Case size is standard
   &.size-standard{
     padding: 0.75rem 1rem;
     font-size: 1rem;
     height: 42px;
   }
 
+  // Case 
   &.size-large{
     padding: 1rem 1.1rem;
     font-size: 1.2rem;
     height: 50px;
   }
 
+  // Style for loading icon
   .loader{
     position: absolute;
     top: 0;
@@ -81,6 +84,7 @@
     align-items: center;
   }
 
+  // Style for content of button
   .t-button-content{
     display: flex;
     justify-content: center;
@@ -89,10 +93,18 @@
 }
 </style>
 
+<template>
+  <button class="t-button" :style="styles" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true}">
+    <span class="t-button-content" v-show="!props.loading"><slot></slot></span>
+    <span class="loader" v-if="props.loading"><t-loading-icon color="var(--color)" :type="props.loadingType"/></span>
+  </button>
+</template>
+
 <script lang="ts" setup>
 import { computed } from 'vue';
 import TLoadingIcon from './t-loading-icon.vue';
 
+// Props
 const props = withDefaults(defineProps<{
   color?:any,
   size?:string,
@@ -113,6 +125,7 @@ const props = withDefaults(defineProps<{
   activeBackground: false
 });
 
+// Style varibble generate
 const styles = computed(() => {
   let st:any;
 

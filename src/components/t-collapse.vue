@@ -1,53 +1,56 @@
 <style lang="scss">
-.t-collapse-header{
+.t-collapse-header {
   display: flex;
   width: 100%;
   align-items: center;
   padding: 0.5rem 0;
 
-  > * {
+  >* {
     display: flex;
     align-items: center;
   }
 
-  i{
+  i {
     font-size: 1.2rem !important;
   }
 
   .icon {
     justify-content: flex-end;
-    i{
+
+    i {
       font-size: 1.5rem !important;
     }
   }
 
-  .t-collapse-title{
+  .t-collapse-title {
     flex: 1
   }
 
-  > *:first-child:not(.t-collapse-title) {
+  >*:first-child:not(.t-collapse-title) {
     margin-right: 0.25rem;
   }
 }
 
-.t-collapse{
-  .t-collapse-content{
+.t-collapse {
+  .t-collapse-content {
     height: var(--height);
     transition: height .2s ease;
     overflow: auto;
   }
 
-  &:not(.open) .t-collapse-content{
+  &:not(.open) .t-collapse-content {
     height: 0px !important;
   }
 }
 </style>
 
 <template>
-  <div class="t-collapse" :class="{open: isOpen}" :style="{'--height': height}">
+  <div class="t-collapse" :class="{ open: isOpen }" :style="{ '--height': height }">
     <div class="t-collapse-header" @click="onToggle">
       <slot name="icon"></slot>
-      <div class="t-collapse-title"><slot name="title">{{ props.title }}</slot></div>
+      <div class="t-collapse-title">
+        <slot name="title">{{ props.title }}</slot>
+      </div>
       <slot name="toggle">
         <div class="icon" v-if="isOpen"><i class="ri-arrow-up-s-line"></i></div>
         <div class="icon" v-else><i class="ri-arrow-down-s-line"></i></div>
@@ -55,7 +58,9 @@
     </div>
     <div class="t-collapse-content">
       <div ref="content">
-        <slot name="content"><slot/></slot>
+        <slot name="content">
+          <slot />
+        </slot>
       </div>
     </div>
   </div>

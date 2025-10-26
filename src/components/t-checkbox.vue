@@ -4,14 +4,15 @@
   flex-direction: row;
   align-items: center;
 
-  .t-checkbox-label{
+  .t-checkbox-label {
     margin-left: 8px;
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
-  .t-checkbox-radio, .t-checkbox-check{
+  .t-checkbox-radio,
+  .t-checkbox-check {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +20,7 @@
     width: 22px;
     border: 2px solid var(--t-color-separate);
 
-    > div {
+    >div {
       height: 12px;
       width: 12px;
       background-color: transparent;
@@ -30,27 +31,28 @@
     }
   }
 
-  .t-checkbox-radio{
+  .t-checkbox-radio {
     border-radius: 50%;
-    > div {
+
+    >div {
       border-radius: 50%;
     }
   }
 
-  &.active{
-    .t-checkbox-radio{
+  &.active {
+    .t-checkbox-radio {
       border: 2px solid var(--background);
 
-      > div {
+      >div {
         background-color: var(--background);
       }
     }
 
-    .t-checkbox-check{
+    .t-checkbox-check {
       border: 2px solid var(--background);
       background-color: var(--background);
 
-      > i {
+      >i {
         color: var(--color);
       }
     }
@@ -59,7 +61,7 @@
 </style>
 
 <template>
-  <div class="t-checkbox" :class="{active: isActive}" :style="styles" @click="onToggle">
+  <div class="t-checkbox" :class="{ active: isActive }" :style="styles" @click="onToggle">
     <div :class="`t-checkbox-${type}`">
       <div v-if="type == 'radio'"></div>
       <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>
@@ -71,14 +73,15 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
+// Property props
 const props = withDefaults(defineProps<{
-  label?:string,
-  modelValue?:any,
-  variant?:any,
-  type?:string,
-  multiple?:boolean,
-  value?:any,
-  color?:string
+  label?: string,
+  modelValue?: any,
+  variant?: any,
+  type?: string,
+  multiple?: boolean,
+  value?: any,
+  color?: string
 }>(), {
   multiple: false,
   modelValue: false,
@@ -88,10 +91,12 @@ const props = withDefaults(defineProps<{
   color: 'primary'
 });
 
+// Defined emit name
 const emit = defineEmits(['update:modelValue']);
 
+// Get style for checkbox
 const styles = computed(() => {
-  let st:any = {
+  let st: any = {
     '--background': props.color,
     '--color': '#ffffff'
   }
@@ -106,13 +111,20 @@ const styles = computed(() => {
   return st;
 });
 
+// Status is action or not of checkbox
 const isActive = computed(() => {
+  // Case have multi value
+  // Then check is active if list of selection include this value
   if (props.multiple) {
     return props.modelValue.includes(props.value);
   }
+
+  // Case else action if equal value
   return props.value === undefined ? props.modelValue : props.modelValue == props.value;
 });
 
+// Event when click on checkbox
+// Check or uncheck item
 const onToggle = () => {
   if (props.multiple) {
     let newVal = props.modelValue;
