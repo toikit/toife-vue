@@ -102,7 +102,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
         key: 1,
         class: "t-present-backdrop",
         onClick: W,
-        onTouchstart: W,
+        onTouchend: W,
         ref_key: "backdrop",
         ref: l,
         style: T([a, { zIndex: s.value - 1 }, r.style])
@@ -111,7 +111,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
       ]) : z("", !0)
     ], 64));
   }
-}), H = /* @__PURE__ */ _(Ve, [["__scopeId", "data-v-74cdb41d"]]), Pe = /* @__PURE__ */ b({
+}), H = /* @__PURE__ */ _(Ve, [["__scopeId", "data-v-b7870f48"]]), Pe = /* @__PURE__ */ b({
   __name: "t-loading-icon",
   props: {
     size: {
