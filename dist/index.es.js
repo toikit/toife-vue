@@ -1,4 +1,4 @@
-import { createElementBlock as p, openBlock as i, renderSlot as g, defineComponent as b, ref as m, computed as x, reactive as ue, watch as W, onMounted as j, Fragment as q, withDirectives as F, createCommentVNode as z, normalizeStyle as T, normalizeClass as B, vShow as K, createElementVNode as $, createVNode as G, createBlock as V, withCtx as P, toDisplayString as A, renderList as U, createTextVNode as M, createApp as J, h as Q, provide as de, unref as O, onUnmounted as re, resolveDynamicComponent as ke, markRaw as $e, inject as pe, useAttrs as we, nextTick as ce } from "vue";
+import { createElementBlock as p, openBlock as i, renderSlot as g, defineComponent as b, ref as m, computed as x, reactive as ue, watch as N, onMounted as j, Fragment as q, withDirectives as F, createCommentVNode as z, normalizeStyle as T, normalizeClass as B, vShow as K, createElementVNode as $, createVNode as G, createBlock as V, withCtx as P, toDisplayString as A, renderList as U, createTextVNode as M, createApp as J, h as Q, provide as de, unref as O, onUnmounted as re, resolveDynamicComponent as ke, markRaw as $e, inject as pe, useAttrs as we, nextTick as ce } from "vue";
 import { gesture as ae } from "@toife/gesture";
 import { useRouter as fe, useRoute as xe } from "vue-router";
 const Te = (t) => t && (t.tagName == "INPUT" || t.tagName == "TEXTAREA" || t.isContentEditable), Se = () => {
@@ -70,7 +70,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
         backdropOpacity: "0"
       });
     };
-    W(() => r.visible, () => {
+    N(() => r.visible, () => {
       r.visible ? (d.value = !1, n.value = !0, s.value = Ke.getNewIndex(), setTimeout(() => {
         k();
       }, 50)) : (h(), setTimeout(() => {
@@ -81,7 +81,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
       open: k,
       close: h
     });
-    const N = (w) => {
+    const W = (w) => {
       w.preventDefault(), v("dismiss", "backdrop");
     };
     return j(() => {
@@ -101,16 +101,17 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
       y.value ? F((i(), p("div", {
         key: 1,
         class: "t-present-backdrop",
-        onClick: N,
+        onClick: W,
+        onTouchstart: W,
         ref_key: "backdrop",
         ref: l,
         style: T([a, { zIndex: s.value - 1 }, r.style])
-      }, null, 4)), [
+      }, null, 36)), [
         [K, n.value]
       ]) : z("", !0)
     ], 64));
   }
-}), H = /* @__PURE__ */ _(Ve, [["__scopeId", "data-v-d0ed0aab"]]), Pe = /* @__PURE__ */ b({
+}), H = /* @__PURE__ */ _(Ve, [["__scopeId", "data-v-74cdb41d"]]), Pe = /* @__PURE__ */ b({
   __name: "t-loading-icon",
   props: {
     size: {
@@ -312,7 +313,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
         r.value = !1;
       }, 300));
     };
-    return W(() => s.visible, (a) => {
+    return N(() => s.visible, (a) => {
       a ? v() : close();
     }), o({
       open: v,
@@ -566,7 +567,7 @@ const Ee = /* @__PURE__ */ _(Ce, [["render", ze]]), Ve = /* @__PURE__ */ b({
         u.value = !1, l.value = !1, n("dismiss");
       }, 300);
     };
-    W(() => s.visible, (a) => {
+    N(() => s.visible, (a) => {
       a ? v() : y();
     });
     const d = x(() => {
@@ -717,7 +718,7 @@ const ge = /* @__PURE__ */ _(ct, [["render", ut], ["__scopeId", "data-v-ce0031a0
     }, a = () => {
       n.value = 0, l.value = !1, v = !1, e("cancel");
     };
-    return W(() => u.value, () => {
+    return N(() => u.value, () => {
       r && r.destroy();
       let c = u.value.closest(".t-content");
       c && (r = ae(c, {
@@ -795,7 +796,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
         s("change");
       }));
     };
-    return W(() => r.name, (c, f) => {
+    return N(() => r.name, (c, f) => {
       c != S.currentScreen.value?.name && (S.lastScreen.value?.name == c ? S.back(n.variant, () => {
         s("change");
       }) : d(r.name));
@@ -827,7 +828,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
     }), (c, f) => (i(), p(q, null, [
       (i(!0), p(q, null, U(O(S).screens, (k, h) => (i(), V(be, {
         ref_for: !0,
-        ref: (N) => a(h, N),
+        ref: (W) => a(h, W),
         style: T({ zIndex: h + (h == O(S).screens.length - 1 ? 2 : 1) }),
         key: h
       }, {
@@ -950,7 +951,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
         u.value = !1;
       }, 300);
     };
-    return W(() => n.value, (a) => {
+    return N(() => n.value, (a) => {
       a && (r = ae(n.value, {
         isMoving: !1,
         options: {
@@ -978,8 +979,8 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
             l.value.open();
             return;
           }
-          let h, N, w;
-          e.placement == "bottom" || e.placement == "top" ? (h = n.value.offsetHeight, w = c) : (h = n.value.offsetWidth, w = f), N = w / h * 100, N > 50 ? s("dismiss", "gesture") : l.value.open();
+          let h, W, w;
+          e.placement == "bottom" || e.placement == "top" ? (h = n.value.offsetHeight, w = c) : (h = n.value.offsetWidth, w = f), W = w / h * 100, W > 50 ? s("dismiss", "gesture") : l.value.open();
         },
         cancel() {
           this.isMoving = !1, d(), l.value.open();
@@ -1336,7 +1337,7 @@ const Ot = /* @__PURE__ */ _(Rt, [["render", At]]), Xt = { class: "t-grid" }, Dt
       setValue: (a) => {
         s("update:modelValue", a);
       }
-    }), W(() => e.modelValue, async () => {
+    }), N(() => e.modelValue, async () => {
       await ce(), d();
     }), j(async () => {
       await ce(), d();
