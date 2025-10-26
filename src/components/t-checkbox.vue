@@ -61,7 +61,7 @@
 </style>
 
 <template>
-  <div class="t-checkbox" :class="{ active: isActive }" :style="styles" @click="onToggle">
+  <div class="t-checkbox" :class="{ active: isActive }" :style="styles" @click="onToggle" @touchend="onToggle">
     <div :class="`t-checkbox-${type}`">
       <div v-if="type == 'radio'"></div>
       <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>
@@ -125,7 +125,10 @@ const isActive = computed(() => {
 
 // Event when click on checkbox
 // Check or uncheck item
-const onToggle = () => {
+const onToggle = (e:any) => {
+  e.preventDefault();
+  e.stopPropagation();
+
   if (props.multiple) {
     let newVal = props.modelValue;
 
