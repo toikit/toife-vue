@@ -929,7 +929,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
     placement: { default: "bottom" },
     keepalive: { type: Boolean, default: !0 },
     backdrop: { type: Boolean, default: !0 },
-    rounded: { type: Boolean, default: !0 },
+    rounded: { type: Boolean, default: !1 },
     indicator: { type: Boolean, default: !0 },
     duration: { default: 200 },
     bounce: {},
@@ -1018,7 +1018,7 @@ const be = /* @__PURE__ */ _(ft, [["render", vt], ["__scopeId", "data-v-c2a3436c
       _: 3
     }, 8, ["duration", "bounce", "class", "placement", "backdrop", "visible", "keepalive", "style"]));
   }
-}), xt = /* @__PURE__ */ _(wt, [["__scopeId", "data-v-7592e0e6"]]), St = { class: "t-input-label" }, Bt = { class: "t-input-content" }, Ct = ["placeholder", "value", "type", "readonly"], It = /* @__PURE__ */ b({
+}), xt = /* @__PURE__ */ _(wt, [["__scopeId", "data-v-dcfbb6a3"]]), St = { class: "t-input-label" }, Bt = { class: "t-input-content" }, Ct = ["placeholder", "value", "type", "readonly"], It = /* @__PURE__ */ b({
   __name: "t-input",
   props: {
     size: { default: "standard" },

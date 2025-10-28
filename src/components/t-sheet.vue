@@ -107,7 +107,7 @@ const props = withDefaults(defineProps<{
   visible: false,
   gesture: true,
   fullscreen: false,
-  rounded: true,
+  rounded: false,
   placement: 'bottom',
   indicator: true,
   duration: 200
