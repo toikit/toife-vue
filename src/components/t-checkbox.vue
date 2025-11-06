@@ -61,7 +61,7 @@
 </style>
 
 <template>
-  <div class="t-checkbox" :class="{ active: isActive }" :style="styles" @click="onToggle" @touchend="onToggle">
+  <div class="t-checkbox" :class="{ active: isActive }" :style="styles" @pointerup="onToggle">
     <div :class="`t-checkbox-${type}`">
       <div v-if="type == 'radio'"></div>
       <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>

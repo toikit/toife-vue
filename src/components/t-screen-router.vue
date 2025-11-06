@@ -115,11 +115,11 @@ onUnmounted(() => {
     v-for="(screen, index) in screenController.screens" :key="index">
     <component :is="screen.component.default" />
   </t-screen>
-  <div class="t-swipe-backdrop" ref="backdrop" :style="{ zIndex: screenController.screens.length }"></div>
+  <div class="t-screen-router-backdrop" ref="backdrop" :style="{ zIndex: screenController.screens.length }"></div>
 </template>
 
 <style lang="scss" scoped>
-.t-swipe-backdrop {
+.t-screen-router-backdrop {
   display: block;
   position: absolute;
   top: 0;

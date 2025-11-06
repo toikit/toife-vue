@@ -46,7 +46,7 @@
 
 <template>
   <div class="t-collapse" :class="{ open: isOpen }" :style="{ '--height': height }">
-    <div class="t-collapse-header" @click="onToggle">
+    <div class="t-collapse-header" @pointerup="onToggle">
       <slot name="icon"></slot>
       <div class="t-collapse-title">
         <slot name="title">{{ props.title }}</slot>

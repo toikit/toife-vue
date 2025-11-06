@@ -54,9 +54,16 @@
 <template>
   <t-present placement="bottom" :backdrop="true" :keepalive="false" :visible="_visible" @dismiss="onDismiss">
     <div class="t-action" :class="{ pop }" ref="container">
-      <div v-for="buttons in props.actions">
-        <t-button v-for="btn in buttons" :color="btn.color" :size="btn.size" :variant="btn.variant" @click="choose(btn)"
-          block>{{ btn.text }}</t-button>
+      <div v-for="(buttons, groupIndex) in props.actions" :key="groupIndex">
+        <t-button
+          v-for="(btn, btnIndex) in buttons"
+          :key="btn.key ?? `${groupIndex}-${btnIndex}`"
+          :color="btn.color"
+          :size="btn.size"
+          :variant="btn.variant"
+          @pointerup="choose(btn)"
+          block
+        >{{ btn.text }}</t-button>
       </div>
     </div>
   </t-present>
@@ -68,14 +75,27 @@ import TPresent from './t-present.vue';
 import TButton from './t-button.vue';
 
 // Define
+type ActionButton = {
+  text: string;
+  color?: string;
+  size?: string;
+  variant?: string;
+  handler?: () => void;
+  data?: unknown;
+  key?: string | number;
+};
+
 const props = withDefaults(defineProps<{
-  actions: Array<any>, // Array of button in footer
-  visible?: boolean, // Visible state
-  dismiss?: Array<any> // Array if dismiss name can be close when have event dismiss
+  actions: ActionButton[][]; // Array of button groups in footer
+  visible?: boolean; // Visible state
+  dismiss?: Array<string>; // Values that will close on dismiss
 }>(), {
-  visible: false
+  actions: () => [],
+  visible: false,
+  dismiss: () => []
 });
-const emit = defineEmits(['dismiss']);
+
+const emit = defineEmits<{ (e: 'dismiss', type: string, data?: unknown): void }>();
 
 // State visible OPEN/CLOSE action modal
 const _visible = ref(false);
@@ -91,20 +111,25 @@ const open = () => {
   _visible.value = true;
 }
 
-// Select option on action modal
-const choose = (btn: any) => {
+// Close action modal
+const close = () => {
   _visible.value = false;
+}
+
+// Select option on action modal
+const choose = (btn: ActionButton) => {
+  close();
   btn.handler && btn.handler();
   emit('dismiss', 'choose', btn?.data);
 }
 
 // When click outside modal
-const onDismiss = (val: any) => {
+const onDismiss = (val: string) => {
   if (props.dismiss && props.dismiss.includes(val)) {
-    _visible.value = false;
+    close();
     emit('dismiss', val);
   }
-  else if (val == 'backdrop') {
+  else if (val === 'backdrop') {
     pop.value = true;
     setTimeout(() => {
       pop.value = false;
@@ -120,7 +145,7 @@ watch(() => props.visible, (value) => {
   } else {
     close();
   }
-});
+}, { immediate: true });
 
 // Define then method can access from out of component
 defineExpose({

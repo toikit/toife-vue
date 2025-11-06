@@ -96,13 +96,13 @@
 <template>
   <button class="t-button" :style="styles" :class="{'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-'+props.size]: true}">
     <span class="t-button-content" v-show="!props.loading"><slot></slot></span>
-    <span class="loader" v-if="props.loading"><t-loading-icon color="var(--color)" :type="props.loadingType"/></span>
+    <span class="loader" v-if="props.loading"><t-icon-spinner color="var(--color)" :type="props.loadingType"/></span>
   </button>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import TLoadingIcon from './t-loading-icon.vue';
+import TIconSpinner from './t-icon-spinner.vue';
 
 // Props
 const props = withDefaults(defineProps<{

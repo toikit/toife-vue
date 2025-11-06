@@ -1,15 +1,14 @@
 # 🧩 Component: `TAction`
 
-## Tổng quan
-`TAction` là một **Action Sheet Component** được sử dụng để hiển thị danh sách các hành động (button) ở phía **dưới màn hình**, tương tự như các modal hành động trong iOS hoặc Android.  
-Component này hỗ trợ:
-- Hiển thị nhiều nhóm nút (theo dạng mảng lồng nhau).
-- Hiệu ứng "pop" khi người dùng click ra ngoài vùng nội dung.
-- Tương tác mở/đóng bằng props hoặc hàm bên ngoài.
+## Overview
+`TAction` is an Action Sheet component that shows groups of actions (buttons) at the bottom of the screen, similar to iOS/Android action sheets. It supports:
+- Multiple button groups (nested arrays)
+- A subtle "pop" effect when clicking outside
+- Open/close by props or exposed methods
 
 ---
 
-## 🖼️ Cấu trúc tổng thể
+## Structure
 
 ```vue
 <t-present
@@ -20,13 +19,14 @@ Component này hỗ trợ:
   @dismiss="onDismiss"
 >
   <div class="t-action" :class="{ pop }" ref="container">
-    <div v-for="buttons in props.actions">
+    <div v-for="(buttons, groupIndex) in props.actions" :key="groupIndex">
       <t-button
-        v-for="btn in buttons"
+        v-for="(btn, btnIndex) in buttons"
+        :key="btn.key ?? `${groupIndex}-${btnIndex}`"
         :color="btn.color"
         :size="btn.size"
         :variant="btn.variant"
-        @click="choose(btn)"
+        @pointerup="choose(btn)"
         block
       >
         {{ btn.text }}
@@ -38,64 +38,63 @@ Component này hỗ trợ:
 
 ---
 
-## ⚙️ Thuộc tính (`props`)
+## Props
 
-| Tên | Kiểu | Mặc định | Mô tả |
-|-----|------|-----------|-------|
-| `actions` | `Array<any>` | `[]` | Danh sách các nhóm nút. Mỗi nhóm là một mảng chứa các đối tượng nút. |
-| `visible` | `boolean` | `false` | Xác định trạng thái hiển thị của Action Sheet. |
-| `dismiss` | `Array<any>` | `[]` | Danh sách các giá trị sự kiện `dismiss` được phép đóng modal. |
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| `actions` | `Array<any>` | `[]` | List of button groups. Each group is an array of button objects. |
+| `visible` | `boolean` | `false` | Controls visibility. |
+| `dismiss` | `Array<any>` | `[]` | List of `dismiss` values that will close the sheet. |
 
-**Ví dụ cấu trúc `actions`:**
+Example `actions` structure:
 
 ```js
 actions: [
   [
-    { text: 'Chụp ảnh', color: 'primary', size: 'large', handler: takePhoto },
-    { text: 'Chọn từ thư viện', color: 'secondary', handler: pickFromGallery }
+    { text: 'Take Photo', color: 'primary', size: 'large', handler: takePhoto },
+    { text: 'Choose from Library', color: 'secondary', handler: pickFromGallery }
   ],
   [
-    { text: 'Hủy', color: 'error', handler: cancel }
+    { text: 'Cancel', color: 'error', handler: cancel }
   ]
 ]
 ```
 
 ---
 
-## 🔄 Sự kiện (`emits`)
+## Emits
 
-| Tên | Tham số | Mô tả |
-|-----|----------|-------|
-| `dismiss` | `(type: string, data?: any)` | Gửi ra khi người dùng chọn một nút hoặc click ra ngoài modal. |
+| Name | Params | Description |
+|------|--------|-------------|
+| `dismiss` | `(type: string, data?: any)` | Emitted when a button is chosen or user clicks outside. |
 
-**Các giá trị có thể của `type`:**
-- `"choose"` → Khi người dùng click vào một nút hành động.
-- `"backdrop"` → Khi click ra ngoài (nếu không nằm trong `props.dismiss`).
-- Các giá trị khác tùy theo nội dung trong `props.dismiss`.
-
----
-
-## 🧠 Biến trạng thái (`ref` & logic)
-
-| Biến | Kiểu | Mô tả |
-|------|------|-------|
-| `_visible` | `Ref<boolean>` | Trạng thái mở/đóng thực tế của modal. |
-| `container` | `Ref<Element>` | Tham chiếu DOM của phần tử `.t-action`. |
-| `pop` | `Ref<boolean>` | Dùng để thêm hiệu ứng `pop` khi người dùng click ra ngoài. |
+Possible `type` values:
+- `"choose"` – when a button is selected
+- `"backdrop"` – clicking outside (if not included in `props.dismiss`)
+- Other values you pass in `props.dismiss`
 
 ---
 
-## 🧩 Hàm nội bộ
+## State & Logic
+
+| Name | Type | Description |
+|------|------|-------------|
+| `_visible` | `Ref<boolean>` | Actual open/close state of the sheet. |
+| `container` | `Ref<Element>` | DOM ref of `.t-action`. |
+| `pop` | `Ref<boolean>` | Controls the subtle pop animation when clicking backdrop. |
+
+---
+
+## Internal Methods
 
 ### `open()`
-Mở Action Sheet.  
+Opens the action sheet.
 ```ts
 const open = () => { _visible.value = true }
 ```
 
 ### `choose(btn)`
-Đóng Action Sheet và gọi `btn.handler()` nếu có.  
-Emit sự kiện `dismiss` với tham số `"choose"`.  
+Closes the sheet and runs `btn.handler()` if provided. Emits `dismiss` with `"choose"`.
 ```ts
 const choose = (btn) => {
   _visible.value = false
@@ -105,19 +104,17 @@ const choose = (btn) => {
 ```
 
 ### `onDismiss(val)`
-Xử lý khi click ra ngoài hoặc các hành động khác gửi từ `<t-present>`.  
-Nếu `val` nằm trong `props.dismiss`, modal sẽ đóng lại.  
-Nếu `val` là `"backdrop"`, thì chạy hiệu ứng `pop`.
+Handle backdrop or other `dismiss` triggers from `<t-present>`. If `val` is in `props.dismiss`, the sheet closes. If `val` is `"backdrop"`, the `pop` effect is played.
 
 ### `watch(props.visible)`
-Lắng nghe sự thay đổi của prop `visible` để tự động mở/đóng component.
+Reactively open/close based on `visible`.
 
 ### `defineExpose({ open, close })`
-Cho phép gọi `open()` và `close()` từ bên ngoài thông qua `ref`.
+Expose methods to the parent via `ref`.
 
 ---
 
-## 🎨 CSS / SCSS
+## Styles (SCSS)
 
 ```scss
 .t-action {
@@ -154,15 +151,14 @@ Cho phép gọi `open()` và `close()` từ bên ngoài thông qua `ref`.
 }
 ```
 
-### Giải thích:
-- `.t-action`: chứa toàn bộ nhóm button.
-- `> div`: mỗi nhóm button (block).
-- `.pop`: kích hoạt hiệu ứng rung nhẹ khi click ngoài vùng modal.
-- `@keyframes pop`: tạo hiệu ứng "phồng nhẹ" để tăng tính tương tác.
+Notes:
+- `.t-action` wraps button groups
+- `> div` is each group block
+- `.pop` triggers a subtle bounce when clicking the backdrop
 
 ---
 
-## 💡 Cách sử dụng
+## Usage
 
 ```vue
 <template>
@@ -184,34 +180,33 @@ const actionSheet = ref();
 
 const actionList = [
   [
-    { text: 'Chụp ảnh', color: 'primary', handler: () => console.log('Take Photo') },
-    { text: 'Chọn từ thư viện', color: 'secondary', handler: () => console.log('Pick Photo') }
+    { text: 'Take Photo', color: 'primary', handler: () => console.log('Take Photo') },
+    { text: 'Pick from Library', color: 'secondary', handler: () => console.log('Pick Photo') }
   ],
-  [{ text: 'Hủy', color: 'error' }]
+  [{ text: 'Cancel', color: 'error' }]
 ];
 
 const handleDismiss = (type, data) => {
   console.log('Dismissed:', type, data);
 };
 
-// Có thể gọi mở bằng JS
+// JS open
 // actionSheet.value.open();
 </script>
 ```
 
 ---
 
-## 🧱 Phụ thuộc
+## Dependencies
 
-| Tên | Mô tả |
-|-----|-------|
-| `TPresent` | Component nền (modal overlay), điều khiển hiển thị phần tử con. |
-| `TButton` | Component nút tùy biến, hỗ trợ màu sắc và kích thước. |
+| Name | Description |
+|------|-------------|
+| `TPresent` | Overlay container that controls visibility and placement. |
+| `TButton` | Button component with color/size variants. |
 
 ---
 
-## 📘 Ghi chú mở rộng
-
-- `TAction` nên được sử dụng trong các context yêu cầu **xác nhận hành động**, **chọn lựa ảnh**, hoặc **chức năng nhanh** ở phần dưới màn hình.
-- Có thể kết hợp với `v-model:visible` để điều khiển trực tiếp từ cha.
-- Có thể thêm hiệu ứng hoặc animation khác bằng cách mở rộng class `.pop`.
+## Notes
+- Use `TAction` for confirmations, quick actions, or media pickers at the bottom of the screen.
+- Can be paired with `v-model:visible` for 2-way binding.
+- You can customize the pop animation by extending `.pop`.

@@ -8,7 +8,7 @@ import TCard from "./components/t-card.vue";
 import TContent from "./components/t-content.vue";
 import TRefresher from "./components/t-refresher.vue";
 import TScreen from "./components/t-screen.vue";
-import TSwipeScreen from "./components/t-swipe-screen.vue";
+import TScreenRouter from "./components/t-screen-router.vue";
 import TToolbar from "./components/t-toolbar.vue";
 import TBackButton from "./components/t-back-button.vue";
 import TText from './components/t-text.vue';
@@ -21,7 +21,7 @@ import TRichText from './components/t-rich-text.vue';
 import TGrid from './components/t-grid.vue';
 import TDivider from './components/t-divider.vue';
 import TTogglePassword from './components/t-toggle-password.vue';
-import TLoadingIcon from './components/t-loading-icon.vue';
+import TIconSpinner from './components/t-icon-spinner.vue';
 import TAlert from './components/t-alert.vue';
 import TAvatar from './components/t-avatar.vue';
 import TCollapse from './components/t-collapse.vue';
@@ -29,11 +29,11 @@ import TToast from './components/t-toast.vue';
 import TSwitch from './components/t-switch.vue';
 import TTab from './components/t-tab.vue';
 import TTabs from './components/t-tabs.vue';
-import TLoadingApp from './components/t-loading-app.vue';
 import TCheckbox from './components/t-checkbox.vue';
 import TKeyboardSpace from './components/t-keyboard-space.vue';
 import TSkeleton from './components/t-skeleton.vue';
 import TRipple from './components/t-ripple.vue';
+import TLoading from './components/t-loading.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -44,7 +44,7 @@ export const createToife = () => {
       defaultEvent();
       app.component('t-app', TApp);
       app.component('t-screen', TScreen);
-      app.component('t-swipe-screen', TSwipeScreen);
+      app.component('t-screen-router', TScreenRouter);
       app.component('t-cable', TCable);
       app.component('t-toolbar', TToolbar);
       app.component('t-content', TContent);
@@ -62,7 +62,7 @@ export const createToife = () => {
       app.component('t-grid', TGrid);
       app.component('t-divider', TDivider);
       app.component('t-toggle-password', TTogglePassword);
-      app.component('t-loading-icon', TLoadingIcon);
+      app.component('t-icon-spinner', TIconSpinner);
       app.component('t-alert', TAlert);
       app.component('t-avatar', TAvatar);
       app.component('t-collapse', TCollapse);
@@ -70,11 +70,11 @@ export const createToife = () => {
       app.component('t-switch', TSwitch);
       app.component('t-tab', TTab);
       app.component('t-tabs', TTabs);
-      app.component('t-loading-app', TLoadingApp);
       app.component('t-checkbox', TCheckbox);
       app.component('t-keyboard-space', TKeyboardSpace);
       app.component('t-skeleton', TSkeleton);
       app.component('t-ripple', TRipple);
+      app.component('t-loading', TLoading);
     }
   }
 }

@@ -62,7 +62,7 @@
       </slot>
       <slot name="footer">
         <div class="t-alert-footer">
-          <t-button v-for="btn in props.actions" :color="btn.color" :variant="btn.variant" @click="choose(btn)">{{ btn.text }}</t-button>
+          <t-button v-for="btn in props.actions" :color="btn.color" :variant="btn.variant" @pointerup="choose(btn)">{{ btn.text }}</t-button>
         </div>
       </slot>
     </div>

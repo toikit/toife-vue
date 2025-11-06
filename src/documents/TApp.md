@@ -1,14 +1,14 @@
 # 🧱 Component: `TApp`
 
-## Tổng quan
-`TApp` là component gốc (root container) của toàn bộ ứng dụng, chịu trách nhiệm:
-- Đặt **kích thước khung ứng dụng** theo biến toàn cục CSS.
-- Đảm bảo **vị trí, nền và bố cục ổn định** cho toàn bộ giao diện.
-- Là **wrapper** chứa các component con thông qua `<slot>`.
+## Overview
+`TApp` is the root container of the application. It:
+- Sets the application frame size using global CSS variables
+- Ensures stable positioning, background, and layout
+- Acts as a wrapper for child components via `<slot>`
 
 ---
 
-## 🖼️ Cấu trúc tổng thể
+## Structure
 
 ```vue
 <template>
@@ -16,11 +16,11 @@
 </template>
 ```
 
-> Component chỉ gồm một thẻ bao `<div>` với class `.t-app`, bên trong hiển thị nội dung được truyền qua slot.
+> A single wrapper `<div>` with class `.t-app` that renders slot content.
 
 ---
 
-## 🎨 CSS
+## CSS
 
 ```css
 .t-app {
@@ -36,30 +36,30 @@
 }
 ```
 
-### Giải thích:
-| Thuộc tính | Mô tả |
-|-------------|-------|
-| `height`, `width` | Xác định kích thước khung ứng dụng dựa vào biến toàn cục. |
-| `max-height`, `max-width` | Giới hạn kích thước tối đa của ứng dụng. |
-| `position: absolute` | Cố định container tại góc trên bên trái màn hình. |
-| `overflow: hidden` | Ẩn nội dung tràn ra ngoài khung hiển thị. |
-| `background-color` | Thiết lập màu nền tổng thể của ứng dụng. |
+Explanation:
+| Property | Meaning |
+|----------|---------|
+| `height`, `width` | App frame size via global variables |
+| `max-height`, `max-width` | Limits for large devices |
+| `position: absolute` | Pins container to top-left |
+| `overflow: hidden` | Hides overflow content |
+| `background-color` | App background color |
 
 ---
 
-## ⚙️ Biến CSS sử dụng
+## CSS Variables
 
-| Biến | Mô tả |
-|------|-------|
-| `--t-app-height` | Chiều cao tổng thể của ứng dụng. |
-| `--t-app-width` | Chiều rộng tổng thể của ứng dụng. |
-| `--t-app-max-height` | Giới hạn chiều cao tối đa (dành cho các thiết bị lớn). |
-| `--t-app-max-width` | Giới hạn chiều rộng tối đa. |
-| `--t-color-background` | Màu nền chính của ứng dụng. |
+| Variable | Description |
+|----------|-------------|
+| `--t-app-height` | Overall app height |
+| `--t-app-width` | Overall app width |
+| `--t-app-max-height` | Max height limit |
+| `--t-app-max-width` | Max width limit |
+| `--t-color-background` | App background color |
 
 ---
 
-## 💡 Cách sử dụng
+## Usage
 
 ```vue
 <template>
@@ -74,12 +74,11 @@ import MainView from '@/views/MainView.vue';
 </script>
 ```
 
-> Tất cả các component chính (header, footer, content, modal...) nên được bao bên trong `TApp` để đảm bảo thống nhất bố cục và giới hạn kích thước.
+> Place all primary UI (header, content, modals, etc.) inside `TApp` to keep layout and sizing consistent.
 
 ---
 
-## 📘 Ghi chú mở rộng
-
-- `TApp` thường được dùng làm **layout gốc** trong các dự án Vue hoặc hybrid app.
-- Các biến CSS (`--t-app-*`) có thể được cập nhật theo kích thước thiết bị để hỗ trợ **responsive layout**.
-- Thường kết hợp với các component như `THeader`, `TMain`, `TFooter` trong cùng hệ thống giao diện.
+## Notes
+- Use `TApp` as the root layout in Vue/hybrid apps
+- `--t-app-*` variables can be adapted per device for responsive layouts
+- Commonly paired with header/content/footer components in the same design system

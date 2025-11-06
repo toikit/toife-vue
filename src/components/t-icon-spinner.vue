@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-.t-loading-icon {
+.t-icon-spinner {
   display: inline-block;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -16,7 +16,7 @@
 
 <template>
   <span
-    class="t-loading-icon"
+    class="t-icon-spinner"
     :style="{
       width: size,
       height: size,

@@ -1,14 +1,14 @@
 <style lang="scss" scoped>
 .t-grid{
   display: grid;
-  grid-template: repeat(3, 1fr);
-  column-gap: .5rem;
-  row-gap: .5rem;
+  grid-template: repeat(var(--template), 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
 }
 </style>
 
 <template>
-  <div class="t-grid"></div>
+  <div class="t-grid" :style="{ '--gap': props.gap, '--template': props.template }"></div>
 </template>
 
 <script lang="ts" setup>

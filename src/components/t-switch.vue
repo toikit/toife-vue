@@ -37,7 +37,7 @@
 </style>
 
 <template>
-  <div class="t-switch" :style="styles" :class="{on: props.modelValue}" @click="onSwitch">
+  <div class="t-switch" :style="styles" :class="{on: props.modelValue}" @pointerup="onSwitch">
     <div class="t-switch-icon"></div>
   </div>
 </template>

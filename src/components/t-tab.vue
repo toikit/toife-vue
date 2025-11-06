@@ -12,7 +12,7 @@
 
 <template>
   <li class="t-tab" :class="{active: isActive}">
-    <t-button variant="text" @click="handleClick" :size="tabs.size" :color="isActive ? tabs.color.text : undefined"><slot/></t-button>
+    <t-button variant="text" @pointerup="handleClick" :size="tabs.size" :color="isActive ? tabs.color.text : undefined"><slot/></t-button>
   </li>
 </template>
 

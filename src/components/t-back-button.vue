@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <button class="t-back-button" v-if="to || screenController.lastScreen" @click="onClick">
+  <button class="t-back-button" v-if="to || screenController.lastScreen" @pointerup="onClick">
     <slot><i class="ri-arrow-left-s-line"></i></slot>
   </button>
 </template>

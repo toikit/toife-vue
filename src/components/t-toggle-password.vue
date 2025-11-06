@@ -13,7 +13,7 @@
 </style>
 
 <template>
-  <button ref="toggle" class="t-toggle-password" :style="style" @click="onClick">
+  <button ref="toggle" class="t-toggle-password" :style="style" @pointerup="onClick">
     <slot name="on" v-if="isShow">
       <i class="ri-eye-line"></i>
     </slot>

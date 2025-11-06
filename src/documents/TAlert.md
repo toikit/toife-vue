@@ -1,15 +1,14 @@
 # ⚠️ Component: `TAlert`
 
-## Tổng quan
-`TAlert` là một **Alert Dialog Component** hiển thị thông báo trung tâm màn hình, thường dùng để xác nhận, cảnh báo hoặc hiển thị thông tin quan trọng cho người dùng.  
-Component này có ba phần chính:
-- **Header:** Tiêu đề (hoặc slot tùy chỉnh)
-- **Content:** Nội dung thông báo
-- **Footer:** Các nút hành động (OK, Cancel, v.v.)
+## Overview
+`TAlert` is a centered alert dialog component, typically used for confirmations, warnings, or important messages. It consists of:
+- Header: title (or custom slot)
+- Content: message body
+- Footer: action buttons (OK, Cancel, etc.)
 
 ---
 
-## 🧱 Cấu trúc tổng thể
+## Structure
 
 ```vue
 <t-present placement="center" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
@@ -22,7 +21,7 @@ Component này có ba phần chính:
     </slot>
     <slot name="footer">
       <div class="t-alert-footer">
-        <t-button v-for="btn in props.actions" :color="btn.color" :variant="btn.variant" @click="choose(btn)">
+        <t-button v-for="btn in props.actions" :color="btn.color" :variant="btn.variant" @pointerup="choose(btn)">
           {{ btn.text }}
         </t-button>
       </div>
@@ -33,52 +32,52 @@ Component này có ba phần chính:
 
 ---
 
-## ⚙️ Thuộc tính (`props`)
+## Props
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|-----------|-------|
-| `title` | `string` | ❌ | Tiêu đề của Alert. |
-| `message` | `string` | ✅ | Nội dung chính hiển thị trong Alert. |
-| `actions` | `Array<any>` | ✅ | Danh sách các nút hành động hiển thị ở footer. |
-| `dismiss` | `Array<any>` | ❌ | Danh sách giá trị sự kiện `dismiss` được phép đóng modal. |
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Dialog title |
+| `message` | `string` | Yes | Message body |
+| `actions` | `Array<any>` | Yes | List of action buttons for the footer |
+| `dismiss` | `Array<any>` | No | List of `dismiss` values that should close the dialog |
 
-**Ví dụ cấu trúc `actions`:**
+Example `actions`:
 ```js
 actions: [
-  { text: 'Đồng ý', color: 'primary', handler: onConfirm },
-  { text: 'Hủy', color: 'secondary', handler: onCancel }
+  { text: 'Confirm', color: 'primary', handler: onConfirm },
+  { text: 'Cancel', color: 'secondary', handler: onCancel }
 ]
 ```
 
 ---
 
-## 🔄 Sự kiện (`emits`)
+## Emits
 
-| Tên | Tham số | Mô tả |
-|-----|----------|-------|
-| `dismiss` | `(type: string, data?: any)` | Gửi ra khi người dùng chọn một nút hoặc click ra ngoài vùng Alert. |
+| Name | Params | Description |
+|------|--------|-------------|
+| `dismiss` | `(type: string, data?: any)` | Emitted when an action is selected or user clicks outside |
 
-**Các giá trị có thể của `type`:**
-- `"choose"` → Khi người dùng chọn một trong các nút hành động.
-- `"backdrop"` → Khi click ra ngoài (nếu không nằm trong `props.dismiss`).
-- Các giá trị khác theo `props.dismiss`.
-
----
-
-## 🧠 Biến trạng thái (`ref` & logic)
-
-| Biến | Kiểu | Mô tả |
-|------|------|-------|
-| `visible` | `Ref<boolean>` | Kiểm soát hiển thị Alert. |
-| `container` | `Ref<Element>` | Tham chiếu DOM của phần tử `.t-alert`. |
-| `pop` | `Ref<boolean>` | Dùng để kích hoạt hiệu ứng "pop" khi click ra ngoài. |
+Possible `type` values:
+- `"choose"` – when an action button is clicked
+- `"backdrop"` – clicking outside (if not permitted by `props.dismiss`)
+- Others as defined in `props.dismiss`
 
 ---
 
-## 🧩 Hàm nội bộ
+## State & Logic
+
+| Name | Type | Description |
+|------|------|-------------|
+| `visible` | `Ref<boolean>` | Controls dialog visibility |
+| `container` | `Ref<Element>` | DOM ref of `.t-alert` |
+| `pop` | `Ref<boolean>` | Triggers subtle pop animation on backdrop click |
+
+---
+
+## Internal Methods
 
 ### `open()`
-Mở Alert.  
+Open the alert.
 ```ts
 const open = () => {
   visible.value = true;
@@ -86,7 +85,7 @@ const open = () => {
 ```
 
 ### `choose(btn)`
-Đóng Alert và gọi `btn.handler()` nếu có, sau đó emit sự kiện `dismiss`.  
+Close the alert and run `btn.handler()` if present, then emit `dismiss`.
 ```ts
 const choose = (btn:any) => {
   visible.value = false;
@@ -96,24 +95,22 @@ const choose = (btn:any) => {
 ```
 
 ### `onDismiss(val)`
-Xử lý khi người dùng click ra ngoài hoặc có sự kiện dismiss từ `t-present`.  
-Nếu `val` nằm trong `props.dismiss`, modal sẽ đóng lại.  
-Nếu `val` là `"backdrop"`, chạy hiệu ứng `pop` trong 300ms.
+Handle outside click or dismiss from `t-present`. If `val` is in `props.dismiss`, the dialog will close. If `val` is `"backdrop"`, play the `pop` animation for 300ms.
 
 ---
 
-## 🧩 Hàm lộ ra ngoài (`defineExpose`)
+## Exposed Methods
 
 ```ts
 defineExpose({
   open
 });
 ```
-> Cho phép component cha gọi `ref.value.open()` để mở Alert bằng JavaScript.
+> Allows parent to call `ref.value.open()` to open programmatically.
 
 ---
 
-## 🎨 CSS / SCSS
+## Styles (SCSS)
 
 ```scss
 .t-alert {
@@ -164,23 +161,23 @@ defineExpose({
 }
 ```
 
-**Giải thích:**
-- `.t-alert`: khung chính của Alert.
-- `.t-alert-header`: chứa tiêu đề hoặc slot tùy chỉnh.
-- `.t-alert-content`: chứa nội dung chính.
-- `.t-alert-footer`: chứa danh sách nút hành động.
-- `.pop`: hiệu ứng "phồng nhẹ" khi click ra ngoài.
+Notes:
+- `.t-alert`: main wrapper
+- `.t-alert-header`: title / custom header slot
+- `.t-alert-content`: message area
+- `.t-alert-footer`: action buttons
+- `.pop`: subtle bounce on backdrop click
 
 ---
 
-## 💡 Cách sử dụng
+## Usage
 
 ```vue
 <template>
   <t-alert
     ref="alertRef"
-    :title="'Xác nhận xóa'"
-    :message="'Bạn có chắc chắn muốn xóa mục này không?'"
+    :title="'Delete confirmation'"
+    :message="'Are you sure you want to delete this item?'"
     :actions="alertActions"
     :dismiss="['choose', 'cancel']"
     @dismiss="handleDismiss"
@@ -194,32 +191,31 @@ import TAlert from '@/components/t-alert.vue';
 const alertRef = ref();
 
 const alertActions = [
-  { text: 'Đồng ý', color: 'primary', handler: () => console.log('Confirmed!') },
-  { text: 'Hủy', color: 'secondary' }
+  { text: 'Confirm', color: 'primary', handler: () => console.log('Confirmed!') },
+  { text: 'Cancel', color: 'secondary' }
 ];
 
 const handleDismiss = (type, data) => {
   console.log('Alert dismissed:', type, data);
 };
 
-// Gọi thủ công bằng JS
+// Programmatic
 // alertRef.value.open();
 </script>
 ```
 
 ---
 
-## 🧱 Phụ thuộc
+## Dependencies
 
-| Tên | Mô tả |
-|-----|-------|
-| `TPresent` | Component modal nền điều khiển hiển thị trung tâm màn hình. |
-| `TButton` | Component nút tái sử dụng hỗ trợ màu sắc, kích thước và variant. |
+| Name | Description |
+|-----|-------------|
+| `TPresent` | Centered modal/overlay presenter |
+| `TButton` | Reusable button with variants and colors |
 
 ---
 
-## 📘 Ghi chú mở rộng
-
-- `TAlert` phù hợp cho các tình huống cần xác nhận hành động từ người dùng.  
-- Có thể kết hợp với **Promise wrapper** để hiển thị như `confirm()`.  
-- Hỗ trợ tùy chỉnh nội dung qua **slots** (`header`, `content`, `footer`).  
+## Notes
+- Great for user confirmation flows.
+- Can be wrapped in a Promise to act like `confirm()`.
+- Supports header/content/footer customization via slots.
