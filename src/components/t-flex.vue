@@ -1,6 +1,6 @@
 <style lang="scss" scoped>
 .t-flex{
-  display: grid;
+  display: flex;
   grid-template: var(--template);
   column-gap: var(--gap);
   row-gap: var(--gap);

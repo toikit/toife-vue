@@ -1469,7 +1469,7 @@ const Ot = /* @__PURE__ */ g(Rt, [["render", At]]), Nt = /* @__PURE__ */ h({
       _(s.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), mo = /* @__PURE__ */ g(fo, [["__scopeId", "data-v-35f9cdab"]]), vo = ["src"], yo = /* @__PURE__ */ h({
+}), mo = /* @__PURE__ */ g(fo, [["__scopeId", "data-v-7db221f4"]]), vo = ["src"], yo = /* @__PURE__ */ h({
   __name: "t-image",
   props: {
     defaultSrc: {},
