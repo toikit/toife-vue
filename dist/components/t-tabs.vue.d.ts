@@ -2,7 +2,7 @@ type __VLS_Props = {
     placement?: string;
     variant?: string;
     color?: string;
-    modelValue: string;
+    modelValue?: string;
     border?: number;
     size?: string;
     margin?: any;

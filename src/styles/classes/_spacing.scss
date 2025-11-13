@@ -31,6 +31,18 @@ $sides: t, b, l, r, x, y;
         }
       }
     }
+
+    .gap-#i {
+      gap: var(--t-size-#{$i}) !important;
+    }
+
+    .row-gap-#i {
+      row-gap: var(--t-size-#{$i}) !important;
+    }
+
+    .column-gap-#i {
+      column-gap: var(--t-size-#{$i}) !important;
+    }
   }
 }
 

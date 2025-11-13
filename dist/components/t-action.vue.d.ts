@@ -8,7 +8,7 @@ type ActionButton = {
     key?: string | number;
 };
 type __VLS_Props = {
-    actions: ActionButton[][];
+    actions?: ActionButton[][];
     visible?: boolean;
     dismiss?: Array<string>;
 };

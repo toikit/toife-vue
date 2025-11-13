@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-.t-grid{
+.t-flex{
   display: grid;
   grid-template: var(--template);
   column-gap: var(--gap);
@@ -8,7 +8,7 @@
 </style>
 
 <template>
-  <div class="t-grid" :style="{ '--gap': _gap, '--template': props.template }"></div>
+  <div class="t-flex" :style="{ '--gap': _gap, '--direction': props.direction }"></div>
 </template>
 
 <script lang="ts" setup>
@@ -18,11 +18,11 @@ import { computed } from 'vue';
 const props = withDefaults(
   defineProps<{
     gap?:any,
-    template?:any
+    direction?:any
   }>(),
   {
     gap: 0,
-    template: 'repeat(1, 1fr) / repeat(1, 1fr)'
+    direction: 'row'
   }
 );
 

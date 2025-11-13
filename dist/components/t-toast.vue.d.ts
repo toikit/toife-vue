@@ -1,5 +1,5 @@
 type __VLS_Props = {
-    message: any;
+    message?: any;
     space?: any;
     placement?: string;
     color?: any;

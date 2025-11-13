@@ -1,6 +1,6 @@
 type __VLS_Props = {
-    value: String;
-    disabled: boolean;
+    value?: String;
+    disabled?: boolean;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;

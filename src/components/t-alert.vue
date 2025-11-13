@@ -77,8 +77,8 @@ import TButton from './t-button.vue';
 // Define props, emit
 const props = defineProps<{
   title?:string
-  message:string,
-  actions: Array<any>,
+  message?:string,
+  actions?: Array<any>,
   dismiss?: Array<any>
 }>();
 const emit = defineEmits(['dismiss']);

@@ -1,7 +1,7 @@
 type __VLS_Props = {
     title?: string;
-    message: string;
-    actions: Array<any>;
+    message?: string;
+    actions?: Array<any>;
     dismiss?: Array<any>;
 };
 declare function __VLS_template(): {

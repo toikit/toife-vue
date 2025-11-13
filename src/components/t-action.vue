@@ -86,7 +86,7 @@ type ActionButton = {
 };
 
 const props = withDefaults(defineProps<{
-  actions: ActionButton[][]; // Array of button groups in footer
+  actions?: ActionButton[][]; // Array of button groups in footer
   visible?: boolean; // Visible state
   dismiss?: Array<string>; // Values that will close on dismiss
 }>(), {

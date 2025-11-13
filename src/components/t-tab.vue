@@ -6,6 +6,7 @@
 
   .t-button{
     padding: 0px !important;
+    cursor: pointer;
   }
 }
 </style>
@@ -21,8 +22,8 @@ import { inject, computed } from 'vue';
 import TButton from './t-button.vue';
 
 const props = withDefaults(defineProps<{
-  value: String,
-  disabled: boolean
+  value?: String,
+  disabled?: boolean
 }>(), {
   disabled: false
 });

@@ -1,47 +1,75 @@
 $types: primary secondary success warning danger info;
 
-.bg-none{
+.bg-none {
   background-color: transparent !important;
 }
 
-.bg-background{
+.bg-background {
   background-color: var(--t-color-background) !important;
 }
 
-.bg-surface{
+.bg-surface {
   background-color: var(--t-color-surface) !important;
 }
 
-.border-none{
+.border-none {
   border: none !important;
 }
 
-.border-separate{
-  border-color: var(--t-color-separate)!important;
+.border-separate {
+  border-color: var(--t-color-separate) !important;
 }
 
 @each $type in $types {
-  .bg-#{$type}   { background-color: var(--t-color-status-#{$type}) !important; }
-  .bg-#{$type}-light   { background-color: var(--t-color-status-#{$type}-light) !important; }
-  .bg-#{$type}-dark   { background-color: var(--t-color-status-#{$type}-dark) !important; }
+  .bg-#{$type} {
+    background-color: var(--t-color-status-#{$type}) !important;
+  }
 
-  .border-#{$type}   { border-color: var(--t-color-status-#{$type}) !important; }
-  .border-#{$type}-light   { border-color: var(--t-color-status-#{$type}-light) !important; }
-  .border-#{$type}-dark   { border-color: var(--t-color-status-#{$type}-dark) !important; }
+  .bg-#{$type}-light {
+    background-color: var(--t-color-status-#{$type}-light) !important;
+  }
 
-  .color-#{$type}   { color: var(--t-color-status-#{$type}) !important; }
-  .color-#{$type}-light   { color: var(--t-color-status-#{$type}-light) !important; }
-  .color-#{$type}-dark   { color: var(--t-color-status-#{$type}-dark) !important; }
+  .bg-#{$type}-dark {
+    background-color: var(--t-color-status-#{$type}-dark) !important;
+  }
+
+  .border-#{$type} {
+    border-color: var(--t-color-status-#{$type}) !important;
+  }
+
+  .border-#{$type}-light {
+    border-color: var(--t-color-status-#{$type}-light) !important;
+  }
+
+  .border-#{$type}-dark {
+    border-color: var(--t-color-status-#{$type}-dark) !important;
+  }
+
+  .color-#{$type} {
+    color: var(--t-color-status-#{$type}) !important;
+  }
+
+  .color-#{$type}-light {
+    color: var(--t-color-status-#{$type}-light) !important;
+  }
+
+  .color-#{$type}-dark {
+    color: var(--t-color-status-#{$type}-dark) !important;
+  }
+
+  .color-#{$type}-text {
+    color: var(--t-color-status-#{$type}-text) !important;
+  }
 }
 
-.color-text{
+.color-text {
   color: var(--t-color-text);
 }
 
-.color-text-dark{
+.color-text-dark {
   color: var(--t-color-text-dark);
 }
 
-.color-text-light{
+.color-text-light {
   color: var(--t-color-text-light);
 }

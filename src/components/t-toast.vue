@@ -55,7 +55,7 @@
 import { computed, ref, watch } from 'vue';
 
 const props = withDefaults(defineProps<{
-  message: any,
+  message?: any,
   space?: any,
   placement?:string,
   color?:any,

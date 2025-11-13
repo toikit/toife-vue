@@ -34,6 +34,8 @@ import TKeyboardSpace from './components/t-keyboard-space.vue';
 import TSkeleton from './components/t-skeleton.vue';
 import TRipple from './components/t-ripple.vue';
 import TLoading from './components/t-loading.vue';
+import TFlex from './components/t-flex.vue';
+import TImage from './components/t-image.vue';
 
 export * from './controllers';
 export * from './utils';
@@ -75,6 +77,8 @@ export const createToife = () => {
       app.component('t-skeleton', TSkeleton);
       app.component('t-ripple', TRipple);
       app.component('t-loading', TLoading);
+      app.component('t-flex', TFlex);
+      app.component('t-image', TImage);
     }
   }
 }
