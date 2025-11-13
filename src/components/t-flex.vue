@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 .t-flex{
   display: flex;
-  grid-template: var(--template);
+  flex-direction: var(--direction);
   column-gap: var(--gap);
   row-gap: var(--gap);
 }
