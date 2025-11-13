@@ -8,7 +8,7 @@
 </style>
 
 <template>
-  <div class="t-grid" :style="{ '--gap': _gap, '--template': props.template }"></div>
+  <div class="t-grid" :style="{ '--gap': _gap, '--template': props.template }"><slot/></div>
 </template>
 
 <script lang="ts" setup>

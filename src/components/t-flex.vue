@@ -8,7 +8,7 @@
 </style>
 
 <template>
-  <div class="t-flex" :style="{ '--gap': _gap, '--direction': props.direction }"></div>
+  <div class="t-flex" :style="{ '--gap': _gap, '--direction': props.direction }"><slot/></div>
 </template>
 
 <script lang="ts" setup>
