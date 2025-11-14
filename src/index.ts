@@ -1,6 +1,5 @@
 import './styles/index.scss';
 
-import defaultEvent from "./utils/defaultEvent";
 import TApp from "./components/t-app.vue";
 import TCable from "./components/t-cable.vue";
 import TButton from "./components/t-button.vue";
@@ -43,7 +42,6 @@ export * from './utils';
 export const createToife = () => {
   return {
     install: (app:any) => {
-      defaultEvent();
       app.component('t-app', TApp);
       app.component('t-screen', TScreen);
       app.component('t-screen-router', TScreenRouter);
