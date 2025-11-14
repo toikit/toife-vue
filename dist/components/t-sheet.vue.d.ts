@@ -39,8 +39,8 @@ declare function __VLS_template(): {
             $refs: {
                 [x: string]: unknown;
             } & {
-                present: HTMLDivElement;
                 backdrop: HTMLDivElement;
+                present: HTMLDivElement;
             };
             $slots: Readonly<{
                 [name: string]: import('vue').Slot<any> | undefined;
@@ -160,8 +160,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
         $refs: {
             [x: string]: unknown;
         } & {
-            present: HTMLDivElement;
             backdrop: HTMLDivElement;
+            present: HTMLDivElement;
         };
         $slots: Readonly<{
             [name: string]: import('vue').Slot<any> | undefined;

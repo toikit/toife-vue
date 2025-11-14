@@ -53,8 +53,8 @@
 </style>
 
 <template>
-  <div class="t-present" ref="present" :class="[{[placement]: true}, props.class]" v-if="isRender" v-show="isShow" :style="[styles, {zIndex}, props.style]"><slot/></div>
   <div class="t-present-backdrop" @pointerup="onClickBackdrop" ref="backdrop" v-if="isRender" v-show="isShow" :style="[styles, {zIndex: zIndex - 1}, props.style]"></div>
+  <div class="t-present" ref="present" :class="[{[placement]: true}, props.class]" v-if="isRender" v-show="isShow" :style="[styles, {zIndex}, props.style]"><slot/></div>
 </template>
 
 <script lang="ts" setup>

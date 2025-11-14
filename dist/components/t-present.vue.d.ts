@@ -14,8 +14,8 @@ declare function __VLS_template(): {
         default?(_: {}): any;
     };
     refs: {
-        present: HTMLDivElement;
         backdrop: HTMLDivElement;
+        present: HTMLDivElement;
     };
     rootEl: any;
 };
@@ -35,8 +35,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {
     placement: string;
     duration: number;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    present: HTMLDivElement;
     backdrop: HTMLDivElement;
+    present: HTMLDivElement;
 }, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

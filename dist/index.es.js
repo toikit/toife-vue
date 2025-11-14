@@ -1,4 +1,4 @@
-import { createElementBlock as f, openBlock as i, renderSlot as _, defineComponent as h, ref as m, computed as x, reactive as ie, watch as W, onMounted as H, Fragment as q, withDirectives as U, createCommentVNode as I, normalizeStyle as T, normalizeClass as B, vShow as j, createElementVNode as $, createVNode as ue, createBlock as C, withCtx as N, toDisplayString as A, renderList as G, createTextVNode as M, createApp as J, h as Q, provide as de, unref as O, onUnmounted as se, resolveDynamicComponent as ke, markRaw as $e, inject as pe, useAttrs as xe, nextTick as le } from "vue";
+import { createElementBlock as f, openBlock as i, renderSlot as _, defineComponent as h, ref as m, computed as x, reactive as ie, watch as W, onMounted as H, Fragment as q, withDirectives as U, createCommentVNode as I, normalizeStyle as T, vShow as j, normalizeClass as B, createElementVNode as $, createVNode as ue, createBlock as C, withCtx as N, toDisplayString as A, renderList as G, createTextVNode as M, createApp as J, h as Q, provide as de, unref as O, onUnmounted as se, resolveDynamicComponent as ke, markRaw as $e, inject as pe, useAttrs as xe, nextTick as le } from "vue";
 import { gesture as re } from "@toife/gesture";
 import { useRouter as fe, useRoute as Te } from "vue-router";
 const we = (t) => t && (t.tagName == "INPUT" || t.tagName == "TEXTAREA" || t.isContentEditable), Se = () => {
@@ -89,6 +89,16 @@ const Pe = /* @__PURE__ */ g(ze, [["render", Ie]]), Ve = /* @__PURE__ */ h({
     }), (k, K) => (i(), f(q, null, [
       v.value ? U((i(), f("div", {
         key: 0,
+        class: "t-present-backdrop",
+        onPointerup: P,
+        ref_key: "backdrop",
+        ref: l,
+        style: T([a, { zIndex: s.value - 1 }, n.style])
+      }, null, 36)), [
+        [j, r.value]
+      ]) : I("", !0),
+      v.value ? U((i(), f("div", {
+        key: 1,
         class: B(["t-present", [{ [k.placement]: !0 }, n.class]]),
         ref_key: "present",
         ref: u,
@@ -97,20 +107,10 @@ const Pe = /* @__PURE__ */ g(ze, [["render", Ie]]), Ve = /* @__PURE__ */ h({
         _(k.$slots, "default", {}, void 0, !0)
       ], 6)), [
         [j, r.value]
-      ]) : I("", !0),
-      v.value ? U((i(), f("div", {
-        key: 1,
-        class: "t-present-backdrop",
-        onPointerup: P,
-        ref_key: "backdrop",
-        ref: l,
-        style: T([a, { zIndex: s.value - 1 }, n.style])
-      }, null, 36)), [
-        [j, r.value]
       ]) : I("", !0)
     ], 64));
   }
-}), F = /* @__PURE__ */ g(Ve, [["__scopeId", "data-v-cab98086"]]), Ce = /* @__PURE__ */ h({
+}), F = /* @__PURE__ */ g(Ve, [["__scopeId", "data-v-b910ec38"]]), Ce = /* @__PURE__ */ h({
   __name: "t-icon-spinner",
   props: {
     size: {
