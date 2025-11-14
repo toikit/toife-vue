@@ -1,5 +1,5 @@
 type ActionButton = {
-    text: string;
+    text?: string;
     color?: string;
     size?: string;
     variant?: string;

@@ -76,7 +76,7 @@ import TButton from './t-button.vue';
 
 // Define
 type ActionButton = {
-  text: string;
+  text?: string;
   color?: string;
   size?: string;
   variant?: string;
