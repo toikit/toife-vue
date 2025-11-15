@@ -1,0 +1,1 @@
+export { default as IconSpinner } from './icon-spinner.vue';

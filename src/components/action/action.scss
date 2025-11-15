@@ -1,0 +1,52 @@
+.toife-action {
+  width: var(--t-app-width);
+  max-width: var(--t-app-max-width);
+  margin-bottom: var(--t-safe-area-bottom);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  >div {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: var(--t-color-surface);
+    max-width: var(--t-overlay-max-width);
+
+    &:last-child {
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  &.pop {
+    animation: pop 0.3s ease-in-out;
+  }
+}
+
+// Effect when click outside action modal
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
