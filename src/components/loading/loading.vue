@@ -1,34 +1,16 @@
-<style lang="scss" scoped>
-.toife-loading {
-  padding: 1rem;
-  line-height: 1rem;
-  background-color: var(--t-color-surface);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
-
-<template>
-  <present placement="center" :backdrop="true" :keepalive="false" :visible="visible">
-    <div :class="{ 'toife-loading': true }">
-      <slot><icon-spinner v-if="type === 'spinner'" /></slot>
-    </div>
-  </present>
-</template>
-
+<style lang="scss" src="./loading.scss" scoped></style>
+<template src="./loading.html"></template>
 <script lang="ts" setup>
 import { Present } from '../present';
 import { IconSpinner } from '../icon-spinner';
 import { ref } from 'vue';
-withDefaults(defineProps<{
-  type?: string
-}>(), {
+import { type LoadingProps, type LoadingEmit } from './loading.type';
+
+const props = withDefaults(defineProps<LoadingProps>(), {
   type: 'spinner'
 });
 const visible = ref(false);
-const emit = defineEmits(['dismiss']);
+const emit = defineEmits<LoadingEmit>();
 
 let ges: any;
 

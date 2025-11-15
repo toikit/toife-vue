@@ -1,0 +1,25 @@
+<div :class="{
+  'toife-input': true,
+  rounded,
+  ['size-' + size]: true,
+  ['variant-' + variant]: true,
+  focus: isFocus,
+  'has-value': hasValue,
+  readonly
+}">
+  <label>
+    <span :class="{ 'toife-input-label': true }">{{ label }}</span>
+    <div :class="{ 'toife-input-content': true }">
+      <slot name="start" />
+      <input ref="editable" :class="{ 'toife-input-editable': true }" :placeholder="placeholder" :value="modelValue"
+        :type="type" @input="onInput" @focus="focus" @blur="blur" :readonly="readonly"></input>
+      <!-- @touchstart.prevent="focus"
+        @mousedown="focus" -->
+      <slot name="end" />
+    </div>
+  </label>
+
+  <text color="danger" v-if="error">{{ error }}</text>
+  <text color="secondary" v-else-if="help">{{ help }}</text>
+</div>
+

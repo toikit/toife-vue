@@ -1,23 +1,10 @@
-<style lang="scss" scoped>
-.toife-text {
-  color: var(--color);
-  font-size: var(--font-size);
-}
-</style>
-
-<template>
-  <span :class="{ 'toife-text': true }" :style="styles">
-    <slot />
-  </span>
-</template>
-
+<style lang="scss" src="./text.scss" scoped></style>
+<template src="./text.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type TextProps } from './text.type';
 
-const props = withDefaults(defineProps<{
-  color?: any,
-  size?: any
-}>(), {
+const props = withDefaults(defineProps<TextProps>(), {
   color: 'var(--t-color-text)',
   size: 'standard'
 });

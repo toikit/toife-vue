@@ -1,0 +1,17 @@
+<present placement="center" :backdrop="true" :keepalive="false" :visible="visible" @dismiss="onDismiss">
+  <div :class="{ pop, 'toife-alert': true }" ref="container">
+    <slot name="header">
+      <div :class="{ 'toife-alert-header': true }" v-if="props.title">{{ props.title }}</div>
+    </slot>
+    <slot name="content">
+      <div :class="{ 'toife-alert-content': true }">{{ props.message }}</div>
+    </slot>
+    <slot name="footer">
+      <div :class="{ 'toife-alert-footer': true }">
+        <custom-button v-for="btn in props.actions" :color="btn.color" :variant="btn.variant"
+          @pointerup="choose(btn)">{{ btn.text }}</custom-button>
+      </div>
+    </slot>
+  </div>
+</present>
+

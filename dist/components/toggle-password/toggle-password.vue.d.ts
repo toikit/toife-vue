@@ -1,31 +1,9 @@
-type __VLS_Props = {
-    color?: any;
-};
-declare function __VLS_template(): {
-    attrs: Partial<{}>;
-    slots: {
-        on?(_: {}): any;
-        off?(_: {}): any;
-    };
-    refs: {
-        toggle: HTMLButtonElement;
-    };
-    rootEl: HTMLButtonElement;
-};
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
-declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    change: (...args: any[]) => void;
-}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
-    onChange?: ((...args: any[]) => any) | undefined;
+import { TogglePasswordProps } from './toggle-password.type';
+declare const _default: import('vue').DefineComponent<TogglePasswordProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
+    change: (value: boolean) => any;
+}, string, import('vue').PublicProps, Readonly<TogglePasswordProps> & Readonly<{
+    onChange?: ((value: boolean) => any) | undefined;
 }>, {
     color: any;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    toggle: HTMLButtonElement;
-}, HTMLButtonElement>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
-    new (): {
-        $slots: S;
-    };
-};

@@ -1,0 +1,65 @@
+.toife-alert {
+  border-radius: 8px;
+  background-color: var(--t-color-surface);
+  position: relative;
+  width: 270px;
+  overflow: hidden;
+
+  // Header of alert
+  .toife-alert-header {
+    padding: var(--t-size-2);
+    border-bottom: 0.55px solid var(--t-color-separate);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  // Content of alert
+  .toife-alert-content {
+    padding: var(--t-size-2);
+  }
+
+  // Footer of alert
+  .toife-alert-footer {
+    display: flex;
+    flex-direction: row;
+    border-top: 0.55px solid var(--t-color-separate);
+
+    >* {
+      flex: 1;
+    }
+
+    .toife-button {
+      font-weight: 600;
+    }
+  }
+
+  // Set effect with class
+  &.pop {
+    animation: pop 0.3s ease-in-out;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+

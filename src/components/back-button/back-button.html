@@ -1,0 +1,4 @@
+<button :class="{ 'toife-back-button': true }" v-if="to || screenRouter.lastScreen" @pointerup="onClick">
+  <slot><i class="ri-arrow-left-s-line"></i></slot>
+</button>
+

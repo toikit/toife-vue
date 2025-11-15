@@ -1,57 +1,13 @@
-<style lang="scss" scoped>
-.toife-switch {
-  height: 31px;
-  width: 50px;
-  border-radius: 25px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.2s ease;
-
-  .toife-switch-icon {
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-    position: absolute;
-    top: 3px;
-  }
-
-  &:not(.on) {
-    background-color: var(--t-color-separate);
-
-    .toife-switch-icon {
-      left: 3px;
-      background: var(--t-color-text-dark);
-    }
-  }
-
-  &.on {
-    background: var(--background);
-
-    .toife-switch-icon {
-      right: 3px;
-      background: var(--color);
-    }
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-switch': true, on: props.modelValue }" :style="styles" @pointerup="onSwitch">
-    <div :class="{ 'toife-switch-icon': true }"></div>
-  </div>
-</template>
-
+<style lang="scss" src="./switch.scss" scoped></style>
+<template src="./switch.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type SwitchProps, type SwitchEmit } from './switch.type';
 
-const props = withDefaults(defineProps<{
-  modelValue?: boolean,
-  color?: any
-}>(), {
+const props = withDefaults(defineProps<SwitchProps>(), {
   color: 'primary'
 });
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<SwitchEmit>();
 const onSwitch = () => {
   emit('update:modelValue', !props.modelValue);
 }

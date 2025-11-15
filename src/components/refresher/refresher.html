@@ -1,0 +1,4 @@
+<div :class="{ 'toife-refresher': true, safe }" ref="container" v-show="offset > 0">
+  <slot :offset="offset" :refreshing="refreshing"></slot>
+</div>
+

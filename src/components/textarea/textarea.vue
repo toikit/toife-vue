@@ -1,5 +1,7 @@
-<template>
-  <div :class="{ 'toife-textarea': true }">
-    <textarea></textarea>
-  </div>
-</template>
+<style lang="scss" src="./textarea.scss" scoped></style>
+<template src="./textarea.html"></template>
+<script lang="ts" setup>
+import { type TextareaProps } from './textarea.type';
+
+defineProps<TextareaProps>();
+</script>

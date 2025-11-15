@@ -1,0 +1,8 @@
+<div :class="{ 'toife-checkbox': true, active: isActive }" :style="styles" @pointerup="onToggle">
+  <div :class="{ [`toife-checkbox-${type}`]: true, }">
+    <div v-if="type == 'radio'"></div>
+    <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>
+  </div>
+  <slot name="label"><span :class="{ 'toife-checkbox-label': true }" v-if="label">{{ props.label }}</span></slot>
+</div>
+

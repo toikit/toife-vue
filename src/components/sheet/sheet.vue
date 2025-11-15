@@ -1,108 +1,13 @@
-<style lang="scss" scoped>
-.toife-sheet {
-  background: var(--background);
-  position: relative;
-
-  &.bottom,
-  &.top,
-  &.fullscreen {
-    width: var(--t-app-width);
-    max-width: var(--t-app-max-width);
-  }
-
-  &.left,
-  &.right,
-  &.fullscreen {
-    height: var(--t-app-height);
-    max-height: var(--t-app-max-height);
-  }
-
-  &:not(.fullscreen) {
-    &.rounded {
-      &.bottom {
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-      }
-
-      &.top {
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-      }
-
-      &.left {
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
-      }
-
-      &.right {
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-      }
-
-      &.center {
-        border-radius: 15px;
-      }
-
-      overflow: hidden;
-    }
-
-    &.top {
-      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-bottom));
-      max-width: var(--t-app-max-width);
-    }
-
-    &.bottom {
-      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-top));
-      max-width: var(--t-app-max-width);
-    }
-
-    &.left {
-      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-right));
-      max-height: var(--t-app-max-height);
-    }
-
-    &.right {
-      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-left));
-      max-height: var(--t-app-max-height);
-    }
-  }
-}
-</style>
-
-<template>
-  <present ref="present" :duration="props.duration" :bounce="props.bounce" :class="props.class"
-    :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive"
-    @dismiss="close" :style="props.style">
-    <gesture-indicator :placement="props.placement"
-      v-if="props.gesture && props.indicator && props.placement != 'center'"></gesture-indicator>
-    <div ref="sheet" :class="{ 'toife-sheet': true, 'fullscreen': props.fullscreen, [props.placement]: true, rounded }"
-      :style="{ '--background': props.background }">
-      <slot />
-    </div>
-  </present>
-</template>
-
+<style lang="scss" src="./sheet.scss" scoped></style>
+<template src="./sheet.html"></template>
 <script lang="ts" setup>
 import { computed, onUnmounted, ref, watch } from 'vue';
 import { gesture } from '@toife/gesture';
 import { Present } from '../present';
 import { GestureIndicator } from '../gesture-indicator';
+import { type SheetProps, type SheetEmit } from './sheet.type';
 
-const props = withDefaults(defineProps<{
-  background?: string,
-  class?: any,
-  visible?: boolean,
-  gesture?: boolean,
-  fullscreen?: boolean,
-  placement?: string,
-  keepalive?: boolean,
-  backdrop?: boolean,
-  rounded?: boolean,
-  indicator?: boolean,
-  duration?: number,
-  bounce?: any,
-  style?: any,
-}>(), {
+const props = withDefaults(defineProps<SheetProps>(), {
   background: 'var(--t-color-surface)',
   backdrop: true,
   keepalive: true,
@@ -115,7 +20,7 @@ const props = withDefaults(defineProps<{
   duration: 200
 });
 
-const emit = defineEmits(['dismiss']);
+const emit = defineEmits<SheetEmit>();
 const sheet = ref();
 const present = ref();
 const isBusy = ref(false);

@@ -7,8 +7,8 @@ declare const _default: import('vue').DefineComponent<ActionProps, {
 }, string, import('vue').PublicProps, Readonly<ActionProps> & Readonly<{
     onDismiss?: ((type: string, data?: unknown) => any) | undefined;
 }>, {
-    visible: boolean;
     dismiss: Array<string>;
+    visible: boolean;
     actions: ActionButton[][];
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;

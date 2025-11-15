@@ -1,41 +1,10 @@
-<style lang="scss" scoped>
-.toife-skeleton {
-  width: var(--width);
-  height: var(--height);
-  border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateX(-100%);
-    background: linear-gradient(90deg, transparent, rgba(var(--t-color-separate-rgb), 0.5), transparent);
-    animation: shimmer 1.2s infinite;
-  }
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-skeleton': true }" :style="styles"></div>
-</template>
-
+<style lang="scss" src="./skeleton.scss" scoped></style>
+<template src="./skeleton.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type SkeletonProps } from './skeleton.type';
 
-const props = withDefaults(defineProps<{
-  width?: any,
-  height?: any,
-  radius?: any,
-  color?: any
-}>(), {
+const props = withDefaults(defineProps<SkeletonProps>(), {
   width: '100%',
   height: '1rem',
   radius: '8px',

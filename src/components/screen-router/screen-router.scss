@@ -1,0 +1,11 @@
+.toife-screen-router-backdrop {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-swipe-backdrop-opacity, 0));
+  transition: all var(--t-screen-backdrop-duration, 0) ease !important;
+}
+

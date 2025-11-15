@@ -1,0 +1,7 @@
+.toife-grid {
+  display: grid;
+  grid-template: var(--template);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+}
+

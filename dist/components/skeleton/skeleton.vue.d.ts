@@ -1,13 +1,8 @@
-type __VLS_Props = {
-    width?: any;
-    height?: any;
-    radius?: any;
-    color?: any;
-};
-declare const _default: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
+import { SkeletonProps } from './skeleton.type';
+declare const _default: import('vue').DefineComponent<SkeletonProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<SkeletonProps> & Readonly<{}>, {
     color: any;
-    width: any;
     height: any;
+    width: any;
     radius: any;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;

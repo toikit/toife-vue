@@ -1,84 +1,15 @@
-<style lang="scss" scoped>
-.toife-present-backdrop {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transition: background-color var(--t-present-transition, 0.2s) ease;
-  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-present-backdrop-opacity, 0));
-}
-
-.toife-present {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: fit-content;
-  height: fit-content;
-  transition: transform var(--t-present-transition, 0.2s) ease;
-
-  &.bottom {
-    bottom: 0;
-    left: 0;
-    transform: translateY(var(--t-present-content-transform, 100%));
-  }
-
-  &.top {
-    top: 0;
-    left: 0;
-    transform: translateY(var(--t-present-content-transform, -100%));
-  }
-
-  &.right {
-    top: 0;
-    right: 0;
-    transform: translateX(var(--t-present-content-transform, 100%));
-  }
-
-  &.left {
-    top: 0;
-    left: 0;
-    transform: translateX(var(--t-present-content-transform, -100%));
-  }
-
-  &.center {
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    opacity: var(--t-present-content-opacity, 1);
-    transition: opacity var(--t-present-transition, 0.2s) ease;
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-present-backdrop': true }" @pointerup="onClickBackdrop" ref="backdrop" v-if="isRender"
-    v-show="isShow" :style="[styles, { zIndex: zIndex - 1 }, props.style]"></div>
-  <div ref="present" :class="[{ 'toife-present': true, [placement]: true }, props.class]" v-if="isRender" v-show="isShow"
-    :style="[styles, { zIndex }, props.style]">
-    <slot />
-  </div>
-</template>
-
+<style lang="scss" src="./present.scss" scoped></style>
+<template src="./present.html"></template>
 <script lang="ts" setup>
 import { computed, onMounted, reactive, ref, watch } from 'vue';
 import { getNewPresentIndex } from './factory';
+import { type PresentProps, type PresentEmit } from './present.type';
 
 const zIndex = ref(0);
 const isShow = ref(false);
 const backdrop = ref();
 const present = ref();
-const props = withDefaults(defineProps<{
-  keepalive?: boolean,
-  visible?: boolean,
-  backdrop?: boolean,
-  placement?: string,
-  style?: any,
-  class?: any,
-  bounce?: any,
-  duration?: number
-}>(), {
+const props = withDefaults(defineProps<PresentProps>(), {
   keepalive: true,
   visible: false,
   backdrop: true,
@@ -86,7 +17,7 @@ const props = withDefaults(defineProps<{
   placement: 'bottom' // top, left, right, center, bottom
 });
 
-const emit = defineEmits(['dismiss']);
+const emit = defineEmits<PresentEmit>();
 const isRender = computed(() => {
   return isShow.value || props.keepalive;
 });

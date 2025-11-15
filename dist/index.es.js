@@ -1,20 +1,27 @@
-import { createElementBlock as v, openBlock as p, normalizeClass as f, renderSlot as g, ref as y, defineComponent as h, computed as w, reactive as le, watch as X, onMounted as q, Fragment as W, withDirectives as L, createCommentVNode as E, normalizeStyle as S, vShow as H, createElementVNode as $, createVNode as ce, unref as B, createBlock as O, withCtx as N, renderList as j, createTextVNode as ee, toDisplayString as R, createApp as F, h as K, onUnmounted as te, resolveDynamicComponent as xe, markRaw as we, useAttrs as Te, provide as ie, inject as ue, nextTick as ne } from "vue";
-import { useRouter as de, useRoute as Se } from "vue-router";
-import { gesture as oe } from "@toife/gesture";
-const b = (r, t) => {
-  const e = r.__vccOpts || r;
-  for (const [o, s] of t)
-    e[o] = s;
-  return e;
-}, Be = {}, ze = {
-  class: /* @__PURE__ */ f({ "toife-app": !0 })
+import { defineComponent as k, createElementBlock as _, openBlock as i, normalizeClass as p, renderSlot as $, ref as u, computed as b, reactive as ce, watch as C, onMounted as V, Fragment as q, withDirectives as K, createCommentVNode as z, normalizeStyle as w, vShow as G, createElementVNode as S, createVNode as ye, createBlock as A, withCtx as X, renderList as U, createTextVNode as ie, toDisplayString as R, createApp as te, h as re, onUnmounted as M, markRaw as pe, resolveDynamicComponent as Ie, useAttrs as fe, provide as J, inject as Q, nextTick as le } from "vue";
+import { useRouter as Z, useRoute as me } from "vue-router";
+import { gesture as L } from "@toife/gesture";
+const Oe = /* @__PURE__ */ k({
+  __name: "app",
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
+  }
+}), Be = {
+  class: /* @__PURE__ */ p({ "toife-app": !0 })
 };
-function Pe(r, t) {
-  return p(), v("div", ze, [
-    g(r.$slots, "default")
+function ze(r, o, t, e, s, n) {
+  return i(), _("div", Be, [
+    $(r.$slots, "default")
   ]);
 }
-const Ee = /* @__PURE__ */ b(Be, [["render", Pe]]), ae = y(1e3), Ie = () => (ae.value += 2, ae.value), Ve = /* @__PURE__ */ h({
+const x = (r, o) => {
+  const t = r.__vccOpts || r;
+  for (const [e, s] of o)
+    t[e] = s;
+  return t;
+}, Ce = /* @__PURE__ */ x(Oe, [["render", ze]]), _e = u(1e3), ve = () => (_e.value += 2, _e.value), Ee = /* @__PURE__ */ k({
   __name: "present",
   props: {
     keepalive: { type: Boolean, default: !0 },
@@ -27,114 +34,115 @@ const Ee = /* @__PURE__ */ b(Be, [["render", Pe]]), ae = y(1e3), Ie = () => (ae.
     duration: { default: 200 }
   },
   emits: ["dismiss"],
-  setup(r, { expose: t, emit: e }) {
-    const o = y(0), s = y(!1), a = y(), u = y(), n = r, d = e, i = w(() => s.value || n.keepalive), m = y(!1), l = le({
+  setup(r, { expose: o, emit: t }) {
+    const e = u(0), s = u(!1), n = u(), l = u(), a = r, c = t, d = b(() => s.value || a.keepalive), v = u(!1), g = ce({
       "--t-present-backdrop-opacity": "0.4",
       "--t-present-transition": "0.2s",
       "--t-present-content-transform": "0px",
       "--t-present-content-opacity": "1"
-    }), _ = w(() => n.duration / 1e3 + "s"), c = (k) => {
-      n.backdrop ? k?.backdropOpacity && (l["--t-present-backdrop-opacity"] = k.backdropOpacity) : l["--t-present-backdrop-opacity"] = "0", k.transition && (l["--t-present-transition"] = k.transition), k.contentTransform && (l["--t-present-content-transform"] = k.contentTransform), k.contentOpacity && (l["--t-present-content-opacity"] = k.contentOpacity);
-    }, T = () => {
-      if (n.bounce !== void 0 && !m.value) {
-        m.value = !0;
-        let k = n.bounce;
-        (n.placement == "bottom" || n.placement == "right") && (k = `calc(${n.bounce} * -1)`), c({
-          contentTransform: k,
-          transition: _.value,
+    }), y = b(() => a.duration / 1e3 + "s"), m = (T) => {
+      a.backdrop ? T?.backdropOpacity && (g["--t-present-backdrop-opacity"] = T.backdropOpacity) : g["--t-present-backdrop-opacity"] = "0", T.transition && (g["--t-present-transition"] = T.transition), T.contentTransform && (g["--t-present-content-transform"] = T.contentTransform), T.contentOpacity && (g["--t-present-content-opacity"] = T.contentOpacity);
+    }, h = () => {
+      if (a.bounce !== void 0 && !v.value) {
+        v.value = !0;
+        let T = a.bounce;
+        (a.placement == "bottom" || a.placement == "right") && (T = `calc(${a.bounce} * -1)`), m({
+          contentTransform: T,
+          transition: y.value,
           backdropOpacity: "0.4",
           contentOpacity: "1"
         }), setTimeout(() => {
-          c({
+          m({
             contentTransform: "0px"
           });
-        }, n.duration);
+        }, a.duration);
       } else
-        c({
+        m({
           contentTransform: "0px",
-          transition: _.value,
+          transition: y.value,
           backdropOpacity: "0.4",
           contentOpacity: "1"
         });
-    }, x = () => {
-      let k = "0px", Y = "1";
-      n.placement == "bottom" || n.placement == "right" ? k = "100%" : n.placement == "top" || n.placement == "left" ? k = "-100%" : n.placement == "center" && (k = "0px", Y = "0"), c({
-        contentTransform: k,
-        transition: _.value,
-        contentOpacity: Y,
+    }, f = () => {
+      let T = "0px", W = "1";
+      a.placement == "bottom" || a.placement == "right" ? T = "100%" : a.placement == "top" || a.placement == "left" ? T = "-100%" : a.placement == "center" && (T = "0px", W = "0"), m({
+        contentTransform: T,
+        transition: y.value,
+        contentOpacity: W,
         backdropOpacity: "0"
       });
     };
-    X(() => n.visible, () => {
-      n.visible ? (m.value = !1, s.value = !0, o.value = Ie(), setTimeout(() => {
-        T();
-      }, 50)) : (x(), setTimeout(() => {
+    C(() => a.visible, () => {
+      a.visible ? (v.value = !1, s.value = !0, e.value = ve(), setTimeout(() => {
+        h();
+      }, 50)) : (f(), setTimeout(() => {
         s.value = !1;
       }, 200));
-    }), t({
-      render: c,
-      open: T,
-      close: x
+    }), o({
+      render: m,
+      open: h,
+      close: f
     });
-    const V = (k) => {
-      k.preventDefault(), d("dismiss", "backdrop");
+    const I = (T) => {
+      T.preventDefault(), c("dismiss", "backdrop");
     };
-    return q(() => {
-      n.visible ? T() : x();
-    }), (k, Y) => (p(), v(W, null, [
-      i.value ? L((p(), v("div", {
-        key: 0,
-        class: f({ "toife-present-backdrop": !0 }),
-        onPointerup: V,
-        ref_key: "backdrop",
-        ref: a,
-        style: S([l, { zIndex: o.value - 1 }, n.style])
-      }, null, 36)), [
-        [H, s.value]
-      ]) : E("", !0),
-      i.value ? L((p(), v("div", {
-        key: 1,
-        ref_key: "present",
-        ref: u,
-        class: f([{ "toife-present": !0, [k.placement]: !0 }, n.class]),
-        style: S([l, { zIndex: o.value }, n.style])
-      }, [
-        g(k.$slots, "default", {}, void 0, !0)
-      ], 6)), [
-        [H, s.value]
-      ]) : E("", !0)
-    ], 64));
+    V(() => {
+      a.visible ? h() : f();
+    });
+    const P = { zIndex: e, isShow: s, backdrop: n, present: l, props: a, emit: c, isRender: d, isBounced: v, styles: g, time: y, render: m, open: h, close: f, onClickBackdrop: I, computed: b, onMounted: V, reactive: ce, ref: u, watch: C, get getNewPresentIndex() {
+      return ve;
+    } };
+    return Object.defineProperty(P, "__isScriptSetup", { enumerable: !1, value: !0 }), P;
   }
-}), U = /* @__PURE__ */ b(Ve, [["__scopeId", "data-v-446246d1"]]), Ce = /* @__PURE__ */ h({
+});
+function je(r, o, t, e, s, n) {
+  return i(), _(q, null, [
+    e.isRender ? K((i(), _("div", {
+      key: 0,
+      class: p({ "toife-present-backdrop": !0 }),
+      onPointerup: e.onClickBackdrop,
+      ref: "backdrop",
+      style: w([e.styles, { zIndex: e.zIndex - 1 }, e.props.style])
+    }, null, 36)), [
+      [G, e.isShow]
+    ]) : z("", !0),
+    e.isRender ? K((i(), _("div", {
+      key: 1,
+      ref: "present",
+      class: p([{ "toife-present": !0, [t.placement]: !0 }, e.props.class]),
+      style: w([e.styles, { zIndex: e.zIndex }, e.props.style])
+    }, [
+      $(r.$slots, "default", {}, void 0, !0)
+    ], 6)), [
+      [G, e.isShow]
+    ]) : z("", !0)
+  ], 64);
+}
+const H = /* @__PURE__ */ x(Ee, [["render", je], ["__scopeId", "data-v-84ae4056"]]), Re = /* @__PURE__ */ k({
   __name: "icon-spinner",
   props: {
-    size: {
-      type: String,
-      default: "24px"
-    },
-    color: {
-      type: String,
-      default: "var(--t-color-text)"
-    }
+    size: { default: "24px" },
+    color: { default: "var(--t-color-text)" }
   },
-  setup(r) {
-    return (t, e) => (p(), v("span", {
-      class: f({ "toife-icon-spinner": !0 }),
-      style: S({
-        width: r.size,
-        height: r.size,
-        borderTopColor: r.color
-      }),
-      role: "status",
-      "aria-label": "Loading..."
-    }, null, 4));
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
   }
-}), re = /* @__PURE__ */ b(Ce, [["__scopeId", "data-v-1b6da8b6"]]), Re = {
-  class: /* @__PURE__ */ f({ "toife-button-content": !0 })
-}, Oe = {
-  key: 0,
-  class: "loader"
-}, Ae = /* @__PURE__ */ h({
+});
+function Ve(r, o, t, e, s, n) {
+  return i(), _("span", {
+    class: p({ "toife-icon-spinner": !0 }),
+    style: w({
+      width: t.size,
+      height: t.size,
+      borderTopColor: t.color
+    }),
+    role: "status",
+    "aria-label": "Loading..."
+  }, null, 4);
+}
+const ue = /* @__PURE__ */ x(Re, [["render", Ve], ["__scopeId", "data-v-86bf1193"]]), Ae = /* @__PURE__ */ k({
   __name: "button",
   props: {
     color: { default: null },
@@ -146,65 +154,77 @@ const Ee = /* @__PURE__ */ b(Be, [["render", Pe]]), ae = y(1e3), Ie = () => (ae.
     variant: { default: "default" },
     activeBackground: { type: Boolean, default: !1 }
   },
-  setup(r) {
-    const t = r, e = w(() => {
-      let o;
-      return t.variant == "default" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? o = {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => {
+      let n;
+      return t.variant == "default" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + "-text)",
         "--background": "var(--t-color-status-" + t.color + ")"
-      } : o = {
+      } : n = {
         "--border": "none",
         "--color": "var(--t-color-text)",
         "--background": t.color
-      } : o = {
+      } : n = {
         "--border": "none",
         "--color": "var(--t-color-text)",
         "--background": "var(--t-color-surface)"
-      }), t.variant == "text" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? o = {
+      }), t.variant == "text" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = {
         "--border": "none",
         "--color": "var(--t-color-status-" + t.color + ")",
         "--background": "transparent"
-      } : o = {
+      } : n = {
         "--border": "none",
         "--color": t.color,
         "--background": "transparent"
-      } : o = {
+      } : n = {
         "--border": "none",
         "--color": "var(--t-color-text)",
         "--background": "transparent"
-      }), t.variant == "outline" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? o = {
+      }), t.variant == "outline" && (t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = {
         "--border": "0.55px solid var(--t-color-status-" + t.color + ")",
         "--color": "var(--t-color-status-" + t.color + ")",
         "--background": "transparent"
-      } : o = {
+      } : n = {
         "--border": "0.55px solid " + t.color,
         "--color": t.color,
         "--background": "transparent"
-      } : o = {
+      } : n = {
         "--border": "0.55px solid var(--t-color-text)",
         "--color": "var(--t-color-text)",
         "--background": "transparent"
-      }), o;
-    });
-    return (o, s) => (p(), v("button", {
-      style: S(e.value),
-      class: f({ "toife-button": !0, "active-background": t.activeBackground, rounded: t.rounded, block: t.block, ["size-" + t.size]: !0 })
-    }, [
-      L($("span", Re, [
-        g(o.$slots, "default", {}, void 0, !0)
-      ], 512), [
-        [H, !t.loading]
-      ]),
-      t.loading ? (p(), v("span", Oe, [
-        ce(B(re), {
-          color: "var(--color)",
-          type: t.loadingType
-        }, null, 8, ["type"])
-      ])) : E("", !0)
-    ], 6));
+      }), n;
+    }), s = { props: t, styles: e, computed: b, get IconSpinner() {
+      return ue;
+    } };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), G = /* @__PURE__ */ b(Ae, [["__scopeId", "data-v-93f58984"]]), De = /* @__PURE__ */ h({
+}), De = {
+  class: /* @__PURE__ */ p({ "toife-button-content": !0 })
+}, Ne = {
+  key: 0,
+  class: "loader"
+};
+function Xe(r, o, t, e, s, n) {
+  return i(), _("button", {
+    style: w(e.styles),
+    class: p({ "toife-button": !0, "active-background": e.props.activeBackground, rounded: e.props.rounded, block: e.props.block, ["size-" + e.props.size]: !0 })
+  }, [
+    K(S("span", De, [
+      $(r.$slots, "default", {}, void 0, !0)
+    ], 512), [
+      [G, !e.props.loading]
+    ]),
+    e.props.loading ? (i(), _("span", Ne, [
+      ye(e.IconSpinner, {
+        color: "var(--color)",
+        type: e.props.loadingType
+      }, null, 8, ["type"])
+    ])) : z("", !0)
+  ], 6);
+}
+const oe = /* @__PURE__ */ x(Ae, [["render", Xe], ["__scopeId", "data-v-847b59bd"]]), We = /* @__PURE__ */ k({
   __name: "action",
   props: {
     actions: { default: () => [] },
@@ -212,56 +232,56 @@ const Ee = /* @__PURE__ */ b(Be, [["render", Pe]]), ae = y(1e3), Ie = () => (ae.
     dismiss: { default: () => [] }
   },
   emits: ["dismiss"],
-  setup(r, { expose: t, emit: e }) {
-    const o = r, s = e, a = y(!1), u = y(), n = y(!1), d = () => {
-      a.value = !0;
-    }, i = () => {
-      a.value = !1;
-    }, m = (c) => {
-      i(), c.handler && c.handler(), s("dismiss", "choose", c?.data);
-    }, l = (c) => {
-      o.dismiss && o.dismiss.includes(c) ? (i(), s("dismiss", c)) : c === "backdrop" && (n.value = !0, setTimeout(() => {
-        n.value = !1;
+  setup(r, { expose: o, emit: t }) {
+    const e = r, s = t, n = u(!1), l = u(), a = u(!1), c = () => {
+      n.value = !0;
+    }, d = () => {
+      n.value = !1;
+    }, v = (m) => {
+      d(), m.handler && m.handler(), s("dismiss", "choose", m?.data);
+    }, g = (m) => {
+      e.dismiss && e.dismiss.includes(m) ? (d(), s("dismiss", m)) : m === "backdrop" && (a.value = !0, setTimeout(() => {
+        a.value = !1;
       }, 300));
     };
-    X(() => o.visible, (c) => {
-      c ? d() : i();
-    }, { immediate: !0 }), t({
-      open: d,
-      close: i
+    C(() => e.visible, (m) => {
+      m ? c() : d();
+    }, { immediate: !0 }), o({
+      open: c,
+      close: d
     });
-    const _ = { props: o, emit: s, _visible: a, container: u, pop: n, open: d, close: i, choose: m, onDismiss: l, ref: y, watch: X, get TPresent() {
-      return U;
+    const y = { props: e, emit: s, _visible: n, container: l, pop: a, open: c, close: d, choose: v, onDismiss: g, ref: u, watch: C, get TPresent() {
+      return H;
     }, get TButton() {
-      return G;
+      return oe;
     } };
-    return Object.defineProperty(_, "__isScriptSetup", { enumerable: !1, value: !0 }), _;
+    return Object.defineProperty(y, "__isScriptSetup", { enumerable: !1, value: !0 }), y;
   }
 });
-function Xe(r, t, e, o, s, a) {
-  return p(), O(o.TPresent, {
+function qe(r, o, t, e, s, n) {
+  return i(), A(e.TPresent, {
     placement: "bottom",
     backdrop: !0,
     keepalive: !1,
-    visible: o._visible,
-    onDismiss: o.onDismiss
+    visible: e._visible,
+    onDismiss: e.onDismiss
   }, {
-    default: N(() => [
-      $("div", {
-        class: f({ pop: o.pop, "toife-action": !0 }),
+    default: X(() => [
+      S("div", {
+        class: p({ pop: e.pop, "toife-action": !0 }),
         ref: "container"
       }, [
-        (p(!0), v(W, null, j(o.props.actions, (u, n) => (p(), v("div", { key: n }, [
-          (p(!0), v(W, null, j(u, (d, i) => (p(), O(o.TButton, {
-            key: d.key ?? `${n}-${i}`,
-            color: d.color,
-            size: d.size,
-            variant: d.variant,
-            onPointerup: (m) => o.choose(d),
+        (i(!0), _(q, null, U(e.props.actions, (l, a) => (i(), _("div", { key: a }, [
+          (i(!0), _(q, null, U(l, (c, d) => (i(), A(e.TButton, {
+            key: c.key ?? `${a}-${d}`,
+            color: c.color,
+            size: c.size,
+            variant: c.variant,
+            onPointerup: (v) => e.choose(c),
             block: ""
           }, {
-            default: N(() => [
-              ee(R(d.text), 1)
+            default: X(() => [
+              ie(R(c.text), 1)
             ]),
             _: 2
           }, 1032, ["color", "size", "variant", "onPointerup"]))), 128))
@@ -271,254 +291,275 @@ function Xe(r, t, e, o, s, a) {
     _: 1
   }, 8, ["visible"]);
 }
-const pe = /* @__PURE__ */ b(De, [["render", Xe], ["__scopeId", "data-v-f5dbe511"]]), wo = (r = {}, t) => ({
+const be = /* @__PURE__ */ x(We, [["render", qe], ["__scopeId", "data-v-f5dbe511"]]), oo = (r = {}, o) => ({
   open() {
-    return new Promise((e) => {
-      let o = document.body.querySelector(".toife-app");
-      if (!o) return;
-      const s = document.createElement("div"), a = y();
-      o.appendChild(s);
-      const u = F({
+    return new Promise((t) => {
+      let e = document.body.querySelector(".toife-app");
+      if (!e) return;
+      const s = document.createElement("div"), n = u();
+      e.appendChild(s);
+      const l = te({
         render() {
-          return K(t || pe, {
+          return re(o || be, {
             ...r,
-            ref: a,
-            onDismiss: (n, d) => {
+            ref: n,
+            onDismiss: (a, c) => {
               setTimeout(() => {
-                u.unmount(), s.remove();
-              }, 300), e({ type: n, data: d });
+                l.unmount(), s.remove();
+              }, 300), t({ type: a, data: c });
             }
           });
         }
       });
-      u.mount(s), setTimeout(() => {
-        a.value?.open?.();
+      l.mount(s), setTimeout(() => {
+        n.value?.open?.();
       }, 50);
     });
   }
-}), Ne = {
-  key: 0,
-  class: /* @__PURE__ */ f({ "toife-alert-header": !0 })
-}, We = {
-  class: /* @__PURE__ */ f({ "toife-alert-content": !0 })
-}, Me = {
-  class: /* @__PURE__ */ f({ "toife-alert-footer": !0 })
-}, qe = /* @__PURE__ */ h({
+}), Me = /* @__PURE__ */ k({
   __name: "alert",
   props: {
-    title: {},
-    message: {},
-    actions: {},
-    dismiss: {}
+    title: { default: "" },
+    message: { default: "" },
+    actions: { default: () => [] },
+    dismiss: { default: () => [] }
   },
   emits: ["dismiss"],
-  setup(r, { expose: t, emit: e }) {
-    const o = r, s = e, a = y(!1), u = y(), n = y(!1), d = () => {
-      a.value = !0;
-    }, i = (l) => {
-      a.value = !1, l.handler && l.handler(), s("dismiss", "choose", l?.data);
-    }, m = (l) => {
-      o.dismiss && o.dismiss.includes(l) ? (a.value = !1, s("dismiss", l)) : l == "backdrop" && (n.value = !0, setTimeout(() => {
-        n.value = !1;
+  setup(r, { expose: o, emit: t }) {
+    const e = r, s = t, n = u(!1), l = u(), a = u(!1), c = () => {
+      n.value = !0;
+    }, d = (y) => {
+      n.value = !1, y.handler && y.handler(), s("dismiss", "choose", y?.data);
+    }, v = (y) => {
+      e.dismiss && e.dismiss.includes(y) ? (n.value = !1, s("dismiss", y)) : y == "backdrop" && (a.value = !0, setTimeout(() => {
+        a.value = !1;
       }, 300));
     };
-    return t({
-      open: d
-    }), (l, _) => (p(), O(B(U), {
-      placement: "center",
-      backdrop: !0,
-      keepalive: !1,
-      visible: a.value,
-      onDismiss: m
-    }, {
-      default: N(() => [
-        $("div", {
-          class: f({ pop: n.value, "toife-alert": !0 }),
-          ref_key: "container",
-          ref: u
-        }, [
-          g(l.$slots, "header", {}, () => [
-            o.title ? (p(), v("div", Ne, R(o.title), 1)) : E("", !0)
-          ], !0),
-          g(l.$slots, "content", {}, () => [
-            $("div", We, R(o.message), 1)
-          ], !0),
-          g(l.$slots, "footer", {}, () => [
-            $("div", Me, [
-              (p(!0), v(W, null, j(o.actions, (c) => (p(), O(B(G), {
-                color: c.color,
-                variant: c.variant,
-                onPointerup: (T) => i(c)
-              }, {
-                default: N(() => [
-                  ee(R(c.text), 1)
-                ]),
-                _: 2
-              }, 1032, ["color", "variant", "onPointerup"]))), 256))
-            ])
-          ], !0)
-        ], 2)
-      ]),
-      _: 3
-    }, 8, ["visible"]));
+    o({
+      open: c
+    });
+    const g = { props: e, emit: s, visible: n, container: l, pop: a, open: c, choose: d, onDismiss: v, ref: u, get Present() {
+      return H;
+    }, get CustomButton() {
+      return oe;
+    } };
+    return Object.defineProperty(g, "__isScriptSetup", { enumerable: !1, value: !0 }), g;
   }
-}), fe = /* @__PURE__ */ b(qe, [["__scopeId", "data-v-0e39cc1e"]]), To = (r = {}, t) => ({
+}), Le = {
+  key: 0,
+  class: /* @__PURE__ */ p({ "toife-alert-header": !0 })
+}, Fe = {
+  class: /* @__PURE__ */ p({ "toife-alert-content": !0 })
+}, He = {
+  class: /* @__PURE__ */ p({ "toife-alert-footer": !0 })
+};
+function Ke(r, o, t, e, s, n) {
+  return i(), A(e.Present, {
+    placement: "center",
+    backdrop: !0,
+    keepalive: !1,
+    visible: e.visible,
+    onDismiss: e.onDismiss
+  }, {
+    default: X(() => [
+      S("div", {
+        class: p({ pop: e.pop, "toife-alert": !0 }),
+        ref: "container"
+      }, [
+        $(r.$slots, "header", {}, () => [
+          e.props.title ? (i(), _("div", Le, R(e.props.title), 1)) : z("", !0)
+        ], !0),
+        $(r.$slots, "content", {}, () => [
+          S("div", Fe, R(e.props.message), 1)
+        ], !0),
+        $(r.$slots, "footer", {}, () => [
+          S("div", He, [
+            (i(!0), _(q, null, U(e.props.actions, (l) => (i(), A(e.CustomButton, {
+              color: l.color,
+              variant: l.variant,
+              onPointerup: (a) => e.choose(l)
+            }, {
+              default: X(() => [
+                ie(R(l.text), 1)
+              ]),
+              _: 2
+            }, 1032, ["color", "variant", "onPointerup"]))), 256))
+          ])
+        ], !0)
+      ], 2)
+    ]),
+    _: 3
+  }, 8, ["visible"]);
+}
+const ge = /* @__PURE__ */ x(Me, [["render", Ke], ["__scopeId", "data-v-64e5ebe5"]]), no = (r = {}, o) => ({
   open() {
-    return new Promise((e) => {
-      let o = document.body.querySelector(".toife-app");
-      if (!o) return;
-      const s = document.createElement("div"), a = y();
-      o.appendChild(s);
-      const u = F({
+    return new Promise((t) => {
+      let e = document.body.querySelector(".toife-app");
+      if (!e) return;
+      const s = document.createElement("div"), n = u();
+      e.appendChild(s);
+      const l = te({
         render() {
-          return K(t || fe, {
+          return re(o || ge, {
             ...r,
-            ref: a,
-            onDismiss: (n, d) => {
+            ref: n,
+            onDismiss: (a, c) => {
               setTimeout(() => {
-                u.unmount(), s.remove();
-              }, 300), e({ type: n, data: d });
+                l.unmount(), s.remove();
+              }, 300), t({ type: a, data: c });
             }
           });
         }
       });
-      u.mount(s), setTimeout(() => {
-        a.value?.open?.();
+      l.mount(s), setTimeout(() => {
+        n.value?.open?.();
       }, 50);
     });
   }
-}), Le = /* @__PURE__ */ h({
+}), Ge = /* @__PURE__ */ k({
   __name: "avatar",
   props: {
     square: { type: Boolean, default: !1 },
     size: { default: "standard" }
   },
-  setup(r) {
-    const t = r, e = w(() => t.size == "small" ? "24px" : t.size == "standard" ? "40px" : t.size == "large" ? "60px" : t.size);
-    return (o, s) => (p(), v("div", {
-      class: f({ square: o.square, "toife-avatar": !0 }),
-      style: S({ "--size": e.value })
-    }, [
-      g(o.$slots, "default", {}, void 0, !0)
-    ], 6));
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => t.size == "small" ? "24px" : t.size == "standard" ? "40px" : t.size == "large" ? "60px" : t.size), s = { props: t, width: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), He = /* @__PURE__ */ b(Le, [["__scopeId", "data-v-ceac14a1"]]), je = {}, Fe = {
-  class: /* @__PURE__ */ f({ "toife-screen": !0 })
+});
+function Ue(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ square: t.square, "toife-avatar": !0 }),
+    style: w({ "--size": e.width })
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 6);
+}
+const Je = /* @__PURE__ */ x(Ge, [["render", Ue], ["__scopeId", "data-v-32c57a0d"]]), Qe = /* @__PURE__ */ k({
+  __name: "screen",
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
+  }
+}), Ze = {
+  class: /* @__PURE__ */ p({ "toife-screen": !0 })
 };
-function Ke(r, t) {
-  return p(), v("div", Fe, [
-    g(r.$slots, "default", {}, void 0, !0)
+function Ye(r, o, t, e, s, n) {
+  return i(), _("div", Ze, [
+    $(r.$slots, "default", {}, void 0, !0)
   ]);
 }
-const me = /* @__PURE__ */ b(je, [["render", Ke], ["__scopeId", "data-v-fe00f417"]]), A = le([]), J = y(!0), P = y(!1), C = y(-1), z = w(() => A[C.value]), M = w(() => A[C.value + 1] || void 0), I = w(() => A[A.length - 2]), ve = w(() => !P.value && J.value && I.value), D = (r = !0) => {
-  let e = z.value.target.closest(".toife-app").offsetWidth;
-  return r ? e + "px" : e;
-}, Q = {
+const he = /* @__PURE__ */ x(Qe, [["render", Ye], ["__scopeId", "data-v-59be2187"]]), D = ce([]), ne = u(!0), B = u(!1), j = u(-1), O = b(() => D[j.value]), F = b(() => D[j.value + 1] || void 0), E = b(() => D[D.length - 2]), ke = b(() => !B.value && ne.value && E.value), N = (r = !0) => {
+  let t = O.value.target.closest(".toife-app").offsetWidth;
+  return r ? t + "px" : t;
+}, se = {
   reset() {
-    P.value = !0;
-    const r = D(), t = z.value.target, e = I.value.target;
-    t.style.transition = "transform 0.25s ease", t.style.transform = "translateX(0px)", e.style.transition = "transform 0.25s ease", e.style.transform = `translateX(calc(${r} / 100 * 30 * -1)) scale(0.5) perspective(${r}) rotateY(30deg)`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
-      P.value = !1;
+    B.value = !0;
+    const r = N(), o = O.value.target, t = E.value.target;
+    o.style.transition = "transform 0.25s ease", o.style.transform = "translateX(0px)", t.style.transition = "transform 0.25s ease", t.style.transform = `translateX(calc(${r} / 100 * 30 * -1)) scale(0.5) perspective(${r}) rotateY(30deg)`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
+      B.value = !1;
     }, 400);
   },
   move(r) {
-    if (!ve.value) return;
-    const t = D(!1), e = t + "px", o = r / t * 100, s = z.value.target, a = I.value.target;
-    r > 15 && r <= t && (s.style.transition = "transform 0s ease", s.style.transform = `translateX(${r}px)`, a.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), a.style.transform = `translateX(calc((${e} / 100 * 30 * -1) + ((${e} / 100 * 30) / 100 * ${o}))) scale(${0.5 + 0.5 / 100 * o}) perspective(${e}) rotateY(${30 - 30 / 100 * o}deg)`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * o}`));
+    if (!ke.value) return;
+    const o = N(!1), t = o + "px", e = r / o * 100, s = O.value.target, n = E.value.target;
+    r > 15 && r <= o && (s.style.transition = "transform 0s ease", s.style.transform = `translateX(${r}px)`, n.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), n.style.transform = `translateX(calc((${t} / 100 * 30 * -1) + ((${t} / 100 * 30) / 100 * ${e}))) scale(${0.5 + 0.5 / 100 * e}) perspective(${t}) rotateY(${30 - 30 / 100 * e}deg)`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * e}`));
   },
   back(r) {
-    if (!I.value) return;
-    const t = D();
-    z.value.target.style.transition = "transform 0.25s ease", z.value.target.style.transform = `translateX(${t}) scale(1)`, I.value.target.style.transition = "transform 0.25s ease", I.value.target.style.transform = `translateX(0px) scale(1) perspective(${t}) rotateY(0deg)`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), P.value = !0, setTimeout(() => {
-      se(), P.value = !1, C.value -= 1, r && r();
+    if (!E.value) return;
+    const o = N();
+    O.value.target.style.transition = "transform 0.25s ease", O.value.target.style.transform = `translateX(${o}) scale(1)`, E.value.target.style.transition = "transform 0.25s ease", E.value.target.style.transform = `translateX(0px) scale(1) perspective(${o}) rotateY(0deg)`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), B.value = !0, setTimeout(() => {
+      de(), B.value = !1, j.value -= 1, r && r();
     }, 400);
   },
   next(r) {
-    if (!M.value) return;
-    if (C.value == -1) {
-      C.value += 1, r && r();
+    if (!F.value) return;
+    if (j.value == -1) {
+      j.value += 1, r && r();
       return;
     }
-    P.value = !0;
-    const t = M.value.target, e = D();
-    t.style.transform = `translateX(${e})`, t.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
-      t.style.transition = "transform 0.25s ease", t.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), z.value && (z.value.target.style.transitionOrigin = "left center", z.value.target.style.transition = "transform 0.25s ease", z.value.target.style.transform = `translateX(calc(${e} / 100 * 30 * -1)) scale(0.5) perspective(${e}) rotateY(30deg)`), setTimeout(() => {
-        P.value = !1, C.value += 1, r && r();
+    B.value = !0;
+    const o = F.value.target, t = N();
+    o.style.transform = `translateX(${t})`, o.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
+      o.style.transition = "transform 0.25s ease", o.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), O.value && (O.value.target.style.transitionOrigin = "left center", O.value.target.style.transition = "transform 0.25s ease", O.value.target.style.transform = `translateX(calc(${t} / 100 * 30 * -1)) scale(0.5) perspective(${t}) rotateY(30deg)`), setTimeout(() => {
+        B.value = !1, j.value += 1, r && r();
       }, 400);
     }, 100);
   }
-}, Z = {
+}, ae = {
   reset() {
-    P.value = !0;
-    const r = D(), t = z.value.target, e = I.value.target;
-    t.style.transition = "transform 0.25s ease", t.style.transform = "translateX(0px)", e.style.transition = "transform 0.25s ease", e.style.transform = `translateX(calc(${r} / 100 * 30 * -1))`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
-      P.value = !1;
+    B.value = !0;
+    const r = N(), o = O.value.target, t = E.value.target;
+    o.style.transition = "transform 0.25s ease", o.style.transform = "translateX(0px)", t.style.transition = "transform 0.25s ease", t.style.transform = `translateX(calc(${r} / 100 * 30 * -1))`, document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), setTimeout(() => {
+      B.value = !1;
     }, 400);
   },
   move(r) {
-    const t = D(!1), e = t + "px", o = r / t * 100, s = z.value.target, a = I.value.target;
-    r > 15 && r <= t && (s.style.transition = "transform 0s ease", s.style.transform = `translateX(${r}px)`, a.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), a.style.transform = `translateX(calc((${e} / 100 * 30 * -1) + ((${e} / 100 * 30) / 100 * ${o})))`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * o}`));
+    const o = N(!1), t = o + "px", e = r / o * 100, s = O.value.target, n = E.value.target;
+    r > 15 && r <= o && (s.style.transition = "transform 0s ease", s.style.transform = `translateX(${r}px)`, n.style.transition = "transform 0s ease", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), n.style.transform = `translateX(calc((${t} / 100 * 30 * -1) + ((${t} / 100 * 30) / 100 * ${e})))`, document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", `${0.5 - 0.5 / 100 * e}`));
   },
   back(r) {
-    if (!I.value) return;
-    const t = D();
-    z.value.target.style.transition = "transform 0.25s ease", z.value.target.style.transform = `translateX(${t}) scale(1)`, I.value.target.style.transition = "transform 0.25s ease", I.value.target.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), P.value = !0, setTimeout(() => {
-      se(), P.value = !1, C.value -= 1, r && r();
+    if (!E.value) return;
+    const o = N();
+    O.value.target.style.transition = "transform 0.25s ease", O.value.target.style.transform = `translateX(${o}) scale(1)`, E.value.target.style.transition = "transform 0.25s ease", E.value.target.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), B.value = !0, setTimeout(() => {
+      de(), B.value = !1, j.value -= 1, r && r();
     }, 400);
   },
   next(r) {
-    if (!M.value) return;
-    if (C.value == -1) {
-      C.value += 1, r && r();
+    if (!F.value) return;
+    if (j.value == -1) {
+      j.value += 1, r && r();
       return;
     }
-    P.value = !0;
-    const t = M.value.target, e = D();
-    t.style.transform = `translateX(${e})`, t.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
-      t.style.transition = "transform 0.25s ease", t.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), z.value && (z.value.target.style.transitionOrigin = "left center", z.value.target.style.transition = "transform 0.25s ease", z.value.target.style.transform = `translateX(calc(${e} / 100 * 30 * -1))`), setTimeout(() => {
-        P.value = !1, C.value += 1, r && r();
+    B.value = !0;
+    const o = F.value.target, t = N();
+    o.style.transform = `translateX(${t})`, o.transitionOrigin = "center", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0"), setTimeout(() => {
+      o.style.transition = "transform 0.25s ease", o.style.transform = "translateX(0px)", document.documentElement.style.setProperty("--t-screen-backdrop-duration", "0.25s"), document.documentElement.style.setProperty("--t-swipe-backdrop-opacity", "0.5"), O.value && (O.value.target.style.transitionOrigin = "left center", O.value.target.style.transition = "transform 0.25s ease", O.value.target.style.transform = `translateX(calc(${t} / 100 * 30 * -1))`), setTimeout(() => {
+        B.value = !1, j.value += 1, r && r();
       }, 400);
     }, 100);
   }
-}, Ue = (r) => {
-  A.push(r);
-}, Ge = (r, t) => {
-  A[r].target = t;
-}, se = (r) => {
-  r || A.pop();
-}, Je = () => {
-  A.splice(0, A.length);
-}, Qe = () => {
-  J.value = !1;
-}, Ze = () => {
-  J.value = !0;
-}, Ye = (r, t) => {
-  r == "scale" && Q.next(t), r == "transform" && Z.next(t);
-}, et = (r, t) => {
-  r == "scale" && Q.back(t), r == "transform" && Z.back(t);
-}, tt = (r, t) => {
-  r == "scale" && Q.move(t), r == "transform" && Z.move(t);
-}, ot = (r) => {
-  r == "scale" && Q.reset(), r == "transform" && Z.reset();
-}, ye = () => ({
-  isBusy: P,
-  isSwipeable: ve,
-  reset: ot,
-  next: Ye,
-  back: et,
-  move: tt,
-  screens: A,
-  addScreen: Ue,
-  addScreenEl: Ge,
-  removeScreen: se,
-  removeAllScreen: Je,
-  lockSwipe: Qe,
-  unlockSwipe: Ze,
-  swipeable: J,
-  currentScreen: z,
-  lastScreen: I,
-  nextScreen: M
-}), rt = /* @__PURE__ */ h({
+}, et = (r) => {
+  D.push(r);
+}, tt = (r, o) => {
+  D[r].target = o;
+}, de = (r) => {
+  r || D.pop();
+}, rt = () => {
+  D.splice(0, D.length);
+}, ot = () => {
+  ne.value = !1;
+}, nt = () => {
+  ne.value = !0;
+}, st = (r, o) => {
+  r == "scale" && se.next(o), r == "transform" && ae.next(o);
+}, at = (r, o) => {
+  r == "scale" && se.back(o), r == "transform" && ae.back(o);
+}, lt = (r, o) => {
+  r == "scale" && se.move(o), r == "transform" && ae.move(o);
+}, ct = (r) => {
+  r == "scale" && se.reset(), r == "transform" && ae.reset();
+}, Y = () => ({
+  isBusy: B,
+  isSwipeable: ke,
+  reset: ct,
+  next: st,
+  back: at,
+  move: lt,
+  screens: D,
+  addScreen: et,
+  addScreenEl: tt,
+  removeScreen: de,
+  removeAllScreen: rt,
+  lockSwipe: ot,
+  unlockSwipe: nt,
+  swipeable: ne,
+  currentScreen: O,
+  lastScreen: E,
+  nextScreen: F
+}), it = /* @__PURE__ */ k({
   __name: "screen-router",
   props: {
     variant: { default: "scale" },
@@ -526,156 +567,207 @@ const me = /* @__PURE__ */ b(je, [["render", Ke], ["__scopeId", "data-v-fe00f417
     route: {}
   },
   emits: ["change"],
-  setup(r, { emit: t }) {
+  setup(r, { expose: o, emit: t }) {
+    o();
     let e = {};
-    const o = t, s = r;
-    let a;
-    const u = s.router || de(), n = s.route || Se(), d = u.getRoutes(), i = ye(), m = y();
-    for (let c of d)
-      e[c.name] = c.component || c.components;
-    const l = (c) => {
-      c && i.addScreen({
-        name: c,
+    const s = t, n = r;
+    let l;
+    const a = n.router || Z(), c = n.route || me(), d = a.getRoutes(), v = Y(), g = u();
+    for (let f of d)
+      e[f.name] = f.component || f.components;
+    const y = (f) => {
+      f && v.addScreen({
+        name: f,
         target: null,
-        component: we(e[c] || null)
+        component: pe(e[f] || null)
       });
-    }, _ = (c, T) => {
-      !T || i.screens[c].target || (i.addScreenEl(c, T.$el), i.nextScreen && i.next(s.variant, () => {
-        o("change");
+    }, m = (f, I) => {
+      !I || v.screens[f].target || (v.addScreenEl(f, I.$el), v.nextScreen && v.next(n.variant, () => {
+        s("change");
       }));
     };
-    return X(() => n.name, (c, T) => {
-      c != i.currentScreen.value?.name && (i.lastScreen.value?.name == c ? i.back(s.variant, () => {
-        o("change");
-      }) : l(n.name));
-    }), q(() => {
-      l(n.name), a = oe(document.body, {
-        beforeEvent(c) {
-          return !!i.isSwipeable.value;
+    C(() => c.name, (f, I) => {
+      f != v.currentScreen.value?.name && (v.lastScreen.value?.name == f ? v.back(n.variant, () => {
+        s("change");
+      }) : y(c.name));
+    }), V(() => {
+      y(c.name), l = L(document.body, {
+        beforeEvent(f) {
+          return !!v.isSwipeable.value;
         },
-        fast({ initialDirection: c }) {
-          i.lastScreen.value && c == "right" && u.back();
+        fast({ initialDirection: f }) {
+          v.lastScreen.value && f == "right" && a.back();
         },
-        move({ deltaX: c, initialDirection: T }) {
-          T == "right" && i.move(s.variant, c);
+        move({ deltaX: f, initialDirection: I }) {
+          I == "right" && v.move(n.variant, f);
         },
-        up({ deltaX: c, initialDirection: T }) {
-          if (T != "right") {
-            i.reset(s.variant);
+        up({ deltaX: f, initialDirection: I }) {
+          if (I != "right") {
+            v.reset(n.variant);
             return;
           }
-          const x = m.value.offsetParent.offsetWidth;
-          c / x * 100 >= 50 ? u.back() : i.reset(s.variant);
+          const P = g.value.offsetParent.offsetWidth;
+          f / P * 100 >= 50 ? a.back() : v.reset(n.variant);
         },
         cancel() {
-          i.reset(s.variant);
+          v.reset(n.variant);
         }
       });
-    }), te(() => {
-      a && a.destroy(), i.removeAllScreen();
-    }), (c, T) => (p(), v(W, null, [
-      (p(!0), v(W, null, j(B(i).screens, (x, V) => (p(), O(B(me), {
-        ref_for: !0,
-        ref: (k) => _(V, k),
-        style: S({ zIndex: V + (V == B(i).screens.length - 1 ? 2 : 1) }),
-        key: V
-      }, {
-        default: N(() => [
-          (p(), O(xe(x.component.default)))
-        ]),
-        _: 2
-      }, 1032, ["style"]))), 128)),
-      $("div", {
-        class: f({ "toife-screen-router-backdrop": !0 }),
-        ref_key: "backdrop",
-        ref: m,
-        style: S({ zIndex: B(i).screens.length })
-      }, null, 4)
-    ], 64));
+    }), M(() => {
+      l && l.destroy(), v.removeAllScreen();
+    });
+    const h = { get routeComponents() {
+      return e;
+    }, set routeComponents(f) {
+      e = f;
+    }, emit: s, props: n, get ges() {
+      return l;
+    }, set ges(f) {
+      l = f;
+    }, _router: a, _route: c, routes: d, screenRouter: v, backdrop: g, addScreen: y, addScreenRef: m, markRaw: pe, onMounted: V, onUnmounted: M, ref: u, watch: C, get useRoute() {
+      return me;
+    }, get useRouter() {
+      return Z;
+    }, get gesture() {
+      return L;
+    }, get Screen() {
+      return he;
+    }, get useScreenRouter() {
+      return Y;
+    } };
+    return Object.defineProperty(h, "__isScriptSetup", { enumerable: !1, value: !0 }), h;
   }
-}), st = /* @__PURE__ */ b(rt, [["__scopeId", "data-v-cc1582f6"]]), nt = /* @__PURE__ */ h({
+});
+function ut(r, o, t, e, s, n) {
+  return i(), _(q, null, [
+    (i(!0), _(q, null, U(e.screenRouter.screens, (l, a) => (i(), A(e.Screen, {
+      ref_for: !0,
+      ref: (c) => e.addScreenRef(a, c),
+      style: w({ zIndex: a + (a == e.screenRouter.screens.length - 1 ? 2 : 1) }),
+      key: a
+    }, {
+      default: X(() => [
+        (i(), A(Ie(l.component.default)))
+      ]),
+      _: 2
+    }, 1032, ["style"]))), 128)),
+    S("div", {
+      class: p({ "toife-screen-router-backdrop": !0 }),
+      ref: "backdrop",
+      style: w({ zIndex: e.screenRouter.screens.length })
+    }, null, 4)
+  ], 64);
+}
+const dt = /* @__PURE__ */ x(it, [["render", ut], ["__scopeId", "data-v-c7ff05f0"]]), pt = /* @__PURE__ */ k({
   __name: "back-button",
   props: {
     to: {},
     router: {}
   },
-  setup(r) {
-    const t = r, e = Te(), o = t.router || de(), s = ye(), a = (u) => {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = fe(), s = t.router || Z(), n = Y(), a = { props: t, attrs: e, router: s, screenRouter: n, onClick: (c) => {
       if (e.onBack) {
-        e.onBack(u);
+        e.onBack(c);
         return;
       }
-      s.lastScreen.value ? o?.back?.() : t.to && o?.push?.(t.to);
-    };
-    return (u, n) => u.to || B(s).lastScreen ? (p(), v("button", {
-      key: 0,
-      class: f({ "toife-back-button": !0 }),
-      onPointerup: a
-    }, [
-      g(u.$slots, "default", {}, () => [
-        n[0] || (n[0] = $("i", { class: "ri-arrow-left-s-line" }, null, -1))
-      ], !0)
-    ], 32)) : E("", !0);
+      n.lastScreen.value ? s?.back?.() : t.to && s?.push?.(t.to);
+    }, useAttrs: fe, get useRouter() {
+      return Z;
+    }, get useScreenRouter() {
+      return Y;
+    } };
+    return Object.defineProperty(a, "__isScriptSetup", { enumerable: !1, value: !0 }), a;
   }
-}), at = /* @__PURE__ */ b(nt, [["__scopeId", "data-v-6f57cb01"]]), lt = y(0);
-function _e() {
+});
+function ft(r, o, t, e, s, n) {
+  return t.to || e.screenRouter.lastScreen ? (i(), _("button", {
+    key: 0,
+    class: p({ "toife-back-button": !0 }),
+    onPointerup: e.onClick
+  }, [
+    $(r.$slots, "default", {}, () => [
+      o[0] || (o[0] = S("i", { class: "ri-arrow-left-s-line" }, null, -1))
+    ], !0)
+  ], 32)) : z("", !0);
+}
+const mt = /* @__PURE__ */ x(pt, [["render", ft], ["__scopeId", "data-v-acb94acb"]]), _t = u(0);
+function ee() {
   return {
-    height: lt
+    height: _t
   };
 }
-const ct = /* @__PURE__ */ h({
+const vt = /* @__PURE__ */ k({
   __name: "keyboard-space",
-  setup(r) {
-    const { height: t } = _e();
-    return (e, o) => (p(), v("div", {
-      class: f({ "toife-keyboard-space": !0 }),
-      style: S({ "--height": B(t) + "px" })
-    }, null, 4));
+  setup(r, { expose: o }) {
+    o();
+    const { height: t } = ee(), e = { height: t, get useKeyboard() {
+      return ee;
+    } };
+    return Object.defineProperty(e, "__isScriptSetup", { enumerable: !1, value: !0 }), e;
   }
-}), it = /* @__PURE__ */ b(ct, [["__scopeId", "data-v-052c04ff"]]), ut = /* @__PURE__ */ h({
+});
+function yt(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-keyboard-space": !0 }),
+    style: w({ "--height": e.height + "px" })
+  }, null, 4);
+}
+const bt = /* @__PURE__ */ x(vt, [["render", yt], ["__scopeId", "data-v-ae883ffe"]]), gt = /* @__PURE__ */ k({
   __name: "cable",
   props: {
     keyboard: { type: Boolean, default: !1 },
     placement: { default: "bottom" }
   },
-  setup(r) {
-    const t = r, { height: e } = _e();
-    return ie("cableState", {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, { height: e } = ee();
+    J("cableState", {
       placement: t.placement
-    }), (o, s) => (p(), v("div", {
-      class: f({ "toife-cable": !0, keyboard: t.keyboard && B(e) > 0, [t.placement]: !0 }),
-      style: S({ "--t-keyboard-height": B(e) + "px", "--t-keyboard-transition": B(e) > 0 ? "0.3s" : "0.1s" })
-    }, [
-      g(o.$slots, "default", {}, void 0, !0)
-    ], 6));
+    });
+    const s = { props: t, height: e, provide: J, get useKeyboard() {
+      return ee;
+    } };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), dt = /* @__PURE__ */ b(ut, [["__scopeId", "data-v-f4979837"]]), pt = /* @__PURE__ */ h({
+});
+function ht(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-cable": !0, keyboard: e.props.keyboard && e.height > 0, [e.props.placement]: !0 }),
+    style: w({ "--t-keyboard-height": e.height + "px", "--t-keyboard-transition": e.height > 0 ? "0.3s" : "0.1s" })
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 6);
+}
+const kt = /* @__PURE__ */ x(gt, [["render", ht], ["__scopeId", "data-v-2c9cb2cf"]]), xt = /* @__PURE__ */ k({
   __name: "card",
   props: {
     color: { default: null }
   },
-  setup(r) {
-    const t = r, e = w(() => {
-      let o;
-      return t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? o = {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => {
+      let n;
+      return t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = {
         "--background": "var(--t-color-status-" + t.color + ")"
-      } : o = {
+      } : n = {
         "--background": t.color
-      } : o = {
+      } : n = {
         "--background": "var(--t-color-surface)"
-      }, o;
-    });
-    return (o, s) => (p(), v("div", {
-      class: f({ "toife-card": !0 }),
-      style: S(e.value)
-    }, [
-      g(o.$slots, "default")
-    ], 4));
+      }, n;
+    }), s = { props: t, styles: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), ft = { key: 0 }, mt = {
-  key: 0,
-  class: /* @__PURE__ */ f({ "toife-checkbox-label": !0 })
-}, vt = /* @__PURE__ */ h({
+});
+function $t(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-card": !0 }),
+    style: w(e.styles)
+  }, [
+    $(r.$slots, "default")
+  ], 4);
+}
+const St = /* @__PURE__ */ x(xt, [["render", $t]]), wt = /* @__PURE__ */ k({
   __name: "checkbox",
   props: {
     label: { default: "" },
@@ -687,181 +779,244 @@ const ct = /* @__PURE__ */ h({
     color: { default: "primary" }
   },
   emits: ["update:modelValue"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = w(() => {
-      let n = {
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = b(() => {
+      let d = {
         "--background": e.color,
         "--color": "#ffffff"
       };
-      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (n = {
+      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (d = {
         "--background": `var(--t-color-status-${e.color})`,
         "--color": `var(--t-color-status-${e.color}-text)`
-      }), n;
-    }), a = w(() => e.multiple ? e.modelValue.includes(e.value) : e.value === void 0 ? e.modelValue : e.modelValue == e.value), u = (n) => {
-      if (n.preventDefault(), n.stopPropagation(), e.multiple) {
-        let d = e.modelValue;
-        e.modelValue.includes(e.value) ? d.splice(d.indexOf(e.value), 1) : d.push(e.value), o("update:modelValue", d);
-      } else e.value === void 0 ? o("update:modelValue", !e.modelValue) : o("update:modelValue", e.value);
-    };
-    return (n, d) => (p(), v("div", {
-      class: f({ "toife-checkbox": !0, active: a.value }),
-      style: S(s.value),
-      onPointerup: u
-    }, [
-      $("div", {
-        class: f({ [`toife-checkbox-${n.type}`]: !0 })
-      }, [
-        n.type == "radio" ? (p(), v("div", ft)) : E("", !0),
-        n.type == "check" ? g(n.$slots, "icon", { key: 1 }, () => [
-          d[0] || (d[0] = $("i", { class: "ri-check-line" }, null, -1))
-        ], !0) : E("", !0)
-      ], 2),
-      g(n.$slots, "label", {}, () => [
-        n.label ? (p(), v("span", mt, R(e.label), 1)) : E("", !0)
-      ], !0)
-    ], 38));
+      }), d;
+    }), l = b(() => e.multiple ? e.modelValue.includes(e.value) : e.value === void 0 ? e.modelValue : e.modelValue == e.value), c = { props: e, emit: s, styles: n, isActive: l, onToggle: (d) => {
+      if (d.preventDefault(), d.stopPropagation(), e.multiple) {
+        let v = e.modelValue;
+        e.modelValue.includes(e.value) ? v.splice(v.indexOf(e.value), 1) : v.push(e.value), s("update:modelValue", v);
+      } else e.value === void 0 ? s("update:modelValue", !e.modelValue) : s("update:modelValue", e.value);
+    }, computed: b };
+    return Object.defineProperty(c, "__isScriptSetup", { enumerable: !1, value: !0 }), c;
   }
-}), yt = /* @__PURE__ */ b(vt, [["__scopeId", "data-v-9686b9ed"]]), _t = {
-  class: /* @__PURE__ */ f({ "toife-collapse-title": !0 })
-}, gt = {
+}), Pt = { key: 0 }, Tt = {
   key: 0,
-  class: "icon"
-}, bt = {
-  key: 1,
-  class: "icon"
-}, ht = {
-  class: /* @__PURE__ */ f({ "toife-collapse-content": !0 })
-}, kt = /* @__PURE__ */ h({
+  class: /* @__PURE__ */ p({ "toife-checkbox-label": !0 })
+};
+function It(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-checkbox": !0, active: e.isActive }),
+    style: w(e.styles),
+    onPointerup: e.onToggle
+  }, [
+    S("div", {
+      class: p({ [`toife-checkbox-${t.type}`]: !0 })
+    }, [
+      t.type == "radio" ? (i(), _("div", Pt)) : z("", !0),
+      t.type == "check" ? $(r.$slots, "icon", { key: 1 }, () => [
+        o[0] || (o[0] = S("i", { class: "ri-check-line" }, null, -1))
+      ], !0) : z("", !0)
+    ], 2),
+    $(r.$slots, "label", {}, () => [
+      t.label ? (i(), _("span", Tt, R(e.props.label), 1)) : z("", !0)
+    ], !0)
+  ], 38);
+}
+const Ot = /* @__PURE__ */ x(wt, [["render", It], ["__scopeId", "data-v-14345567"]]), Bt = /* @__PURE__ */ k({
   __name: "collapse",
   props: {
     title: {}
   },
   emits: ["change"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = y(!1), a = y(""), u = y(), n = () => {
-      s.value = !s.value, a.value = `calc(${u.value.offsetHeight}px + 2rem)`, o("change", s.value);
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = u(!1), l = u(""), a = u(), c = () => {
+      n.value = !n.value, l.value = `calc(${a.value.offsetHeight}px + 2rem)`, s("change", n.value);
     };
-    return o("change", s.value), (d, i) => (p(), v("div", {
-      class: f({ "toife-collapse": !0, open: s.value }),
-      style: S({ "--height": a.value })
-    }, [
-      $("div", {
-        class: f({ "toife-collapse-header": !0 }),
-        onPointerup: n
-      }, [
-        g(d.$slots, "icon"),
-        $("div", _t, [
-          g(d.$slots, "title", {}, () => [
-            ee(R(e.title), 1)
-          ])
-        ]),
-        g(d.$slots, "toggle", {}, () => [
-          s.value ? (p(), v("div", gt, [...i[0] || (i[0] = [
-            $("i", { class: "ri-arrow-up-s-line" }, null, -1)
-          ])])) : (p(), v("div", bt, [...i[1] || (i[1] = [
-            $("i", { class: "ri-arrow-down-s-line" }, null, -1)
-          ])]))
-        ])
-      ], 32),
-      $("div", ht, [
-        $("div", {
-          ref_key: "content",
-          ref: u
-        }, [
-          g(d.$slots, "content", {}, () => [
-            g(d.$slots, "default")
-          ])
-        ], 512)
-      ])
-    ], 6));
+    s("change", n.value);
+    const d = { props: e, emit: s, isOpen: n, height: l, content: a, onToggle: c, ref: u };
+    return Object.defineProperty(d, "__isScriptSetup", { enumerable: !1, value: !0 }), d;
   }
-}), $t = {}, xt = {
-  class: /* @__PURE__ */ f({ "toife-content": !0 })
+}), zt = {
+  class: /* @__PURE__ */ p({ "toife-collapse-title": !0 })
+}, Ct = {
+  key: 0,
+  class: "icon"
+}, Et = {
+  key: 1,
+  class: "icon"
+}, jt = {
+  class: /* @__PURE__ */ p({ "toife-collapse-content": !0 })
+}, Rt = { ref: "content" };
+function Vt(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-collapse": !0, open: e.isOpen }),
+    style: w({ "--height": e.height })
+  }, [
+    S("div", {
+      class: p({ "toife-collapse-header": !0 }),
+      onPointerup: e.onToggle
+    }, [
+      $(r.$slots, "icon"),
+      S("div", zt, [
+        $(r.$slots, "title", {}, () => [
+          ie(R(e.props.title), 1)
+        ])
+      ]),
+      $(r.$slots, "toggle", {}, () => [
+        e.isOpen ? (i(), _("div", Ct, [...o[0] || (o[0] = [
+          S("i", { class: "ri-arrow-up-s-line" }, null, -1)
+        ])])) : (i(), _("div", Et, [...o[1] || (o[1] = [
+          S("i", { class: "ri-arrow-down-s-line" }, null, -1)
+        ])]))
+      ])
+    ], 32),
+    S("div", jt, [
+      S("div", Rt, [
+        $(r.$slots, "content", {}, () => [
+          $(r.$slots, "default")
+        ])
+      ], 512)
+    ])
+  ], 6);
+}
+const At = /* @__PURE__ */ x(Bt, [["render", Vt]]), Dt = /* @__PURE__ */ k({
+  __name: "content",
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
+  }
+}), Nt = {
+  class: /* @__PURE__ */ p({ "toife-content": !0 })
 };
-function wt(r, t) {
-  return p(), v("div", xt, [
-    g(r.$slots, "default", {}, void 0, !0)
+function Xt(r, o, t, e, s, n) {
+  return i(), _("div", Nt, [
+    $(r.$slots, "default", {}, void 0, !0)
   ]);
 }
-const Tt = /* @__PURE__ */ b($t, [["render", wt], ["__scopeId", "data-v-2b50d668"]]), St = /* @__PURE__ */ h({
+const Wt = /* @__PURE__ */ x(Dt, [["render", Xt], ["__scopeId", "data-v-90d3a187"]]), qt = /* @__PURE__ */ k({
   __name: "divider",
   props: {
     direction: { default: "horizontal" }
   },
-  setup(r) {
-    const t = r;
-    return (e, o) => (p(), v("div", {
-      class: f({ "toife-divider": !0, [t.direction]: !0 })
-    }, null, 2));
+  setup(r, { expose: o }) {
+    o();
+    const e = { props: r };
+    return Object.defineProperty(e, "__isScriptSetup", { enumerable: !1, value: !0 }), e;
   }
-}), Bt = /* @__PURE__ */ b(St, [["__scopeId", "data-v-53f8aa07"]]), zt = /* @__PURE__ */ h({
+});
+function Mt(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-divider": !0, [e.props.direction]: !0 })
+  }, null, 2);
+}
+const Lt = /* @__PURE__ */ x(qt, [["render", Mt], ["__scopeId", "data-v-1fcdf04e"]]), Ft = /* @__PURE__ */ k({
   __name: "flex",
   props: {
     gap: { default: 0 },
     direction: { default: "row" }
   },
-  setup(r) {
-    const t = r, e = w(() => isNaN(t.gap) ? t.gap : `var(--t-size-${t.gap})`);
-    return (o, s) => (p(), v("div", {
-      class: f({ "toife-flex": !0 }),
-      style: S({ "--gap": e.value, "--direction": t.direction })
-    }, [
-      g(o.$slots, "default", {}, void 0, !0)
-    ], 4));
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => isNaN(t.gap) ? t.gap : `var(--t-size-${t.gap})`), s = { props: t, _gap: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), Pt = /* @__PURE__ */ b(zt, [["__scopeId", "data-v-1c5e20c0"]]), Et = /* @__PURE__ */ h({
+});
+function Ht(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-flex": !0 }),
+    style: w({ "--gap": e._gap, "--direction": e.props.direction })
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 4);
+}
+const Kt = /* @__PURE__ */ x(Ft, [["render", Ht], ["__scopeId", "data-v-a25bbd90"]]), Gt = /* @__PURE__ */ k({
   __name: "gesture-indicator",
   props: {
     placement: { default: "bottom" }
   },
-  setup(r) {
-    return (t, e) => (p(), v("div", {
-      class: f({ "toife-gesture-indicator": !0, [t.placement]: !0 })
-    }, null, 2));
+  setup(r, { expose: o }) {
+    o();
+    const e = { props: r };
+    return Object.defineProperty(e, "__isScriptSetup", { enumerable: !1, value: !0 }), e;
   }
-}), ge = /* @__PURE__ */ b(Et, [["__scopeId", "data-v-2bf3c59b"]]), It = /* @__PURE__ */ h({
+});
+function Ut(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-gesture-indicator": !0, [t.placement]: !0 })
+  }, null, 2);
+}
+const xe = /* @__PURE__ */ x(Gt, [["render", Ut], ["__scopeId", "data-v-65133446"]]), Jt = /* @__PURE__ */ k({
   __name: "grid",
   props: {
     gap: { default: 0 },
     template: { default: "repeat(1, 1fr) / repeat(1, 1fr)" }
   },
-  setup(r) {
-    const t = r, e = w(() => isNaN(t.gap) ? t.gap : `var(--t-size-${t.gap})`);
-    return (o, s) => (p(), v("div", {
-      class: f({ "toife-grid": !0 }),
-      style: S({ "--gap": e.value, "--template": t.template })
-    }, [
-      g(o.$slots, "default", {}, void 0, !0)
-    ], 4));
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => isNaN(t.gap) ? t.gap : `var(--t-size-${t.gap})`), s = { props: t, _gap: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), Vt = /* @__PURE__ */ b(It, [["__scopeId", "data-v-83472d05"]]), Ct = ["src"], Rt = /* @__PURE__ */ h({
+});
+function Qt(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-grid": !0 }),
+    style: w({ "--gap": e._gap, "--template": e.props.template })
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 4);
+}
+const Zt = /* @__PURE__ */ x(Jt, [["render", Qt], ["__scopeId", "data-v-72c2df27"]]), Yt = /* @__PURE__ */ k({
   __name: "image",
   props: {
     defaultSrc: {},
     src: {}
   },
-  setup(r) {
-    const t = y(""), e = () => {
+  setup(r, { expose: o }) {
+    o();
+    const t = u(""), e = () => {
       r.defaultSrc && (t.value = r.defaultSrc);
     };
-    return q(() => {
+    V(() => {
       t.value = r.src;
-    }), (o, s) => (p(), v("img", {
-      onError: e,
-      src: t.value
-    }, null, 40, Ct));
+    });
+    const s = { _src: t, handleError: e, onMounted: V, ref: u };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), Ot = {
-  class: /* @__PURE__ */ f({ "toife-input-label": !0 })
-}, At = {
-  class: /* @__PURE__ */ f({ "toife-input-content": !0 })
-}, Dt = ["placeholder", "value", "type", "readonly"], Xt = {
-  key: 0,
-  color: "danger"
-}, Nt = {
-  key: 1,
-  color: "secondary"
-}, Wt = /* @__PURE__ */ h({
+}), er = ["src"];
+function tr(r, o, t, e, s, n) {
+  return i(), _("img", {
+    onError: e.handleError,
+    src: e._src
+  }, null, 40, er);
+}
+const rr = /* @__PURE__ */ x(Yt, [["render", tr], ["__scopeId", "data-v-0eed0f1f"]]), or = /* @__PURE__ */ k({
+  __name: "text",
+  props: {
+    color: { default: "var(--t-color-text)" },
+    size: { default: "standard" }
+  },
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => {
+      let n, l = t.color;
+      return t.size == "standard" ? n = "var(--t-fs-10)" : t.size == "small" ? n = "var(--t-fs-08)" : t.size == "large" ? n = "var(--t-fs-12)" : n = t.size, ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) && (l = `var(--t-color-status-${t.color})`), {
+        "--color": l,
+        "--font-size": n
+      };
+    }), s = { props: t, styles: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
+  }
+});
+function nr(r, o, t, e, s, n) {
+  return i(), _("span", {
+    class: p({ "toife-text": !0 }),
+    style: w(e.styles)
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 4);
+}
+const $e = /* @__PURE__ */ x(or, [["render", nr], ["__scopeId", "data-v-cd7f9609"]]), sr = /* @__PURE__ */ k({
   __name: "input",
   props: {
     size: { default: "standard" },
@@ -876,109 +1031,141 @@ const Tt = /* @__PURE__ */ b($t, [["render", wt], ["__scopeId", "data-v-2b50d668
     readonly: { type: Boolean, default: !1 }
   },
   emits: ["update:modelValue"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = y(!1), a = y(null), u = w(
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = u(!1), l = u(null), a = b(
       () => !(e.modelValue === "" || e.modelValue == null)
-    ), n = (m) => {
-      o("update:modelValue", m.target.value);
-    }, d = async (m) => {
-      s.value = !0;
-    }, i = () => {
-      s.value = !1;
-    };
-    return (m, l) => (p(), v("div", {
-      class: f({
-        "toife-input": !0,
-        rounded: m.rounded,
-        ["size-" + m.size]: !0,
-        ["variant-" + m.variant]: !0,
-        focus: s.value,
-        "has-value": u.value,
-        readonly: m.readonly
-      })
-    }, [
-      $("label", null, [
-        $("span", Ot, R(m.label), 1),
-        $("div", At, [
-          g(m.$slots, "start", {}, void 0, !0),
-          $("input", {
-            ref_key: "editable",
-            ref: a,
-            class: f({ "toife-input-editable": !0 }),
-            placeholder: m.placeholder,
-            value: m.modelValue,
-            type: m.type,
-            onInput: n,
-            onFocus: d,
-            onBlur: i,
-            readonly: m.readonly
-          }, null, 40, Dt),
-          g(m.$slots, "end", {}, void 0, !0)
-        ])
-      ]),
-      m.error ? (p(), v("text", Xt, R(m.error), 1)) : m.help ? (p(), v("text", Nt, R(m.help), 1)) : E("", !0)
-    ], 2));
+    ), g = { props: e, emit: s, isFocus: n, editable: l, hasValue: a, onInput: (y) => {
+      s("update:modelValue", y.target.value);
+    }, focus: async (y) => {
+      n.value = !0;
+    }, blur: () => {
+      n.value = !1;
+    }, ref: u, computed: b, get Text() {
+      return $e;
+    } };
+    return Object.defineProperty(g, "__isScriptSetup", { enumerable: !1, value: !0 }), g;
   }
-}), Mt = /* @__PURE__ */ b(Wt, [["__scopeId", "data-v-09588426"]]), qt = {
-  class: /* @__PURE__ */ f({ "toife-loading": !0 })
-}, Lt = /* @__PURE__ */ h({
+}), ar = {
+  class: /* @__PURE__ */ p({ "toife-input-label": !0 })
+}, lr = {
+  class: /* @__PURE__ */ p({ "toife-input-content": !0 })
+}, cr = ["placeholder", "value", "type", "readonly"], ir = {
+  key: 0,
+  color: "danger"
+}, ur = {
+  key: 1,
+  color: "secondary"
+};
+function dr(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({
+      "toife-input": !0,
+      rounded: t.rounded,
+      ["size-" + t.size]: !0,
+      ["variant-" + t.variant]: !0,
+      focus: e.isFocus,
+      "has-value": e.hasValue,
+      readonly: t.readonly
+    })
+  }, [
+    S("label", null, [
+      S("span", ar, R(t.label), 1),
+      S("div", lr, [
+        $(r.$slots, "start", {}, void 0, !0),
+        S("input", {
+          ref: "editable",
+          class: p({ "toife-input-editable": !0 }),
+          placeholder: t.placeholder,
+          value: t.modelValue,
+          type: t.type,
+          onInput: e.onInput,
+          onFocus: e.focus,
+          onBlur: e.blur,
+          readonly: t.readonly
+        }, null, 40, cr),
+        $(r.$slots, "end", {}, void 0, !0)
+      ])
+    ]),
+    t.error ? (i(), _("text", ir, R(t.error), 1)) : t.help ? (i(), _("text", ur, R(t.help), 1)) : z("", !0)
+  ], 2);
+}
+const pr = /* @__PURE__ */ x(sr, [["render", dr], ["__scopeId", "data-v-f7768bea"]]), fr = /* @__PURE__ */ k({
   __name: "loading",
   props: {
     type: { default: "spinner" }
   },
   emits: ["dismiss"],
-  setup(r, { expose: t, emit: e }) {
-    const o = y(!1);
-    return t({
-      open: () => {
-        o.value = !0;
-      },
-      close: () => {
-        o.value = !1;
-      }
-    }), (u, n) => (p(), O(B(U), {
-      placement: "center",
-      backdrop: !0,
-      keepalive: !1,
-      visible: o.value
-    }, {
-      default: N(() => [
-        $("div", qt, [
-          g(u.$slots, "default", {}, () => [
-            u.type === "spinner" ? (p(), O(B(re), { key: 0 })) : E("", !0)
-          ], !0)
-        ])
-      ]),
-      _: 3
-    }, 8, ["visible"]));
+  setup(r, { expose: o, emit: t }) {
+    const e = r, s = u(!1), n = t;
+    let l;
+    const a = () => {
+      s.value = !0;
+    }, c = () => {
+      s.value = !1;
+    };
+    o({
+      open: a,
+      close: c
+    });
+    const d = { props: e, visible: s, emit: n, get ges() {
+      return l;
+    }, set ges(v) {
+      l = v;
+    }, open: a, close: c, get Present() {
+      return H;
+    }, get IconSpinner() {
+      return ue;
+    }, ref: u };
+    return Object.defineProperty(d, "__isScriptSetup", { enumerable: !1, value: !0 }), d;
   }
-}), be = /* @__PURE__ */ b(Lt, [["__scopeId", "data-v-ac73fa86"]]), So = (r = {}, t) => {
-  const e = y(), o = document.body.querySelector(".toife-app");
-  let s = null, a = null;
+}), mr = {
+  class: /* @__PURE__ */ p({ "toife-loading": !0 })
+};
+function _r(r, o, t, e, s, n) {
+  return i(), A(e.Present, {
+    placement: "center",
+    backdrop: !0,
+    keepalive: !1,
+    visible: e.visible
+  }, {
+    default: X(() => [
+      S("div", mr, [
+        $(r.$slots, "default", {}, () => [
+          t.type === "spinner" ? (i(), A(e.IconSpinner, { key: 0 })) : z("", !0)
+        ], !0)
+      ])
+    ]),
+    _: 3
+  }, 8, ["visible"]);
+}
+const Se = /* @__PURE__ */ x(fr, [["render", _r], ["__scopeId", "data-v-188d5e1b"]]), so = (r = {}, o) => {
+  const t = u(), e = document.body.querySelector(".toife-app");
+  let s = null, n = null;
   return {
     open() {
-      return new Promise((u) => {
-        o && (a = document.createElement("div"), o.appendChild(a), s = F({
+      return new Promise((l) => {
+        e && (n = document.createElement("div"), e.appendChild(n), s = te({
           render() {
-            return K(t || be, {
+            return re(o || Se, {
               ...r,
-              ref: e
+              ref: t
             });
           }
-        }), s.mount(a), setTimeout(() => {
-          e.value?.open?.(), u(!0);
+        }), s.mount(n), setTimeout(() => {
+          t.value?.open?.(), l(!0);
         }, 50));
       });
     },
     close() {
-      return new Promise((u) => {
-        e.value?.close?.(), setTimeout(() => {
-          s?.unmount?.(), a?.remove?.(), u(!0);
+      return new Promise((l) => {
+        t.value?.close?.(), setTimeout(() => {
+          s?.unmount?.(), n?.remove?.(), l(!0);
         }, 300);
       });
     }
   };
-}, Ht = /* @__PURE__ */ h({
+}, vr = /* @__PURE__ */ k({
   __name: "refresher",
   props: {
     threshold: { default: 120 },
@@ -986,88 +1173,116 @@ const Tt = /* @__PURE__ */ b($t, [["render", wt], ["__scopeId", "data-v-2b50d668
     variant: { default: "max" }
   },
   emits: ["refresh", "move", "cancel", "start"],
-  setup(r, { emit: t }) {
-    const e = t, o = r, s = y(0), a = y(!1), u = y();
-    let n, d = !1;
-    const i = () => {
-      a.value = !1, s.value = 0, d = !1;
-    }, m = () => {
-      d = !0, a.value = !0, s.value = o.threshold, e("refresh", i);
-    }, l = () => {
-      s.value = 0, a.value = !1, d = !1, e("cancel");
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = t, s = r, n = u(0), l = u(!1), a = u();
+    let c, d = !1;
+    const v = () => {
+      l.value = !1, n.value = 0, d = !1;
+    }, g = () => {
+      d = !0, l.value = !0, n.value = s.threshold, e("refresh", v);
+    }, y = () => {
+      n.value = 0, l.value = !1, d = !1, e("cancel");
     };
-    return X(() => u.value, () => {
-      n && n.destroy();
-      let _ = u.value.closest(".toife-content");
-      _ && (n = oe(_, {
+    C(() => a.value, () => {
+      c && c.destroy();
+      let h = a.value.closest(".toife-content");
+      h && (c = L(h, {
         options: {
           minMove: 20
         },
         beforeEvent() {
-          return !(_.scrollTop > 0);
+          return !(h.scrollTop > 0);
         },
         down() {
-          a.value || d || e("start");
+          l.value || d || e("start");
         },
-        move({ deltaY: c, initialDirection: T }) {
-          if (a.value || d || T != "down") return;
-          if (o.variant == "max" && c >= o.threshold) {
-            m();
+        move({ deltaY: f, initialDirection: I }) {
+          if (l.value || d || I != "down") return;
+          if (s.variant == "max" && f >= s.threshold) {
+            g();
             return;
           }
-          const x = c < 0 ? 0 : c;
-          s.value = x, e("move", x);
+          const P = f < 0 ? 0 : f;
+          n.value = P, e("move", P);
         },
-        up({ deltaY: c, initialDirection: T }) {
-          a.value || d || T != "down" || (o.variant == "up" && c >= o.threshold ? m() : l());
+        up({ deltaY: f, initialDirection: I }) {
+          l.value || d || I != "down" || (s.variant == "up" && f >= s.threshold ? g() : y());
         },
         cancel() {
-          a.value || d || l();
+          l.value || d || y();
         }
       }, {
         passive: !1
       }));
-    }), te(() => {
-      n && n.destroy();
-    }), (_, c) => L((p(), v("div", {
-      class: f({ "toife-refresher": !0, safe: _.safe }),
-      ref_key: "container",
-      ref: u
-    }, [
-      g(_.$slots, "default", {
-        offset: s.value,
-        refreshing: a.value
-      }, void 0, !0)
-    ], 2)), [
-      [H, s.value > 0]
-    ]);
+    }), M(() => {
+      c && c.destroy();
+    });
+    const m = { emit: e, props: s, offset: n, refreshing: l, container: a, get cleanup() {
+      return c;
+    }, set cleanup(h) {
+      c = h;
+    }, get locked() {
+      return d;
+    }, set locked(h) {
+      d = h;
+    }, close: v, start: g, cancel: y, ref: u, onUnmounted: M, watch: C, get gesture() {
+      return L;
+    } };
+    return Object.defineProperty(m, "__isScriptSetup", { enumerable: !1, value: !0 }), m;
   }
-}), jt = /* @__PURE__ */ b(Ht, [["__scopeId", "data-v-5e42600b"]]), Ft = {};
-function Kt(r, t) {
-  return p(), v("div");
+});
+function yr(r, o, t, e, s, n) {
+  return K((i(), _("div", {
+    class: p({ "toife-refresher": !0, safe: t.safe }),
+    ref: "container"
+  }, [
+    $(r.$slots, "default", {
+      offset: e.offset,
+      refreshing: e.refreshing
+    }, void 0, !0)
+  ], 2)), [
+    [G, e.offset > 0]
+  ]);
 }
-const Ut = /* @__PURE__ */ b(Ft, [["render", Kt]]), Gt = /* @__PURE__ */ h({
+const br = /* @__PURE__ */ x(vr, [["render", yr], ["__scopeId", "data-v-69af4f52"]]), gr = /* @__PURE__ */ k({
+  __name: "richtext",
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
+  }
+});
+function hr(r, o, t, e, s, n) {
+  return i(), _("div");
+}
+const kr = /* @__PURE__ */ x(gr, [["render", hr], ["__scopeId", "data-v-90f4e19d"]]), xr = /* @__PURE__ */ k({
   __name: "ripple",
   props: {
     color: { default: "primary" }
   },
-  setup(r) {
-    const t = r, e = w(() => {
-      let o = {};
-      return t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? o = {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => {
+      let n = {};
+      return t.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) ? n = {
         "--color": "var(--t-color-status-" + t.color + ")"
-      } : o = {
+      } : n = {
         "--color": t.color
-      } : o = {
+      } : n = {
         "--color": "var(--t-color-surface)"
-      }, o;
-    });
-    return (o, s) => (p(), v("div", {
-      class: f({ "toife-ripple": !0 }),
-      style: S(e.value)
-    }, null, 4));
+      }, n;
+    }), s = { props: t, styles: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), Jt = /* @__PURE__ */ b(Gt, [["__scopeId", "data-v-bc943069"]]), Qt = /* @__PURE__ */ h({
+});
+function $r(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-ripple": !0 }),
+    style: w(e.styles)
+  }, null, 4);
+}
+const Sr = /* @__PURE__ */ x(xr, [["render", $r], ["__scopeId", "data-v-48ab3caf"]]), wr = /* @__PURE__ */ k({
   __name: "sheet",
   props: {
     background: { default: "var(--t-color-surface)" },
@@ -1085,89 +1300,104 @@ const Ut = /* @__PURE__ */ b(Ft, [["render", Kt]]), Gt = /* @__PURE__ */ h({
     style: {}
   },
   emits: ["dismiss"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = y(), a = y(), u = y(!1);
-    let n = null;
-    const d = w(() => {
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = u(), l = u(), a = u(!1);
+    let c = null;
+    const d = b(() => {
       if (e.placement == "bottom") return "down";
       if (e.placement == "top") return "up";
       if (e.placement == "left") return "left";
       if (e.placement == "right") return "right";
-    }), i = (l) => {
-      o("dismiss", l);
-    }, m = () => {
-      u.value = !0, setTimeout(() => {
-        u.value = !1;
+    }), v = (m) => {
+      s("dismiss", m);
+    }, g = () => {
+      a.value = !0, setTimeout(() => {
+        a.value = !1;
       }, 300);
     };
-    return X(() => s.value, (l) => {
-      l && (n = oe(s.value, {
+    C(() => n.value, (m) => {
+      m && (c = L(n.value, {
         isMoving: !1,
         options: {
           minDist: 30
         },
-        beforeEvent(_) {
-          return !(u.value || !e.gesture || e.placement == "center");
+        beforeEvent(h) {
+          return !(a.value || !e.gesture || e.placement == "center");
         },
         down() {
           this.isMoving = !1;
         },
-        fast({ initialDirection: _ }) {
-          m(), _ == d.value ? o("dismiss", "gesture") : a.value.open();
+        fast({ initialDirection: h }) {
+          g(), h == d.value ? s("dismiss", "gesture") : l.value.open();
         },
-        move({ deltaY: _, deltaX: c, initialDirection: T }) {
-          if (T != d.value) return;
-          let x = 0;
-          e.placement == "bottom" || e.placement == "top" ? x = _ : x = c, e.placement == "bottom" && (x = _ > 0 ? _ : 0), e.placement == "top" && (x = _ < 0 ? _ : 0), e.placement == "left" && (x = c < 0 ? c : 0), e.placement == "right" && (x = c > 0 ? c : 0), (e.placement == "bottom" && (x >= 10 || this.isMoving) || e.placement == "top" && (x <= -10 || this.isMoving) || e.placement == "left" && (x <= -10 || this.isMoving) || e.placement == "right" && (x >= 10 || this.isMoving)) && (this.isMoving = !0, a.value.render({
-            contentTransform: x + "px",
+        move({ deltaY: h, deltaX: f, initialDirection: I }) {
+          if (I != d.value) return;
+          let P = 0;
+          e.placement == "bottom" || e.placement == "top" ? P = h : P = f, e.placement == "bottom" && (P = h > 0 ? h : 0), e.placement == "top" && (P = h < 0 ? h : 0), e.placement == "left" && (P = f < 0 ? f : 0), e.placement == "right" && (P = f > 0 ? f : 0), (e.placement == "bottom" && (P >= 10 || this.isMoving) || e.placement == "top" && (P <= -10 || this.isMoving) || e.placement == "left" && (P <= -10 || this.isMoving) || e.placement == "right" && (P >= 10 || this.isMoving)) && (this.isMoving = !0, l.value.render({
+            contentTransform: P + "px",
             transition: "0s"
           }));
         },
-        up({ deltaY: _, deltaX: c, initialDirection: T }) {
-          if (this.isMoving = !1, m(), T != d.value) {
-            a.value.open();
+        up({ deltaY: h, deltaX: f, initialDirection: I }) {
+          if (this.isMoving = !1, g(), I != d.value) {
+            l.value.open();
             return;
           }
-          let x, V, k;
-          e.placement == "bottom" || e.placement == "top" ? (x = s.value.offsetHeight, k = _) : (x = s.value.offsetWidth, k = c), V = k / x * 100, V > 50 ? o("dismiss", "gesture") : a.value.open();
+          let P, T, W;
+          e.placement == "bottom" || e.placement == "top" ? (P = n.value.offsetHeight, W = h) : (P = n.value.offsetWidth, W = f), T = W / P * 100, T > 50 ? s("dismiss", "gesture") : l.value.open();
         },
         cancel() {
-          this.isMoving = !1, m(), a.value.open();
+          this.isMoving = !1, g(), l.value.open();
         }
       }));
-    }), te(() => {
-      n && n.destroy();
-    }), (l, _) => (p(), O(B(a), {
-      ref_key: "present",
-      ref: a,
-      duration: e.duration,
-      bounce: e.bounce,
-      class: f(e.class),
-      placement: e.placement,
-      backdrop: l.backdrop,
-      visible: e.visible,
-      keepalive: e.keepalive,
-      onDismiss: i,
-      style: S(e.style)
-    }, {
-      default: N(() => [
-        e.gesture && e.indicator && e.placement != "center" ? (p(), O(B(ge), {
-          key: 0,
-          placement: e.placement
-        }, null, 8, ["placement"])) : E("", !0),
-        $("div", {
-          ref_key: "sheet",
-          ref: s,
-          class: f({ "toife-sheet": !0, fullscreen: e.fullscreen, [e.placement]: !0, rounded: l.rounded }),
-          style: S({ "--background": e.background })
-        }, [
-          g(l.$slots, "default", {}, void 0, !0)
-        ], 6)
-      ]),
-      _: 3
-    }, 8, ["duration", "bounce", "class", "placement", "backdrop", "visible", "keepalive", "style"]));
+    }), M(() => {
+      c && c.destroy();
+    });
+    const y = { props: e, emit: s, sheet: n, present: l, isBusy: a, get ges() {
+      return c;
+    }, set ges(m) {
+      c = m;
+    }, gestureDir: d, close: v, busy: g, computed: b, onUnmounted: M, ref: u, watch: C, get gesture() {
+      return L;
+    }, get Present() {
+      return H;
+    }, get GestureIndicator() {
+      return xe;
+    } };
+    return Object.defineProperty(y, "__isScriptSetup", { enumerable: !1, value: !0 }), y;
   }
-}), Zt = /* @__PURE__ */ b(Qt, [["__scopeId", "data-v-55a9e475"]]), Yt = /* @__PURE__ */ h({
+});
+function Pr(r, o, t, e, s, n) {
+  return i(), A(e.present, {
+    ref: "present",
+    duration: e.props.duration,
+    bounce: e.props.bounce,
+    class: p(e.props.class),
+    placement: e.props.placement,
+    backdrop: t.backdrop,
+    visible: e.props.visible,
+    keepalive: e.props.keepalive,
+    onDismiss: e.close,
+    style: w(e.props.style)
+  }, {
+    default: X(() => [
+      e.props.gesture && e.props.indicator && e.props.placement != "center" ? (i(), A(e.GestureIndicator, {
+        key: 0,
+        placement: e.props.placement
+      }, null, 8, ["placement"])) : z("", !0),
+      S("div", {
+        ref: "sheet",
+        class: p({ "toife-sheet": !0, fullscreen: e.props.fullscreen, [e.props.placement]: !0, rounded: t.rounded }),
+        style: w({ "--background": e.props.background })
+      }, [
+        $(r.$slots, "default", {}, void 0, !0)
+      ], 6)
+    ]),
+    _: 3
+  }, 8, ["duration", "bounce", "class", "placement", "backdrop", "visible", "keepalive", "style"]);
+}
+const Tr = /* @__PURE__ */ x(wr, [["render", Pr], ["__scopeId", "data-v-3c6159e0"]]), Ir = /* @__PURE__ */ k({
   __name: "skeleton",
   props: {
     width: { default: "100%" },
@@ -1175,74 +1405,91 @@ const Ut = /* @__PURE__ */ b(Ft, [["render", Kt]]), Gt = /* @__PURE__ */ h({
     radius: { default: "8px" },
     color: { default: null }
   },
-  setup(r) {
-    const t = r, e = w(() => ({
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = b(() => ({
       "--width": t.width,
       "--height": t.height,
       "--radius": t.radius
-    }));
-    return (o, s) => (p(), v("div", {
-      class: f({ "toife-skeleton": !0 }),
-      style: S(e.value)
-    }, null, 4));
+    })), s = { props: t, styles: e, computed: b };
+    return Object.defineProperty(s, "__isScriptSetup", { enumerable: !1, value: !0 }), s;
   }
-}), eo = /* @__PURE__ */ b(Yt, [["__scopeId", "data-v-c1d4cbb8"]]), to = /* @__PURE__ */ h({
+});
+function Or(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-skeleton": !0 }),
+    style: w(e.styles)
+  }, null, 4);
+}
+const Br = /* @__PURE__ */ x(Ir, [["render", Or], ["__scopeId", "data-v-08e291f4"]]), zr = /* @__PURE__ */ k({
   __name: "switch",
   props: {
     modelValue: { type: Boolean },
     color: { default: "primary" }
   },
   emits: ["update:modelValue"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = () => {
-      o("update:modelValue", !e.modelValue);
-    }, a = w(() => {
-      let u = {
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = () => {
+      s("update:modelValue", !e.modelValue);
+    }, l = b(() => {
+      let c = {
         "--background": e.color,
         "--color": "#ffffff"
       };
-      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (u = {
+      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (c = {
         "--background": `var(--t-color-status-${e.color})`,
         "--color": `var(--t-color-status-${e.color}-text)`
-      }), u;
-    });
-    return (u, n) => (p(), v("div", {
-      class: f({ "toife-switch": !0, on: e.modelValue }),
-      style: S(a.value),
-      onPointerup: s
-    }, [...n[0] || (n[0] = [
-      $("div", {
-        class: f({ "toife-switch-icon": !0 })
-      }, null, -1)
-    ])], 38));
+      }), c;
+    }), a = { props: e, emit: s, onSwitch: n, styles: l, computed: b };
+    return Object.defineProperty(a, "__isScriptSetup", { enumerable: !1, value: !0 }), a;
   }
-}), oo = /* @__PURE__ */ b(to, [["__scopeId", "data-v-179eb5a5"]]), ro = /* @__PURE__ */ h({
+});
+function Cr(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-switch": !0, on: e.props.modelValue }),
+    style: w(e.styles),
+    onPointerup: e.onSwitch
+  }, [...o[0] || (o[0] = [
+    S("div", {
+      class: p({ "toife-switch-icon": !0 })
+    }, null, -1)
+  ])], 38);
+}
+const Er = /* @__PURE__ */ x(zr, [["render", Cr], ["__scopeId", "data-v-4d1f50af"]]), jr = /* @__PURE__ */ k({
   __name: "tab",
   props: {
     value: {},
     disabled: { type: Boolean, default: !1 }
   },
-  setup(r) {
-    const t = r, e = ue("tabsState"), o = w(() => e.activeValue.value === t.value), s = () => {
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = Q("tabsState"), s = b(() => e.activeValue.value === t.value), l = { props: t, tabs: e, isActive: s, handleClick: () => {
       t.disabled || e.setValue(t.value);
-    };
-    return (a, u) => (p(), v("li", {
-      class: f({ "toife-tab": !0, active: o.value })
-    }, [
-      ce(B(G), {
-        variant: "text",
-        onPointerup: s,
-        size: B(e).size,
-        color: o.value ? B(e).color.text : void 0
-      }, {
-        default: N(() => [
-          g(a.$slots, "default", {}, void 0, !0)
-        ]),
-        _: 3
-      }, 8, ["size", "color"])
-    ], 2));
+    }, inject: Q, computed: b, get TButton() {
+      return oe;
+    } };
+    return Object.defineProperty(l, "__isScriptSetup", { enumerable: !1, value: !0 }), l;
   }
-}), so = /* @__PURE__ */ b(ro, [["__scopeId", "data-v-81f2788b"]]), no = /* @__PURE__ */ h({
+});
+function Rr(r, o, t, e, s, n) {
+  return i(), _("li", {
+    class: p({ "toife-tab": !0, active: e.isActive })
+  }, [
+    ye(e.TButton, {
+      variant: "text",
+      onPointerup: e.handleClick,
+      size: e.tabs.size,
+      color: e.isActive ? e.tabs.color.text : void 0
+    }, {
+      default: X(() => [
+        $(r.$slots, "default", {}, void 0, !0)
+      ]),
+      _: 3
+    }, 8, ["size", "color"])
+  ], 2);
+}
+const Vr = /* @__PURE__ */ x(jr, [["render", Rr], ["__scopeId", "data-v-1747b1ef"]]), Ar = /* @__PURE__ */ k({
   __name: "tabs",
   props: {
     placement: { default: "top-start" },
@@ -1255,101 +1502,91 @@ const Ut = /* @__PURE__ */ b(Ft, [["render", Kt]]), Gt = /* @__PURE__ */ h({
     radius: { default: 4 }
   },
   emits: ["update:modelValue"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = y("0px"), a = y(0), u = y(0), n = y(), d = w(() => {
-      let l = "", _ = "";
-      return e.variant == "text" && (l = "transparent", ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? _ = `var(--t-color-status-${e.color})` : _ = e.color), e.variant == "border-under" && (_ = "currentColor", ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? l = `var(--t-color-status-${e.color})` : l = e.color), e.variant == "tag" && (["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? (l = `var(--t-color-status-${e.color})`, _ = `var(--t-color-status-${e.color}-text)`) : (l = e.color, _ = "currentColor")), { background: l, text: _ };
-    }), i = w(() => e.variant == "border-under" ? {
-      "--transform": s.value,
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = u("0px"), l = u(0), a = u(0), c = u(), d = b(() => {
+      let m = "", h = "";
+      return e.variant == "text" && (m = "transparent", ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? h = `var(--t-color-status-${e.color})` : h = e.color), e.variant == "border-under" && (h = "currentColor", ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? m = `var(--t-color-status-${e.color})` : m = e.color), e.variant == "tag" && (["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? (m = `var(--t-color-status-${e.color})`, h = `var(--t-color-status-${e.color}-text)`) : (m = e.color, h = "currentColor")), { background: m, text: h };
+    }), v = b(() => e.variant == "border-under" ? {
+      "--transform": n.value,
       "--border": e.border + "px"
     } : e.variant == "tag" ? {
       "--top": e.margin[0] + "px",
-      "--height": u.value - e.margin[0] * 2 + "px",
+      "--height": a.value - e.margin[0] * 2 + "px",
       "--left": e.margin[1] + "px",
-      "--width": a.value - e.margin[1] * 2 + "px",
-      "--transform": s.value,
+      "--width": l.value - e.margin[1] * 2 + "px",
+      "--transform": n.value,
       "--radius": e.radius + "px"
-    } : {}), m = () => {
+    } : {}), g = () => {
       if (e.variant == "border-under") {
-        let l = n.value.querySelector(".active");
-        if (l) {
+        let m = c.value.querySelector(".active");
+        if (m) {
           if (e.placement.startsWith("top-") || e.placement.startsWith("bottom-")) {
-            let _ = l.getBoundingClientRect().left - n.value.getBoundingClientRect().left + n.value.scrollLeft, c = l.offsetWidth / 2;
-            s.value = _ + c - e.border / 2 + "px";
+            let h = m.getBoundingClientRect().left - c.value.getBoundingClientRect().left + c.value.scrollLeft, f = m.offsetWidth / 2;
+            n.value = h + f - e.border / 2 + "px";
           } else if (e.placement.startsWith("left-") || e.placement.startsWith("right-")) {
-            let _ = l.getBoundingClientRect().top - n.value.getBoundingClientRect().top + n.value.scrollTop, c = l.offsetHeight / 2;
-            s.value = _ + c - e.border / 2 + "px";
+            let h = m.getBoundingClientRect().top - c.value.getBoundingClientRect().top + c.value.scrollTop, f = m.offsetHeight / 2;
+            n.value = h + f - e.border / 2 + "px";
           }
         }
       }
       if (e.variant == "tag") {
-        let l = n.value.querySelector(".active");
-        if (l) {
-          let _ = l.offsetWidth, c = l.offsetHeight;
+        let m = c.value.querySelector(".active");
+        if (m) {
+          let h = m.offsetWidth, f = m.offsetHeight;
           if (e.placement.startsWith("top-") || e.placement.startsWith("bottom-")) {
-            let T = l.getBoundingClientRect().left - n.value.getBoundingClientRect().left + n.value.scrollLeft;
-            s.value = T + "px";
+            let I = m.getBoundingClientRect().left - c.value.getBoundingClientRect().left + c.value.scrollLeft;
+            n.value = I + "px";
           } else if (e.placement.startsWith("left-") || e.placement.startsWith("right-")) {
-            let T = l.getBoundingClientRect().top - n.value.getBoundingClientRect().top + n.value.scrollTop;
-            s.value = T + "px";
+            let I = m.getBoundingClientRect().top - c.value.getBoundingClientRect().top + c.value.scrollTop;
+            n.value = I + "px";
           }
-          a.value = _, u.value = c;
+          l.value = h, a.value = f;
         }
       }
     };
-    return ie("tabsState", {
-      activeValue: w(() => e.modelValue),
+    J("tabsState", {
+      activeValue: b(() => e.modelValue),
       color: d.value,
       size: e.size,
       variant: e.variant,
-      setValue: (l) => {
-        o("update:modelValue", l);
+      setValue: (m) => {
+        s("update:modelValue", m);
       }
-    }), X(() => e.modelValue, async () => {
-      await ne(), m();
-    }), q(async () => {
-      await ne(), m();
-    }), (l, _) => (p(), v("ul", {
-      ref_key: "container",
-      ref: n,
-      class: f({ "toife-tabs": !0, [l.placement]: !0, [`variant-${l.variant}`]: !0 }),
-      style: S([{ "--background": d.value.background, "--color": d.value.text }, i.value])
-    }, [
-      g(l.$slots, "default", {}, void 0, !0)
-    ], 6));
-  }
-}), ao = /* @__PURE__ */ b(no, [["__scopeId", "data-v-1df2614f"]]), lo = /* @__PURE__ */ h({
-  __name: "text",
-  props: {
-    color: { default: "var(--t-color-text)" },
-    size: { default: "standard" }
-  },
-  setup(r) {
-    const t = r, e = w(() => {
-      let o, s = t.color;
-      return t.size == "standard" ? o = "var(--t-fs-10)" : t.size == "small" ? o = "var(--t-fs-08)" : t.size == "large" ? o = "var(--t-fs-12)" : o = t.size, ["warning", "info", "danger", "primary", "secondary", "success"].includes(t.color) && (s = `var(--t-color-status-${t.color})`), {
-        "--color": s,
-        "--font-size": o
-      };
+    }), C(() => e.modelValue, async () => {
+      await le(), g();
+    }), V(async () => {
+      await le(), g();
     });
-    return (o, s) => (p(), v("span", {
-      class: f({ "toife-text": !0 }),
-      style: S(e.value)
-    }, [
-      g(o.$slots, "default", {}, void 0, !0)
-    ], 4));
+    const y = { props: e, emit: s, transform: n, width: l, height: a, container: c, __color: d, styles: v, calcTransform: g, nextTick: le, onMounted: V, provide: J, ref: u, watch: C, computed: b };
+    return Object.defineProperty(y, "__isScriptSetup", { enumerable: !1, value: !0 }), y;
   }
-}), co = /* @__PURE__ */ b(lo, [["__scopeId", "data-v-b5b57893"]]), io = {}, uo = {
-  class: /* @__PURE__ */ f({ "toife-textarea": !0 })
+});
+function Dr(r, o, t, e, s, n) {
+  return i(), _("ul", {
+    ref: "container",
+    class: p({ "toife-tabs": !0, [t.placement]: !0, [`variant-${t.variant}`]: !0 }),
+    style: w([{ "--background": e.__color.background, "--color": e.__color.text }, e.styles])
+  }, [
+    $(r.$slots, "default", {}, void 0, !0)
+  ], 6);
+}
+const Nr = /* @__PURE__ */ x(Ar, [["render", Dr], ["__scopeId", "data-v-665bdcad"]]), Xr = /* @__PURE__ */ k({
+  __name: "textarea",
+  setup(r, { expose: o }) {
+    o();
+    const t = {};
+    return Object.defineProperty(t, "__isScriptSetup", { enumerable: !1, value: !0 }), t;
+  }
+}), Wr = {
+  class: /* @__PURE__ */ p({ "toife-textarea": !0 })
 };
-function po(r, t) {
-  return p(), v("div", uo, [...t[0] || (t[0] = [
-    $("textarea", null, null, -1)
+function qr(r, o, t, e, s, n) {
+  return i(), _("div", Wr, [...o[0] || (o[0] = [
+    S("textarea", null, null, -1)
   ])]);
 }
-const fo = /* @__PURE__ */ b(io, [["render", po]]), mo = {
-  class: /* @__PURE__ */ f({ "toife-toast-content": !0 })
-}, vo = /* @__PURE__ */ h({
+const Mr = /* @__PURE__ */ x(Xr, [["render", qr], ["__scopeId", "data-v-9e74bf55"]]), Lr = /* @__PURE__ */ k({
   __name: "toast",
   props: {
     message: {},
@@ -1360,215 +1597,232 @@ const fo = /* @__PURE__ */ b(io, [["render", po]]), mo = {
     visible: { type: Boolean, default: !1 }
   },
   emits: ["dismiss"],
-  setup(r, { expose: t, emit: e }) {
-    const o = r, s = e, a = y(!1), u = y(!1), n = y(!1), d = () => {
-      u.value = !0, n.value = !1, setTimeout(() => {
-        a.value = !0;
+  setup(r, { expose: o, emit: t }) {
+    const e = r, s = t, n = u(!1), l = u(!1), a = u(!1), c = () => {
+      l.value = !0, a.value = !1, setTimeout(() => {
+        n.value = !0;
       }, 10);
-    }, i = () => {
-      n.value = !0, setTimeout(() => {
-        u.value = !1, a.value = !1, s("dismiss");
+    }, d = () => {
+      a.value = !0, setTimeout(() => {
+        l.value = !1, n.value = !1, s("dismiss");
       }, 300);
     };
-    X(() => o.visible, (l) => {
-      l ? d() : i();
+    C(() => e.visible, (y) => {
+      y ? c() : d();
     });
-    const m = w(() => {
-      let l;
-      return o.variant == "default" && (o.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(o.color) ? l = {
+    const v = b(() => {
+      let y;
+      return e.variant == "default" && (e.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? y = {
         "--border": "none",
-        "--color": "var(--t-color-status-" + o.color + "-text)",
-        "--background": "rgba(var(--t-color-status-" + o.color + "-rgb), 1)"
-      } : l = {
+        "--color": "var(--t-color-status-" + e.color + "-text)",
+        "--background": "rgba(var(--t-color-status-" + e.color + "-rgb), 1)"
+      } : y = {
         "--border": "none",
         "--color": "var(--t-color-text)",
-        "--background": o.color
-      } : l = {
+        "--background": e.color
+      } : y = {
         "--border": "none",
         "--color": "var(--t-color-text)",
         "--background": "rgba(var(--t-color-surface-rgb), 1)"
-      }), o.variant == "text" && (o.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(o.color) ? l = {
+      }), e.variant == "text" && (e.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? y = {
         "--border": "none",
-        "--color": "var(--t-color-status-" + o.color + ")",
+        "--color": "var(--t-color-status-" + e.color + ")",
         "--background": "transparent"
-      } : l = {
+      } : y = {
         "--border": "none",
-        "--color": o.color,
+        "--color": e.color,
         "--background": "transparent"
-      } : l = {
+      } : y = {
         "--border": "none",
         "--color": "var(--t-color-text)",
         "--background": "transparent"
-      }), o.variant == "outline" && (o.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(o.color) ? l = {
-        "--border": "0.55px solid var(--t-color-status-" + o.color + ")",
-        "--color": "var(--t-color-status-" + o.color + ")",
+      }), e.variant == "outline" && (e.color ? ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) ? y = {
+        "--border": "0.55px solid var(--t-color-status-" + e.color + ")",
+        "--color": "var(--t-color-status-" + e.color + ")",
         "--background": "transparent"
-      } : l = {
-        "--border": "0.55px solid " + o.color,
-        "--color": o.color,
+      } : y = {
+        "--border": "0.55px solid " + e.color,
+        "--color": e.color,
         "--background": "transparent"
-      } : l = {
+      } : y = {
         "--border": "0.55px solid var(--t-color-text)",
         "--color": "var(--t-color-text)",
         "--background": "transparent"
-      }), l;
+      }), y;
     });
-    return t({
-      open: d,
-      close: i
-    }), (l, _) => u.value ? (p(), v("div", {
-      key: 0,
-      class: f({ "toife-toast": !0, [o.placement]: !0, open: a.value, closing: n.value }),
-      style: S({ "--space": o.space, ...m.value })
-    }, [
-      g(l.$slots, "content", {}, () => [
-        $("div", mo, R(o.message), 1)
-      ], !0)
-    ], 6)) : E("", !0);
+    o({
+      open: c,
+      close: d
+    });
+    const g = { props: e, emit: s, _visible: n, isRender: l, isClosing: a, open: c, close: d, styles: v, computed: b, ref: u, watch: C };
+    return Object.defineProperty(g, "__isScriptSetup", { enumerable: !1, value: !0 }), g;
   }
-}), he = /* @__PURE__ */ b(vo, [["__scopeId", "data-v-dcf5106c"]]), Bo = (r = {}, t) => ({
+}), Fr = {
+  class: /* @__PURE__ */ p({ "toife-toast-content": !0 })
+};
+function Hr(r, o, t, e, s, n) {
+  return e.isRender ? (i(), _("div", {
+    key: 0,
+    class: p({ "toife-toast": !0, [e.props.placement]: !0, open: e._visible, closing: e.isClosing }),
+    style: w({ "--space": e.props.space, ...e.styles })
+  }, [
+    $(r.$slots, "content", {}, () => [
+      S("div", Fr, R(e.props.message), 1)
+    ], !0)
+  ], 6)) : z("", !0);
+}
+const we = /* @__PURE__ */ x(Lr, [["render", Hr], ["__scopeId", "data-v-6809c497"]]), ao = (r = {}, o) => ({
   open() {
-    let e = document.body.querySelector(".toife-app");
-    if (!e) return;
-    const o = document.createElement("div"), s = y();
-    e.appendChild(o);
-    const a = F({
+    let t = document.body.querySelector(".toife-app");
+    if (!t) return;
+    const e = document.createElement("div"), s = u();
+    t.appendChild(e);
+    const n = te({
       render() {
-        return K(t || he, {
+        return re(o || we, {
           ...r,
           ref: s,
           onDismiss: () => {
             setTimeout(() => {
-              a.unmount(), o.remove();
+              n.unmount(), e.remove();
             }, 300);
           }
         });
       }
     });
-    a.mount(o), setTimeout(() => {
+    n.mount(e), setTimeout(() => {
       s.value?.open?.(), setTimeout(() => {
         s.value?.close?.();
       }, (r.duration || 2e3) + 10);
     }, 50);
   }
-}), yo = /* @__PURE__ */ h({
+}), Kr = /* @__PURE__ */ k({
   __name: "toggle-password",
   props: {
     color: { default: "warning" }
   },
   emits: ["change"],
-  setup(r, { emit: t }) {
-    const e = r, o = t, s = y(!1), a = y(), u = w(() => {
-      let i = e.color;
-      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (i = `var(--t-color-status-${e.color})`), {
-        "--color": i
+  setup(r, { expose: o, emit: t }) {
+    o();
+    const e = r, s = t, n = u(!1), l = u(), a = b(() => {
+      let g = e.color;
+      return ["warning", "info", "danger", "primary", "secondary", "success"].includes(e.color) && (g = `var(--t-color-status-${e.color})`), {
+        "--color": g
       };
-    }), n = () => a.value?.parentElement?.querySelector?.("input");
-    q(() => {
-      let i = n();
-      i && (s.value = i.type != "password", o("change", s.value));
+    }), c = () => l.value?.parentElement?.querySelector?.("input");
+    V(() => {
+      let g = c();
+      g && (n.value = g.type != "password", s("change", n.value));
     });
-    const d = () => {
-      let i = n();
-      i && (s.value = !s.value, s.value ? i.type = "text" : i.type = "password", o("change", s.value));
-    };
-    return (i, m) => (p(), v("button", {
-      ref_key: "toggle",
-      ref: a,
-      class: f({ "toife-toggle-password": !0 }),
-      style: S(u.value),
-      onPointerup: d
-    }, [
-      s.value ? g(i.$slots, "on", { key: 0 }, () => [
-        m[0] || (m[0] = $("i", { class: "ri-eye-line" }, null, -1))
-      ], !0) : E("", !0),
-      s.value ? E("", !0) : g(i.$slots, "off", { key: 1 }, () => [
-        m[1] || (m[1] = $("i", { class: "ri-eye-off-line" }, null, -1))
-      ], !0)
-    ], 36));
+    const v = { props: e, emit: s, isShow: n, toggle: l, style: a, el: c, onClick: () => {
+      let g = c();
+      g && (n.value = !n.value, n.value ? g.type = "text" : g.type = "password", s("change", n.value));
+    }, computed: b, onMounted: V, ref: u };
+    return Object.defineProperty(v, "__isScriptSetup", { enumerable: !1, value: !0 }), v;
   }
-}), _o = /* @__PURE__ */ b(yo, [["__scopeId", "data-v-145545ff"]]), go = /* @__PURE__ */ h({
+});
+function Gr(r, o, t, e, s, n) {
+  return i(), _("button", {
+    ref: "toggle",
+    class: p({ "toife-toggle-password": !0 }),
+    style: w(e.style),
+    onPointerup: e.onClick
+  }, [
+    e.isShow ? $(r.$slots, "on", { key: 0 }, () => [
+      o[0] || (o[0] = S("i", { class: "ri-eye-line" }, null, -1))
+    ], !0) : z("", !0),
+    e.isShow ? z("", !0) : $(r.$slots, "off", { key: 1 }, () => [
+      o[1] || (o[1] = S("i", { class: "ri-eye-off-line" }, null, -1))
+    ], !0)
+  ], 36);
+}
+const Ur = /* @__PURE__ */ x(Kr, [["render", Gr], ["__scopeId", "data-v-db98bdc9"]]), Jr = /* @__PURE__ */ k({
   __name: "toolbar",
   props: {
     placement: { default: null },
     safe: { type: Boolean, default: !0 },
     size: { default: "50px" }
   },
-  setup(r) {
-    const t = r, e = ue("cableState"), o = w(() => t?.placement || e?.placement);
-    return (s, a) => (p(), v("div", {
-      class: f({ "toife-toolbar": !0, [o.value]: !0, safe: t.safe }),
-      style: S({ "--t-size-toolbar": t.size })
-    }, [
-      $("div", null, [
-        g(s.$slots, "default", {}, void 0, !0)
-      ])
-    ], 6));
+  setup(r, { expose: o }) {
+    o();
+    const t = r, e = Q("cableState"), s = b(() => t?.placement || e?.placement), n = { props: t, cable: e, placement: s, computed: b, inject: Q };
+    return Object.defineProperty(n, "__isScriptSetup", { enumerable: !1, value: !0 }), n;
   }
-}), bo = /* @__PURE__ */ b(go, [["__scopeId", "data-v-8c7c2937"]]), zo = (r) => {
-  const t = r?.prefix || "t-";
+});
+function Qr(r, o, t, e, s, n) {
+  return i(), _("div", {
+    class: p({ "toife-toolbar": !0, [e.placement]: !0, safe: e.props.safe }),
+    style: w({ "--t-size-toolbar": e.props.size })
+  }, [
+    S("div", null, [
+      $(r.$slots, "default", {}, void 0, !0)
+    ])
+  ], 6);
+}
+const Zr = /* @__PURE__ */ x(Jr, [["render", Qr], ["__scopeId", "data-v-24f79d25"]]), lo = (r) => {
+  const o = r?.prefix || "t-";
   return {
-    install: (e) => {
-      r?.declare && (e.component(t + "app", Ee), e.component(t + "action", pe), e.component(t + "screen", me), e.component(t + "screen-router", st), e.component(t + "cable", dt), e.component(t + "toolbar", bo), e.component(t + "content", Tt), e.component(t + "card", pt), e.component(t + "refresher", jt), e.component(t + "button", G), e.component(t + "back-button", at), e.component(t + "present", U), e.component(t + "text", co), e.component(t + "sheet", Zt), e.component(t + "gesture-indicator", ge), e.component(t + "input", Mt), e.component(t + "textarea", fo), e.component(t + "richtext", Ut), e.component(t + "grid", Vt), e.component(t + "divider", Bt), e.component(t + "toggle-password", _o), e.component(t + "icon-spinner", re), e.component(t + "alert", fe), e.component(t + "avatar", He), e.component(t + "collapse", kt), e.component(t + "toast", he), e.component(t + "switch", oo), e.component(t + "tab", so), e.component(t + "tabs", ao), e.component(t + "checkbox", yt), e.component(t + "keyboard-space", it), e.component(t + "skeleton", eo), e.component(t + "ripple", Jt), e.component(t + "loading", be), e.component(t + "flex", Pt), e.component(t + "image", Rt));
+    install: (t) => {
+      r?.declare && (t.component(o + "app", Ce), t.component(o + "action", be), t.component(o + "screen", he), t.component(o + "screen-router", dt), t.component(o + "cable", kt), t.component(o + "toolbar", Zr), t.component(o + "content", Wt), t.component(o + "card", St), t.component(o + "refresher", br), t.component(o + "button", oe), t.component(o + "back-button", mt), t.component(o + "present", H), t.component(o + "text", $e), t.component(o + "sheet", Tr), t.component(o + "gesture-indicator", xe), t.component(o + "input", pr), t.component(o + "textarea", Mr), t.component(o + "richtext", kr), t.component(o + "grid", Zt), t.component(o + "divider", Lt), t.component(o + "toggle-password", Ur), t.component(o + "icon-spinner", ue), t.component(o + "alert", ge), t.component(o + "avatar", Je), t.component(o + "collapse", At), t.component(o + "toast", we), t.component(o + "switch", Er), t.component(o + "tab", Vr), t.component(o + "tabs", Nr), t.component(o + "checkbox", Ot), t.component(o + "keyboard-space", bt), t.component(o + "skeleton", Br), t.component(o + "ripple", Sr), t.component(o + "loading", Se), t.component(o + "flex", Kt), t.component(o + "image", rr));
     }
   };
-}, ke = (r) => r && (r.tagName == "INPUT" || r.tagName == "TEXTAREA" || r.isContentEditable), $e = () => {
+}, Pe = (r) => r && (r.tagName == "INPUT" || r.tagName == "TEXTAREA" || r.isContentEditable), Te = () => {
   const r = document.activeElement;
   r && (r.tagName === "INPUT" || r.tagName === "TEXTAREA" || r.isContentEditable) && r.blur();
-}, ho = () => {
+}, Yr = () => {
   document.addEventListener("contextmenu", (r) => r.preventDefault()), document.addEventListener("pointerup", (r) => {
-    !ke(r.target) && $e();
+    !Pe(r.target) && Te();
   }), "virtualKeyboard" in navigator && (navigator.virtualKeyboard.overlaysContent = !0);
-}, Po = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+}, co = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  blurCurrentActive: $e,
-  isFormElement: ke,
-  preventDefault: ho
+  blurCurrentActive: Te,
+  isFormElement: Pe,
+  preventDefault: Yr
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  pe as Action,
-  fe as Alert,
-  Ee as App,
-  He as Avatar,
-  at as BackButton,
-  G as Button,
-  dt as Cable,
-  pt as Card,
-  yt as Checkbox,
-  kt as Collapse,
-  Tt as Content,
-  Bt as Divider,
-  Pt as Flex,
-  ge as GestureIndicator,
-  Vt as Grid,
-  re as IconSpinner,
-  Rt as Image,
-  Mt as Input,
-  it as KeyboardSpace,
-  be as Loading,
-  U as Present,
-  jt as Refresher,
-  Ut as Richtext,
-  Jt as Ripple,
-  me as Screen,
-  st as ScreenRouter,
-  Zt as Sheet,
-  eo as Skeleton,
-  oo as Switch,
-  so as Tab,
-  ao as Tabs,
-  co as Text,
-  fo as Textarea,
-  he as Toast,
-  _o as TogglePassword,
-  bo as Toolbar,
-  wo as createAction,
-  To as createAlert,
-  So as createLoading,
-  Bo as createToast,
-  zo as createToife,
-  Ie as getNewPresentIndex,
-  _e as useKeyboard,
-  ye as useScreenRouter,
-  Po as utils
+  be as Action,
+  ge as Alert,
+  Ce as App,
+  Je as Avatar,
+  mt as BackButton,
+  oe as Button,
+  kt as Cable,
+  St as Card,
+  Ot as Checkbox,
+  At as Collapse,
+  Wt as Content,
+  Lt as Divider,
+  Kt as Flex,
+  xe as GestureIndicator,
+  Zt as Grid,
+  ue as IconSpinner,
+  rr as Image,
+  pr as Input,
+  bt as KeyboardSpace,
+  Se as Loading,
+  H as Present,
+  br as Refresher,
+  kr as Richtext,
+  Sr as Ripple,
+  he as Screen,
+  dt as ScreenRouter,
+  Tr as Sheet,
+  Br as Skeleton,
+  Er as Switch,
+  Vr as Tab,
+  Nr as Tabs,
+  $e as Text,
+  Mr as Textarea,
+  we as Toast,
+  Ur as TogglePassword,
+  Zr as Toolbar,
+  oo as createAction,
+  no as createAlert,
+  so as createLoading,
+  ao as createToast,
+  lo as createToife,
+  ve as getNewPresentIndex,
+  ee as useKeyboard,
+  Y as useScreenRouter,
+  co as utils
 };

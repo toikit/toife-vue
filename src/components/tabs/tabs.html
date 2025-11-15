@@ -1,0 +1,5 @@
+<ul ref="container" :class="{ 'toife-tabs': true, [placement]: true, [`variant-${variant}`]: true }"
+  :style="[{ '--background': __color.background, '--color': __color.text }, styles]">
+  <slot />
+</ul>
+

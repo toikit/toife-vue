@@ -1,38 +1,12 @@
-<style lang="scss" scoped>
-// Class for item
-.toife-refresher {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: height 0.2s ease;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  &.safe {
-    top: var(--t-safe-area-top);
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-refresher': true, safe }" ref="container" v-show="offset > 0">
-    <slot :offset="offset" :refreshing="refreshing"></slot>
-  </div>
-</template>
-
+<style lang="scss" src="./refresher.scss" scoped></style>
+<template src="./refresher.html"></template>
 <script setup lang="ts">
 import { ref, onUnmounted, watch } from "vue";
 import { gesture } from "@toife/gesture";
+import { type RefresherProps, type RefresherEmit } from './refresher.type';
 
-const emit = defineEmits(['refresh', 'move', 'cancel', 'start']);
-const props = withDefaults(defineProps<{
-  threshold?: number,
-  safe?: boolean,
-  variant?: string
-}>(), {
+const emit = defineEmits<RefresherEmit>();
+const props = withDefaults(defineProps<RefresherProps>(), {
   threshold: 120,
   safe: false,
   variant: 'max'

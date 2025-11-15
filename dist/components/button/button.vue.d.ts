@@ -1,23 +1,5 @@
-type __VLS_Props = {
-    color?: any;
-    size?: string;
-    rounded?: boolean;
-    block?: boolean;
-    loading?: boolean;
-    loadingType?: string;
-    variant?: string;
-    activeBackground?: boolean;
-};
-declare function __VLS_template(): {
-    attrs: Partial<{}>;
-    slots: {
-        default?(_: {}): any;
-    };
-    refs: {};
-    rootEl: HTMLButtonElement;
-};
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
-declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
+import { ButtonProps } from './button.type';
+declare const _default: import('vue').DefineComponent<ButtonProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<ButtonProps> & Readonly<{}>, {
     size: string;
     color: any;
     rounded: boolean;
@@ -26,11 +8,5 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_Props, {}, {}
     loadingType: string;
     variant: string;
     activeBackground: boolean;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLButtonElement>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
-    new (): {
-        $slots: S;
-    };
-};

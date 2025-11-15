@@ -1,38 +1,10 @@
-<style lang="scss" scoped>
-// Avatar default is circle
-// With props square then is square
-.toife-avatar {
-  position: relative;
-  border-radius: 50%;
-  height: var(--size);
-  width: var(--size);
-  overflow: hidden;
-
-  >* {
-    width: 100%;
-    height: 100%;
-  }
-
-  &.square {
-    border-radius: 8px;
-  }
-}
-</style>
-
-<template>
-  <div :class="{ square, 'toife-avatar': true }" :style="{ '--size': width }">
-    <slot />
-  </div>
-</template>
-
+<style lang="scss" src="./avatar.scss" scoped></style>
+<template src="./avatar.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type AvatarProps } from './avatar.type';
 
-// Define props
-const props = withDefaults(defineProps<{
-  square?: boolean,
-  size?: any
-}>(), {
+const props = withDefaults(defineProps<AvatarProps>(), {
   square: false,
   size: 'standard'
 });

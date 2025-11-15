@@ -1,15 +1,9 @@
-type __VLS_Props = {
-    variant?: string;
-    router?: any;
-    route?: any;
-};
-declare const _default: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    change: (...args: any[]) => void;
-}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{
-    onChange?: ((...args: any[]) => any) | undefined;
+import { ScreenRouterProps } from './screen-router.type';
+declare const _default: import('vue').DefineComponent<ScreenRouterProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
+    change: () => any;
+}, string, import('vue').PublicProps, Readonly<ScreenRouterProps> & Readonly<{
+    onChange?: (() => any) | undefined;
 }>, {
     variant: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {
-    backdrop: HTMLDivElement;
-}, any>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;

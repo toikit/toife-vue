@@ -1,88 +1,10 @@
-<style lang="scss" scoped>
-.toife-checkbox {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-
-  .toife-checkbox-label {
-    margin-left: 8px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .toife-checkbox-radio,
-  .toife-checkbox-check {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 22px;
-    width: 22px;
-    border: 2px solid var(--t-color-separate);
-
-    >div {
-      height: 12px;
-      width: 12px;
-      background-color: transparent;
-    }
-
-    i {
-      color: transparent;
-    }
-  }
-
-  .toife-checkbox-radio {
-    border-radius: 50%;
-
-    >div {
-      border-radius: 50%;
-    }
-  }
-
-  &.active {
-    .toife-checkbox-radio {
-      border: 2px solid var(--background);
-
-      >div {
-        background-color: var(--background);
-      }
-    }
-
-    .toife-checkbox-check {
-      border: 2px solid var(--background);
-      background-color: var(--background);
-
-      >i {
-        color: var(--color);
-      }
-    }
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-checkbox': true, active: isActive }" :style="styles" @pointerup="onToggle">
-    <div :class="{ [`toife-checkbox-${type}`]: true, }">
-      <div v-if="type == 'radio'"></div>
-      <slot name="icon" v-if="type == 'check'"><i class="ri-check-line"></i></slot>
-    </div>
-    <slot name="label"><span :class="{ 'toife-checkbox-label': true }" v-if="label">{{ props.label }}</span></slot>
-  </div>
-</template>
-
+<style lang="scss" src="./checkbox.scss" scoped></style>
+<template src="./checkbox.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type CheckboxProps, type CheckboxEmit } from './checkbox.type';
 
-// Property props
-const props = withDefaults(defineProps<{
-  label?: string,
-  modelValue?: any,
-  variant?: any,
-  type?: string,
-  multiple?: boolean,
-  value?: any,
-  color?: string
-}>(), {
+const props = withDefaults(defineProps<CheckboxProps>(), {
   multiple: false,
   modelValue: false,
   value: undefined,
@@ -91,8 +13,7 @@ const props = withDefaults(defineProps<{
   color: 'primary'
 });
 
-// Defined emit name
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<CheckboxEmit>();
 
 
 // Get style for checkbox

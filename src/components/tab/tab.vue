@@ -1,32 +1,11 @@
-<style lang="scss" scoped>
-.toife-tab {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .toife-button {
-    padding: 0px !important;
-    cursor: pointer;
-  }
-}
-</style>
-
-<template>
-  <li :class="{ 'toife-tab': true, active: isActive }">
-    <t-button variant="text" @pointerup="handleClick" :size="tabs.size" :color="isActive ? tabs.color.text : undefined">
-      <slot />
-    </t-button>
-  </li>
-</template>
-
+<style lang="scss" src="./tab.scss" scoped></style>
+<template src="./tab.html"></template>
 <script lang="ts" setup>
 import { inject, computed } from 'vue';
 import { Button as TButton } from '../button';
+import { type TabProps } from './tab.type';
 
-const props = withDefaults(defineProps<{
-  value?: String,
-  disabled?: boolean
-}>(), {
+const props = withDefaults(defineProps<TabProps>(), {
   disabled: false
 });
 

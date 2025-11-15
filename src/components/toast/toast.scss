@@ -1,0 +1,45 @@
+.toife-toast {
+  width: calc(100% - 2rem);
+  height: fit-content;
+  max-width: var(--t-overlay-max-width);
+  position: absolute;
+  z-index: 9999;
+  left: 50%;
+  transition: all 0.2s ease;
+  opacity: 1;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+
+  .toife-toast-content {
+    color: var(--color);
+    background: var(--background);
+    border: var(--border);
+    box-shadow: 0px 0px 17px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+  }
+
+  &.bottom {
+    bottom: 0;
+    transform: translate(-50%, 100%);
+
+    &.open {
+      transform: translate(-50%, calc((var(--t-safe-area-bottom) + 1rem + var(--space)) * -1));
+    }
+  }
+
+  &.top {
+    top: 0;
+    transform: translate(-50%, -100%);
+
+    &.open {
+      transform: translate(-50%, calc(var(--t-safe-area-top) + 1rem + var(--space)));
+    }
+  }
+
+  &.closing {
+    opacity: 0;
+  }
+}
+

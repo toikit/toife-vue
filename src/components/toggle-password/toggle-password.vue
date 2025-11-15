@@ -1,37 +1,13 @@
-<style lang="scss" scoped>
-.toife-toggle-password {
-  // font-size: 1.5rem;
-  background-color: transparent;
-  width: fit-content;
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color);
-  font-size: 1.2rem;
-}
-</style>
-
-<template>
-  <button ref="toggle" :class="{ 'toife-toggle-password': true }" :style="style" @pointerup="onClick">
-    <slot name="on" v-if="isShow">
-      <i class="ri-eye-line"></i>
-    </slot>
-    <slot name="off" v-if="!isShow">
-      <i class="ri-eye-off-line"></i>
-    </slot>
-  </button>
-</template>
-
+<style lang="scss" src="./toggle-password.scss" scoped></style>
+<template src="./toggle-password.html"></template>
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue';
+import { type TogglePasswordProps, type TogglePasswordEmit } from './toggle-password.type';
 
-const props = withDefaults(defineProps<{
-  color?: any
-}>(), {
+const props = withDefaults(defineProps<TogglePasswordProps>(), {
   color: 'warning'
 });
-const emit = defineEmits(['change']);
+const emit = defineEmits<TogglePasswordEmit>();
 
 const isShow = ref(false);
 const toggle = ref();

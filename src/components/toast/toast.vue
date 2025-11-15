@@ -1,70 +1,10 @@
-<style lang="scss" scoped>
-.toife-toast {
-  width: calc(100% - 2rem);
-  height: fit-content;
-  max-width: var(--t-overlay-max-width);
-  position: absolute;
-  z-index: 9999;
-  left: 50%;
-  transition: all 0.2s ease;
-  opacity: 1;
-  font-size: 0.8rem;
-  line-height: 0.8rem;
-
-  .toife-toast-content {
-    color: var(--color);
-    background: var(--background);
-    border: var(--border);
-    box-shadow: 0px 0px 17px 0px rgba(var(--t-color-backdrop-rgb), 0.15);
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-  }
-
-  &.bottom {
-    bottom: 0;
-    transform: translate(-50%, 100%);
-
-    &.open {
-      transform: translate(-50%, calc((var(--t-safe-area-bottom) + 1rem + var(--space)) * -1));
-    }
-  }
-
-  &.top {
-    top: 0;
-    transform: translate(-50%, -100%);
-
-    &.open {
-      transform: translate(-50%, calc(var(--t-safe-area-top) + 1rem + var(--space)));
-    }
-  }
-
-  &.closing {
-    opacity: 0;
-  }
-}
-</style>
-
-<template>
-  <div v-if="isRender" :class="{ 'toife-toast': true, [props.placement]: true, open: _visible, closing: isClosing }"
-    :style="{ '--space': props.space, ...styles }">
-    <slot name="content">
-      <div :class="{ 'toife-toast-content': true }">{{ props.message }}</div>
-    </slot>
-  </div>
-</template>
-
+<style lang="scss" src="./toast.scss" scoped></style>
+<template src="./toast.html"></template>
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
+import { type ToastProps, type ToastEmit } from './toast.type';
 
-const props = withDefaults(defineProps<{
-  message?: any,
-  space?: any,
-  placement?: string,
-  color?: any,
-  variant?: string,
-  visible?: boolean
-}>(), {
+const props = withDefaults(defineProps<ToastProps>(), {
   placement: 'bottom',
   space: "0px",
   color: null,
@@ -72,7 +12,7 @@ const props = withDefaults(defineProps<{
   visible: false
 });
 
-const emit = defineEmits(['dismiss']);
+const emit = defineEmits<ToastEmit>();
 const _visible = ref(false);
 const isRender = ref(false);
 const isClosing = ref(false);

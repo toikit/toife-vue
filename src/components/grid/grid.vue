@@ -1,32 +1,13 @@
-<style lang="scss" scoped>
-.toife-grid {
-  display: grid;
-  grid-template: var(--template);
-  column-gap: var(--gap);
-  row-gap: var(--gap);
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-grid': true }" :style="{ '--gap': _gap, '--template': props.template }">
-    <slot />
-  </div>
-</template>
-
+<style lang="scss" src="./grid.scss" scoped></style>
+<template src="./grid.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type GridProps } from './grid.type';
 
-// Define props
-const props = withDefaults(
-  defineProps<{
-    gap?: any,
-    template?: any
-  }>(),
-  {
-    gap: 0,
-    template: 'repeat(1, 1fr) / repeat(1, 1fr)'
-  }
-);
+const props = withDefaults(defineProps<GridProps>(), {
+  gap: 0,
+  template: 'repeat(1, 1fr) / repeat(1, 1fr)'
+});
 
 
 const _gap = computed(() => {

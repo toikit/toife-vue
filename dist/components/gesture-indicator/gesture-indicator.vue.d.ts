@@ -1,7 +1,5 @@
-type __VLS_Props = {
-    placement?: string;
-};
-declare const _default: import('vue').DefineComponent<__VLS_Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
+import { GestureIndicatorProps } from './gesture-indicator.type';
+declare const _default: import('vue').DefineComponent<GestureIndicatorProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<GestureIndicatorProps> & Readonly<{}>, {
     placement: string;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;

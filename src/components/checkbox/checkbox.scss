@@ -1,0 +1,60 @@
+.toife-checkbox {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .toife-checkbox-label {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .toife-checkbox-radio,
+  .toife-checkbox-check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22px;
+    width: 22px;
+    border: 2px solid var(--t-color-separate);
+
+    >div {
+      height: 12px;
+      width: 12px;
+      background-color: transparent;
+    }
+
+    i {
+      color: transparent;
+    }
+  }
+
+  .toife-checkbox-radio {
+    border-radius: 50%;
+
+    >div {
+      border-radius: 50%;
+    }
+  }
+
+  &.active {
+    .toife-checkbox-radio {
+      border: 2px solid var(--background);
+
+      >div {
+        background-color: var(--background);
+      }
+    }
+
+    .toife-checkbox-check {
+      border: 2px solid var(--background);
+      background-color: var(--background);
+
+      >i {
+        color: var(--color);
+      }
+    }
+  }
+}
+

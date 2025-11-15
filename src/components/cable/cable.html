@@ -1,0 +1,5 @@
+<div :class="{ 'toife-cable': true, keyboard: props.keyboard && height > 0, [props.placement]: true }"
+  :style="{ '--t-keyboard-height': height + 'px', '--t-keyboard-transition': height > 0 ? '0.3s' : '0.1s' }">
+  <slot />
+</div>
+

@@ -1,0 +1,6 @@
+<li :class="{ 'toife-tab': true, active: isActive }">
+  <t-button variant="text" @pointerup="handleClick" :size="tabs.size" :color="isActive ? tabs.color.text : undefined">
+    <slot />
+  </t-button>
+</li>
+

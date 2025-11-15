@@ -1,33 +1,12 @@
-<style lang="scss" scoped>
-.toife-back-button {
-  font-size: 2rem;
-  background-color: transparent;
-  width: 44px;
-  height: 100%;
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--t-color-text);
-}
-</style>
-
-<template>
-  <button :class="{ 'toife-back-button': true }" v-if="to || screenRouter.lastScreen" @pointerup="onClick">
-    <slot><i class="ri-arrow-left-s-line"></i></slot>
-  </button>
-</template>
-
+<style lang="scss" src="./back-button.scss" scoped></style>
+<template src="./back-button.html"></template>
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
 import { useRouter } from 'vue-router';
 import { useScreenRouter } from '../screen-router';
+import { type BackButtonProps } from './back-button.type';
 
-// Default props, store
-const props = defineProps<{
-  to?: any,
-  router?: any
-}>();
+const props = defineProps<BackButtonProps>();
 
 const attrs = useAttrs();
 const router = props.router || useRouter();

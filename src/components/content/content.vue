@@ -1,10 +1,7 @@
-<style lang="scss" scoped>
-.toife-content{
-  overflow: auto;
-  position: relative;
-}
-</style>
+<style lang="scss" src="./content.scss" scoped></style>
+<template src="./content.html"></template>
+<script lang="ts" setup>
+import { type ContentProps } from './content.type';
 
-<template>
-  <div :class="{'toife-content': true}"><slot/></div>
-</template>
+defineProps<ContentProps>();
+</script>

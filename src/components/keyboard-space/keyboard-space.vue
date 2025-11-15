@@ -1,15 +1,9 @@
-<style lang="scss" scoped>
-.toife-keyboard-space {
-  height: var(--height);
-  transition: height 0.1s ease;
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-keyboard-space': true }" :style="{ '--height': height + 'px' }"></div>
-</template>
-
+<style lang="scss" src="./keyboard-space.scss" scoped></style>
+<template src="./keyboard-space.html"></template>
 <script lang="ts" setup>
 import { useKeyboard } from './factory';
+import { type KeyboardSpaceProps } from './keyboard-space.type';
+
+defineProps<KeyboardSpaceProps>();
 const { height } = useKeyboard();
 </script>

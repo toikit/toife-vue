@@ -1,45 +1,9 @@
-<style lang="scss" scoped>
-.toife-gesture-indicator {
-  background-color: var(--t-color-separate);
-  position: absolute;
-  border-radius: 3px;
-  z-index: 99;
-
-  &.bottom {
-    width: 40px;
-    height: 4px;
-    top: 5px;
-  }
-
-  &.top {
-    width: 40px;
-    height: 4px;
-    bottom: 5px;
-  }
-
-  &.left {
-    height: 40px;
-    width: 4px;
-    right: 5px;
-  }
-
-  &.right {
-    height: 40px;
-    width: 4px;
-    left: 5px;
-  }
-}
-</style>
-
-<template>
-  <div :class="{ 'toife-gesture-indicator': true, [placement]: true }"></div>
-</template>
-
+<style lang="scss" src="./gesture-indicator.scss" scoped></style>
+<template src="./gesture-indicator.html"></template>
 <script lang="ts" setup>
-const props = withDefaults(defineProps<{
-  placement?: string
-}>(), {
+import { type GestureIndicatorProps } from './gesture-indicator.type';
+
+const props = withDefaults(defineProps<GestureIndicatorProps>(), {
   placement: 'bottom'
 });
-
 </script>

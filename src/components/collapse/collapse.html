@@ -1,0 +1,20 @@
+<div :class="{ 'toife-collapse': true, open: isOpen }" :style="{ '--height': height }">
+  <div :class="{ 'toife-collapse-header': true }" @pointerup="onToggle">
+    <slot name="icon"></slot>
+    <div :class="{ 'toife-collapse-title': true }">
+      <slot name="title">{{ props.title }}</slot>
+    </div>
+    <slot name="toggle">
+      <div class="icon" v-if="isOpen"><i class="ri-arrow-up-s-line"></i></div>
+      <div class="icon" v-else><i class="ri-arrow-down-s-line"></i></div>
+    </slot>
+  </div>
+  <div :class="{ 'toife-collapse-content': true }">
+    <div ref="content">
+      <slot name="content">
+        <slot />
+      </slot>
+    </div>
+  </div>
+</div>
+

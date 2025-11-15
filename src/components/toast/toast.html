@@ -1,0 +1,7 @@
+<div v-if="isRender" :class="{ 'toife-toast': true, [props.placement]: true, open: _visible, closing: isClosing }"
+  :style="{ '--space': props.space, ...styles }">
+  <slot name="content">
+    <div :class="{ 'toife-toast-content': true }">{{ props.message }}</div>
+  </slot>
+</div>
+

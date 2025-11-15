@@ -1,0 +1,8 @@
+<screen :ref="(el: any) => addScreenRef(index, el)"
+  :style="{ zIndex: index + (index == screenRouter.screens.length - 1 ? 2 : 1) }"
+  v-for="(screen, index) in screenRouter.screens" :key="index">
+  <component :is="screen.component.default" />
+</screen>
+<div :class="{ 'toife-screen-router-backdrop': true }" ref="backdrop" :style="{ zIndex: screenRouter.screens.length }">
+</div>
+

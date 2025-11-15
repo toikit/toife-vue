@@ -1,17 +1,16 @@
+<style lang="scss" src="./screen-router.scss" scoped></style>
+<template src="./screen-router.html"></template>
 <script lang="ts" setup>
 import { markRaw, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { gesture } from "@toife/gesture";
 import { Screen } from "../screen";
 import { useScreenRouter } from './factory';
+import { type ScreenRouterProps, type ScreenRouterEmit } from './screen-router.type';
 
 let routeComponents: any = {};
-const emit = defineEmits(['change']);
-const props = withDefaults(defineProps<{
-  variant?: string,
-  router?: any,
-  route?: any
-}>(), {
+const emit = defineEmits<ScreenRouterEmit>();
+const props = withDefaults(defineProps<ScreenRouterProps>(), {
   variant: 'scale'
 });
 let ges: any;
@@ -110,26 +109,3 @@ onUnmounted(() => {
   screenRouter.removeAllScreen();
 });
 </script>
-
-<template>
-  <screen :ref="(el: any) => addScreenRef(index, el)"
-    :style="{ zIndex: index + (index == screenRouter.screens.length - 1 ? 2 : 1) }"
-    v-for="(screen, index) in screenRouter.screens" :key="index">
-    <component :is="screen.component.default" />
-  </screen>
-  <div :class="{ 'toife-screen-router-backdrop': true }" ref="backdrop" :style="{ zIndex: screenRouter.screens.length }">
-  </div>
-</template>
-
-<style lang="scss" scoped>
-.toife-screen-router-backdrop {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-swipe-backdrop-opacity, 0));
-  transition: all var(--t-screen-backdrop-duration, 0) ease !important;
-}
-</style>

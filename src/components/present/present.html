@@ -1,0 +1,7 @@
+<div :class="{ 'toife-present-backdrop': true }" @pointerup="onClickBackdrop" ref="backdrop" v-if="isRender"
+  v-show="isShow" :style="[styles, { zIndex: zIndex - 1 }, props.style]"></div>
+<div ref="present" :class="[{ 'toife-present': true, [placement]: true }, props.class]" v-if="isRender" v-show="isShow"
+  :style="[styles, { zIndex }, props.style]">
+  <slot />
+</div>
+

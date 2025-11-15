@@ -1,0 +1,17 @@
+// Class for item
+.toife-refresher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: height 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &.safe {
+    top: var(--t-safe-area-top);
+  }
+}
+

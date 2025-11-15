@@ -1,0 +1,23 @@
+.toife-skeleton {
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(var(--t-color-separate-rgb), 0.5), transparent);
+    animation: shimmer 1.2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+

@@ -1,0 +1,8 @@
+<button :style="styles"
+  :class="{ 'toife-button': true, 'active-background': props.activeBackground, rounded: props.rounded, block: props.block, ['size-' + props.size]: true }">
+  <span :class="{ 'toife-button-content': true }" v-show="!props.loading">
+    <slot></slot>
+  </span>
+  <span class="loader" v-if="props.loading"><icon-spinner color="var(--color)" :type="props.loadingType" /></span>
+</button>
+

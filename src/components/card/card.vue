@@ -1,26 +1,10 @@
-<template>
-  <div :class="{ 'toife-card': true }" :style="styles">
-    <slot />
-  </div>
-</template>
-
-<style lang="scss">
-.toife-card {
-  border-radius: 8px;
-  background: var(--background);
-  padding: var(--t-size-2);
-  position: relative;
-}
-</style>
-
+<style lang="scss" src="./card.scss"></style>
+<template src="./card.html"></template>
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { type CardProps } from './card.type';
 
-// Property
-// color: set color for card, my use status color or custom color
-const props = withDefaults(defineProps<{
-  color?: any
-}>(), {
+const props = withDefaults(defineProps<CardProps>(), {
   color: null
 });
 
