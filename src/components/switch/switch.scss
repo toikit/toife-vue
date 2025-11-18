@@ -16,11 +16,11 @@
   }
 
   &:not(.on) {
-    background-color: var(--t-color-separate);
+    background-color: var(--toife-color-separate);
 
     .toife-switch-icon {
       left: 3px;
-      background: var(--t-color-text-dark);
+      background: var(--toife-color-text-dark);
     }
   }
 

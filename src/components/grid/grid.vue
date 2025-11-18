@@ -15,6 +15,6 @@ const _gap = computed(() => {
     return props.gap;
   }
 
-  return `var(--t-size-${props.gap})`;
+  return `var(--toife-size-${props.gap})`;
 });
 </script>

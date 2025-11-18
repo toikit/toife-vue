@@ -1,14 +1,14 @@
 .toife-alert {
   border-radius: 8px;
-  background-color: var(--t-color-surface);
+  background-color: var(--toife-color-surface);
   position: relative;
   width: 270px;
   overflow: hidden;
 
   // Header of alert
   .toife-alert-header {
-    padding: var(--t-size-2);
-    border-bottom: 0.55px solid var(--t-color-separate);
+    padding: var(--toife-size-2);
+    border-bottom: 0.55px solid var(--toife-color-separate);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,14 +17,14 @@
 
   // Content of alert
   .toife-alert-content {
-    padding: var(--t-size-2);
+    padding: var(--toife-size-2);
   }
 
   // Footer of alert
   .toife-alert-footer {
     display: flex;
     flex-direction: row;
-    border-top: 0.55px solid var(--t-color-separate);
+    border-top: 0.55px solid var(--toife-color-separate);
 
     >* {
       flex: 1;

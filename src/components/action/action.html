@@ -1,8 +1,8 @@
-<t-present placement="bottom" :backdrop="true" :keepalive="false" :visible="_visible" @dismiss="onDismiss">
+<Present placement="bottom" :backdrop="true" :keepalive="false" :visible="_visible" @dismiss="onDismiss">
   <div :class="{ pop, 'toife-action': true }" ref="container">
     <div v-for="(buttons, groupIndex) in props.actions" :key="groupIndex">
-      <t-button v-for="(btn, btnIndex) in buttons" :key="btn.key ?? `${groupIndex}-${btnIndex}`" :color="btn.color"
-        :size="btn.size" :variant="btn.variant" @pointerup="choose(btn)" block>{{ btn.text }}</t-button>
+      <CustomButton v-for="(btn, btnIndex) in buttons" :key="btn.key ?? `${groupIndex}-${btnIndex}`" :color="btn.color"
+        :size="btn.size" :variant="btn.variant" @pointerup="choose(btn)" block>{{ btn.text }}</CustomButton>
     </div>
   </div>
-</t-present>
+</Present>

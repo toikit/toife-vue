@@ -23,23 +23,23 @@ const isRender = computed(() => {
 });
 const isBounced = ref(false);
 const styles = reactive({
-  '--t-present-backdrop-opacity': '0.4',
-  '--t-present-transition': '0.2s',
-  '--t-present-content-transform': '0px',
-  '--t-present-content-opacity': '1'
+  '--toife-present-backdrop-opacity': '0.4',
+  '--toife-present-transition': '0.2s',
+  '--toife-present-content-transform': '0px',
+  '--toife-present-content-opacity': '1'
 });
 const time = computed(() => {
   return (props.duration / 1000) + 's';
 });
 
 const render = (value: any) => {
-  if (!props.backdrop) styles['--t-present-backdrop-opacity'] = '0';
-  else if (value?.backdropOpacity) styles['--t-present-backdrop-opacity'] = value.backdropOpacity;
+  if (!props.backdrop) styles['--toife-present-backdrop-opacity'] = '0';
+  else if (value?.backdropOpacity) styles['--toife-present-backdrop-opacity'] = value.backdropOpacity;
   if (value.transition) {
-    styles['--t-present-transition'] = value.transition;
+    styles['--toife-present-transition'] = value.transition;
   }
-  if (value.contentTransform) styles['--t-present-content-transform'] = value.contentTransform;
-  if (value.contentOpacity) styles['--t-present-content-opacity'] = value.contentOpacity;
+  if (value.contentTransform) styles['--toife-present-content-transform'] = value.contentTransform;
+  if (value.contentOpacity) styles['--toife-present-content-opacity'] = value.contentOpacity;
 }
 
 const open = () => {

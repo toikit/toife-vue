@@ -2,7 +2,7 @@
 <template src="./tab.html"></template>
 <script lang="ts" setup>
 import { inject, computed } from 'vue';
-import { Button as TButton } from '../button';
+import { Button as CustomButton } from '../button';
 import { type TabProps } from './tab.type';
 
 const props = withDefaults(defineProps<TabProps>(), {

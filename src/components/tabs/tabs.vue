@@ -29,7 +29,7 @@ const __color = computed(() => {
     background = `transparent`;
 
     if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-      text = `var(--t-color-status-${props.color})`;
+      text = `var(--toife-color-status-${props.color})`;
     } else {
       text = props.color;
     }
@@ -39,7 +39,7 @@ const __color = computed(() => {
     text = `currentColor`;
 
     if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-      background = `var(--t-color-status-${props.color})`;
+      background = `var(--toife-color-status-${props.color})`;
     } else {
       background = props.color;
     }
@@ -47,8 +47,8 @@ const __color = computed(() => {
 
   if (props.variant == 'tag') {
     if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-      background = `var(--t-color-status-${props.color})`;
-      text = `var(--t-color-status-${props.color}-text)`;
+      background = `var(--toife-color-status-${props.color})`;
+      text = `var(--toife-color-status-${props.color}-text)`;
     } else {
       background = props.color;
       text = `currentColor`;

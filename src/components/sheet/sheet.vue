@@ -8,7 +8,7 @@ import { GestureIndicator } from '../gesture-indicator';
 import { type SheetProps, type SheetEmit } from './sheet.type';
 
 const props = withDefaults(defineProps<SheetProps>(), {
-  background: 'var(--t-color-surface)',
+  background: 'var(--toife-color-surface)',
   backdrop: true,
   keepalive: true,
   visible: false,

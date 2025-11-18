@@ -4,15 +4,15 @@
 .hs-50 {height: 50vh!important;}
 .hs-25 {height: 25vh!important;}
 
-.ha-100 {height: var(--t-app-height);}
-.ha-75 {height: calc(var(--t-app-height) / 100 * 75);}
-.ha-50 {height: calc(var(--t-app-height) / 100 * 50);}
-.ha-25 {height: calc(var(--t-app-height) / 100 * 25);}
+.ha-100 {height: var(--toife-app-height);}
+.ha-75 {height: calc(var(--toife-app-height) / 100 * 75);}
+.ha-50 {height: calc(var(--toife-app-height) / 100 * 50);}
+.ha-25 {height: calc(var(--toife-app-height) / 100 * 25);}
 
-.ha-max-100 {max-height: var(--t-app-max-height);}
-.ha-max-75 {max-height: calc(var(--t-app-max-height) / 100 * 75);}
-.ha-max-50 {max-height: calc(var(--t-app-max-height) / 100 * 50);}
-.ha-max-25 {max-height: calc(var(--t-app-max-height) / 100 * 25);}
+.ha-max-100 {max-height: var(--toife-app-max-height);}
+.ha-max-75 {max-height: calc(var(--toife-app-max-height) / 100 * 75);}
+.ha-max-50 {max-height: calc(var(--toife-app-max-height) / 100 * 50);}
+.ha-max-25 {max-height: calc(var(--toife-app-max-height) / 100 * 25);}
 
 .hp-100 {height: 100%!important;}
 .hp-75 {height: 75%!important;}
@@ -25,15 +25,15 @@
 .ws-50 {width: 50vw!important;}
 .ws-25 {width: 25vw!important;}
 
-.wa-100 {width: var(--t-app-width);}
-.wa-75 {width: calc(var(--t-app-width) / 100 * 75);}
-.wa-50 {width: calc(var(--t-app-width) / 100 * 50);}
-.wa-25 {width: calc(var(--t-app-width) / 100 * 25);}
+.wa-100 {width: var(--toife-app-width);}
+.wa-75 {width: calc(var(--toife-app-width) / 100 * 75);}
+.wa-50 {width: calc(var(--toife-app-width) / 100 * 50);}
+.wa-25 {width: calc(var(--toife-app-width) / 100 * 25);}
 
-.wa-max-100 {max-width: var(--t-app-max-width);}
-.wa-max-75 {max-width: calc(var(--t-app-max-width) / 100 * 75);}
-.wa-max-50 {max-width: calc(var(--t-app-max-width) / 100 * 50);}
-.wa-max-25 {max-width: calc(var(--t-app-max-width) / 100 * 25);}
+.wa-max-100 {max-width: var(--toife-app-max-width);}
+.wa-max-75 {max-width: calc(var(--toife-app-max-width) / 100 * 75);}
+.wa-max-50 {max-width: calc(var(--toife-app-max-width) / 100 * 50);}
+.wa-max-25 {max-width: calc(var(--toife-app-max-width) / 100 * 25);}
 
 .wp-100 {width: 100%!important;}
 .wp-75 {width: 75%!important;}

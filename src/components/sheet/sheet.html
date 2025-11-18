@@ -1,10 +1,10 @@
-<present ref="present" :duration="props.duration" :bounce="props.bounce" :class="props.class"
-  :placement="props.placement" :backdrop="backdrop" :visible="props.visible" :keepalive="props.keepalive"
-  @dismiss="close" :style="props.style">
-  <gesture-indicator :placement="props.placement"
-    v-if="props.gesture && props.indicator && props.placement != 'center'"></gesture-indicator>
-  <div ref="sheet" :class="{ 'toife-sheet': true, 'fullscreen': props.fullscreen, [props.placement]: true, rounded }"
-    :style="{ '--background': props.background }">
+<present ref="present" :duration="duration" :bounce="bounce" :class="class"
+  :placement="placement" :backdrop="backdrop" :visible="visible" :keepalive="keepalive"
+  @dismiss="close" :style="style">
+  <gesture-indicator :placement="placement"
+    v-if="gesture && indicator && placement != 'center'"></gesture-indicator>
+  <div ref="sheet" :class="{ 'toife-sheet': true, 'fullscreen': fullscreen, [placement]: true, rounded }"
+    :style="{ '--background': background }">
     <slot />
   </div>
 </present>

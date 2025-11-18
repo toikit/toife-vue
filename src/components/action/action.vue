@@ -2,8 +2,8 @@
 <template src="./action.html"></template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import { Present as TPresent } from '../present';
-import { Button as TButton } from '../button';
+import { Present } from '../present';
+import { Button as CustomButton } from '../button';
 import { type ActionButton, type ActionEmit, type ActionProps } from './action.type';
 
 const props = withDefaults(defineProps<ActionProps>(), {

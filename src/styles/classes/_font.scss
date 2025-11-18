@@ -6,10 +6,10 @@
   $suffix: if($i < 10, "0#{$i}", "#{$i}");
 
   .fs-#{$suffix} {
-    font-size: var(--t-fs-#{$suffix}) !important;
+    font-size: var(--toife-fs-#{$suffix}) !important;
   }
 
   .lh-#{$suffix} {
-    line-height: var(--t-fs-#{$suffix}) !important;
+    line-height: var(--toife-fs-#{$suffix}) !important;
   }
 }

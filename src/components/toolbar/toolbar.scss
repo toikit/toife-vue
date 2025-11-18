@@ -1,5 +1,5 @@
 .toife-toolbar {
-  background-color: var(--t-color-surface);
+  background-color: var(--toife-color-surface);
 
   >div {
     align-items: center;
@@ -15,8 +15,8 @@
   &.top {
     >div {
       flex-direction: row;
-      height: var(--t-size-toolbar);
-      max-height: var(--t-size-toolbar);
+      height: var(--toife-size-toolbar);
+      max-height: var(--toife-size-toolbar);
       width: 100%;
 
       >* {
@@ -29,8 +29,8 @@
   &.right {
     >div {
       flex-direction: column;
-      width: var(--t-size-toolbar);
-      max-width: var(--t-size-toolbar);
+      width: var(--toife-size-toolbar);
+      max-width: var(--toife-size-toolbar);
       height: 100%;
 
       >* {
@@ -41,19 +41,19 @@
 
   &.safe {
     &.right {
-      padding-right: var(--t-safe-area-right);
+      padding-right: var(--toife-safe-area-right);
     }
 
     &.left {
-      padding-left: var(--t-safe-area-left);
+      padding-left: var(--toife-safe-area-left);
     }
 
     &.bottom {
-      padding-bottom: var(--t-safe-area-bottom);
+      padding-bottom: var(--toife-safe-area-bottom);
     }
 
     &.top {
-      padding-top: var(--t-safe-area-top);
+      padding-top: var(--toife-safe-area-top);
     }
   }
 }

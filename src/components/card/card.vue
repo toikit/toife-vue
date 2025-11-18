@@ -14,12 +14,12 @@ const styles = computed(() => {
 
   if (!props.color) {
     st = {
-      '--background': 'var(--t-color-surface)'
+      '--background': 'var(--toife-color-surface)'
     }
   }
   else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
     st = {
-      '--background': 'var(--t-color-status-' + props.color + ')'
+      '--background': 'var(--toife-color-status-' + props.color + ')'
     };
   }
   else {

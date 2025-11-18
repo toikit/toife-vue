@@ -41,8 +41,8 @@ const scaleHandler = {
     last.style.transition = 'transform 0.25s ease';
     last.style.transform = `translateX(calc(${w} / 100 * 30 * -1)) scale(0.5) perspective(${w}) rotateY(30deg)`;
 
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0.5');
     setTimeout(() => {
       isBusy.value = false;
     }, 400);
@@ -61,9 +61,9 @@ const scaleHandler = {
       current.style.transform = `translateX(${delta}px)`;
       last.style.transition = 'transform 0s ease';
 
-      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+      document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0s');
       last.style.transform = `translateX(calc((${w} / 100 * 30 * -1) + ((${w} / 100 * 30) / 100 * ${percent}))) scale(${0.5 + (0.5 / 100 * percent)}) perspective(${w}) rotateY(${30 - (30 / 100 * percent)}deg)`;
-      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
+      document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
     }
   },
 
@@ -77,8 +77,8 @@ const scaleHandler = {
     lastScreen.value.target.style.transition = 'transform 0.25s ease';
     lastScreen.value.target.style.transform = `translateX(0px) scale(1) perspective(${w}) rotateY(0deg)`;
 
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0');
 
     isBusy.value = true;
     setTimeout(() => {
@@ -102,14 +102,14 @@ const scaleHandler = {
     const w = getAppWidth();
     target.style.transform = `translateX(${w})`;
     target.transitionOrigin = 'center';
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0');
 
     setTimeout(() => {
       target.style.transition = 'transform 0.25s ease';
       target.style.transform = 'translateX(0px)';
-      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+      document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+      document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0.5');
 
       if (currentScreen.value) {
         currentScreen.value.target.style.transitionOrigin = 'left center';
@@ -138,8 +138,8 @@ const transformHandler = {
     last.style.transition = 'transform 0.25s ease';
     last.style.transform = `translateX(calc(${w} / 100 * 30 * -1))`;
 
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0.5');
     setTimeout(() => {
       isBusy.value = false;
     }, 400);
@@ -157,9 +157,9 @@ const transformHandler = {
       current.style.transform = `translateX(${delta}px)`;
       last.style.transition = 'transform 0s ease';
 
-      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
+      document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0s');
       last.style.transform = `translateX(calc((${w} / 100 * 30 * -1) + ((${w} / 100 * 30) / 100 * ${percent})))`;
-      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
+      document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', `${0.5 - (0.5 / 100 * percent)}`);
     }
   },
 
@@ -173,8 +173,8 @@ const transformHandler = {
     lastScreen.value.target.style.transition = 'transform 0.25s ease';
     lastScreen.value.target.style.transform = 'translateX(0px)';
 
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0');
 
     isBusy.value = true;
     setTimeout(() => {
@@ -197,14 +197,14 @@ const transformHandler = {
     const w = getAppWidth();
     target.style.transform = `translateX(${w})`;
     target.transitionOrigin = 'center';
-    document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0s');
-    document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0');
+    document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0s');
+    document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0');
 
     setTimeout(() => {
       target.style.transition = 'transform 0.25s ease';
       target.style.transform = 'translateX(0px)';
-      document.documentElement.style.setProperty('--t-screen-backdrop-duration', '0.25s');
-      document.documentElement.style.setProperty('--t-swipe-backdrop-opacity', '0.5');
+      document.documentElement.style.setProperty('--toife-screen-backdrop-duration', '0.25s');
+      document.documentElement.style.setProperty('--toife-swipe-backdrop-opacity', '0.5');
 
       if (currentScreen.value) {
         currentScreen.value.target.style.transitionOrigin = 'left center';

@@ -1,7 +1,7 @@
 .toife-action {
-  width: var(--t-app-width);
-  max-width: var(--t-app-max-width);
-  margin-bottom: var(--t-safe-area-bottom);
+  width: var(--toife-app-width);
+  max-width: var(--toife-app-max-width);
+  margin-bottom: var(--toife-safe-area-bottom);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,8 +15,8 @@
     width: 100%;
     border-radius: 8px;
     margin-bottom: 0.5rem;
-    background-color: var(--t-color-surface);
-    max-width: var(--t-overlay-max-width);
+    background-color: var(--toife-color-surface);
+    max-width: var(--toife-overlay-max-width);
 
     &:last-child {
       margin-bottom: 1rem !important;

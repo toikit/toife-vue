@@ -5,15 +5,15 @@
   &.bottom,
   &.top,
   &.fullscreen {
-    width: var(--t-app-width);
-    max-width: var(--t-app-max-width);
+    width: var(--toife-app-width);
+    max-width: var(--toife-app-max-width);
   }
 
   &.left,
   &.right,
   &.fullscreen {
-    height: var(--t-app-height);
-    max-height: var(--t-app-max-height);
+    height: var(--toife-app-height);
+    max-height: var(--toife-app-max-height);
   }
 
   &:not(.fullscreen) {
@@ -46,23 +46,23 @@
     }
 
     &.top {
-      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-bottom));
-      max-width: var(--t-app-max-width);
+      max-height: calc(var(--toife-app-max-height) - var(--toife-safe-area-bottom));
+      max-width: var(--toife-app-max-width);
     }
 
     &.bottom {
-      max-height: calc(var(--t-app-max-height) - var(--t-safe-area-top));
-      max-width: var(--t-app-max-width);
+      max-height: calc(var(--toife-app-max-height) - var(--toife-safe-area-top));
+      max-width: var(--toife-app-max-width);
     }
 
     &.left {
-      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-right));
-      max-height: var(--t-app-max-height);
+      max-width: calc(var(--toife-app-max-width) - var(--toife-safe-area-right));
+      max-height: var(--toife-app-max-height);
     }
 
     &.right {
-      max-width: calc(var(--t-app-max-width) - var(--t-safe-area-left));
-      max-height: var(--t-app-max-height);
+      max-width: calc(var(--toife-app-max-width) - var(--toife-safe-area-left));
+      max-height: var(--toife-app-max-height);
     }
   }
 }

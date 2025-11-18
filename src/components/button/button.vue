@@ -25,21 +25,21 @@ const styles = computed(() => {
     if (!props.color) {
       st = {
         '--border': 'none',
-        '--color': 'var(--t-color-text)',
-        '--background': 'var(--t-color-surface)'
+        '--color': 'var(--toife-color-text)',
+        '--background': 'var(--toife-color-surface)'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
-        '--color': 'var(--t-color-status-' + props.color + '-text)',
-        '--background': 'var(--t-color-status-' + props.color + ')'
+        '--color': 'var(--toife-color-status-' + props.color + '-text)',
+        '--background': 'var(--toife-color-status-' + props.color + ')'
       };
     }
     else {
       st = {
         '--border': 'none',
-        '--color': 'var(--t-color-text)',
+        '--color': 'var(--toife-color-text)',
         '--background': props.color
       };
     }
@@ -49,14 +49,14 @@ const styles = computed(() => {
     if (!props.color) {
       st = {
         '--border': 'none',
-        '--color': 'var(--t-color-text)',
+        '--color': 'var(--toife-color-text)',
         '--background': 'transparent'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
         '--border': 'none',
-        '--color': 'var(--t-color-status-' + props.color + ')',
+        '--color': 'var(--toife-color-status-' + props.color + ')',
         '--background': 'transparent'
       };
     }
@@ -72,15 +72,15 @@ const styles = computed(() => {
   if (props.variant == 'outline') {
     if (!props.color) {
       st = {
-        '--border': '0.55px solid var(--t-color-text)',
-        '--color': 'var(--t-color-text)',
+        '--border': '0.55px solid var(--toife-color-text)',
+        '--color': 'var(--toife-color-text)',
         '--background': 'transparent'
       }
     }
     else if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
       st = {
-        '--border': '0.55px solid var(--t-color-status-' + props.color + ')',
-        '--color': 'var(--t-color-status-' + props.color + ')',
+        '--border': '0.55px solid var(--toife-color-status-' + props.color + ')',
+        '--color': 'var(--toife-color-status-' + props.color + ')',
         '--background': 'transparent'
       };
     }

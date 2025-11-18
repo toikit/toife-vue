@@ -5,6 +5,6 @@ import { type IconSpinnerProps } from './icon-spinner.type';
 
 withDefaults(defineProps<IconSpinnerProps>(), {
   size: '24px',
-  color: 'var(--t-color-text)'
+  color: 'var(--toife-color-text)'
 });
 </script>

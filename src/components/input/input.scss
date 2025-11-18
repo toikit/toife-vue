@@ -8,10 +8,10 @@
 
   .toife-input-editable {
     background-color: transparent;
-    color: var(--t-color-text);
+    color: var(--toife-color-text);
     padding: 0;
     flex: 1;
-    caret-color: var(--t-color-text);
+    caret-color: var(--toife-color-text);
     display: flex;
     align-items: center;
     justify-content: start;
@@ -21,7 +21,7 @@
 
     // &:empty::before {
     //   content: attr(data-placeholder);
-    //   color: var(--t-color-text-dark);
+    //   color: var(--toife-color-text-dark);
     //   pointer-events: none;
     //   position: absolute;
     //   left: 0;
@@ -29,11 +29,11 @@
     // }
 
     &:focus {
-      caret-color: var(--t-color-text);
+      caret-color: var(--toife-color-text);
     }
 
     &::placeholder {
-      color: var(--t-color-text-dark);
+      color: var(--toife-color-text-dark);
       opacity: 1;
     }
   }

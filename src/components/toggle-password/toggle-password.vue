@@ -15,7 +15,7 @@ const style = computed(() => {
   let color = props.color;
 
   if (['warning', 'info', 'danger', 'primary', 'secondary', 'success'].includes(props.color)) {
-    color = `var(--t-color-status-${props.color})`;
+    color = `var(--toife-color-status-${props.color})`;
   }
 
   return {

@@ -4,8 +4,8 @@
   height: 100%;
   top: 0;
   left: 0;
-  transition: background-color var(--t-present-transition, 0.2s) ease;
-  background-color: rgba(var(--t-color-backdrop-rgb), var(--t-present-backdrop-opacity, 0));
+  transition: background-color var(--toife-present-transition, 0.2s) ease;
+  background-color: rgba(var(--toife-color-backdrop-rgb), var(--toife-present-backdrop-opacity, 0));
 }
 
 .toife-present {
@@ -15,38 +15,38 @@
   position: absolute;
   width: fit-content;
   height: fit-content;
-  transition: transform var(--t-present-transition, 0.2s) ease;
+  transition: transform var(--toife-present-transition, 0.2s) ease;
 
   &.bottom {
     bottom: 0;
     left: 0;
-    transform: translateY(var(--t-present-content-transform, 100%));
+    transform: translateY(var(--toife-present-content-transform, 100%));
   }
 
   &.top {
     top: 0;
     left: 0;
-    transform: translateY(var(--t-present-content-transform, -100%));
+    transform: translateY(var(--toife-present-content-transform, -100%));
   }
 
   &.right {
     top: 0;
     right: 0;
-    transform: translateX(var(--t-present-content-transform, 100%));
+    transform: translateX(var(--toife-present-content-transform, 100%));
   }
 
   &.left {
     top: 0;
     left: 0;
-    transform: translateX(var(--t-present-content-transform, -100%));
+    transform: translateX(var(--toife-present-content-transform, -100%));
   }
 
   &.center {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    opacity: var(--t-present-content-opacity, 1);
-    transition: opacity var(--t-present-transition, 0.2s) ease;
+    opacity: var(--toife-present-content-opacity, 1);
+    transition: opacity var(--toife-present-transition, 0.2s) ease;
   }
 }
 
