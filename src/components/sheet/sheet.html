@@ -1,11 +1,11 @@
-<present ref="present" :duration="duration" :bounce="bounce" :class="class"
+<Present ref="present" :duration="duration" :bounce="bounce" :class="class"
   :placement="placement" :backdrop="backdrop" :visible="visible" :keepalive="keepalive"
   @dismiss="close" :style="style">
-  <gesture-indicator :placement="placement"
-    v-if="gesture && indicator && placement != 'center'"></gesture-indicator>
+  <GestureIndicator :placement="placement"
+    v-if="gesture && indicator && placement != 'center'"></GestureIndicator>
   <div ref="sheet" :class="{ 'toife-sheet': true, 'fullscreen': fullscreen, [placement]: true, rounded }"
     :style="{ '--background': background }">
     <slot />
   </div>
-</present>
+</Present>
 

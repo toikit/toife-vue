@@ -3,6 +3,6 @@
   <span :class="{ 'toife-button-content': true }" v-show="!props.loading">
     <slot></slot>
   </span>
-  <span class="loader" v-if="props.loading"><icon-spinner color="var(--color)" :type="props.loadingType" /></span>
+  <span class="loader" v-if="props.loading"><IconSpinner color="var(--color)" :type="props.loadingType" /></span>
 </button>
 

@@ -1,6 +1,6 @@
-<present placement="center" :backdrop="true" :keepalive="false" :visible="visible">
+<Present placement="center" :backdrop="true" :keepalive="false" :visible="visible">
   <div :class="{ 'toife-loading': true }">
-    <slot><icon-spinner v-if="type === 'spinner'" /></slot>
+    <slot><IconSpinner v-if="type === 'spinner'" /></slot>
   </div>
-</present>
+</Present>
 
