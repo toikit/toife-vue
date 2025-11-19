@@ -2,7 +2,7 @@
 <template src="./sheet.html"></template>
 <script lang="ts" setup>
 import { computed, onUnmounted, ref, watch } from 'vue';
-import { gesture } from '@toife/gesture';
+import { gesture as toifeGesture } from '@toife/gesture';
 import { Present } from '../present';
 import { GestureIndicator } from '../gesture-indicator';
 import { type SheetProps, type SheetEmit } from './sheet.type';
@@ -46,7 +46,7 @@ const busy = () => {
 
 watch(() => sheet.value, (val) => {
   if (val) {
-    ges = gesture(sheet.value, {
+    ges = toifeGesture(sheet.value, {
       isMoving: false,
 
       options: {

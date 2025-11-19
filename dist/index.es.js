@@ -1368,7 +1368,7 @@ const xr = /* @__PURE__ */ x(hr, [["render", kr], ["__scopeId", "data-v-2f24c046
       return c;
     }, set ges(m) {
       c = m;
-    }, gestureDir: d, close: _, busy: g, computed: b, onUnmounted: M, ref: u, watch: z, get gesture() {
+    }, gestureDir: d, close: _, busy: g, computed: b, onUnmounted: M, ref: u, watch: z, get toifeGesture() {
       return L;
     }, get Present() {
       return K;
@@ -1392,7 +1392,7 @@ function Sr(r, o, t, e, s, n) {
     style: w(t.style)
   }, {
     default: D(() => [
-      e.gesture && t.indicator && t.placement != "center" ? (i(), j(e.GestureIndicator, {
+      t.gesture && t.indicator && t.placement != "center" ? (i(), j(e.GestureIndicator, {
         key: 0,
         placement: t.placement
       }, null, 8, ["placement"])) : C("", !0),
@@ -1407,7 +1407,7 @@ function Sr(r, o, t, e, s, n) {
     _: 3
   }, 8, ["duration", "bounce", "class", "placement", "backdrop", "visible", "keepalive", "style"]);
 }
-const wr = /* @__PURE__ */ x($r, [["render", Sr], ["__scopeId", "data-v-3034912c"]]), Pr = /* @__PURE__ */ k({
+const wr = /* @__PURE__ */ x($r, [["render", Sr], ["__scopeId", "data-v-0d1848cc"]]), Pr = /* @__PURE__ */ k({
   __name: "skeleton",
   props: {
     width: { default: "100%" },
